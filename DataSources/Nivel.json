@@ -1,0 +1,28 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
+    "CdpRevision": {
+      "BaseUrl": "/v2",
+      "LastChangedTimeString": "2025-04-10T19:17:03.8010000Z",
+      "RevisionNumber": 2
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "codigo": "codigo",
+      "costo": "costo",
+      "estado": "estado",
+      "ID": "ID",
+      "id_libro": "id_libro",
+      "id_libro_alquiler_virtual": "id_libro_alquiler_virtual",
+      "id_libro_virtual": "id_libro_virtual",
+      "modulo": "modulo",
+      "nivel": "nivel",
+      "ordenamiento": "ordenamiento"
+    },
+    "DatasetName": "rt-az-srv.database.windows.net,sistema-gestion-RT",
+    "EncodeDataset": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Nivel",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

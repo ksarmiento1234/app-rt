@@ -1,0 +1,126 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="sistema-gestion-RT" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="sistema-gestion-RT">Microsoft SQL Server es un sistema de administración de bases de datos relacionales desarrollado por Microsoft. Conéctese a SQL Server para administrar datos. Puede realizar diversas acciones, como crear, actualizar, obtener y eliminar el contenido de las filas de una tabla.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_apellido_materno_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_apellido_paterno_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_celular_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_correo_institucional_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_correo_personal_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_direccion_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_DOC_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_estado_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_nacimiento_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_nacionalidad_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_nombre_completo_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_nombres_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_pais_residencia_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_pass_correo_institucional_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_sexo_def" />
+      <string name="dbo_uspUpdateTablaAlumno_inputparam_tipodocumento_def" />
+      <object name="dbo_uspUpdateTablaAlumno_inputparam">
+        <property name="apellido_materno" type="string" />
+        <property name="apellido_paterno" type="string" />
+        <property name="celular" type="string" />
+        <property name="correo_institucional" type="string" />
+        <property name="correo_personal" type="string" />
+        <property name="direccion" type="string" />
+        <property name="DOC" type="string" />
+        <property name="estado" type="string" />
+        <property name="nacimiento" type="string" />
+        <property name="nacionalidad" type="string" />
+        <property name="nombre_completo" type="string" />
+        <property name="nombres" type="string" />
+        <property name="pais_residencia" type="string" />
+        <property name="pass_correo_institucional" type="string" />
+        <property name="sexo" type="string" />
+        <property name="tipodocumento" type="string" />
+      </object>
+      <untypedObject name="dbo_uspUpdateTablaAlumno_outputparam_ResultSets_def" />
+      <integer name="dbo_uspUpdateTablaAlumno_outputparam_ReturnCode_def" />
+      <untypedObject name="dbo_uspUpdateTablaAlumno_outputparam_OutputParameters_def" />
+      <object name="dbo_uspUpdateTablaAlumno_outputparam">
+        <property name="ResultSets" typeRef="dbo_uspUpdateTablaAlumno_outputparam_ResultSets_def" />
+        <property name="ReturnCode" type="integer" />
+        <property name="OutputParameters" typeRef="dbo_uspUpdateTablaAlumno_outputparam_OutputParameters_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql">
+    <resource path="/{connectionId}/v2/datasets/{server},{database}/procedures/dbo.uspUpdateTablaAlumno">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="server" type="xs:string" required="true">
+        <doc title="Name of SQL server" />
+      </param>
+      <param style="template" name="database" type="xs:string" required="true">
+        <doc title="Database name" />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="dbouspUpdateTablaAlumno" actionName="dbo.uspUpdateTablaAlumno" visibility="important" siena:isDeprecated="false" siena:family="fdaf5a13-84d8-4b6d-9c59-95e3a9fb8e2d" siena:revision="2" siena:status="Production" siena:isSafe="true">
+        <doc title="Execute stored procedure (V2)&#xA;This operation runs a stored procedure." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="apellido_materno" path="/apellido_materno" type="xs:string">
+              <doc title="apellido_materno" />
+            </param>
+            <param style="plain" name="apellido_paterno" path="/apellido_paterno" type="xs:string">
+              <doc title="apellido_paterno" />
+            </param>
+            <param style="plain" name="celular" path="/celular" type="xs:string">
+              <doc title="celular" />
+            </param>
+            <param style="plain" name="correo_institucional" path="/correo_institucional" type="xs:string">
+              <doc title="correo_institucional" />
+            </param>
+            <param style="plain" name="correo_personal" path="/correo_personal" type="xs:string">
+              <doc title="correo_personal" />
+            </param>
+            <param style="plain" name="direccion" path="/direccion" type="xs:string">
+              <doc title="direccion" />
+            </param>
+            <param style="plain" name="DOC" path="/DOC" type="xs:string">
+              <doc title="DOC" />
+            </param>
+            <param style="plain" name="estado" path="/estado" type="xs:string">
+              <doc title="estado" />
+            </param>
+            <param style="plain" name="nacimiento" path="/nacimiento" type="xs:string">
+              <doc title="nacimiento" />
+            </param>
+            <param style="plain" name="nacionalidad" path="/nacionalidad" type="xs:string">
+              <doc title="nacionalidad" />
+            </param>
+            <param style="plain" name="nombre_completo" path="/nombre_completo" type="xs:string">
+              <doc title="nombre_completo" />
+            </param>
+            <param style="plain" name="nombres" path="/nombres" type="xs:string">
+              <doc title="nombres" />
+            </param>
+            <param style="plain" name="pais_residencia" path="/pais_residencia" type="xs:string">
+              <doc title="pais_residencia" />
+            </param>
+            <param style="plain" name="pass_correo_institucional" path="/pass_correo_institucional" type="xs:string">
+              <doc title="pass_correo_institucional" />
+            </param>
+            <param style="plain" name="sexo" path="/sexo" type="xs:string">
+              <doc title="sexo" />
+            </param>
+            <param style="plain" name="tipodocumento" path="/tipodocumento" type="xs:string">
+              <doc title="tipodocumento" />
+            </param>
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:dbo_uspUpdateTablaAlumno_outputparam" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_sql" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

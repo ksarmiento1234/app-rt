@@ -1,0 +1,217 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="sistema-gestion-RT" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="sistema-gestion-RT">Microsoft SQL Server es un sistema de administración de bases de datos relacionales desarrollado por Microsoft. Conéctese a SQL Server para administrar datos. Puede realizar diversas acciones, como crear, actualizar, obtener y eliminar el contenido de las filas de una tabla.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="dbo_uspAllTablaAlumno_inputparam_table_def" />
+      <object name="dbo_uspAllTablaAlumno_inputparam">
+        <property name="table" type="string" />
+      </object>
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_DOC_def" />
+      <integer name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_tipo_doc_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_nacimiento_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_nombres_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_apellido_paterno_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_apellido_materno_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_nombre_completo_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_correo_institucional_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_direccion_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_celular_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_sexo_def" />
+      <integer name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_edad_def" />
+      <integer name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_nacionalidad_def" />
+      <integer name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_pais_residencia_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_ubigeo_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_estado_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_correo_personal_def" />
+      <integer name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_meses_pagados_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_fecha_promo_aplicada_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_user_pearson_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_pass_pearson_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_fecha_vencimiento_promo_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_colegio_empresa_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_grado_colegio_def" />
+      <integer name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_promo_aplicada_def" />
+      <integer name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_libros_meses_pagados_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_doc_padre_def" />
+      <string name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_pass_correo_institucional_def" />
+      <object name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def">
+        <property name="DOC" type="string" />
+        <property name="tipo_doc" type="integer" />
+        <property name="nacimiento" type="string" />
+        <property name="nombres" type="string" />
+        <property name="apellido_paterno" type="string" />
+        <property name="apellido_materno" type="string" />
+        <property name="nombre_completo" type="string" />
+        <property name="correo_institucional" type="string" />
+        <property name="direccion" type="string" />
+        <property name="celular" type="string" />
+        <property name="sexo" type="string" />
+        <property name="edad" type="integer" />
+        <property name="nacionalidad" type="integer" />
+        <property name="pais_residencia" type="integer" />
+        <property name="ubigeo" type="string" />
+        <property name="estado" type="string" />
+        <property name="correo_personal" type="string" />
+        <property name="meses_pagados" type="integer" />
+        <property name="fecha_promo_aplicada" type="string" />
+        <property name="user_pearson" type="string" />
+        <property name="pass_pearson" type="string" />
+        <property name="fecha_vencimiento_promo" type="string" />
+        <property name="colegio_empresa" type="string" />
+        <property name="grado_colegio" type="string" />
+        <property name="promo_aplicada" type="integer" />
+        <property name="libros_meses_pagados" type="integer" />
+        <property name="doc_padre" type="string" />
+        <property name="pass_correo_institucional" type="string" />
+      </object>
+      <array typeRef="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def" name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def" />
+      <object name="dbo_uspAllTablaAlumno_outputparam_ResultSets_def">
+        <property name="Table1" typeRef="dbo_uspAllTablaAlumno_outputparam_ResultSets_def_Table1_def" />
+      </object>
+      <integer name="dbo_uspAllTablaAlumno_outputparam_ReturnCode_def" />
+      <untypedObject name="dbo_uspAllTablaAlumno_outputparam_OutputParameters_def" />
+      <object name="dbo_uspAllTablaAlumno_outputparam">
+        <property name="ResultSets" typeRef="dbo_uspAllTablaAlumno_outputparam_ResultSets_def" />
+        <property name="ReturnCode" type="integer" />
+        <property name="OutputParameters" typeRef="dbo_uspAllTablaAlumno_outputparam_OutputParameters_def" />
+      </object>
+      <string name="dbo_uspTablaAlumno_inputparam_estado_def" />
+      <string name="dbo_uspTablaAlumno_inputparam_SearchText_def" />
+      <string name="dbo_uspTablaAlumno_inputparam_sexo_def" />
+      <object name="dbo_uspTablaAlumno_inputparam">
+        <property name="estado" type="string" />
+        <property name="SearchText" type="string" />
+        <property name="sexo" type="string" />
+      </object>
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_DOC_def" />
+      <integer name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_tipo_doc_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_nacimiento_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_nombres_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_apellido_paterno_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_apellido_materno_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_nombre_completo_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_correo_institucional_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_direccion_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_celular_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_sexo_def" />
+      <integer name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_edad_def" />
+      <integer name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_nacionalidad_def" />
+      <integer name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_pais_residencia_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_ubigeo_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_estado_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_correo_personal_def" />
+      <integer name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_meses_pagados_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_fecha_promo_aplicada_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_user_pearson_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_pass_pearson_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_fecha_vencimiento_promo_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_colegio_empresa_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_grado_colegio_def" />
+      <integer name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_promo_aplicada_def" />
+      <integer name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_libros_meses_pagados_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_doc_padre_def" />
+      <string name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def_pass_correo_institucional_def" />
+      <object name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def">
+        <property name="DOC" type="string" />
+        <property name="tipo_doc" type="integer" />
+        <property name="nacimiento" type="string" />
+        <property name="nombres" type="string" />
+        <property name="apellido_paterno" type="string" />
+        <property name="apellido_materno" type="string" />
+        <property name="nombre_completo" type="string" />
+        <property name="correo_institucional" type="string" />
+        <property name="direccion" type="string" />
+        <property name="celular" type="string" />
+        <property name="sexo" type="string" />
+        <property name="edad" type="integer" />
+        <property name="nacionalidad" type="integer" />
+        <property name="pais_residencia" type="integer" />
+        <property name="ubigeo" type="string" />
+        <property name="estado" type="string" />
+        <property name="correo_personal" type="string" />
+        <property name="meses_pagados" type="integer" />
+        <property name="fecha_promo_aplicada" type="string" />
+        <property name="user_pearson" type="string" />
+        <property name="pass_pearson" type="string" />
+        <property name="fecha_vencimiento_promo" type="string" />
+        <property name="colegio_empresa" type="string" />
+        <property name="grado_colegio" type="string" />
+        <property name="promo_aplicada" type="integer" />
+        <property name="libros_meses_pagados" type="integer" />
+        <property name="doc_padre" type="string" />
+        <property name="pass_correo_institucional" type="string" />
+      </object>
+      <array typeRef="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def_items_def" name="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def" />
+      <object name="dbo_uspTablaAlumno_outputparam_ResultSets_def">
+        <property name="Table1" typeRef="dbo_uspTablaAlumno_outputparam_ResultSets_def_Table1_def" />
+      </object>
+      <integer name="dbo_uspTablaAlumno_outputparam_ReturnCode_def" />
+      <untypedObject name="dbo_uspTablaAlumno_outputparam_OutputParameters_def" />
+      <object name="dbo_uspTablaAlumno_outputparam">
+        <property name="ResultSets" typeRef="dbo_uspTablaAlumno_outputparam_ResultSets_def" />
+        <property name="ReturnCode" type="integer" />
+        <property name="OutputParameters" typeRef="dbo_uspTablaAlumno_outputparam_OutputParameters_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql">
+    <resource path="/{connectionId}/v2/datasets/{server},{database}/procedures/dbo.uspAllTablaAlumno">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="server" type="xs:string" required="true">
+        <doc title="Name of SQL server" />
+      </param>
+      <param style="template" name="database" type="xs:string" required="true">
+        <doc title="Database name" />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="dbouspAllTablaAlumno" actionName="dbo.uspAllTablaAlumno" visibility="important" siena:isDeprecated="false" siena:family="fdaf5a13-84d8-4b6d-9c59-95e3a9fb8e2d" siena:revision="2" siena:status="Production" siena:isSafe="true">
+        <doc title="Execute stored procedure (V2)&#xA;This operation runs a stored procedure." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="table" path="/table" type="xs:string">
+              <doc title="table" />
+            </param>
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:dbo_uspAllTablaAlumno_outputparam" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v2/datasets/{server},{database}/procedures/dbo.uspTablaAlumno">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="server" type="xs:string" required="true">
+        <doc title="Name of SQL server" />
+      </param>
+      <param style="template" name="database" type="xs:string" required="true">
+        <doc title="Database name" />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="dbouspTablaAlumno" actionName="dbo.uspTablaAlumno" visibility="important" siena:isDeprecated="false" siena:family="fdaf5a13-84d8-4b6d-9c59-95e3a9fb8e2d" siena:revision="2" siena:status="Production" siena:isSafe="true">
+        <doc title="Execute stored procedure (V2)&#xA;This operation runs a stored procedure." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="estado" path="/estado" type="xs:string">
+              <doc title="estado" />
+            </param>
+            <param style="plain" name="SearchText" path="/SearchText" type="xs:string">
+              <doc title="SearchText" />
+            </param>
+            <param style="plain" name="sexo" path="/sexo" type="xs:string">
+              <doc title="sexo" />
+            </param>
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:dbo_uspTablaAlumno_outputparam" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_sql" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

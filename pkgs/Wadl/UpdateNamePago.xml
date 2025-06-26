@@ -1,0 +1,56 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="sistema-gestion-RT" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="sistema-gestion-RT">Microsoft SQL Server es un sistema de administración de bases de datos relacionales desarrollado por Microsoft. Conéctese a SQL Server para administrar datos. Puede realizar diversas acciones, como crear, actualizar, obtener y eliminar el contenido de las filas de una tabla.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <integer name="dbo_uspUpdateNamePago_inputparam_id_pago_def" />
+      <string name="dbo_uspUpdateNamePago_inputparam_pago_descripcion_def" />
+      <object name="dbo_uspUpdateNamePago_inputparam">
+        <property name="id_pago" type="integer" />
+        <property name="pago_descripcion" type="string" />
+      </object>
+      <untypedObject name="dbo_uspUpdateNamePago_outputparam_ResultSets_def" />
+      <integer name="dbo_uspUpdateNamePago_outputparam_ReturnCode_def" />
+      <untypedObject name="dbo_uspUpdateNamePago_outputparam_OutputParameters_def" />
+      <object name="dbo_uspUpdateNamePago_outputparam">
+        <property name="ResultSets" typeRef="dbo_uspUpdateNamePago_outputparam_ResultSets_def" />
+        <property name="ReturnCode" type="integer" />
+        <property name="OutputParameters" typeRef="dbo_uspUpdateNamePago_outputparam_OutputParameters_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql">
+    <resource path="/{connectionId}/v2/datasets/{server},{database}/procedures/dbo.uspUpdateNamePago">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="server" type="xs:string" required="true">
+        <doc title="Name of SQL server" />
+      </param>
+      <param style="template" name="database" type="xs:string" required="true">
+        <doc title="Database name" />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="dbouspUpdateNamePago" actionName="dbo.uspUpdateNamePago" visibility="important" siena:isDeprecated="false" siena:family="fdaf5a13-84d8-4b6d-9c59-95e3a9fb8e2d" siena:revision="2" siena:status="Production" siena:isSafe="true">
+        <doc title="Execute stored procedure (V2)&#xA;This operation runs a stored procedure." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="id_pago" path="/id_pago" type="xs:long">
+              <doc title="id_pago" />
+            </param>
+            <param style="plain" name="pago_descripcion" path="/pago_descripcion" type="xs:string">
+              <doc title="pago_descripcion" />
+            </param>
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:dbo_uspUpdateNamePago_outputparam" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_sql" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

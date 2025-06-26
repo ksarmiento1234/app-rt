@@ -1,0 +1,2373 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  screenConfirmacionesMatriculas:
+    Properties:
+      Fill: =PrimaryColor
+      OnVisible: =Set(currentMenuID, 2); Set(currentMenuID2,2.2)
+    Children:
+      - PageContainer_15:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            BorderStyle: =BorderStyle.None
+            DropShadow: =DropShadow.None
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =2
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =Parent.Width
+          Children:
+            - MenuContainer_15:
+                Control: GroupContainer@1.3.0
+                Variant: ManualLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderStyle: =BorderStyle.None
+                  DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: =150
+                Children:
+                  - SideNavigation_MultiLevel_22:
+                      Control: CanvasComponent
+                      ComponentName: SideNavigation_MultiLevel
+                      Properties:
+                        AppColorMode: =varAppColorMode
+                        BaseIconColor: =RGBA(115,131,176,1)
+                        BaseIconColor_Text: ="RGBA(115,131,176,1)"
+                        CurrentMenuID: =currentMenuID
+                        CurrentMenuID2: =currentMenuID2
+                        Height: =App.Height
+                        HoverFill: =varHoverFill
+                        LogoPadding_Percent: =10%
+                        Logo_Compact: =rtlogo2
+                        Logo_Expanded: =If(varAppColorMode = "Dark", rtlogo2,rtlogo2blanco)
+                        MenuContent: =customNavigation
+                        NavBG: =TertiaryColor
+                        PressedFill: =varPressedFill
+                        SelectedIconBG: =If(varAppColorMode = "Dark", HighlightColor,PrimaryColor)
+                        SelectedIconColor: =RGBA(254,189,47,1)
+                        SelectedIconColor_Text: ="RGBA(254,189,47,1)"
+                        TextColor: =PrimaryTextColor
+                        Width: =Parent.Width
+            - Container4_1:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  LayoutDirection: =LayoutDirection.Horizontal
+                Children:
+                  - Container5_2:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.Semilight
+                        FillPortions: =0
+                        LayoutDirection: =LayoutDirection.Vertical
+                        PaddingBottom: =20
+                        PaddingLeft: =10
+                        PaddingRight: =20
+                        PaddingTop: =20
+                        Visible: =!_cambiopantallaRegistroPago
+                        Width: =Parent.Width/2
+                      Children:
+                        - Container_Line_39:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =60
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =10
+                              PaddingLeft: =10
+                              PaddingRight: =20
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                            Children:
+                              - PageTitle_15:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =PrimaryTextColor
+                                    FillPortions: =1
+                                    Font: =Font.'Lato Black'
+                                    FontWeight: =FontWeight.Semibold
+                                    PaddingLeft: =20
+                                    Size: =15
+                                    Text: =Upper("Confirmaciones matrículas sin voucher")
+                                    Width: =140
+                        - Container_Line_60:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =60
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =10
+                              PaddingLeft: =10
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                            Children:
+                              - Label3_46:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Right
+                                    Color: =PrimaryTextColor
+                                    Font: =Font.Lato
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =35
+                                    Size: =9
+                                    Text: ="DNI o Nombre"
+                                    Width: =90
+                                    X: =40
+                              - Search_Container_15:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    BorderColor: =HighlightColor
+                                    BorderThickness: =3
+                                    FillPortions: =0
+                                    Height: =35
+                                    LayoutMinHeight: =35
+                                    LayoutMinWidth: =180
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =200
+                                    X: =40
+                                    Y: =(Parent.Height - Self.Height)/2
+                                  Children:
+                                    - TextInput_Alumno_7:
+                                        Control: Classic/TextInput@2.3.2
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =PrimaryTextColor
+                                          Default: =""
+                                          Fill: =RGBA(0, 0, 0, 0)
+                                          Height: =Parent.Height
+                                          HintText: ="Buscar...."
+                                          HoverColor: =PrimaryTextColor
+                                          HoverFill: =RGBA(255, 255, 255, 0.1)
+                                          PaddingLeft: |-
+                                            =If(
+                                                !IsBlank(Self.Text),
+                                                12,
+                                                15 + SearchIcon_22.Width
+                                            )
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Size: =9
+                                          Width: =Parent.Width
+                                          Y: =
+                                    - SearchIcon_22:
+                                        Control: Image@2.2.3
+                                        Properties:
+                                          Height: =Parent.Height
+                                          Image: |-
+                                            ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                                Substitute(
+                                                    LookUp(customIcons,IconName = "Search").IconData,
+                                                    "currentColor", SecondaryTextColor_Text
+                                                )
+                                            )
+                                          PaddingBottom: =10
+                                          PaddingLeft: =5
+                                          PaddingRight: =5
+                                          PaddingTop: =10
+                                          Visible: =IsBlank(TextInput_Alumno_7.Text)
+                                          Width: =30
+                                          X: =10
+                                          Y: =(Parent.Height - Self.Height)/2
+                                    - Rectangle3_22:
+                                        Control: Rectangle@2.3.0
+                                        Properties:
+                                          Fill: =RGBA(116, 116, 116, 1)
+                                          Height: =1
+                                          Visible: =false
+                                          Width: =TextInput_Alumno_7.Width
+                                          Y: =Parent.Height - Self.Height
+                              - Label3_47:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Right
+                                    Color: =PrimaryTextColor
+                                    Font: =Font.Lato
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =35
+                                    Size: =9
+                                    Text: ="Estado"
+                                    Width: =50
+                                    X: =40
+                              - Container8_45:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    BorderColor: =HighlightColor
+                                    BorderThickness: =3
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =35
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =180
+                                  Children:
+                                    - DD_Estado_7:
+                                        Control: Classic/ComboBox@2.4.0
+                                        Properties:
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =0
+                                          ChevronBackground: =RGBA(0, 0, 0, 0)
+                                          ChevronFill: =SecondaryTextColor
+                                          ChevronHoverBackground: =varHoverFill
+                                          ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                          Color: =PrimaryTextColor
+                                          DefaultSelectedItems: |-
+                                            ={Value: "Pendiente"}
+                                          DisplayFields: =["Value"]
+                                          Fill: =TertiaryColor
+                                          FocusedBorderThickness: =0
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          HoverColor: =PrimaryTextColor
+                                          HoverFill: =varHoverFill
+                                          InputTextPlaceholder: ="Seleccionar..."
+                                          IsSearchable: =false
+                                          Items: =["Pendiente","Procesado"]
+                                          NoSelectionText: ="Seleccionar..."
+                                          OnChange: =Set(_pagoxverificarselected, Blank())
+                                          PaddingLeft: =10
+                                          PressedColor: =RGBA(255, 255, 255, 1)
+                                          SearchFields: =["Value"]
+                                          SelectMultiple: =false
+                                          SelectionColor: =RGBA(255, 255, 255, 1)
+                                          SelectionFill: =varHoverFill
+                                          Size: =9
+                                          Width: =Parent.Width
+                                          Y: =(Parent.Height - Self.Height)/2
+                        - Rectangle1_10:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              Fill: =RGBA(0, 0, 0, 0)
+                              Height: =10
+                              HoverFill: =RGBA(0, 0, 0, 0)
+                              PressedFill: =RGBA(0, 0, 0, 0)
+                        - Container1_34:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =40
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =500
+                              Width: =Parent.Width
+                            Children:
+                              - DocContainer_8:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0.3
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =70
+                                    Width: =80
+                                  Children:
+                                    - Label8_81:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Color: |-
+                                            =RGBA(149, 149, 149, 1)
+                                            //PrimaryTextColor
+                                          Fill: =Color.Transparent
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          PaddingLeft: =20
+                                          Size: =9
+                                          Text: =Upper("Doc")
+                                          Width: =Parent.Width
+                              - NombreCompletoContainer_36:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =120
+                                    Width: =120
+                                  Children:
+                                    - Label8_83:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Color: |-
+                                            =RGBA(149, 149, 149, 1)
+                                            //PrimaryTextColor
+                                          Fill: =Color.Transparent
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          PaddingLeft: =20
+                                          Size: =9
+                                          Text: =Upper("Nombre Completo")
+                                          Width: =Parent.Width
+                              - CorreoContainer_38:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0.5
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =80
+                                    Width: =180
+                                  Children:
+                                    - Label8_84:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Color: |-
+                                            =RGBA(149, 149, 149, 1)
+                                            //PrimaryTextColor
+                                          Fill: =Color.Transparent
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          PaddingLeft: =10
+                                          Size: =9
+                                          Text: =Upper("Fecha Solicitud")
+                                          Width: =Parent.Width
+                              - Label8_180:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    FillPortions: =0.5
+                                    Font: =Font.Lato
+                                    FontWeight: =FontWeight.Semibold
+                                    LayoutMinWidth: =80
+                                    PaddingLeft: =10
+                                    Size: =9
+                                    Text: =Upper("Curso")
+                              - SexoContainer_6:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0.35
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =75
+                                  Children:
+                                    - Label8_188:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Color: |-
+                                            =RGBA(149, 149, 149, 1)
+                                            //PrimaryTextColor
+                                          Fill: =Color.Transparent
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          PaddingLeft: =10
+                                          Size: =9
+                                          Text: =Upper("Horario")
+                                          Width: =Parent.Width
+                              - FechaNacimientoContainer_7:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =0
+                                    Width: =20
+                                  Children:
+                                    - Label8_189:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Color: |-
+                                            =RGBA(149, 149, 149, 1)
+                                            //PrimaryTextColor
+                                          Fill: =Color.Transparent
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          PaddingLeft: =20
+                                          Size: =8
+                                          Text: =Gallery1_23.AllItemsCount
+                                          Width: =Parent.Width
+                              - IconsContainer_16:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =50
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =10
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =50
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Width: =50
+                                  Children:
+                                    - Icon2_13:
+                                        Control: Classic/Icon@2.5.0
+                                        Properties:
+                                          Color: =SecondaryTextColor
+                                          Height: =Parent.Height
+                                          Icon: =Icon.Reload
+                                          OnSelect: =Refresh(ConfirmacionesMatricula); Set(_toggleoff, true);Set(_confirmacionxverificar, Blank())
+                                          PaddingBottom: =10
+                                          PaddingLeft: =10
+                                          PaddingRight: =10
+                                          PaddingTop: =10
+                                          Width: =Parent.Width
+                        - Gallery1_23:
+                            Control: Gallery@2.15.0
+                            Variant: Vertical
+                            Properties:
+                              Fill: = RGBA(0, 0, 0, 0)
+                              Height: =423
+                              Items: |-
+                                =SortByColumns(AddColumns(Filter(
+                                        ConfirmacionesMatricula,
+                                        TextInput_Alumno_7.Text in doc_alumno,
+                                        estado = DD_Estado_7.Selected.Value || IsBlank(DD_Estado_7.Selected.Value)
+                                ), nombrecompleto, LookUp(Alumno, DOC = doc_alumno).nombre_completo), "fecha", SortOrder.Descending)
+                              LayoutMinHeight: =200
+                              OnSelect: =
+                              TemplateFill: =If(ThisItem.IsSelected, RGBA(0, 0, 0, 0.05), RGBA(0, 0, 0, 0))
+                              TemplatePadding: =1
+                              TemplateSize: =50
+                              Width: =Parent.Width
+                              Y: =40
+                            Children:
+                              - Container1_35:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    Height: =Parent.TemplateHeight
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    Width: =Parent.TemplateWidth
+                                  Children:
+                                    - DocContainer_9:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          FillPortions: =0.3
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =70
+                                          Width: =80
+                                        Children:
+                                          - Label13_10:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Color: =PrimaryTextColor
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =10
+                                                Size: =9
+                                                Text: =ThisItem.doc_alumno
+                                                Width: =Parent.Width
+                                    - NombreCompletoContainer_37:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =120
+                                          Width: =120
+                                        Children:
+                                          - Label10_24:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Color: =PrimaryTextColor
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =15
+                                                Size: =8
+                                                Text: =ThisItem.nombrecompleto
+                                                Width: =Parent.Width
+                                    - CorreoContainer_39:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0.5
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =80
+                                          Width: =180
+                                        Children:
+                                          - Label10_57:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Color: =PrimaryTextColor
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =15
+                                                Size: =9
+                                                Text: =ThisItem.fecha
+                                                Width: =Parent.Width
+                                    - CelularLabel_11:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Stretch
+                                          Color: =PrimaryTextColor
+                                          FillPortions: =0.5
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =50
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =80
+                                          PaddingLeft: =15
+                                          Size: =9
+                                          Text: =ThisItem.curso & " " & ThisItem.ciclo
+                                    - SexoContainer_7:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0.35
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =75
+                                        Children:
+                                          - Label14_14:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Color: =PrimaryTextColor
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =10
+                                                Size: =9
+                                                Text: =ThisItem.horario
+                                                Width: =Parent.Width
+                                    - EstadoContainer_4:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =10
+                                          Width: =20
+                                        Children:
+                                          - Circle4_14:
+                                              Control: Circle@2.3.0
+                                              Properties:
+                                                Fill: "=Switch(\r\n    Text(ThisItem.estado),\r\n    \"Procesado\", \r\n    RGBA(72, 163, 62, 1),\r\n    \r\n    \"Pendiente\", \r\n    RGBA(247, 116, 38, 1)\r\n\r\n)"
+                                                Height: =10
+                                                Width: =10
+                                                X: =(Parent.Width-Self.Width)/2
+                                                Y: =(Parent.Height - Self.Height)/2
+                                    - IconsContainer_21:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =50
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =10
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =50
+                                          PaddingBottom: =8
+                                          PaddingLeft: =10
+                                          PaddingRight: =10
+                                          PaddingTop: =8
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Width: =50
+                                        Children:
+                                          - CustomBTNContainer_25:
+                                              Control: GroupContainer@1.3.0
+                                              Variant: ManualLayout
+                                              Properties:
+                                                DropShadow: =DropShadow.None
+                                                Fill: =PrimaryColor
+                                                FillPortions: =0
+                                                Height: =25
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =30
+                                                Visible: =If(ThisItem.estado = "Procesado", false, true)
+                                                Width: =30
+                                                X: =10
+                                                Y: =(Parent.Height - Self.Height)/2
+                                              Children:
+                                                - Image2_23:
+                                                    Control: Image@2.2.3
+                                                    Properties:
+                                                      Height: =Parent.Height
+                                                      Image: |-
+                                                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                                            Substitute(
+                                                                LookUp(customIcons,IconName = "EditIcon").IconData,
+                                                                "currentColor", "White"
+                                                            )
+                                                        )
+                                                      PaddingBottom: =7
+                                                      PaddingTop: =7
+                                                      Visible: =false
+                                                      Width: =Parent.Width
+                                                - Icon2_14:
+                                                    Control: Classic/Icon@2.5.0
+                                                    Properties:
+                                                      Color: =SecondaryTextColor
+                                                      Height: =Parent.Height
+                                                      Icon: =Icon.ChevronRight
+                                                      PaddingBottom: =7
+                                                      PaddingLeft: =7
+                                                      PaddingRight: =7
+                                                      PaddingTop: =7
+                                                      Width: =Parent.Width
+                                                - Button2_42:
+                                                    Control: Classic/Button@2.2.0
+                                                    Properties:
+                                                      BorderStyle: =BorderStyle.None
+                                                      Color: =RGBA(255, 255, 255, 1)
+                                                      Fill: =If(ThisItem.IsSelected, RGBA(0, 0, 0, 0.05), RGBA(0, 0, 0, 0))
+                                                      FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                                                      Height: =Parent.Height
+                                                      HoverColor: =RGBA(255, 255, 255, 1)
+                                                      HoverFill: =varHoverFill
+                                                      OnSelect: =Set(_toggleoff, true); Set(_confirmacionxverificar, ThisItem);
+                                                      PressedFill: =varPressedFill
+                                                      RadiusBottomLeft: =0
+                                                      RadiusBottomRight: =0
+                                                      RadiusTopLeft: =0
+                                                      RadiusTopRight: =0
+                                                      Text: =""
+                                                      Width: =Parent.Width
+                              - separatorRectangle_41:
+                                  Control: Rectangle@2.3.0
+                                  Properties:
+                                    Fill: =RGBA(237, 237, 237, 1)
+                                    Height: =1
+                                    Visible: =false
+                                    Width: =Parent.Width * 95%
+                                    Y: =49
+                  - Container5_3:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.Semilight
+                        LayoutDirection: =LayoutDirection.Vertical
+                        PaddingTop: =12
+                        Visible: =If(!IsBlank(LookUp(Alumno, DOC = _confirmacionxverificar.doc_alumno).DOC), true, false)
+                      Children:
+                        - Container14_41:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              Fill: =TertiaryColor
+                              FillPortions: =0
+                              Height: =40
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                              PaddingRight: =10
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Width: =Parent.Width
+                            Children:
+                              - Label4_51:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =PrimaryTextColor
+                                    FillPortions: =1
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Bold
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =15
+                                    PaddingTop: =9
+                                    Text: ="DATOS DE LA SOLICITUD"
+                                    Width: =Parent.Width/2
+                        - Container_Line_62:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =60
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =10
+                              PaddingLeft: =10
+                              PaddingRight: =20
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Visible: =_cambiopantallaRegistroPago
+                            Children:
+                              - PageTitle_27:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: =PrimaryTextColor
+                                    FillPortions: =1
+                                    Font: =Font.'Lato Black'
+                                    FontWeight: =FontWeight.Semibold
+                                    PaddingLeft: =20
+                                    Size: =15
+                                    Text: =Upper("Pagos para verificación")
+                                    Width: =140
+                        - Form1:
+                            Control: Form@2.4.4
+                            Layout: Vertical
+                            Properties:
+                              DataSource: =AddColumns(ConfirmacionesMatricula, nombrecompleto, LookUp(Alumno, DOC = doc_alumno).nombre_completo)
+                              DefaultMode: =FormMode.View
+                              FillPortions: =0
+                              Height: =150
+                              Item: =_confirmacionxverificar
+                            Children:
+                              - doc_alumno_DataCard2:
+                                  Control: TypedDataCard@1.0.7
+                                  Variant: TextualEdit
+                                  Properties:
+                                    DataField: ="doc_alumno"
+                                    Default: =ThisItem.doc_alumno
+                                    DisplayName: =DataSourceInfo([@ConfirmacionesMatricula],DataSourceInfo.DisplayName,doc_alumno)
+                                    MaxLength: =DataSourceInfo([@ConfirmacionesMatricula], DataSourceInfo.MaxLength, doc_alumno)
+                                    Required: =false
+                                    Update: =DataCardValue48.Value
+                                    Width: =202
+                                    X: =0
+                                    Y: =0
+                                  Children:
+                                    - DataCardKey48:
+                                        Control: Text@0.0.51
+                                        MetadataKey: FieldName
+                                        Properties:
+                                          FontColor: =PrimaryTextColor
+                                          Height: =22
+                                          Size: =12
+                                          Text: ="DOCUMENTO IDENTIDAD"
+                                          Weight: ='TextCanvas.Weight'.Semibold
+                                          Width: =Parent.Width - 48
+                                          Wrap: =false
+                                          X: =24
+                                          Y: =10
+                                    - DataCardValue48:
+                                        Control: TextInput@0.0.54
+                                        MetadataKey: FieldValue
+                                        Properties:
+                                          AccessibleLabel: =Parent.DisplayName
+                                          DisplayMode: =Parent.DisplayMode
+                                          Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                                          Required: =Parent.Required
+                                          ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                          Value: =Parent.Default
+                                          Width: =Parent.Width - 48
+                                          X: =24
+                                          Y: =DataCardKey48.Y + DataCardKey48.Height + 4
+                                    - ErrorMessage37:
+                                        Control: Text@0.0.51
+                                        MetadataKey: ErrorMessage
+                                        Properties:
+                                          Height: =30
+                                          Text: =Parent.Error
+                                          Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                          Width: =Parent.Width - 48
+                                          X: =24
+                                          Y: =DataCardValue48.Y + DataCardValue48.Height
+                                    - StarVisible116:
+                                        Control: Text@0.0.51
+                                        MetadataKey: FieldRequired
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Center
+                                          Height: =30
+                                          Text: ="*"
+                                          Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                          Width: =30
+                                          Y: =DataCardKey48.Y
+                              - ID_DataCard4:
+                                  Control: TypedDataCard@1.0.7
+                                  Variant: TextualView
+                                  Properties:
+                                    DataField: ="ID"
+                                    Default: =ThisItem.ID
+                                    DisplayName: =DataSourceInfo([@ConfirmacionesMatricula],DataSourceInfo.DisplayName,ID)
+                                    Required: =false
+                                    Width: =202
+                                    X: =1
+                                    Y: =0
+                                  Children:
+                                    - DataCardKey89:
+                                        Control: Text@0.0.51
+                                        MetadataKey: FieldName
+                                        Properties:
+                                          FontColor: =PrimaryTextColor
+                                          Height: =22
+                                          Size: =12
+                                          Text: ="NOMBRE COMPLETO"
+                                          Weight: ='TextCanvas.Weight'.Semibold
+                                          Width: =Parent.Width - 48
+                                          Wrap: =false
+                                          X: =24
+                                          Y: =10
+                                    - DataCardValue70:
+                                        Control: TextInput@0.0.54
+                                        MetadataKey: FieldValue
+                                        Properties:
+                                          AccessibleLabel: =Parent.DisplayName
+                                          DisplayMode: =DisplayMode.View
+                                          Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                                          Required: =Parent.Required
+                                          ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                          Value: =LookUp(Alumno, DOC = ThisItem.doc_alumno).nombre_completo
+                                          Width: =Parent.Width - 48
+                                          X: =24
+                                          Y: =DataCardKey89.Y + DataCardKey89.Height + 4
+                              - fecha_DataCard3:
+                                  Control: TypedDataCard@1.0.7
+                                  Variant: TextualEdit
+                                  Properties:
+                                    DataField: ="fecha"
+                                    Default: =ThisItem.fecha
+                                    DisplayName: =DataSourceInfo([@ConfirmacionesMatricula],DataSourceInfo.DisplayName,fecha)
+                                    MaxLength: =DataSourceInfo([@ConfirmacionesMatricula], DataSourceInfo.MaxLength, fecha)
+                                    Required: =false
+                                    Update: =DataCardValue82.Value
+                                    Width: =202
+                                    X: =2
+                                    Y: =0
+                                  Children:
+                                    - DataCardKey101:
+                                        Control: Text@0.0.51
+                                        MetadataKey: FieldName
+                                        Properties:
+                                          Height: =22
+                                          Text: =Parent.DisplayName
+                                          Weight: ='TextCanvas.Weight'.Semibold
+                                          Width: =Parent.Width - 48
+                                          Wrap: =false
+                                          X: =24
+                                          Y: =10
+                                    - DataCardValue82:
+                                        Control: TextInput@0.0.54
+                                        MetadataKey: FieldValue
+                                        Properties:
+                                          AccessibleLabel: =Parent.DisplayName
+                                          DisplayMode: =Parent.DisplayMode
+                                          Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                                          Required: =Parent.Required
+                                          ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                          Value: =Parent.Default
+                                          Width: =Parent.Width - 48
+                                          X: =24
+                                          Y: =DataCardKey101.Y + DataCardKey101.Height + 4
+                                    - ErrorMessage73:
+                                        Control: Text@0.0.51
+                                        MetadataKey: ErrorMessage
+                                        Properties:
+                                          Height: =30
+                                          Text: =Parent.Error
+                                          Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                          Width: =Parent.Width - 48
+                                          X: =24
+                                          Y: =DataCardValue82.Y + DataCardValue82.Height
+                                    - StarVisible117:
+                                        Control: Text@0.0.51
+                                        MetadataKey: FieldRequired
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Center
+                                          Height: =30
+                                          Text: ="*"
+                                          Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                          Width: =30
+                                          Y: =DataCardKey101.Y
+                              - curso_DataCard2:
+                                  Control: TypedDataCard@1.0.7
+                                  Variant: TextualEdit
+                                  IsLocked: true
+                                  Properties:
+                                    DataField: ="curso"
+                                    Default: =ThisItem.curso
+                                    DisplayName: =DataSourceInfo([@ConfirmacionesMatricula],DataSourceInfo.DisplayName,curso)
+                                    MaxLength: =DataSourceInfo([@ConfirmacionesMatricula], DataSourceInfo.MaxLength, curso)
+                                    Required: =false
+                                    Update: =DataCardValue85.Value
+                                    Width: =202
+                                    X: =0
+                                    Y: =1
+                                  Children:
+                                    - DataCardKey137:
+                                        Control: Text@0.0.51
+                                        MetadataKey: FieldName
+                                        Properties:
+                                          Height: =22
+                                          Text: =Parent.DisplayName
+                                          Weight: ='TextCanvas.Weight'.Semibold
+                                          Width: =Parent.Width - 48
+                                          Wrap: =false
+                                          X: =24
+                                          Y: =10
+                                    - DataCardValue85:
+                                        Control: TextInput@0.0.54
+                                        MetadataKey: FieldValue
+                                        Properties:
+                                          AccessibleLabel: =Parent.DisplayName
+                                          DisplayMode: =Parent.DisplayMode
+                                          Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                                          Required: =Parent.Required
+                                          ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                          Value: =Parent.Default
+                                          Width: =Parent.Width - 48
+                                          X: =24
+                                          Y: =DataCardKey137.Y + DataCardKey137.Height + 4
+                                    - ErrorMessage120:
+                                        Control: Text@0.0.51
+                                        MetadataKey: ErrorMessage
+                                        Properties:
+                                          Height: =30
+                                          Text: =Parent.Error
+                                          Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                          Width: =Parent.Width - 48
+                                          X: =24
+                                          Y: =DataCardValue85.Y + DataCardValue85.Height
+                                    - StarVisible118:
+                                        Control: Text@0.0.51
+                                        MetadataKey: FieldRequired
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Center
+                                          Height: =30
+                                          Text: ="*"
+                                          Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                          Width: =30
+                                          Y: =DataCardKey137.Y
+                              - ciclo_DataCard2:
+                                  Control: TypedDataCard@1.0.7
+                                  Variant: TextualEdit
+                                  IsLocked: true
+                                  Properties:
+                                    DataField: ="ciclo"
+                                    Default: =ThisItem.ciclo
+                                    DisplayName: =DataSourceInfo([@ConfirmacionesMatricula],DataSourceInfo.DisplayName,ciclo)
+                                    MaxLength: =DataSourceInfo([@ConfirmacionesMatricula], DataSourceInfo.MaxLength, ciclo)
+                                    Required: =false
+                                    Update: =DataCardValue99.Value
+                                    Width: =202
+                                    X: =1
+                                    Y: =1
+                                  Children:
+                                    - DataCardKey138:
+                                        Control: Text@0.0.51
+                                        MetadataKey: FieldName
+                                        Properties:
+                                          Height: =22
+                                          Text: =Parent.DisplayName
+                                          Weight: ='TextCanvas.Weight'.Semibold
+                                          Width: =Parent.Width - 48
+                                          Wrap: =false
+                                          X: =24
+                                          Y: =10
+                                    - DataCardValue99:
+                                        Control: TextInput@0.0.54
+                                        MetadataKey: FieldValue
+                                        Properties:
+                                          AccessibleLabel: =Parent.DisplayName
+                                          DisplayMode: =Parent.DisplayMode
+                                          Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                                          Required: =Parent.Required
+                                          ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                          Value: =Parent.Default
+                                          Width: =Parent.Width - 48
+                                          X: =24
+                                          Y: =DataCardKey138.Y + DataCardKey138.Height + 4
+                                    - ErrorMessage121:
+                                        Control: Text@0.0.51
+                                        MetadataKey: ErrorMessage
+                                        Properties:
+                                          Height: =30
+                                          Text: =Parent.Error
+                                          Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                          Width: =Parent.Width - 48
+                                          X: =24
+                                          Y: =DataCardValue99.Y + DataCardValue99.Height
+                                    - StarVisible119:
+                                        Control: Text@0.0.51
+                                        MetadataKey: FieldRequired
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Center
+                                          Height: =30
+                                          Text: ="*"
+                                          Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                          Width: =30
+                                          Y: =DataCardKey138.Y
+                              - horario_DataCard2:
+                                  Control: TypedDataCard@1.0.7
+                                  Variant: TextualEdit
+                                  IsLocked: true
+                                  Properties:
+                                    DataField: ="horario"
+                                    Default: =ThisItem.horario
+                                    DisplayName: =DataSourceInfo([@ConfirmacionesMatricula],DataSourceInfo.DisplayName,horario)
+                                    MaxLength: =DataSourceInfo([@ConfirmacionesMatricula], DataSourceInfo.MaxLength, horario)
+                                    Required: =false
+                                    Update: =DataCardValue136.Value
+                                    Width: =202
+                                    X: =2
+                                    Y: =1
+                                  Children:
+                                    - DataCardKey139:
+                                        Control: Text@0.0.51
+                                        MetadataKey: FieldName
+                                        Properties:
+                                          Height: =22
+                                          Text: =Parent.DisplayName
+                                          Weight: ='TextCanvas.Weight'.Semibold
+                                          Width: =Parent.Width - 48
+                                          Wrap: =false
+                                          X: =24
+                                          Y: =10
+                                    - DataCardValue136:
+                                        Control: TextInput@0.0.54
+                                        MetadataKey: FieldValue
+                                        Properties:
+                                          AccessibleLabel: =Parent.DisplayName
+                                          DisplayMode: =Parent.DisplayMode
+                                          Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                                          Required: =Parent.Required
+                                          ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                          Value: =Parent.Default
+                                          Width: =Parent.Width - 48
+                                          X: =24
+                                          Y: =DataCardKey139.Y + DataCardKey139.Height + 4
+                                    - ErrorMessage122:
+                                        Control: Text@0.0.51
+                                        MetadataKey: ErrorMessage
+                                        Properties:
+                                          Height: =30
+                                          Text: =Parent.Error
+                                          Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                          Width: =Parent.Width - 48
+                                          X: =24
+                                          Y: =DataCardValue136.Y + DataCardValue136.Height
+                                    - StarVisible120:
+                                        Control: Text@0.0.51
+                                        MetadataKey: FieldRequired
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Center
+                                          Height: =30
+                                          Text: ="*"
+                                          Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                          Width: =30
+                                          Y: =DataCardKey139.Y
+                        - Container29_16:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              Fill: =RGBA(255, 255, 255, 1)
+                              Height: =Parent.Height-80
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutGap: =5
+                              RadiusBottomLeft: =20
+                              RadiusBottomRight: =20
+                              RadiusTopLeft: =20
+                              RadiusTopRight: =20
+                              Width: =800
+                              X: =(Parent.Width - Self.Width)/2
+                              Y: =40
+                            Children:
+                              - Container23_3:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =5
+                                    LayoutOverflowY: =LayoutOverflow.Scroll
+                                    PaddingLeft: =10
+                                    PaddingRight: =10
+                                    PaddingTop: =2
+                                    X: =40
+                                  Children:
+                                    - Container14_42:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          Fill: =TertiaryColor
+                                          FillPortions: =0
+                                          Height: =40
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          PaddingLeft: =5
+                                          PaddingRight: =10
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Width: =Parent.Width
+                                          Y: =10
+                                        Children:
+                                          - Image2_32:
+                                              Control: Image@2.2.3
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Center
+                                                Height: =30
+                                                Image: |-
+                                                  ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                                      Substitute(
+                                                          LookUp(customIcons,IconName = "ListStars").IconData,
+                                                          "currentColor", PrimaryTextColor_Text
+                                                      )
+                                                  )
+                                                LayoutMinHeight: =20
+                                                PaddingBottom: =5
+                                                PaddingTop: =5
+                                                Width: =30
+                                          - Label4_48:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Stretch
+                                                Color: =PrimaryTextColor
+                                                FillPortions: =1
+                                                Font: =Font.'Lato Black'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =100
+                                                Size: =12
+                                                Text: |-
+                                                  ="SELECCIONAR ALUMNO
+                                                  "
+                                    - Container18_13:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =75
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutMinHeight: =140
+                                          LayoutMinWidth: =180
+                                          Width: =Parent.Width
+                                        Children:
+                                          - Container17_21:
+                                              Control: GroupContainer@1.3.0
+                                              Variant: AutoLayout
+                                              Properties:
+                                                DropShadow: =DropShadow.None
+                                                FillPortions: =0
+                                                LayoutAlignItems: =LayoutAlignItems.Center
+                                                LayoutDirection: =LayoutDirection.Vertical
+                                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                                LayoutMinHeight: =Parent.Height
+                                                LayoutMinWidth: =100
+                                                PaddingLeft: =10
+                                                PaddingRight: =10
+                                                Width: =220
+                                              Children:
+                                                - CB_AlumnoParaMatricular_1:
+                                                    Control: Classic/ComboBox@2.4.0
+                                                    Properties:
+                                                      BorderColor: =
+                                                      BorderThickness: =0
+                                                      ChevronBackground: =RGBA(0, 0, 0, 0)
+                                                      ChevronFill: =SecondaryTextColor
+                                                      ChevronHoverBackground: =RGBA(255, 255, 255, 0.1)
+                                                      ChevronHoverFill: =PrimaryTextColor
+                                                      Color: =PrimaryTextColor
+                                                      DisplayFields: =["DOC","nombre_completo"]
+                                                      DisplayMode: =Parent.DisplayMode
+                                                      Fill: =TertiaryColor
+                                                      FocusedBorderThickness: =0
+                                                      FontWeight: =FontWeight.Bold
+                                                      Height: =32
+                                                      HoverBorderColor: =Self.BorderColor
+                                                      HoverColor: =PrimaryTextColor
+                                                      HoverFill: =varHoverFill
+                                                      InputTextPlaceholder: ="Seleccionar..."
+                                                      Items: =Alumno
+                                                      LayoutMinWidth: =120
+                                                      NoSelectionText: ="Seleccionar..."
+                                                      PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                                                      PressedBorderColor: =Self.BorderColor
+                                                      PressedColor: =RGBA(255, 255, 255, 1)
+                                                      PressedFill: =varPressedFill
+                                                      SearchFields: =["DOC","nombre_completo"]
+                                                      SelectMultiple: =false
+                                                      SelectionColor: =PrimaryTextColor
+                                                      SelectionFill: =varHoverFill
+                                                      Size: =10
+                                                      Tooltip: =
+                                                      Width: =200
+                                          - Container17_17:
+                                              Control: GroupContainer@1.3.0
+                                              Variant: AutoLayout
+                                              Properties:
+                                                DropShadow: =DropShadow.None
+                                                LayoutDirection: =LayoutDirection.Vertical
+                                                LayoutMinHeight: =Parent.Height
+                                                LayoutMinWidth: =100
+                                                PaddingLeft: =20
+                                              Children:
+                                                - Label7_24:
+                                                    Control: Label@2.5.1
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.Stretch
+                                                      Color: =PrimaryTextColor
+                                                      FontWeight: =FontWeight.Bold
+                                                      Height: =25
+                                                      Size: =12
+                                                      Text: =LookUp(Alumno, DOC= CB_AlumnoParaMatricular_1.Selected.DOC).nombre_completo
+                                                - Label7_55:
+                                                    Control: Label@2.5.1
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.Stretch
+                                                      Color: =PrimaryTextColor
+                                                      FontWeight: =FontWeight.Semibold
+                                                      Height: =25
+                                                      Size: =10
+                                                      Text: =LookUp(Alumno, DOC = CB_AlumnoParaMatricular_1.Selected.DOC).correo_institucional
+                                                - Label7_56:
+                                                    Control: Label@2.5.1
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.Stretch
+                                                      Color: =PrimaryTextColor
+                                                      FontWeight: =FontWeight.Semibold
+                                                      Height: =25
+                                                      Size: =10
+                                                      Text: =LookUp(Alumno, DOC = CB_AlumnoParaMatricular_1.Selected.DOC).celular
+                                    - Container14_20:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          Fill: =TertiaryColor
+                                          FillPortions: =0
+                                          Height: =40
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          PaddingLeft: =5
+                                          PaddingRight: =10
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Width: =Parent.Width
+                                          Y: =10
+                                        Children:
+                                          - Image2_33:
+                                              Control: Image@2.2.3
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Center
+                                                Height: =30
+                                                Image: |-
+                                                  ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                                      Substitute(
+                                                          LookUp(customIcons,IconName = "ListStars").IconData,
+                                                          "currentColor", PrimaryTextColor_Text
+                                                      )
+                                                  )
+                                                LayoutMinHeight: =20
+                                                PaddingBottom: =5
+                                                PaddingTop: =5
+                                                Width: =30
+                                          - Label4_25:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Stretch
+                                                Color: =PrimaryTextColor
+                                                FillPortions: =1
+                                                Font: =Font.'Lato Black'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =100
+                                                Size: =12
+                                                Text: =Upper("SELECCIONAR CURSO")
+                                    - Container19_9:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =If(!IsBlank(CB_Curso_2.Selected), 105, 80)
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          Width: =Parent.Width
+                                        Children:
+                                          - Container18_7:
+                                              Control: GroupContainer@1.3.0
+                                              Variant: AutoLayout
+                                              Properties:
+                                                DropShadow: =DropShadow.None
+                                                FillPortions: =0
+                                                Height: =If(!IsBlank(CB_Curso_2.Selected), 105, 80)
+                                                LayoutDirection: =LayoutDirection.Horizontal
+                                                LayoutMinWidth: =160
+                                                Width: =Parent.Width
+                                              Children:
+                                                - Container17_18:
+                                                    Control: GroupContainer@1.3.0
+                                                    Variant: AutoLayout
+                                                    Properties:
+                                                      DropShadow: =DropShadow.None
+                                                      LayoutDirection: =LayoutDirection.Vertical
+                                                      LayoutMinHeight: =Parent.Height
+                                                      LayoutMinWidth: =100
+                                                      PaddingLeft: =10
+                                                      PaddingRight: =10
+                                                    Children:
+                                                      - Label6_9:
+                                                          Control: Label@2.5.1
+                                                          Properties:
+                                                            AlignInContainer: =AlignInContainer.Stretch
+                                                            Color: =RGBA(149, 149, 149, 1)
+                                                            FontWeight: =FontWeight.Semibold
+                                                            Height: =30
+                                                            PaddingTop: =12
+                                                            Size: =9
+                                                            Text: |-
+                                                              ="CURSO
+                                                              "
+                                                      - CB_Curso_2:
+                                                          Control: Classic/ComboBox@2.4.0
+                                                          Properties:
+                                                            AlignInContainer: =AlignInContainer.Start
+                                                            BorderColor: =
+                                                            BorderThickness: =0
+                                                            ChevronBackground: =RGBA(0, 0, 0, 0)
+                                                            ChevronFill: =SecondaryTextColor
+                                                            ChevronHoverBackground: =RGBA(255, 255, 255, 0.1)
+                                                            ChevronHoverFill: =PrimaryTextColor
+                                                            Color: =PrimaryTextColor
+                                                            DisplayFields: =["codigo","estado"]
+                                                            DisplayMode: =Parent.DisplayMode
+                                                            Fill: =TertiaryColor
+                                                            FocusedBorderThickness: =0
+                                                            FontWeight: =FontWeight.Bold
+                                                            Height: =32
+                                                            HoverBorderColor: =Self.BorderColor
+                                                            HoverColor: =PrimaryTextColor
+                                                            HoverFill: =varHoverFill
+                                                            InputTextPlaceholder: ="Buscar curso..."
+                                                            Items: =Filter(Curso, estado <> "Inactivo")
+                                                            LayoutMinWidth: =120
+                                                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                                                            PressedBorderColor: =Self.BorderColor
+                                                            PressedColor: =RGBA(255, 255, 255, 1)
+                                                            PressedFill: =varPressedFill
+                                                            SearchFields: =["codigo"]
+                                                            SelectMultiple: =false
+                                                            SelectionColor: =PrimaryTextColor
+                                                            SelectionFill: =varHoverFill
+                                                            Size: =9
+                                                            Tooltip: =
+                                                            Width: =200
+                                                      - Label7_57:
+                                                          Control: Label@2.5.1
+                                                          Properties:
+                                                            AlignInContainer: =AlignInContainer.Stretch
+                                                            Color: =RGBA(149, 149, 149, 1)
+                                                            FontWeight: =FontWeight.Semibold
+                                                            Height: =20
+                                                            Size: =9
+                                                            Text: ="AFORO DISPONIBLE"
+                                                            Visible: =If(!IsBlank(CB_Curso_2.Selected), true, false)
+                                                      - Label7_58:
+                                                          Control: Label@2.5.1
+                                                          Properties:
+                                                            AlignInContainer: =AlignInContainer.Stretch
+                                                            Color: =PrimaryTextColor
+                                                            FontWeight: =FontWeight.Semibold
+                                                            Height: =20
+                                                            Size: =10
+                                                            Text: =If(!IsBlank(CB_Curso_2.Selected), CB_Curso_2.Selected.aforo - Count(Filter(Matricula, id_curso = CB_Curso_2.Selected.ID ).ID), "")
+                                                            Visible: =If(!IsBlank(CB_Curso_2.Selected), true, false)
+                                                - Container17_22:
+                                                    Control: GroupContainer@1.3.0
+                                                    Variant: AutoLayout
+                                                    Properties:
+                                                      DropShadow: =DropShadow.None
+                                                      LayoutDirection: =LayoutDirection.Vertical
+                                                      LayoutMinHeight: =Parent.Height
+                                                      LayoutMinWidth: =100
+                                                      PaddingLeft: =20
+                                                      PaddingTop: =5
+                                                    Children:
+                                                      - Label7_22:
+                                                          Control: Label@2.5.1
+                                                          Properties:
+                                                            AlignInContainer: =AlignInContainer.Stretch
+                                                            Color: =RGBA(149, 149, 149, 1)
+                                                            FontWeight: =FontWeight.Semibold
+                                                            Height: =15
+                                                            Size: =8
+                                                            Text: ="HORARIO"
+                                                            Visible: =If(!IsBlank(CB_Curso_2.Selected), true, false)
+                                                      - Label7_25:
+                                                          Control: Label@2.5.1
+                                                          Properties:
+                                                            AlignInContainer: =AlignInContainer.Stretch
+                                                            Color: =PrimaryTextColor
+                                                            FontWeight: =FontWeight.Semibold
+                                                            Height: =20
+                                                            Size: =10
+                                                            Text: =LookUp(Horario, ID = CB_Curso_2.Selected.id_horario).codigo
+                                                            Visible: =If(!IsBlank(CB_Curso_2.Selected), true, false)
+                                                      - Label7_59:
+                                                          Control: Label@2.5.1
+                                                          Properties:
+                                                            AlignInContainer: =AlignInContainer.Stretch
+                                                            Color: =PrimaryTextColor
+                                                            FontWeight: =FontWeight.Semibold
+                                                            Height: =15
+                                                            Size: =9
+                                                            Text: =LookUp(Horario, ID = CB_Curso_2.Selected.id_horario).diasensemana
+                                                      - Label7_60:
+                                                          Control: Label@2.5.1
+                                                          Properties:
+                                                            AlignInContainer: =AlignInContainer.Stretch
+                                                            Color: =RGBA(149, 149, 149, 1)
+                                                            FontWeight: =FontWeight.Semibold
+                                                            Height: =20
+                                                            Size: =8
+                                                            Text: ="FECHA INICIO - FIN"
+                                                            Visible: =If(!IsBlank(CB_Curso_2.Selected), true, false)
+                                                      - Label7_61:
+                                                          Control: Label@2.5.1
+                                                          Properties:
+                                                            AlignInContainer: =AlignInContainer.Stretch
+                                                            Color: =PrimaryTextColor
+                                                            FontWeight: =FontWeight.Semibold
+                                                            Height: =25
+                                                            Size: =10
+                                                            Text: =CB_Curso_2.Selected.fecha_inicio & " - " & CB_Curso_2.Selected.fecha_fin
+                                                            Visible: =If(!IsBlank(CB_Curso_2.Selected), true, false)
+                                    - Container14_43:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          Fill: =TertiaryColor
+                                          FillPortions: =0
+                                          Height: =40
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          PaddingLeft: =5
+                                          PaddingRight: =10
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Visible: =!IsBlank(CB_AlumnoParaMatricular_1.Selected) And !IsBlank(CB_Curso_2.Selected)
+                                          Width: =Parent.Width
+                                          Y: =5
+                                        Children:
+                                          - Image2_34:
+                                              Control: Image@2.2.3
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Center
+                                                Height: =30
+                                                Image: |-
+                                                  ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                                      Substitute(
+                                                          LookUp(customIcons,IconName = "ListStars").IconData,
+                                                          "currentColor", PrimaryTextColor_Text
+                                                      )
+                                                  )
+                                                LayoutMinHeight: =20
+                                                PaddingBottom: =5
+                                                PaddingTop: =5
+                                                Width: =30
+                                          - Label4_52:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Stretch
+                                                Color: =PrimaryTextColor
+                                                FillPortions: =1
+                                                Font: =Font.'Lato Black'
+                                                FontWeight: =FontWeight.Semibold
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =100
+                                                Size: =12
+                                                Text: ="USO DE PROMOCIONES"
+                                                Width: =Parent.Width/2
+                                          - ButtonCanvas1_2:
+                                              Control: Button@0.0.45
+                                              Properties:
+                                                Align: =Align.Center
+                                                AlignInContainer: =AlignInContainer.Center
+                                                Appearance: ='ButtonCanvas.Appearance'.Primary
+                                                BasePaletteColor: =RGBA(141, 229, 250, 1)
+                                                BorderRadiusBottomLeft: =10
+                                                BorderRadiusBottomRight: =10
+                                                BorderRadiusTopLeft: =10
+                                                BorderRadiusTopRight: =10
+                                                OnSelect: =ResetForm(FormAgregarMeses); Set(_puAgregarMeses, true)
+                                                Text: ="Añadir meses a favor"
+                                                Width: =160
+                                    - Container19_10:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          FillPortions: =0
+                                          Height: =40
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutJustifyContent: =LayoutJustifyContent.Center
+                                          LayoutMinHeight: =150
+                                          LayoutMinWidth: =150
+                                          Visible: =!IsBlank(CB_AlumnoParaMatricular_1.Selected) And !IsBlank(CB_Curso_2.Selected)
+                                          Width: =Parent.Width
+                                        Children:
+                                          - Label6_10:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Stretch
+                                                Color: =If(LookUp(Alumno, DOC = CB_AlumnoParaMatricular_1.Selected.DOC).meses_pagados > 0, Color.DarkGreen, Color.DarkRed)
+                                                FontWeight: =FontWeight.Bold
+                                                LayoutMinHeight: =20
+                                                Size: =10
+                                                Text: =If(LookUp(Alumno, DOC = CB_AlumnoParaMatricular_1.Selected.DOC).meses_pagados > 0, "Este alumno(a) cuenta con " & LookUp(Alumno, DOC = CB_AlumnoParaMatricular_1.Selected.DOC).meses_pagados & " meses a favor.", "Este alumno(a) no cuenta con meses a favor. Por favor, añadir un nuevo pago.")
+                                                Width: =Parent.Width
+                                    - CT_PagoLibro_2:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =CT_AlquilerLibro_2.Height+10
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutGap: =5
+                                          LayoutMinHeight: =150
+                                          LayoutMinWidth: =150
+                                          PaddingBottom: =2
+                                          PaddingLeft: =2
+                                          PaddingRight: =2
+                                          PaddingTop: =2
+                                          Visible: =!IsBlank(CB_AlumnoParaMatricular_1.Selected) And !IsBlank(CB_Curso_2.Selected)
+                                          Width: =Parent.Width
+                                        Children:
+                                          - CT_AlquilerLibro_2:
+                                              Control: GroupContainer@1.3.0
+                                              Variant: AutoLayout
+                                              Properties:
+                                                FillPortions: =0
+                                                Height: =70
+                                                LayoutDirection: =LayoutDirection.Horizontal
+                                                LayoutMinWidth: =200
+                                              Children:
+                                                - Container31_6:
+                                                    Control: GroupContainer@1.3.0
+                                                    Variant: AutoLayout
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.Start
+                                                      DropShadow: =DropShadow.None
+                                                      FillPortions: =0
+                                                      Height: =Parent.Height
+                                                      LayoutDirection: =LayoutDirection.Vertical
+                                                      LayoutJustifyContent: =LayoutJustifyContent.Center
+                                                      LayoutMinHeight: =Parent.Height
+                                                      LayoutMinWidth: =200
+                                                      Width: =200
+                                                    Children:
+                                                      - CheckboxCanvas1_9:
+                                                          Control: CheckBox@0.0.30
+                                                          Properties:
+                                                            AlignInContainer: =AlignInContainer.Start
+                                                            BasePaletteColor: =PrimaryTextColor
+                                                            CheckboxSize: =18
+                                                            FontColor: =PrimaryTextColor
+                                                            Height: =50
+                                                            Label: ="Usar promo activa para libro"
+                                                            LayoutMinHeight: =30
+                                                            OnUncheck: =
+                                                            Width: =175
+                                                - Container17_46:
+                                                    Control: GroupContainer@1.3.0
+                                                    Variant: AutoLayout
+                                                    Properties:
+                                                      DropShadow: =DropShadow.None
+                                                      Height: =Parent.Height
+                                                      LayoutDirection: =LayoutDirection.Vertical
+                                                      LayoutGap: =5
+                                                      LayoutMinHeight: =Parent.Height
+                                                      PaddingLeft: =10
+                                                      PaddingRight: =10
+                                                      PaddingTop: =10
+                                                      Visible: =If(CheckboxCanvas1_9.Checked, true, false)
+                                                      Width: =Parent.Width
+                                                    Children:
+                                                      - Label7_67:
+                                                          Control: Label@2.5.1
+                                                          Properties:
+                                                            Color: =RGBA(149, 149, 149, 1)
+                                                            FontWeight: =FontWeight.Semibold
+                                                            Height: =25
+                                                            Size: =9
+                                                            Text: |-
+                                                              ="Necesario: " & LookUp(Libro, ID = LookUp(Nivel, ID = CB_Curso_2.Selected.id_nivel).id_libro_alquiler_virtual).descripcion
+                                                            Visible: =If(CheckboxCanvas1_9.Checked, true, false)
+                                                            Width: =Parent.Width - 20
+                                                      - Label6_30:
+                                                          Control: Label@2.5.1
+                                                          Properties:
+                                                            Color: =If(LookUp(Alumno, DOC = CB_AlumnoParaMatricular_1.Selected.DOC).libros_meses_pagados > 0, Color.DarkGreen, Color.DarkRed)
+                                                            FontWeight: =FontWeight.Bold
+                                                            Height: =25
+                                                            Size: =10
+                                                            Text: =If(LookUp(Alumno, DOC = CB_AlumnoParaMatricular_1.Selected.DOC).libros_meses_pagados > 0, "Este alumno(a) cuenta con " & LookUp(Alumno, DOC = CB_AlumnoParaMatricular_1.Selected.DOC).meses_pagados & " meses de libro alquilado a favor.", "Este alumno(a) no cuenta con meses de alquiler de libro a favor.")
+                                                            VerticalAlign: =VerticalAlign.Top
+                                                            Width: =Parent.Width-20
+                                    - Container18_14:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =60
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutMinHeight: =140
+                                          LayoutMinWidth: =180
+                                          Visible: =!IsBlank(CB_AlumnoParaMatricular_1.Selected) And !IsBlank(CB_Curso_2.Selected)
+                                          Width: =Parent.Width
+                                        Children:
+                                          - Container17_23:
+                                              Control: GroupContainer@1.3.0
+                                              Variant: AutoLayout
+                                              Properties:
+                                                DropShadow: =DropShadow.None
+                                                LayoutDirection: =LayoutDirection.Vertical
+                                                LayoutJustifyContent: =LayoutJustifyContent.Center
+                                                LayoutMinHeight: =Parent.Height
+                                                LayoutMinWidth: =100
+                                                PaddingLeft: =10
+                                                PaddingRight: =10
+                                              Children:
+                                                - Label4_53:
+                                                    Control: Label@2.5.1
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.Stretch
+                                                      Color: =PrimaryTextColor
+                                                      Font: =Font.'Lato Black'
+                                                      FontWeight: =FontWeight.Semibold
+                                                      Height: =25
+                                                      LayoutMinHeight: =0
+                                                      LayoutMinWidth: =100
+                                                      Size: =12
+                                                      Text: ="TIPO MATRICULA:"
+                                                      Width: =90
+                                                - CB_TipoMatricula_3:
+                                                    Control: Classic/ComboBox@2.4.0
+                                                    Properties:
+                                                      AlignInContainer: =AlignInContainer.Start
+                                                      BorderColor: =
+                                                      BorderThickness: =0
+                                                      ChevronBackground: =RGBA(0, 0, 0, 0)
+                                                      ChevronFill: =SecondaryTextColor
+                                                      ChevronHoverBackground: =RGBA(255, 255, 255, 0.1)
+                                                      ChevronHoverFill: =PrimaryTextColor
+                                                      Color: =PrimaryTextColor
+                                                      DefaultSelectedItems: =["Regular"]
+                                                      DisplayFields: =["Value"]
+                                                      DisplayMode: =Parent.DisplayMode
+                                                      Fill: =TertiaryColor
+                                                      FocusedBorderThickness: =0
+                                                      FontWeight: =FontWeight.Bold
+                                                      Height: =32
+                                                      HoverBorderColor: =Self.BorderColor
+                                                      HoverColor: =PrimaryTextColor
+                                                      HoverFill: =varHoverFill
+                                                      InputTextPlaceholder: ="Seleccionar..."
+                                                      IsSearchable: =false
+                                                      Items: =["Corporativo","Colegio","Particular","Regular"]
+                                                      LayoutMinWidth: =120
+                                                      NoSelectionText: ="Seleccionar..."
+                                                      PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                                                      PressedBorderColor: =Self.BorderColor
+                                                      PressedColor: =RGBA(255, 255, 255, 1)
+                                                      PressedFill: =varPressedFill
+                                                      SearchFields: =["Value"]
+                                                      SelectMultiple: =false
+                                                      SelectionColor: =PrimaryTextColor
+                                                      SelectionFill: =varHoverFill
+                                                      Size: =9
+                                                      Tooltip: =
+                                                      Width: =200
+                                          - ContainerBTN_Matricula_2:
+                                              Control: GroupContainer@1.3.0
+                                              Variant: ManualLayout
+                                              Properties:
+                                                AlignInContainer: =AlignInContainer.Center
+                                                BorderColor: =RGBA(255, 255, 255, 1)
+                                                BorderStyle: =BorderStyle.None
+                                                BorderThickness: =2
+                                                DropShadow: =DropShadow.Regular
+                                                Fill: |+
+                                                  =If(
+                                                      If(CheckboxCanvas1_9.Checked,LookUp(Alumno, DOC = CB_AlumnoParaMatricular_1.Selected.DOC).libros_meses_pagados < 1), Color.LightGray,
+                                                      LookUp(Alumno, DOC = CB_AlumnoParaMatricular_1.Selected.DOC).meses_pagados < 1, Color.LightGray,
+                                                      IsBlank(CB_TipoMatricula_3.Selected.Value), Color.LightGray, AccentColor)
+                                                FillPortions: =0
+                                                Height: =35
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =100
+                                                RadiusBottomLeft: =10
+                                                RadiusBottomRight: =10
+                                                RadiusTopLeft: =10
+                                                RadiusTopRight: =10
+                                                Width: =180
+                                                X: =444
+                                                Y: =(Parent.Height - Self.Height)/2
+                                              Children:
+                                                - Label2_29:
+                                                    Control: Label@2.5.1
+                                                    Properties:
+                                                      Align: =Align.Center
+                                                      Color: =AccentTextColor
+                                                      DisabledBorderColor: =RGBA(53, 61, 63, 1)
+                                                      DisabledColor: =PrimaryTextColor
+                                                      DisplayMode: =
+                                                      Font: =Font.'Lato Black'
+                                                      FontWeight: =FontWeight.Semibold
+                                                      Height: =Parent.Height
+                                                      Size: =10
+                                                      Text: ="Matricular"
+                                                      Width: =Parent.Width
+                                                - BTN_Matrícula_2:
+                                                    Control: Classic/Button@2.2.0
+                                                    Properties:
+                                                      BorderStyle: =BorderStyle.None
+                                                      Color: =RGBA(255, 255, 255, 1)
+                                                      DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                                      DisabledColor: =RGBA(53, 61, 63, 1)
+                                                      DisabledFill: =RGBA(0, 0, 0, 0)
+                                                      DisplayMode: |-
+                                                        =If(
+                                                            If(CheckboxCanvas1_9.Checked,LookUp(Alumno, DOC = CB_AlumnoParaMatricular_1.Selected.DOC).libros_meses_pagados < 1), DisplayMode.Disabled,
+                                                            LookUp(Alumno, DOC = CB_AlumnoParaMatricular_1.Selected.DOC).meses_pagados < 1, DisplayMode.Disabled,
+                                                            IsBlank(CB_TipoMatricula_3.Selected.Value), DisplayMode.Disabled, DisplayMode.Edit)
+                                                      Fill: =RGBA(0, 0, 0, 0)
+                                                      Height: =Parent.Height
+                                                      HoverColor: =RGBA(255, 255, 255, 1)
+                                                      HoverFill: =RGBA(0,0,0,0.1)
+                                                      OnSelect: |-
+                                                        =//Crear Matrícula
+                                                        Patch(Matricula, Defaults(Matricula), {doc_alumno: CB_AlumnoParaMatricular_1.Selected.DOC, id_curso: CB_Curso_1.Selected.ID, fecha_registro: Now(), creador: User().FullName, deuda: 0, tipo_matricula: CB_TipoMatricula_2.Selected.Value});
+
+                                                        //Crear Pago (en sistema)
+                                                        //Añadiendo Detalle de items al Pago
+                                                        //Creando Deudas Pendientes
+
+                                                        //Aplicando Promociones al Alumno
+                                                        Patch(Alumno, LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC), {meses_pagados: LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).meses_pagados - 1,
+                                                        libros_meses_pagados: If(CheckboxCanvas1_8.Checked, LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).libros_meses_pagados - 1, LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).libros_meses_pagados)});
+
+                                                        //Envío de Correo a Alumno, para confirmar su inscripción en el curso
+                                                        //REACTIVAR PARA EL SIGUIENTE PERIODO
+                                                        //testMatriculaRT.Run(CB_AlumnoParaMatricular.Selected.correo_institucional;CB_Curso_1.Selected.codigo;LookUp(Alumno; DOC = CB_AlumnoParaMatricular.Selected.DOC).nombres;LookUp(Alumno; DOC = CB_AlumnoParaMatricular.Selected.DOC).apellido_paterno;LookUp(Horario; ID = CB_Curso_1.Selected.id_horario).codigo; LookUp(Docente; DOC = CB_Curso_1.Selected.doc_docente; nombres & " " & apellido_paterno);CB_Curso_1.Selected.fecha_inicio;1);;
+
+                                                        //Añadiendo al Alumno al equipo (sólo si está Activo)
+                                                        If(CB_Curso_1.Selected.estado = "Activo",GruposdeOffice365.AddMemberToGroup(CB_Curso_1.Selected.id_teams, LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).correo_institucional));
+
+                                                        //Cambiar estado de PreRegistroPago a Procesado
+                                                      PressedFill: =RGBA(0,0,0,0.3)
+                                                      Text: =""
+                                                      Width: =Parent.Width
+                                    - Container8_2:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =15
+                                          LayoutDirection: =LayoutDirection.Vertical
+                                          LayoutMinHeight: =20
+      - Container2_26:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Height: =Parent.Height
+            Visible: =_puAgregarMeses
+            Width: =Parent.Width
+          Children:
+            - Button2_203:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderStyle: =BorderStyle.None
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisplayMode: =DisplayMode.View
+                  Fill: =varHoverFill
+                  FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                  Height: =Parent.Height
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =varHoverFill
+                  OnSelect: =
+                  PressedFill: =varHoverFill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Text: =""
+                  Width: =Parent.Width
+            - Container19_14:
+                Control: GroupContainer@1.3.0
+                Variant: ManualLayout
+                Properties:
+                  Fill: =RGBA(255, 255, 255, 1)
+                  Height: =320
+                  RadiusBottomLeft: =15
+                  RadiusBottomRight: =15
+                  RadiusTopLeft: =15
+                  RadiusTopRight: =15
+                  Width: =700
+                  X: =(Parent.Width- Self.Width)/2
+                  Y: =40
+                Children:
+                  - Container14_52:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        Fill: =TertiaryColor
+                        Height: =40
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                        PaddingRight: =10
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                      Children:
+                        - Label4_64:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              Color: =PrimaryTextColor
+                              FillPortions: =1
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Bold
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =100
+                              PaddingLeft: =15
+                              PaddingTop: =9
+                              Text: ="AGREGAR MESES A FAVOR"
+                              Width: =Parent.Width/2
+                        - CustomBTN_126:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              BorderColor: =RGBA(255, 255, 255, 1)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              DropShadow: =DropShadow.Regular
+                              Fill: =TertiaryColor
+                              FillPortions: =0
+                              Height: =25
+                              LayoutMinHeight: =20
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                              Width: =25
+                              X: =CustomBTN_127.X - Self.Width - 20
+                              Y: =CustomBTN_127.Y
+                            Children:
+                              - Image4_92:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    Height: =17
+                                    Image: |-
+                                      ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                          Substitute(
+                                              LookUp(customIcons,IconName = "Exit").IconData,
+                                              "currentColor", "RGBA(233, 79, 76, 1)"
+                                          )
+                                      )
+                                    Width: =17
+                                    X: =(Parent.Width - Self.Width)/2
+                                    Y: =(Parent.Height - Self.Height)/2
+                              - Button2_204:
+                                  Control: Classic/Button@2.2.0
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =Parent.Height
+                                    HoverColor: =RGBA(255, 255, 255, 1)
+                                    HoverFill: =RGBA(0,0,0,0.1)
+                                    OnSelect: '=Set(_puAgregarMeses, false); '
+                                    PressedFill: =RGBA(0,0,0,0.3)
+                                    Text: =""
+                                    Width: =Parent.Width
+                  - FormAgregarMeses_2:
+                      Control: Form@2.4.4
+                      Layout: Vertical
+                      Properties:
+                        DataSource: =Alumno
+                        Height: =220
+                        Item: =LookUp(Alumno, DOC = _confirmacionxverificar.doc_alumno)
+                        NumberOfColumns: =2
+                        Width: =700
+                        Y: =40
+                      Children:
+                        - DOC_DataCard6_1:
+                            Control: TypedDataCard@1.0.7
+                            Variant: NumberEdit
+                            Properties:
+                              DataField: ="DOC"
+                              Default: =ThisItem.DOC
+                              DisplayMode: =DisplayMode.View
+                              DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,DOC)
+                              Required: =true
+                              Update: =Value(DataCardValue23_1.Value)
+                              Width: =350
+                              X: =0
+                              Y: =0
+                            Children:
+                              - DataCardKey23_1:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    FontColor: =PrimaryTextColor
+                                    Height: =22
+                                    Size: =12
+                                    Text: ="DOCUMENTO DE IDENTIDAD"
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =Parent.Width - 48
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue24_2:
+                                  Control: TextInput@0.0.54
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                                    DisplayMode: =Parent.DisplayMode
+                                    Font: =Font.'Segoe UI'
+                                    FontSize: =17
+                                    FontWeight: =FontWeight.Semibold
+                                    Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                                    Required: =Parent.Required
+                                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                    Value: =Parent.Default
+                                    Width: =Parent.Width - 48
+                                    X: =10
+                                    Y: =DataCardKey24_2.Y + DataCardKey24_2.Height + 4
+                              - DataCardValue23_1:
+                                  Control: NumberInput@2.9.12
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Appearance: ='NumberInput.Appearance'.FilledLighter
+                                    DisplayMode: =Parent.DisplayMode
+                                    FontSize: =15
+                                    Max: =Blank()
+                                    Min: =Blank()
+                                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                    Value: =Parent.Default
+                                    Visible: =false
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardKey23_1.Y + DataCardKey23_1.Height + 4
+                              - ErrorMessage21_1:
+                                  Control: Text@0.0.51
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue23_1.Y + DataCardValue23_1.Height
+                        - nombre_completo_DataCard6_2:
+                            Control: TypedDataCard@1.0.7
+                            Variant: TextualEdit
+                            Properties:
+                              DataField: ="nombre_completo"
+                              Default: =ThisItem.nombre_completo
+                              DisplayMode: =DisplayMode.View
+                              DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,nombre_completo)
+                              MaxLength: =DataSourceInfo([@Alumno], DataSourceInfo.MaxLength, nombre_completo)
+                              Required: =true
+                              Update: =DataCardValue24_4.Value
+                              Width: =350
+                              X: =1
+                              Y: =0
+                            Children:
+                              - DataCardKey24_2:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    FontColor: =PrimaryTextColor
+                                    Height: =22
+                                    Size: =12
+                                    Text: ="NOMBRE COMPLETO"
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =Parent.Width - 48
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue24_4:
+                                  Control: TextInput@0.0.54
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                                    DisplayMode: =Parent.DisplayMode
+                                    Font: =Font.'Segoe UI'
+                                    FontSize: =16
+                                    FontWeight: =FontWeight.Semibold
+                                    Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                                    Required: =Parent.Required
+                                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                    Value: =Parent.Default
+                                    Width: =Parent.Width - 48
+                                    X: =12
+                                    Y: =DataCardKey24_2.Y + DataCardKey24_2.Height + 4
+                              - ErrorMessage22_2:
+                                  Control: Text@0.0.51
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue24_4.Y + DataCardValue24_4.Height
+                        - meses_pagados_DataCard1_2:
+                            Control: TypedDataCard@1.0.7
+                            Variant: NumberEdit
+                            Properties:
+                              DataField: ="meses_pagados"
+                              Default: =ThisItem.meses_pagados
+                              DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,meses_pagados)
+                              Required: =false
+                              Update: =Value(DataCardValue25_2.Value)
+                              Width: =350
+                              X: =0
+                              Y: =1
+                            Children:
+                              - StarVisible110_2:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    Height: =30
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey25_2.Y
+                              - DataCardKey25_2:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    FontColor: =PrimaryTextColor
+                                    Height: =22
+                                    Size: =12
+                                    Text: ="MESES A FAVOR"
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =Parent.Width - 48
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue25_2:
+                                  Control: NumberInput@2.9.12
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    DisplayMode: =Parent.DisplayMode
+                                    FontSize: =17
+                                    Max: =Blank()
+                                    Min: =0
+                                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                    Value: =Parent.Default
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardKey25_2.Y + DataCardKey25_2.Height + 4
+                              - ErrorMessage23_2:
+                                  Control: Text@0.0.51
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue25_2.Y + DataCardValue25_2.Height
+                        - libros_meses_pagados_DataCard1_2:
+                            Control: TypedDataCard@1.0.7
+                            Variant: NumberEdit
+                            Properties:
+                              DataField: ="libros_meses_pagados"
+                              Default: =ThisItem.libros_meses_pagados
+                              DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,libros_meses_pagados)
+                              Required: =false
+                              Update: =Value(DataCardValue26_2.Value)
+                              Width: =350
+                              X: =1
+                              Y: =1
+                            Children:
+                              - StarVisible111_2:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    Height: =30
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey26_2.Y
+                              - DataCardKey26_2:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    FontColor: =PrimaryTextColor
+                                    Height: =22
+                                    Size: =12
+                                    Text: ="MESES DE LIBROS A FAVOR"
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =Parent.Width - 48
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue26_2:
+                                  Control: NumberInput@2.9.12
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    DisplayMode: =Parent.DisplayMode
+                                    FontSize: =17
+                                    Max: =Blank()
+                                    Min: =0
+                                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                    Value: =Parent.Default
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardKey26_2.Y + DataCardKey26_2.Height + 4
+                              - ErrorMessage24_2:
+                                  Control: Text@0.0.51
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue26_2.Y + DataCardValue26_2.Height
+                        - fecha_promo_aplicada_DataCard2_1:
+                            Control: TypedDataCard@1.0.7
+                            Variant: DateEdit
+                            Properties:
+                              DataField: ="fecha_promo_aplicada"
+                              Default: =ThisItem.fecha_promo_aplicada
+                              DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,fecha_promo_aplicada)
+                              Required: =false
+                              Update: =DataCardValue27_1.SelectedDate
+                              Width: =350
+                              X: =0
+                              Y: =2
+                            Children:
+                              - StarVisible108_1:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    Height: =30
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey27_1.Y
+                              - DataCardKey27_1:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    FontColor: =PrimaryTextColor
+                                    Height: =22
+                                    Size: =12
+                                    Text: ="INICIO PROMO"
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =Parent.Width - 48
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue27_1:
+                                  Control: DatePicker@0.0.46
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    DisplayMode: =Parent.DisplayMode
+                                    EndDate: =Date(Year(Today())+100, 12, 31)
+                                    SelectedDate: =Parent.Default
+                                    StartDate: =Date(1900, 1, 1)
+                                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardKey27_1.Y + DataCardKey27_1.Height + 4
+                              - ErrorMessage25_1:
+                                  Control: Text@0.0.51
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue27_1.Y + DataCardValue27_1.Height
+                        - fecha_vencimiento_promo_DataCard2_1:
+                            Control: TypedDataCard@1.0.7
+                            Variant: DateEdit
+                            Properties:
+                              DataField: ="fecha_vencimiento_promo"
+                              Default: =ThisItem.fecha_vencimiento_promo
+                              DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,fecha_vencimiento_promo)
+                              Required: =false
+                              Update: =DataCardValue29_1.SelectedDate
+                              Width: =350
+                              X: =1
+                              Y: =2
+                            Children:
+                              - StarVisible112_1:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    Height: =30
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey29_1.Y
+                              - DataCardKey29_1:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    FontColor: =PrimaryTextColor
+                                    Height: =22
+                                    Size: =12
+                                    Text: ="VENCIMIENTO PROMO"
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =Parent.Width - 48
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue29_1:
+                                  Control: DatePicker@0.0.46
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    DisplayMode: =Parent.DisplayMode
+                                    EndDate: =Date(Year(Today())+100, 12, 31)
+                                    SelectedDate: =Parent.Default
+                                    StartDate: =Date(1900, 1, 1)
+                                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardKey29_1.Y + DataCardKey29_1.Height + 4
+                              - ErrorMessage27_1:
+                                  Control: Text@0.0.51
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue29_1.Y + DataCardValue29_1.Height
+                  - CustomBTN_127:
+                      Control: GroupContainer@1.3.0
+                      Variant: ManualLayout
+                      Properties:
+                        BorderColor: =RGBA(255, 255, 255, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DropShadow: =DropShadow.Regular
+                        Fill: =RGBA(54, 176, 75, 1)
+                        Height: =38
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Width: =130
+                        X: =Container19_14.Width - Self.Width - 25
+                        Y: =Container19_14.Height + Self.Height - 93
+                      Children:
+                        - Label2_102:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              Color: =RGBA(255, 255, 255, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledColor: =PrimaryTextColor
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Bold
+                              Height: =Parent.Height
+                              PaddingLeft: =26
+                              PaddingTop: =7
+                              Size: =11
+                              Text: ="Guardar"
+                              Width: =Parent.Width
+                        - Button2_205:
+                            Control: Classic/Button@2.2.0
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(255, 255, 255, 1)
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledFill: =RGBA(0, 0, 0, 0)
+                              Fill: =RGBA(0, 0, 0, 0)
+                              Height: =Parent.Height
+                              HoverColor: =RGBA(255, 255, 255, 1)
+                              HoverFill: =RGBA(0,0,0,0.1)
+                              OnSelect: =SubmitForm(FormAgregarMeses_2); Set(_puAgregarMeses, false)
+                              PressedFill: =RGBA(0,0,0,0.3)
+                              Text: =""
+                              Width: =Parent.Width
+                        - Image4_93:
+                            Control: Image@2.2.3
+                            Properties:
+                              Height: =15
+                              Image: |+
+                                ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                    Substitute(
+                                        LookUp(customIcons,IconName = "Save").IconData,
+                                        "currentColor", "RGBA(255, 255, 255, 1)"
+                                    )
+                                )
+
+                              Width: =15
+                              X: =25
+                              Y: =(Parent.Height - Self.Height)/2

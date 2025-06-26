@@ -1,0 +1,113 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="sistema-gestion-RT" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="sistema-gestion-RT">Microsoft SQL Server es un sistema de administración de bases de datos relacionales desarrollado por Microsoft. Conéctese a SQL Server para administrar datos. Puede realizar diversas acciones, como crear, actualizar, obtener y eliminar el contenido de las filas de una tabla.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="dbo_uspTablaMatriculas_inputparam_DocDocente_def" />
+      <string name="dbo_uspTablaMatriculas_inputparam_Estado_def" />
+      <integer name="dbo_uspTablaMatriculas_inputparam_IdCurso_def" />
+      <string name="dbo_uspTablaMatriculas_inputparam_Modulo_def" />
+      <string name="dbo_uspTablaMatriculas_inputparam_Nivel_def" />
+      <string name="dbo_uspTablaMatriculas_inputparam_TextoMatricula_def" />
+      <object name="dbo_uspTablaMatriculas_inputparam">
+        <property name="DocDocente" type="string" />
+        <property name="Estado" type="string" />
+        <property name="IdCurso" type="integer" />
+        <property name="Modulo" type="string" />
+        <property name="Nivel" type="string" />
+        <property name="TextoMatricula" type="string" />
+      </object>
+      <integer name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_ID_def" />
+      <string name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_doc_alumno_def" />
+      <integer name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_id_curso_def" />
+      <string name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_fecha_registro_def" />
+      <string name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_creador_def" />
+      <number name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_nota_expresionoral_def" />
+      <number name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_nota_comprensionlectora_def" />
+      <number name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_nota_aprendizajeautonomo_def" />
+      <number name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_nota_examenfinal_def" />
+      <integer name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_nota_promedio_def" />
+      <number name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_deuda_def" />
+      <string name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_estado_def" />
+      <integer name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_promo_aplicada_def" />
+      <number name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_monto_pagado_def" />
+      <string name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_libro_pagado_def" />
+      <string name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def_tipo_matricula_def" />
+      <object name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def">
+        <property name="ID" type="integer" />
+        <property name="doc_alumno" type="string" />
+        <property name="id_curso" type="integer" />
+        <property name="fecha_registro" type="string" />
+        <property name="creador" type="string" />
+        <property name="nota_expresionoral" type="number" />
+        <property name="nota_comprensionlectora" type="number" />
+        <property name="nota_aprendizajeautonomo" type="number" />
+        <property name="nota_examenfinal" type="number" />
+        <property name="nota_promedio" type="integer" />
+        <property name="deuda" type="number" />
+        <property name="estado" type="string" />
+        <property name="promo_aplicada" type="integer" />
+        <property name="monto_pagado" type="number" />
+        <property name="libro_pagado" type="string" />
+        <property name="tipo_matricula" type="string" />
+      </object>
+      <array typeRef="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def_items_def" name="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def" />
+      <object name="dbo_uspTablaMatriculas_outputparam_ResultSets_def">
+        <property name="Table1" typeRef="dbo_uspTablaMatriculas_outputparam_ResultSets_def_Table1_def" />
+      </object>
+      <integer name="dbo_uspTablaMatriculas_outputparam_ReturnCode_def" />
+      <untypedObject name="dbo_uspTablaMatriculas_outputparam_OutputParameters_def" />
+      <object name="dbo_uspTablaMatriculas_outputparam">
+        <property name="ResultSets" typeRef="dbo_uspTablaMatriculas_outputparam_ResultSets_def" />
+        <property name="ReturnCode" type="integer" />
+        <property name="OutputParameters" typeRef="dbo_uspTablaMatriculas_outputparam_OutputParameters_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql">
+    <resource path="/{connectionId}/v2/datasets/{server},{database}/procedures/dbo.uspTablaMatriculas">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="server" type="xs:string" required="true">
+        <doc title="Name of SQL server" />
+      </param>
+      <param style="template" name="database" type="xs:string" required="true">
+        <doc title="Database name" />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="dbouspTablaMatriculas" actionName="dbo.uspTablaMatriculas" visibility="important" siena:isDeprecated="false" siena:family="fdaf5a13-84d8-4b6d-9c59-95e3a9fb8e2d" siena:revision="2" siena:status="Production" siena:isSafe="true">
+        <doc title="Execute stored procedure (V2)&#xA;This operation runs a stored procedure." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="DocDocente" path="/DocDocente" type="xs:string">
+              <doc title="DocDocente" />
+            </param>
+            <param style="plain" name="Estado" path="/Estado" type="xs:string">
+              <doc title="Estado" />
+            </param>
+            <param style="plain" name="IdCurso" path="/IdCurso" type="xs:long">
+              <doc title="IdCurso" />
+            </param>
+            <param style="plain" name="Modulo" path="/Modulo" type="xs:string">
+              <doc title="Modulo" />
+            </param>
+            <param style="plain" name="Nivel" path="/Nivel" type="xs:string">
+              <doc title="Nivel" />
+            </param>
+            <param style="plain" name="TextoMatricula" path="/TextoMatricula" type="xs:string">
+              <doc title="TextoMatricula" />
+            </param>
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:dbo_uspTablaMatriculas_outputparam" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_sql" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

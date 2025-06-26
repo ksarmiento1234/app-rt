@@ -1,0 +1,746 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  SideNavigation_MultiLevel:
+    DefinitionType: CanvasComponent
+    AccessAppScope: true
+    CustomProperties:
+      AppColorMode:
+        PropertyKind: Input
+        DisplayName: AppColorMode
+        Description: A custom property
+        DataType: Text
+        Default: =varAppColorMode
+      BaseIconColor:
+        PropertyKind: Input
+        DisplayName: BaseIconColor
+        Description: A custom property
+        DataType: Color
+        Default: =RGBA(115,131,176,1)
+      BaseIconColor_Text:
+        PropertyKind: Input
+        DisplayName: BaseIconColor_Text
+        Description: A custom property
+        DataType: Text
+        Default: ="RGBA(115,131,176,1)"
+      CurrentMenuID:
+        PropertyKind: Input
+        DisplayName: CurrentMenuID
+        Description: A custom property
+        DataType: Number
+        Default: =1
+      CurrentMenuID2:
+        PropertyKind: Input
+        DisplayName: CurrentMenuID2
+        Description: Propiedad personalizada
+        DataType: Number
+        Default: =currentMenuID2
+      HoverFill:
+        PropertyKind: Input
+        DisplayName: HoverFill
+        Description: A custom property
+        DataType: Color
+        Default: =varHoverFill
+      LogoPadding_Percent:
+        PropertyKind: Input
+        DisplayName: LogoPadding_Percent
+        Description: A custom property
+        DataType: Number
+        Default: =10%
+      Logo_Compact:
+        PropertyKind: Input
+        DisplayName: Logo_Compact
+        Description: A custom property
+        DataType: Image
+        Default: =rtlogo2
+      Logo_Expanded:
+        PropertyKind: Input
+        DisplayName: Logo_Expanded
+        Description: A custom property
+        DataType: Image
+        Default: =If(varAppColorMode = "Dark", rtlogo2,rtlogo2blanco)
+      MenuContent:
+        PropertyKind: Input
+        DisplayName: MenuContent
+        Description: A custom property
+        DataType: Table
+        Default: |-
+          =Table(
+              {
+                  MenuIcon_Selected: "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bucket-fill' viewBox='0 0 16 16'>
+            <path d='M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0a4.5 4.5 0 0 1 8.945 0H3.527z'/>
+          </svg>",
+                  MenuIcon: "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bucket' viewBox='0 0 16 16'>
+            <path d='M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0a4.5 4.5 0 0 1 8.945 0H3.527zm9.892 1-1.286 8.574a.5.5 0 0 1-.494.426H4.36a.5.5 0 0 1-.494-.426L2.58 6h10.838z'/>
+          </svg>",
+                  MenuID: 1,
+                  MenuName: "Products",
+                  PageNavigation: App.ActiveScreen,
+                  Level2Menu:Table(
+                      {
+                          MenuID: 1.1,
+                          MenuName: "Active",
+                          PageNavigation: App.ActiveScreen
+                      },
+                      {
+                          MenuID: 1.2,
+                          MenuName: "Classified",
+                          PageNavigation: App.ActiveScreen
+                      }
+                  )
+              },
+              {
+                  MenuIcon_Selected: "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bucket-fill' viewBox='0 0 16 16'>
+            <path d='M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0a4.5 4.5 0 0 1 8.945 0H3.527z'/>
+          </svg>",
+                  MenuIcon: "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bucket' viewBox='0 0 16 16'>
+            <path d='M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0a4.5 4.5 0 0 1 8.945 0H3.527zm9.892 1-1.286 8.574a.5.5 0 0 1-.494.426H4.36a.5.5 0 0 1-.494-.426L2.58 6h10.838z'/>
+          </svg>",
+                  MenuID: 2,
+                  MenuName: "Appointments",
+                  PageNavigation:  App.ActiveScreen,
+                  Level2Menu: Table(
+                      {
+                          MenuID: 2.1,
+                          MenuName: "Active",
+                          PageNavigation: App.ActiveScreen
+                      },
+                      {
+                          MenuID: 2.2,
+                          MenuName: "Classified",
+                          PageNavigation: App.ActiveScreen
+                      },
+                      {
+                          MenuID: 2.3,
+                          MenuName: "Closed",
+                          PageNavigation: App.ActiveScreen
+                      }
+                  )
+              },
+              {
+                  MenuIcon_Selected: "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bucket-fill' viewBox='0 0 16 16'>
+            <path d='M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0a4.5 4.5 0 0 1 8.945 0H3.527z'/>
+          </svg>",
+                  MenuIcon: "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bucket' viewBox='0 0 16 16'>
+            <path d='M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0a4.5 4.5 0 0 1 8.945 0H3.527zm9.892 1-1.286 8.574a.5.5 0 0 1-.494.426H4.36a.5.5 0 0 1-.494-.426L2.58 6h10.838z'/>
+          </svg>",
+                  MenuID: 3,
+                  MenuName: "Categories",
+                  PageNavigation:  App.ActiveScreen,
+                  Level2Menu: Table(
+                      {
+                          MenuID: 3.1,
+                          MenuName: "Active",
+                          PageNavigation: App.ActiveScreen
+                      },
+                      {
+                          MenuID: 3.2,
+                          MenuName: "Classified",
+                          PageNavigation: App.ActiveScreen
+                      },
+                      {
+                          MenuID: 3.3,
+                          MenuName: "Closed",
+                          PageNavigation: App.ActiveScreen
+                      }
+                  )
+              }
+          )
+      MenuExpanded:
+        PropertyKind: Output
+        DisplayName: MenuExpanded
+        Description: A custom property
+        DataType: Boolean
+      NavBG:
+        PropertyKind: Input
+        DisplayName: NavBG
+        Description: A custom property
+        DataType: Color
+        Default: =TertiaryColor
+      PressedFill:
+        PropertyKind: Input
+        DisplayName: PressedFill
+        Description: A custom property
+        DataType: Color
+        Default: =varPressedFill
+      SelectedIconBG:
+        PropertyKind: Input
+        DisplayName: SelectedIconBG
+        Description: A custom property
+        DataType: Color
+        Default: =If(varAppColorMode = "Dark", HighlightColor,PrimaryColor)
+      SelectedIconColor:
+        PropertyKind: Input
+        DisplayName: 'SelectedIconColor '
+        Description: A custom property
+        DataType: Color
+        Default: =RGBA(254,189,47,1)
+      SelectedIconColor_Text:
+        PropertyKind: Input
+        DisplayName: SelectedIconColor_Text
+        Description: A custom property
+        DataType: Text
+        Default: ="RGBA(254,189,47,1)"
+      TextColor:
+        PropertyKind: Input
+        DisplayName: TextColor
+        Description: A custom property
+        DataType: Color
+        Default: =PrimaryTextColor
+    Properties:
+      Height: =App.Height
+      MenuExpanded: =
+      Width: =150
+    Children:
+      - RootContainer15_2:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Fill: =SideNavigation_MultiLevel.NavBG
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =10
+            PaddingBottom: =20
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =20
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =Parent.Width
+            X: =
+          Children:
+            - Logo_2:
+                Control: Image@2.2.3
+                Properties:
+                  AlignInContainer: =AlignInContainer.Stretch
+                  BorderColor: =RGBA(0, 0, 0, 0)
+                  BorderStyle: =BorderStyle.None
+                  BorderThickness: =2
+                  DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                  DisabledFill: =RGBA(0, 0, 0, 0)
+                  FocusedBorderThickness: =4
+                  Height: =45
+                  HoverBorderColor: =RGBA(0, 0, 0, 0)
+                  HoverFill: =RGBA(0, 0, 0, 0)
+                  Image: =SideNavigation_MultiLevel.Logo_Expanded
+                  LayoutMinWidth: =0
+                  OnSelect: |-
+                    =/*/
+                    Refresh(Docente);; Refresh(Alumno);; Refresh(Administrativo);; Refresh(Items_Pagos);; Refresh(Horario);; Refresh(Cuotas);; Refresh(Curso);;
+                    Refresh(Deudas);; Refresh(Formapago);; Refresh(Libro);; Refresh(Matricula);; Refresh(Modalidad);; Refresh(Nacionalidad);; Refresh(Nivel);;
+                    Refresh(Pagos);; Refresh(Pais);; Refresh(Periodos);; Refresh(PreRegistroAlumno);; Refresh(Producto);; Refresh(Promo);; Refresh(TestRegistroPago);;
+                    Refresh(Tipodocumento);; Refresh(Turno);;
+                    Notify("Los datos del sistema se actualizaron correctamente!"; NotificationType.Success; 2000)
+                    /*/
+                    Refresh(Curso)
+                  PaddingBottom: =Self.Height * SideNavigation_MultiLevel.LogoPadding_Percent
+                  PaddingTop: =Self.Height * SideNavigation_MultiLevel.LogoPadding_Percent
+                  PressedBorderColor: =RGBA(0, 0, 0, 0)
+                  PressedFill: =RGBA(0, 0, 0, 0)
+            - MenuItemGallery33:
+                Control: Gallery@2.15.0
+                Variant: VariableHeight
+                Properties:
+                  BorderColor: =RGBA(85, 106, 129, 1)
+                  DelayItemLoading: =false
+                  Items: =SideNavigation_MultiLevel.MenuContent
+                  LayoutMinHeight: =0
+                  LayoutMinWidth: =0
+                  TemplatePadding: =0
+                  TemplateSize: =150
+                Children:
+                  - TemplateContainer18_3:
+                      Control: GroupContainer@1.3.0
+                      Variant: ManualLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        Height: =50
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.TemplateWidth
+                      Children:
+                        - CustomBTNContainer19_3:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              Fill: |-
+                                =If(
+                                    SideNavigation_MultiLevel.CurrentMenuID = ThisItem.MenuID,
+                                    SideNavigation_MultiLevel.SelectedIconBG,
+                                    RGBA(0, 0, 0, 0)
+                                )
+                              Height: =Parent.Height * 70%
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                              Width: =Parent.Width
+                              X: =(Parent.Width - Self.Width)/2
+                              Y: =(Parent.Height - Self.Height)/2
+                            Children:
+                              - MenuIconImage9_3:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    FocusedBorderThickness: =4
+                                    Height: =Parent.Height
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    Image: |-
+                                      ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                          Substitute(
+                                              If(
+                                                  SideNavigation_MultiLevel.CurrentMenuID = ThisItem.MenuID,
+                                                  ThisItem.MenuIcon_Selected,
+                                                  ThisItem.MenuIcon
+                                              ),
+                                              "currentColor", 
+                                              If(
+                                                  SideNavigation_MultiLevel.CurrentMenuID = ThisItem.MenuID,
+                                                  SideNavigation_MultiLevel.SelectedIconColor_Text,
+                                                  SideNavigation_MultiLevel.BaseIconColor_Text
+                                              )
+                                          )
+                                      )
+                                    PaddingBottom: =8
+                                    PaddingTop: =8
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                                    Width: =Self.Height
+                              - Label5_4:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    Color: =SideNavigation_MultiLevel.TextColor
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    FocusedBorderThickness: =4
+                                    Font: =Font.Lato
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    PaddingLeft: =0
+                                    Size: =8
+                                    Text: =ThisItem.MenuName
+                                    Width: =Parent.Width - Self.X
+                                    X: =MenuIconImage9_3.Width
+                              - Button3_3:
+                                  Control: Classic/Button@2.2.0
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =RGBA(30, 45, 62, 1)
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    FocusedBorderColor: =ColorFade(Self.Fill, 75%)
+                                    Font: =Font.'Segoe UI'
+                                    Height: =Parent.Height
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverColor: =RGBA(30, 45, 62, 1)
+                                    HoverFill: =SideNavigation_MultiLevel.HoverFill
+                                    OnSelect: |-
+                                      =If(
+                                          openedLevel2Menu = ThisItem.MenuID,
+                                          Set(openedLevel2Menu, Blank()),
+                                          Set(openedLevel2Menu, ThisItem.MenuID)
+                                      )
+                                    PressedBorderColor: =ColorFade(RGBA(0, 188, 242, 1), 50%)
+                                    PressedColor: =RGBA(30, 45, 62, 1)
+                                    PressedFill: =SideNavigation_MultiLevel.PressedFill
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Text: =""
+                                    Width: =Parent.Width
+                              - Icon3:
+                                  Control: Classic/Icon@2.5.0
+                                  Properties:
+                                    BorderColor: =RGBA(85, 106, 129, 1)
+                                    Color: =SideNavigation_MultiLevel.BaseIconColor
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledColor: =RGBA(220, 220, 220, 1)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    FocusedBorderThickness: =4
+                                    Height: =10
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverColor: =ColorFade(RGBA(0, 188, 242, 1), 30%)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    Icon: |-
+                                      =If(
+                                          openedLevel2Menu = ThisItem.MenuID,
+                                          Icon.ChevronUp,
+                                          Icon.ChevronDown
+                                      )
+                                    OnSelect: |-
+                                      =If(
+                                          openedLevel2Menu = ThisItem.MenuID,
+                                          Set(openedLevel2Menu, Blank()),
+                                          Set(openedLevel2Menu, ThisItem.MenuID)
+                                      )
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedColor: =ColorFade(RGBA(0, 188, 242, 1), 30%)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                                    Visible: =!IsBlank(ThisItem.Level2Menu)
+                                    Width: =10
+                                    X: =Parent.Width - Self.Width - 10
+                                    Y: =(Parent.Height - Self.Height)/2
+                  - ChildMenuGallery5:
+                      Control: Gallery@2.15.0
+                      Variant: VariableHeight
+                      Properties:
+                        BorderColor: =RGBA(85, 106, 129, 1)
+                        DelayItemLoading: =false
+                        Height: =Self.AllItemsCount * (Self.TemplateHeight + Self.TemplatePadding)
+                        Items: =ThisItem.Level2Menu
+                        TemplatePadding: =0
+                        TemplateSize: =35
+                        Visible: =openedLevel2Menu = ThisItem.MenuID
+                        Width: =Parent.TemplateWidth
+                        Y: =TemplateContainer18_3.Height
+                      Children:
+                        - TemplateContainer18_4:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              Height: =Parent.TemplateHeight
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Width: =Parent.TemplateWidth
+                            Children:
+                              - CustomBTNContainer19_4:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.None
+                                    Fill: |-
+                                      =If(
+                                          SideNavigation_MultiLevel.CurrentMenuID = ThisItem.MenuID,
+                                          SideNavigation_MultiLevel.SelectedIconBG,
+                                          RGBA(0, 0, 0, 0)
+                                      )
+                                    Height: =Parent.Height + 2
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Width: =Parent.Width
+                                    X: =(Parent.Width - Self.Width)/2
+                                    Y: =(Parent.Height - Self.Height)/2
+                                  Children:
+                                    - Label5_5:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          Color: =SideNavigation_MultiLevel.TextColor
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          FocusedBorderThickness: =4
+                                          Font: =Font.Lato
+                                          FontWeight: =If(SideNavigation_MultiLevel.CurrentMenuID2 = ThisItem.MenuID, FontWeight.Bold,FontWeight.Normal)
+                                          Height: =Parent.Height
+                                          PaddingLeft: =0
+                                          Size: =If(SideNavigation_MultiLevel.CurrentMenuID2 = ThisItem.MenuID, 10, 8)
+                                          Text: =ThisItem.MenuName
+                                          Width: =Parent.Width - Self.X - 15
+                                          X: =25
+                                    - Rectangle4:
+                                        Control: Rectangle@2.3.0
+                                        Properties:
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          DisabledFill: =RGBA(166, 166, 166, 1)
+                                          Fill: =SideNavigation_MultiLevel.BaseIconColor
+                                          FocusedBorderThickness: =4
+                                          Height: =Parent.Height
+                                          HoverFill: =RGBA(0, 188, 242, 1)
+                                          PressedFill: =RGBA(0, 188, 242, 1)
+                                          Width: =If(SideNavigation_MultiLevel.CurrentMenuID2 = ThisItem.MenuID, 4,1)
+                                          X: =Label5_5.X / 2
+                                    - Container3:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          Fill: =RGBA(215, 58, 60, 1)
+                                          Height: =22
+                                          RadiusBottomLeft: =10
+                                          RadiusBottomRight: =10
+                                          RadiusTopLeft: =10
+                                          RadiusTopRight: =10
+                                          Visible: =If(TextCanvas9.Text = "", false, true)
+                                          Width: =24
+                                          X: =Parent.Width-25
+                                          Y: =1
+                                        Children:
+                                          - TextCanvas9:
+                                              Control: Text@0.0.51
+                                              Properties:
+                                                Align: ='TextCanvas.Align'.Center
+                                                Font: =Font.Arial
+                                                FontColor: =RGBA(255, 255, 255, 1)
+                                                Height: =Parent.Height
+                                                PaddingTop: =0
+                                                Size: =12
+                                                Text: =If(ThisItem.MenuName = "Vouchers de Pago", First('sistema-gestion-RT_10'.dbouspNotificaciones({table:"TestRegistroPago"}).ResultSets.Table1).Column1,  ThisItem.MenuName = "Registros", First('sistema-gestion-RT_10'.dbouspNotificaciones({table:"PreRegistroAlumno"}).ResultSets.Table1).Column1)
+                                                VerticalAlign: =VerticalAlign.Middle
+                                                Weight: ='TextCanvas.Weight'.Bold
+                                                Width: =Parent.Width
+                                    - Button3_4:
+                                        Control: Classic/Button@2.2.0
+                                        Properties:
+                                          BorderColor: =RGBA(0, 0, 0, 0)
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =RGBA(30, 45, 62, 1)
+                                          DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                          Fill: =RGBA(0, 0, 0, 0)
+                                          FocusedBorderColor: =ColorFade(Self.Fill, 75%)
+                                          Font: =Font.'Segoe UI'
+                                          Height: =Parent.Height
+                                          HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                          HoverColor: =RGBA(30, 45, 62, 1)
+                                          HoverFill: =SideNavigation_MultiLevel.HoverFill
+                                          OnSelect: =Navigate(ThisItem.PageNavigation)
+                                          PressedBorderColor: =ColorFade(RGBA(0, 188, 242, 1), 50%)
+                                          PressedColor: =RGBA(30, 45, 62, 1)
+                                          PressedFill: =SideNavigation_MultiLevel.PressedFill
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Text: =""
+                                          Width: =Parent.Width
+            - CustomToggleContainer21_1:
+                Control: GroupContainer@1.3.0
+                Variant: ManualLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  BorderColor: =SideNavigation_MultiLevel.BaseIconColor
+                  BorderThickness: =2
+                  DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  Height: =AppModeBTNContainer22_1.Height
+                  RadiusBottomLeft: =20
+                  RadiusBottomRight: =20
+                  RadiusTopLeft: =20
+                  RadiusTopRight: =20
+                  Visible: =false
+                  Width: =AppModeBTNContainer22_1.Width
+                Children:
+                  - AppModeBTNContainer22_1:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        Height: =If(Self.LayoutDirection = LayoutDirection.Horizontal,30,60)
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =If(Self.LayoutDirection = LayoutDirection.Horizontal,60,30)
+                      Children:
+                        - LightModeContainer23_1:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              Fill: =If(SideNavigation_MultiLevel.AppColorMode = "Light", SideNavigation_MultiLevel.BaseIconColor,RGBA(0,0,0,0))
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              RadiusBottomLeft: =20
+                              RadiusBottomRight: =20
+                              RadiusTopLeft: =20
+                              RadiusTopRight: =20
+                            Children:
+                              - Image6_2:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    FocusedBorderThickness: =4
+                                    Height: =Parent.Height
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    Image: |-
+                                      ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                          Substitute(
+                                              "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-brightness-high-fill' viewBox='0 0 16 16'>
+                                        <path d='M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z'/>
+                                      </svg>",
+                                              "currentColor", If(SideNavigation_MultiLevel.AppColorMode = "Light","White", SideNavigation_MultiLevel.BaseIconColor_Text)
+                                          )
+                                      )
+                                    PaddingBottom: =8
+                                    PaddingTop: =8
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                                    Width: =Parent.Width
+                        - DarkModeContainer23_2:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              Fill: =If(SideNavigation_MultiLevel.AppColorMode = "Dark", SideNavigation_MultiLevel.BaseIconColor,RGBA(0,0,0,0))
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =0
+                              RadiusBottomLeft: =20
+                              RadiusBottomRight: =20
+                              RadiusTopLeft: =20
+                              RadiusTopRight: =20
+                            Children:
+                              - Image6_3:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                    DisabledFill: =RGBA(0, 0, 0, 0)
+                                    FocusedBorderThickness: =4
+                                    Height: =Parent.Height
+                                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                    HoverFill: =RGBA(0, 0, 0, 0)
+                                    Image: |-
+                                      ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                          Substitute(
+                                              "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-moon-stars-fill' viewBox='0 0 16 16'>
+                                        <path d='M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278'/>
+                                        <path d='M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z'/>
+                                      </svg>",
+                                              "currentColor", If(SideNavigation_MultiLevel.AppColorMode = "Dark","White", SideNavigation_MultiLevel.BaseIconColor_Text)
+                                          )
+                                      )
+                                    PaddingBottom: =8
+                                    PaddingTop: =8
+                                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                    PressedFill: =RGBA(0, 0, 0, 0)
+                                    Width: =Parent.Width
+                  - Button5_1:
+                      Control: Classic/Button@2.2.0
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        Color: =RGBA(30, 45, 62, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderColor: =ColorFade(Self.Fill, 75%)
+                        Font: =Font.'Segoe UI'
+                        Height: =Parent.Height
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =RGBA(30, 45, 62, 1)
+                        HoverFill: =SideNavigation_MultiLevel.HoverFill
+                        OnSelect: =If(varAppColorMode = "Light",Set(varAppColorMode,"Dark"), Set(varAppColorMode,"Light"));
+                        PressedBorderColor: =ColorFade(RGBA(0, 188, 242, 1), 50%)
+                        PressedColor: =RGBA(30, 45, 62, 1)
+                        PressedFill: =SideNavigation_MultiLevel.PressedFill
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Text: =""
+                        Width: =Parent.Width
+            - TextCanvas6:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  AlignInContainer: =AlignInContainer.Center
+                  FontColor: =PrimaryTextColor
+                  Size: =12
+                  Text: ="Versión 1.2.2"
+                  X: =27
+                  Y: =666
+            - ProfileContainer16_2:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  Height: =40
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutJustifyContent: =LayoutJustifyContent.Center
+                  LayoutMinWidth: =40
+                  PaddingLeft: =5
+                  PaddingRight: =5
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                Children:
+                  - ImageContainer17_2:
+                      Control: GroupContainer@1.3.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =SideNavigation_MultiLevel.BaseIconColor
+                        BorderThickness: =2
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =Self.Width
+                        RadiusBottomLeft: =35
+                        RadiusBottomRight: =35
+                        RadiusTopLeft: =35
+                        RadiusTopRight: =35
+                        Width: =35
+                      Children:
+                        - Image7_2:
+                            Control: Image@2.2.3
+                            Properties:
+                              BorderColor: =RGBA(0, 0, 0, 0)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                              DisabledFill: =RGBA(0, 0, 0, 0)
+                              FocusedBorderThickness: =4
+                              Height: =Parent.Height
+                              HoverBorderColor: =RGBA(0, 0, 0, 0)
+                              HoverFill: =RGBA(0, 0, 0, 0)
+                              Image: =User().Image
+                              PressedBorderColor: =RGBA(0, 0, 0, 0)
+                              PressedFill: =RGBA(0, 0, 0, 0)
+                              Width: =Parent.Width
+                  - Label5_3:
+                      Control: Label@2.5.1
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =SideNavigation_MultiLevel.TextColor
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        FillPortions: =1
+                        FocusedBorderThickness: =4
+                        Font: =Font.Lato
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =0
+                        PaddingRight: =0
+                        Size: =8
+                        Text: =User().FullName
+                        Width: =Parent.Width - Self.X

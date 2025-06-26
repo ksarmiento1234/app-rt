@@ -1,0 +1,424 @@
+{
+  "48ff607c-63a1-43fb-991d-e8d73352f90b": {
+    "connectionRef": {
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1752/1.0.1752.4216/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "NewAlumnoReingreso"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "aa7c4779-05fd-4216-9f3e-ca54bd8ae218"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "NewAlumnoReingreso"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "aa7c4779-05fd-4216-9f3e-ca54bd8ae218"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "NewAlumnoReingreso"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "48ff607c-63a1-43fb-991d-e8d73352f90b"
+  },
+  "551a4be7-e728-47e4-840f-74a7c0baf5c7": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write",
+      "providers/PowerPlatform.Governance/Operations/Delete",
+      "ExecuteProcedure_V2"
+    ],
+    "connectionRef": {
+      "apiTier": "Premium",
+      "authenticationType": "oauth",
+      "displayName": "SQL Server",
+      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1746/1.0.1746.4174/sql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sql",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "demo-sql-srv00.database.windows.net,demo-netis00": {
+        "dataSources": {
+          "Cuotas": {
+            "tableName": "[dbo].[Cuotas]"
+          },
+          "Deudas": {
+            "tableName": "[dbo].[Deudas]"
+          },
+          "Libro": {
+            "tableName": "[dbo].[Libro]"
+          }
+        }
+      },
+      "rt-az-srv.database.windows.net,sistema-gestion-RT": {
+        "dataSources": {
+          "Alumno": {
+            "tableName": "[dbo].[Alumno]"
+          },
+          "ConfirmacionesMatricula": {
+            "tableName": "[dbo].[ConfirmacionesMatricula]"
+          },
+          "Cuotas": {
+            "tableName": "[dbo].[Cuotas]"
+          },
+          "Curso": {
+            "tableName": "[dbo].[Curso]"
+          },
+          "Deudas": {
+            "tableName": "[dbo].[Deudas]"
+          },
+          "Docente": {
+            "tableName": "[dbo].[Docente]"
+          },
+          "Formapago": {
+            "tableName": "[dbo].[Formapago]"
+          },
+          "Horario": {
+            "tableName": "[dbo].[Horario]"
+          },
+          "Items_Pagos": {
+            "tableName": "[dbo].[Items_Pagos]"
+          },
+          "Libro": {
+            "tableName": "[dbo].[Libro]"
+          },
+          "Matricula": {
+            "tableName": "[dbo].[Matricula]"
+          },
+          "Modalidad": {
+            "tableName": "[dbo].[Modalidad]"
+          },
+          "Nacionalidad": {
+            "tableName": "[dbo].[Nacionalidad]"
+          },
+          "Nivel": {
+            "tableName": "[dbo].[Nivel]"
+          },
+          "Padre": {
+            "tableName": "[dbo].[Padre]"
+          },
+          "Pagos": {
+            "tableName": "[dbo].[Pagos]"
+          },
+          "Pais": {
+            "tableName": "[dbo].[Pais]"
+          },
+          "Periodos": {
+            "tableName": "[dbo].[Periodos]"
+          },
+          "PreRegistroAlumno": {
+            "tableName": "[dbo].[PreRegistroAlumno]"
+          },
+          "Promo": {
+            "tableName": "[dbo].[Promo]"
+          },
+          "sistema-gestion-RT": {},
+          "sistema-gestion-RT_1": {},
+          "sistema-gestion-RT_10": {},
+          "sistema-gestion-RT_11": {},
+          "sistema-gestion-RT_12": {},
+          "sistema-gestion-RT_2": {},
+          "sistema-gestion-RT_3": {},
+          "sistema-gestion-RT_4": {},
+          "sistema-gestion-RT_5": {},
+          "sistema-gestion-RT_6": {},
+          "sistema-gestion-RT_7": {},
+          "sistema-gestion-RT_8": {},
+          "sistema-gestion-RT_9": {},
+          "TestRegistroPago": {
+            "tableName": "[dbo].[TestRegistroPago]"
+          },
+          "Tipodocumento": {
+            "tableName": "[dbo].[Tipodocumento]"
+          },
+          "Tipomoneda": {
+            "tableName": "[dbo].[Tipomoneda]"
+          },
+          "Turno": {
+            "tableName": "[dbo].[Turno]"
+          },
+          "ubigeo_peru_departments": {
+            "tableName": "[dbo].[ubigeo_peru_departments]"
+          },
+          "ubigeo_peru_districts": {
+            "tableName": "[dbo].[ubigeo_peru_districts]"
+          },
+          "ubigeo_peru_provinces": {
+            "tableName": "[dbo].[ubigeo_peru_provinces]"
+          },
+          "UpdateNamePago": {},
+          "uspUpdateTRP": {}
+        }
+      }
+    },
+    "dataSources": [
+      "Libro",
+      "Cuotas",
+      "Deudas",
+      "Padre",
+      "PreRegistroAlumno",
+      "Docente",
+      "Promo",
+      "Pais",
+      "Turno",
+      "Modalidad",
+      "Matricula",
+      "Nivel",
+      "Items_Pagos",
+      "Tipomoneda",
+      "Periodos",
+      "Horario",
+      "Nacionalidad",
+      "Formapago",
+      "ubigeo_peru_departments",
+      "ubigeo_peru_provinces",
+      "TestRegistroPago",
+      "Alumno",
+      "ubigeo_peru_districts",
+      "Curso",
+      "Tipodocumento",
+      "Pagos",
+      "ConfirmacionesMatricula",
+      "uspUpdateTRP",
+      "sistema-gestion-RT",
+      "sistema-gestion-RT_2",
+      "sistema-gestion-RT_1",
+      "sistema-gestion-RT_3",
+      "sistema-gestion-RT_4",
+      "UpdateNamePago",
+      "sistema-gestion-RT_5",
+      "sistema-gestion-RT_6",
+      "sistema-gestion-RT_8",
+      "sistema-gestion-RT_9",
+      "sistema-gestion-RT_7",
+      "sistema-gestion-RT_10",
+      "sistema-gestion-RT_11",
+      "sistema-gestion-RT_12"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "endpoints": [
+      "demo-sql-srv00.database.windows.net,demo-netis00",
+      "rt-az-srv.database.windows.net,sistema-gestion-RT"
+    ],
+    "id": "551a4be7-e728-47e4-840f-74a7c0baf5c7"
+  },
+  "6876e1fb-e799-4ac4-b2ed-bef59a9b91ce": {
+    "appActions": [
+      "SearchUser",
+      "UserProfile_V2"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Usuarios de Office 365",
+      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1746/1.0.1746.4174/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "UsuariosdeOffice365"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "6876e1fb-e799-4ac4-b2ed-bef59a9b91ce"
+  },
+  "9c2d9be2-6f6b-4aeb-be0f-a8bdd62ded34": {
+    "appActions": [
+      "SendEmailV2"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office\u00A0365 Outlook",
+      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1747/1.0.1748.4181/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "de5cd74b-fa14-4f79-90e4-5bfdc6622271",
+      "d6beed2a-2306-461b-89a2-75e4e3dcdb54"
+    ],
+    "id": "9c2d9be2-6f6b-4aeb-be0f-a8bdd62ded34"
+  },
+  "ae31f1dc-08b7-402b-8fe9-660f3163b367": {
+    "appActions": [
+      "GetFileContent",
+      "CreateFile"
+    ],
+    "connectionRef": {
+      "apiTier": "Premium",
+      "authenticationType": "keyBasedAuth",
+      "displayName": "Azure Blob Storage",
+      "executionRestrictions": {
+        "apiId": "/providers/microsoft.powerapps/apis/shared_azureblob",
+        "appVer": "3.25063.6",
+        "modifiedOn": "2025-06-26 18:27:25",
+        "policy": "{\"type\":\"action\",\"dataSources\":{\"actions\":[\"getfilecontent\",\"createfile\"]}}",
+        "version": 1
+      },
+      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/releases/v1.0.1747/1.0.1748.4181/azureblob/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_azureblob",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_azureblob/connections/d5801498ad424e4b9f35606b90cac1c2"
+    },
+    "datasets": {},
+    "dataSources": [
+      "AzureBlobStorage"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "ae31f1dc-08b7-402b-8fe9-660f3163b367"
+  },
+  "d585f305-bb0a-41d5-a3ef-fd52e0ce9a08": {
+    "connectionRef": {
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1752/1.0.1752.4216/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowDisplayName": {
+          "value": "AddOwnersRT"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "28e9b105-2cd6-4668-8289-bd6f5537f297"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowDisplayName": {
+          "value": "AddOwnersRT"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "28e9b105-2cd6-4668-8289-bd6f5537f297"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "AddOwnersRT"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "d585f305-bb0a-41d5-a3ef-fd52e0ce9a08"
+  },
+  "d6beed2a-2306-461b-89a2-75e4e3dcdb54": {
+    "connectionRef": {
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1752/1.0.1752.4216/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "9c2d9be2-6f6b-4aeb-be0f-a8bdd62ded34": {
+          "value": "shared_office365"
+        },
+        "workflowDisplayName": {
+          "value": "testNewUserM365"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "024bde0f-8780-4f4c-bf8d-ce7029bacb40"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_office365": {
+          "value": "9c2d9be2-6f6b-4aeb-be0f-a8bdd62ded34"
+        },
+        "workflowDisplayName": {
+          "value": "testNewUserM365"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "024bde0f-8780-4f4c-bf8d-ce7029bacb40"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "testNewUserM365"
+    ],
+    "dependencies": {
+      "shared_office365": "9c2d9be2-6f6b-4aeb-be0f-a8bdd62ded34"
+    },
+    "dependents": [],
+    "id": "d6beed2a-2306-461b-89a2-75e4e3dcdb54"
+  },
+  "de5cd74b-fa14-4f79-90e4-5bfdc6622271": {
+    "connectionRef": {
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1752/1.0.1752.4216/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "9c2d9be2-6f6b-4aeb-be0f-a8bdd62ded34": {
+          "value": "shared_office365"
+        },
+        "workflowDisplayName": {
+          "value": "testMatriculaRT"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "79df2a47-bd7a-47a4-8a31-195282653450"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_office365": {
+          "value": "9c2d9be2-6f6b-4aeb-be0f-a8bdd62ded34"
+        },
+        "workflowDisplayName": {
+          "value": "testMatriculaRT"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "79df2a47-bd7a-47a4-8a31-195282653450"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "testMatriculaRT"
+    ],
+    "dependencies": {
+      "shared_office365": "9c2d9be2-6f6b-4aeb-be0f-a8bdd62ded34"
+    },
+    "dependents": [],
+    "id": "de5cd74b-fa14-4f79-90e4-5bfdc6622271"
+  },
+  "e579e8b6-b57a-4a78-a587-dfacd277f2b7": {
+    "appActions": [
+      "AddMemberToGroup",
+      "ListGroups"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Grupos de Office 365",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1681/1.0.1681.3663/office365groups/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365groups",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "GruposdeOffice365"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "e579e8b6-b57a-4a78-a587-dfacd277f2b7"
+  }
+}

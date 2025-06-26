@@ -1,0 +1,56 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="sistema-gestion-RT" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="sistema-gestion-RT">Microsoft SQL Server es un sistema de administración de bases de datos relacionales desarrollado por Microsoft. Conéctese a SQL Server para administrar datos. Puede realizar diversas acciones, como crear, actualizar, obtener y eliminar el contenido de las filas de una tabla.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="dbo_uspRemoveFromTabla_inputparam_IDtoRemove_def" />
+      <string name="dbo_uspRemoveFromTabla_inputparam_table_def" />
+      <object name="dbo_uspRemoveFromTabla_inputparam">
+        <property name="IDtoRemove" type="string" />
+        <property name="table" type="string" />
+      </object>
+      <untypedObject name="dbo_uspRemoveFromTabla_outputparam_ResultSets_def" />
+      <integer name="dbo_uspRemoveFromTabla_outputparam_ReturnCode_def" />
+      <untypedObject name="dbo_uspRemoveFromTabla_outputparam_OutputParameters_def" />
+      <object name="dbo_uspRemoveFromTabla_outputparam">
+        <property name="ResultSets" typeRef="dbo_uspRemoveFromTabla_outputparam_ResultSets_def" />
+        <property name="ReturnCode" type="integer" />
+        <property name="OutputParameters" typeRef="dbo_uspRemoveFromTabla_outputparam_OutputParameters_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql">
+    <resource path="/{connectionId}/v2/datasets/{server},{database}/procedures/dbo.uspRemoveFromTabla">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="server" type="xs:string" required="true">
+        <doc title="Name of SQL server" />
+      </param>
+      <param style="template" name="database" type="xs:string" required="true">
+        <doc title="Database name" />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="dbouspRemoveFromTabla" actionName="dbo.uspRemoveFromTabla" visibility="important" siena:isDeprecated="false" siena:family="fdaf5a13-84d8-4b6d-9c59-95e3a9fb8e2d" siena:revision="2" siena:status="Production" siena:isSafe="true">
+        <doc title="Execute stored procedure (V2)&#xA;This operation runs a stored procedure." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="IDtoRemove" path="/IDtoRemove" type="xs:string">
+              <doc title="IDtoRemove" />
+            </param>
+            <param style="plain" name="table" path="/table" type="xs:string">
+              <doc title="table" />
+            </param>
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:dbo_uspRemoveFromTabla_outputparam" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_sql" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

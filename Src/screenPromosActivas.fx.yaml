@@ -1,0 +1,1319 @@
+screenPromosActivas As screen:
+    Fill: =PrimaryColor
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: =Set(currentMenuID, 2); Set(currentMenuID2,2.4)
+
+    PageContainer_19 As groupContainer.horizontalAutoLayoutContainer:
+        BorderStyle: =BorderStyle.None
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        MenuContainer_19 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderStyle: =BorderStyle.None
+            FillPortions: =0
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =150
+            ZIndex: =2
+
+            SideNavigation_MultiLevel_26 As SideNavigation_MultiLevel:
+                CurrentMenuID: =currentMenuID
+                MenuContent: =customNavigation
+                Width: =Parent.Width
+
+        PageContent_17 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderStyle: =BorderStyle.None
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =10
+            LayoutMinHeight: =100
+            LayoutMinWidth: =150
+            LayoutMode: =LayoutMode.Auto
+            PaddingBottom: =10
+            PaddingLeft: =20
+            PaddingRight: =20
+            PaddingTop: =20
+            ZIndex: =3
+
+            Container_Line_20 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =60
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutGap: =10
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                ZIndex: =4
+
+                PageTitle_22 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =PrimaryTextColor
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.'Lato Black'
+                    FontWeight: =FontWeight.Semibold
+                    PaddingLeft: =20
+                    Size: =15
+                    Text: ="Promos Activas"
+                    Width: =200
+                    ZIndex: =5
+
+                Search_Container_13 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =HighlightColor
+                    BorderThickness: =3
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =0
+                    Height: =35
+                    LayoutMinHeight: =35
+                    LayoutMinWidth: =200
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Width: =250
+                    X: =40
+                    Y: =(Parent.Height - Self.Height)/2
+                    ZIndex: =11
+
+                    TextInput_Alumno_10 As text:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =PrimaryTextColor
+                        Default: =""
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Height: =Parent.Height
+                        HintText: ="Buscar...."
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =PrimaryTextColor
+                        HoverFill: =RGBA(255, 255, 255, 0.1)
+                        PaddingLeft: |-
+                            =If(
+                                !IsBlank(Self.Text),
+                                12,
+                                15 + SearchIcon_17.Width
+                            )
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =9
+                        Width: =Parent.Width
+                        Y: =
+                        ZIndex: =12
+
+                    SearchIcon_17 As image:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =Parent.Height
+                        Image: |-
+                            ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                Substitute(
+                                    LookUp(customIcons,IconName = "Search").IconData,
+                                    "currentColor", SecondaryTextColor_Text
+                                )
+                            )
+                        PaddingBottom: =10
+                        PaddingLeft: =5
+                        PaddingRight: =5
+                        PaddingTop: =10
+                        Visible: =IsBlank(TextInput_Alumno_10.Text)
+                        Width: =30
+                        X: =10
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =13
+
+                    Rectangle3_17 As rectangle:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Fill: =RGBA(116, 116, 116, 1)
+                        Height: =1
+                        Visible: =false
+                        Width: =TextInput_Alumno_10.Width
+                        Y: =Parent.Height - Self.Height
+                        ZIndex: =14
+
+            Container_Line_26 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =60
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                ZIndex: =22
+
+                Container1_24 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =40
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =20
+                    LayoutMinWidth: =500
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =Parent.Width
+                    ZIndex: =23
+
+                    DocContainer_17 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.3
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =70
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =80
+                        ZIndex: =1
+
+                        Label8_70 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            PaddingLeft: =20
+                            Size: =8
+                            Text: =Upper("Doc")
+                            Width: =Parent.Width
+                            ZIndex: =25
+
+                    NombreCompletoContainer_16 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.8
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =120
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =120
+                        ZIndex: =2
+
+                        Label8_115 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            PaddingLeft: =20
+                            Size: =8
+                            Text: =Upper("Nombre Completo")
+                            Width: =Parent.Width
+                            ZIndex: =27
+
+                    CorreoContainer_18 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.4
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =100
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =180
+                        ZIndex: =3
+
+                        Label8_116 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            PaddingLeft: =20
+                            Size: =8
+                            Text: =Upper("CELULAR")
+                            Width: =Parent.Width
+                            ZIndex: =29
+
+                    DireccionContainer_8 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.8
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =100
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =4
+
+                        Label8_119 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            PaddingLeft: =20
+                            Size: =8
+                            Text: ="PROMO APLICADA"
+                            Width: =Parent.Width
+                            ZIndex: =34
+
+                    Label8_117 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: |-
+                            =RGBA(149, 149, 149, 1)
+                            //PrimaryTextColor
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =Color.Transparent
+                        FillPortions: =CelularLabel_6.FillPortions
+                        Font: =Font.Lato
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinWidth: =CelularLabel_6.LayoutMinWidth
+                        PaddingLeft: =10
+                        Size: =8
+                        Text: =Upper("FECHA")
+                        ZIndex: =5
+
+                    SexoContainer_14 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.35
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =70
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =6
+
+                        Label8_118 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Size: =8
+                            Text: =Upper("VENCIMIENTO")
+                            Width: =Parent.Width
+                            ZIndex: =32
+
+                    SexoContainer_17 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.2
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =80
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =7
+
+                        Label8_122 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Size: =8
+                            Text: =Upper("MESES PENDIENTES")
+                            Width: =Parent.Width
+                            ZIndex: =32
+
+                    FechaNacimientoContainer_29 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.5
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =20
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =8
+
+                        Label8_120 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            PaddingLeft: =10
+                            Size: =8
+                            Text: =Upper("ÚLTIMO CURSO")
+                            Width: =Parent.Width
+                            ZIndex: =36
+
+                    FechaNacimientoContainer_30 As groupContainer.manualLayoutContainer:
+                        FillPortions: =0.3
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =0
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =9
+
+                        Label8_121 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            PaddingLeft: =20
+                            Size: =8
+                            Text: =Upper("Estado")
+                            Width: =Parent.Width
+                            ZIndex: =38
+
+                    IconsContainer_26 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0
+                        Height: =50
+                        LayoutGap: =10
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =50
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =8
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        PaddingTop: =8
+                        Width: =50
+                        ZIndex: =10
+
+                separatorRectangle_31 As rectangle:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Fill: =PrimaryTextColor
+                    Height: =1
+                    HoverFill: =PrimaryTextColor
+                    PressedFill: =PrimaryTextColor
+                    Width: =Parent.Width
+                    Y: =40
+                    ZIndex: =40
+
+                Gallery1_18 As gallery.galleryVertical:
+                    '#CopilotOverlayLabel': ="Filtrada"
+                    BorderColor: =App.Theme.Colors.Darker40
+                    DelayItemLoading: =true
+                    Height: =423
+                    Items: |-
+                        =Filter(
+                                Alumno,
+                                meses_pagados > 0,
+                                TextInput_Alumno_10.Text in DOC || TextInput_Alumno_10.Text in nombre_completo
+                        )
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =320
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =1
+                    TemplateSize: =50
+                    Width: =Parent.Width
+                    Y: =40
+                    ZIndex: =41
+
+                    Container1_25 As groupContainer.horizontalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        Fill: |-
+                            =If(DateDiff(Today(), ThisItem.fecha_vencimiento_promo, TimeUnit.Months)<ThisItem.meses_pagados, RGBA(250, 15, 15, 0.31),
+                            DateDiff(Today(), ThisItem.fecha_vencimiento_promo,  TimeUnit.Months)=ThisItem.meses_pagados, RGBA(249, 148, 16, 0.31),
+                            RGBA(181, 186, 234, 0.29))
+                        Height: =Parent.TemplateHeight
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =Parent.TemplateWidth
+                        ZIndex: =42
+
+                        DocContainer_19 As groupContainer.manualLayoutContainer:
+                            DropShadow: =DropShadow.Light
+                            FillPortions: =0.3
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =70
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =80
+                            ZIndex: =1
+
+                            Label13_16 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Fill: |-
+                                    =If(DateDiff(Today(), ThisItem.fecha_vencimiento_promo, TimeUnit.Months)<ThisItem.meses_pagados, RGBA(250, 15, 15, 0.31),
+                                    DateDiff(Today(), ThisItem.fecha_vencimiento_promo,  TimeUnit.Months)=ThisItem.meses_pagados, RGBA(249, 148, 16, 0.31),
+                                    RGBA(181, 186, 234, 0.29))
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                PaddingLeft: =10
+                                Size: =8
+                                Text: =ThisItem.DOC
+                                Width: =Parent.Width
+                                ZIndex: =44
+
+                        NombreCompletoContainer_17 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.8
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =120
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =120
+                            ZIndex: =2
+
+                            Label10_45 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Fill: |-
+                                    =If(DateDiff(Today(), ThisItem.fecha_vencimiento_promo, TimeUnit.Months)<ThisItem.meses_pagados, RGBA(250, 15, 15, 0.31),
+                                    DateDiff(Today(), ThisItem.fecha_vencimiento_promo,  TimeUnit.Months)=ThisItem.meses_pagados, RGBA(249, 148, 16, 0.31),
+                                    RGBA(181, 186, 234, 0.29))
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                LineHeight: =1.7
+                                PaddingLeft: =15
+                                Size: =8
+                                Text: |-
+                                    =ThisItem.apellido_paterno & " " & ThisItem.apellido_materno & ", " & ThisItem.nombres & "
+                                    " & ThisItem.correo_institucional
+                                Width: =Parent.Width
+                                ZIndex: =46
+
+                        CorreoContainer_19 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.4
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =100
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =180
+                            ZIndex: =3
+
+                            Label10_46 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Fill: |-
+                                    =If(DateDiff(Today(), ThisItem.fecha_vencimiento_promo, TimeUnit.Months)<ThisItem.meses_pagados, RGBA(250, 15, 15, 0.31),
+                                    DateDiff(Today(), ThisItem.fecha_vencimiento_promo,  TimeUnit.Months)=ThisItem.meses_pagados, RGBA(249, 148, 16, 0.31),
+                                    RGBA(181, 186, 234, 0.29))
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                PaddingLeft: =15
+                                Size: =8
+                                Text: =ThisItem.celular
+                                Width: =Parent.Width
+                                ZIndex: =48
+
+                        DireccionContainer_9 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.8
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =100
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =4
+
+                            Label16_28 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Fill: |-
+                                    =If(DateDiff(Today(), ThisItem.fecha_vencimiento_promo, TimeUnit.Months)<ThisItem.meses_pagados, RGBA(250, 15, 15, 0.31),
+                                    DateDiff(Today(), ThisItem.fecha_vencimiento_promo,  TimeUnit.Months)=ThisItem.meses_pagados, RGBA(249, 148, 16, 0.31),
+                                    RGBA(181, 186, 234, 0.29))
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                PaddingLeft: =10
+                                Size: =8
+                                Text: =LookUp(Promo, ID = ThisItem.promo_aplicada, descripcion)
+                                Width: =Parent.Width
+                                ZIndex: =54
+
+                        CelularLabel_6 As label:
+                            AlignInContainer: =AlignInContainer.Stretch
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: |-
+                                =If(DateDiff(Today(), ThisItem.fecha_vencimiento_promo, TimeUnit.Months)<ThisItem.meses_pagados, RGBA(250, 15, 15, 0.31),
+                                DateDiff(Today(), ThisItem.fecha_vencimiento_promo,  TimeUnit.Months)=ThisItem.meses_pagados, RGBA(249, 148, 16, 0.31),
+                                RGBA(181, 186, 234, 0.29))
+                            FillPortions: =0.35
+                            Font: =App.Theme.Font
+                            FontWeight: =FontWeight.Semibold
+                            Height: =50
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =80
+                            PaddingLeft: =15
+                            Size: =8
+                            Text: =ThisItem.fecha_promo_aplicada
+                            ZIndex: =5
+
+                        SexoContainer_15 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.35
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =75
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =6
+
+                            CelularLabel_7 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Fill: |-
+                                    =If(DateDiff(Today(), ThisItem.fecha_vencimiento_promo, TimeUnit.Months)<ThisItem.meses_pagados, RGBA(250, 15, 15, 0.31),
+                                    DateDiff(Today(), ThisItem.fecha_vencimiento_promo,  TimeUnit.Months)=ThisItem.meses_pagados, RGBA(249, 148, 16, 0.31),
+                                    RGBA(181, 186, 234, 0.29))
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =50
+                                PaddingLeft: =15
+                                Size: =8
+                                Text: =ThisItem.fecha_vencimiento_promo
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                        SexoContainer_16 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.1
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =80
+                            PaddingLeft: =20
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =7
+
+                            CelularLabel_8 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Fill: |-
+                                    =If(DateDiff(Today(), ThisItem.fecha_vencimiento_promo, TimeUnit.Months)<ThisItem.meses_pagados, RGBA(250, 15, 15, 0.31),
+                                    DateDiff(Today(), ThisItem.fecha_vencimiento_promo,  TimeUnit.Months)=ThisItem.meses_pagados, RGBA(249, 148, 16, 0.31),
+                                    RGBA(181, 186, 234, 0.29))
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =50
+                                PaddingLeft: =20
+                                Size: =8
+                                Text: =ThisItem.meses_pagados
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                        FechaNacimientoContainer_31 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.5
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =0
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =8
+
+                            Label16_29 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Fill: |-
+                                    =If(DateDiff(Today(), ThisItem.fecha_vencimiento_promo, TimeUnit.Months)<ThisItem.meses_pagados, RGBA(250, 15, 15, 0.31),
+                                    DateDiff(Today(), ThisItem.fecha_vencimiento_promo,  TimeUnit.Months)=ThisItem.meses_pagados, RGBA(249, 148, 16, 0.31),
+                                    RGBA(181, 186, 234, 0.29))
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                PaddingLeft: =10
+                                Size: =8
+                                Text: =LookUp(Curso, ID = Last(Filter(Matricula, doc_alumno = ThisItem.DOC)).id_curso, codigo)
+                                Width: =Parent.Width
+                                ZIndex: =56
+
+                        EstadoContainer_9 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.3
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =0
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =9
+
+                            Label16_30 As label:
+                                Align: =Align.Center
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Fill: |-
+                                    =If(DateDiff(Today(), ThisItem.fecha_vencimiento_promo, TimeUnit.Months)<ThisItem.meses_pagados, RGBA(250, 15, 15, 0.31),
+                                    DateDiff(Today(), ThisItem.fecha_vencimiento_promo,  TimeUnit.Months)=ThisItem.meses_pagados, RGBA(249, 148, 16, 0.31),
+                                    RGBA(181, 186, 234, 0.29))
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                PaddingLeft: =10
+                                Size: =8
+                                Text: =ThisItem.estado
+                                Width: =Parent.Width
+                                ZIndex: =58
+
+                            Circle4_8 As circle:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Fill: |-
+                                    =Switch(
+                                        Text(ThisItem.estado),
+                                        "Activo", 
+                                        RGBA(72, 163, 62, 1),
+                                        
+                                        "Inactivo", 
+                                        RGBA(139, 154, 159, 1), 
+                                        
+                                        "Retirado", 
+                                        RGBA(233, 79, 76, 1)
+                                    
+                                    )
+                                Height: =10
+                                Width: =10
+                                X: =Label16_30.X + 10
+                                Y: =(Parent.Height - Self.Height)/2
+                                ZIndex: =59
+
+                        IconsContainer_27 As groupContainer.horizontalAutoLayoutContainer:
+                            Fill: |-
+                                =If(DateDiff(Today(), ThisItem.fecha_vencimiento_promo, TimeUnit.Months)<ThisItem.meses_pagados, RGBA(250, 15, 15, 0.31),
+                                DateDiff(Today(), ThisItem.fecha_vencimiento_promo,  TimeUnit.Months)=ThisItem.meses_pagados, RGBA(249, 148, 16, 0.31),
+                                RGBA(181, 186, 234, 0.29))
+                            FillPortions: =0
+                            Height: =50
+                            LayoutGap: =10
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =50
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingBottom: =8
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =8
+                            Width: =50
+                            ZIndex: =10
+
+                            CustomBTNContainer_22 As groupContainer.manualLayoutContainer:
+                                Fill: |-
+                                    =If(DateDiff(Today(), ThisItem.fecha_vencimiento_promo, TimeUnit.Months)<ThisItem.meses_pagados, RGBA(250, 15, 15, 0.31),
+                                    DateDiff(Today(), ThisItem.fecha_vencimiento_promo,  TimeUnit.Months)=ThisItem.meses_pagados, RGBA(249, 148, 16, 0.31),
+                                    RGBA(181, 186, 234, 0.29))
+                                FillPortions: =0
+                                Height: =25
+                                LayoutMinHeight: =0
+                                LayoutMinWidth: =30
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =30
+                                X: =10
+                                Y: =(Parent.Height - Self.Height)/2
+                                ZIndex: =61
+
+                                Image2_35 As image:
+                                    BorderColor: =App.Theme.Colors.Darker40
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    Height: =Parent.Height
+                                    Image: |-
+                                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                            Substitute(
+                                                LookUp(customIcons,IconName = "EditIcon").IconData,
+                                                "currentColor", "White"
+                                            )
+                                        )
+                                    PaddingBottom: =7
+                                    PaddingTop: =7
+                                    Visible: =false
+                                    Width: =Parent.Width
+                                    ZIndex: =62
+
+                                Icon2_17 As icon.Edit:
+                                    BorderColor: =App.Theme.Colors.Darker40
+                                    Color: =SecondaryTextColor
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledColor: =RGBA(244, 244, 244, 1)
+                                    Height: =Parent.Height
+                                    Icon: =Icon.Edit
+                                    PaddingBottom: =7
+                                    PaddingLeft: =7
+                                    PaddingRight: =7
+                                    PaddingTop: =7
+                                    Width: =Parent.Width
+                                    ZIndex: =63
+
+                                Button2_38 As button:
+                                    BorderColor: =App.Theme.Colors.Primary
+                                    BorderStyle: =BorderStyle.None
+                                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                                    Font: =App.Theme.Font
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    HoverBorderColor: =App.Theme.Colors.Darker10
+                                    HoverColor: =RGBA(255, 255, 255, 1)
+                                    HoverFill: =varHoverFill
+                                    OnSelect: =Set(_alumnoselected2, ThisItem); EditForm(Form1_9); Set(newalu, true)
+                                    PressedBorderColor: =App.Theme.Colors.Darker40
+                                    PressedColor: =Self.Color
+                                    PressedFill: =varPressedFill
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Size: =15
+                                    Text: =""
+                                    Width: =Parent.Width
+                                    ZIndex: =64
+
+                    separatorRectangle_32 As rectangle:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Fill: =RGBA(237, 237, 237, 1)
+                        Height: =1
+                        Visible: =false
+                        Width: =Parent.Width * 95%
+                        Y: =49
+                        ZIndex: =65
+
+    Container2_13 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =newalu
+        Width: =Parent.Width
+        ZIndex: =2
+
+        Button2_93 As button:
+            BorderColor: =App.Theme.Colors.Primary
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =varHoverFill
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.Height
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =varHoverFill
+            OnSelect: =Set(newalu, false)
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =varPressedFill
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =15
+            Text: =""
+            Width: =Parent.Width
+            ZIndex: =66
+
+        Form1_9 As form.PowerApps_CoreControls_Form:
+            BorderColor: =App.Theme.Colors.Darker40
+            DataSource: =Alumno
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =450
+            Item: =_alumnoselected2
+            UseFluentV9Cards: =true
+            Width: =808
+            X: =(Parent.Width - Self.Width)/2
+            Y: =70
+            ZIndex: =67
+
+            DOC_DataCard9 As typedDataCard.fluentV9TextualEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="DOC"
+                Default: =ThisItem.DOC
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,DOC)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Alumno], DataSourceInfo.MaxLength, DOC)
+                Required: =true
+                Update: =DataCardValue138.Value
+                Width: =269
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey141 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =PrimaryTextColor
+                    Height: =22
+                    Size: =12
+                    Text: ="DOCUMENTO DE IDENTIDAD"
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue138 As 'Entrada de texto'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =32
+                    Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                    Required: =Parent.Required
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey141.Y + DataCardKey141.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage124 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue138.Y + DataCardValue138.Height
+                    ZIndex: =3
+
+                StarVisible122 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey141.Y
+                    ZIndex: =4
+
+            nombre_completo_DataCard4 As typedDataCard.fluentV9TextualEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="nombre_completo"
+                Default: =ThisItem.nombre_completo
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,nombre_completo)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@Alumno], DataSourceInfo.MaxLength, nombre_completo)
+                Required: =true
+                Update: =DataCardValue115.Value
+                Width: =269
+                X: =1
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey116 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =PrimaryTextColor
+                    Height: =22
+                    Size: =12
+                    Text: ="NOMBRE COMPLETO"
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue115 As 'Entrada de texto'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =DisplayMode.View
+                    Height: =32
+                    Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                    Required: =Parent.Required
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey116.Y + DataCardKey116.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage102 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue115.Y + DataCardValue115.Height
+                    ZIndex: =3
+
+                StarVisible86 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey116.Y
+                    ZIndex: =4
+
+            promo_aplicada_DataCard2 As typedDataCard.fluentV9NumberEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="promo_aplicada"
+                Default: =ThisItem.promo_aplicada
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,promo_aplicada)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =(DataCardValue116.Value)
+                Width: =269
+                X: =2
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey117 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =PrimaryTextColor
+                    Height: =22
+                    Size: =12
+                    Text: ="PROMOCIÓN"
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue116 As 'Entrada de texto'":
+                    AccessibleLabel: =
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =32
+                    Required: =Parent.Required
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Value: =Parent.Default
+                    Visible: =false
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey117.Y + DataCardKey117.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage103 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue116.Y + DataCardValue116.Height
+                    ZIndex: =3
+
+                StarVisible87 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey117.Y
+                    ZIndex: =4
+
+                "DataCardValue116_1 As 'Entrada de texto'":
+                    AccessibleLabel: =
+                    DisplayMode: =DisplayMode.View
+                    Height: =32
+                    Required: =Parent.Required
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Value: =LookUp(Promo, ID = ThisItem.promo_aplicada, descripcion)
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =36
+                    ZIndex: =5
+
+            fecha_promo_aplicada_DataCard1 As typedDataCard.fluentV9DateEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="fecha_promo_aplicada"
+                Default: =ThisItem.fecha_promo_aplicada
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,fecha_promo_aplicada)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue117.SelectedDate
+                Width: =269
+                X: =0
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey118 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =PrimaryTextColor
+                    Height: =22
+                    Size: =12
+                    Text: ="FECHA PROMO APLICADA"
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue117 As 'Selector de fecha'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =DisplayMode.View
+                    EndDate: =Date(Year(Today())+100, 12, 31)
+                    Height: =32
+                    Required: =Parent.Required
+                    SelectedDate: =Parent.Default
+                    StartDate: =Date(1900, 1, 1)
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey118.Y + DataCardKey118.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage104 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue117.Y + DataCardValue117.Height
+                    ZIndex: =3
+
+                StarVisible88 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey118.Y
+                    ZIndex: =4
+
+            fecha_vencimiento_promo_DataCard1 As typedDataCard.fluentV9DateEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="fecha_vencimiento_promo"
+                Default: =ThisItem.fecha_vencimiento_promo
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,fecha_vencimiento_promo)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue106.SelectedDate
+                Width: =269
+                X: =1
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey105 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =PrimaryTextColor
+                    Height: =22
+                    Size: =12
+                    Text: ="FECHA VENCIMIENTO PROMO"
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue106 As 'Selector de fecha'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    EndDate: =Date(Year(Today())+100, 12, 31)
+                    Height: =32
+                    Required: =Parent.Required
+                    SelectedDate: =Parent.Default
+                    StartDate: =Date(1900, 1, 1)
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey105.Y + DataCardKey105.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage101 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue106.Y + DataCardValue106.Height
+                    ZIndex: =3
+
+                StarVisible85 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey105.Y
+                    ZIndex: =4
+
+        CustomBTN_48 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DropShadow: =DropShadow.Regular
+            Fill: =RGBA(233, 79, 76, 1)
+            Height: =35
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Width: =129
+            X: =CustomBTN_49.X - Self.Width - 20
+            Y: =CustomBTN_49.Y
+            ZIndex: =149
+
+            Label2_48 As label:
+                Align: =Align.Center
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =AccentTextColor
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Lato Black'
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Size: =10
+                Text: ="Cerrar"
+                Width: =Parent.Width
+                ZIndex: =150
+
+            Button2_94 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                BorderStyle: =BorderStyle.None
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =RGBA(0,0,0,0.1)
+                OnSelect: =NewForm(Form1_9); Set(newalu, false)
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =RGBA(0,0,0,0.3)
+                Size: =15
+                Text: =""
+                Width: =Parent.Width
+                ZIndex: =151
+
+        CustomBTN_49 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DropShadow: =DropShadow.Regular
+            Fill: =AccentColor
+            Height: =35
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Width: =129
+            X: =Form1_9.X + Form1_9.Width - Self.Width-20
+            Y: =Form1_9.Y + Form1_9.Height- Self.Height-20
+            ZIndex: =152
+
+            Label2_49 As label:
+                Align: =Align.Center
+                BorderColor: =App.Theme.Colors.Darker40
+                Color: =AccentTextColor
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: =Font.'Lato Black'
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                Size: =10
+                Text: ="Guardar"
+                Width: =Parent.Width
+                ZIndex: =153
+
+            Button2_95 As button:
+                BorderColor: =App.Theme.Colors.Primary
+                BorderStyle: =BorderStyle.None
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                Font: =App.Theme.Font
+                FontWeight: =FontWeight.Semibold
+                Height: =Parent.Height
+                HoverBorderColor: =App.Theme.Colors.Darker10
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =RGBA(0,0,0,0.1)
+                OnSelect: =SubmitForm(Form1_9); Set(newalu, false)
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =RGBA(0,0,0,0.3)
+                Size: =15
+                Text: =""
+                Width: =Parent.Width
+                ZIndex: =154
+

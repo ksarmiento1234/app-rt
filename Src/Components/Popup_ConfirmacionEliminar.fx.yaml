@@ -1,0 +1,139 @@
+Popup_ConfirmacionEliminar As CanvasComponent:
+    LBOnSelect():
+        ThisProperty:
+            Default: =""
+    RBOnSelect():
+        ThisProperty:
+            Default: =""
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =App.Height
+    LBFill: =RGBA(255, 20, 20, 0.81)
+    LBText: ="Sí, eliminar"
+    LBTextSize: =13
+    Message: ="Escribir texto aquí"
+    MessageTextColor: =RGBA(0, 0, 0, 1)
+    MessageTextSize: =15
+    PopupFill: =RGBA(255,255,255,1)
+    PopupHeight: =300
+    PopupWidth: =300
+    RBFill: =Color.LightGray
+    RBText: ="Guardar"
+    RBTextSize: =13
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    conMain As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.25)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        conPopup As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            DropShadow: =DropShadow.Bold
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =Popup_ConfirmacionEliminar.PopupHeight
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =10
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Width: =Popup_ConfirmacionEliminar.PopupWidth
+            ZIndex: =1
+
+            TextCanvas5 As Texto:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Font: =Font.'Segoe UI'
+                FontColor: =Popup_ConfirmacionEliminar.MessageTextColor
+                Height: =Parent.Height * 50 %
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                Size: =Popup_ConfirmacionEliminar.MessageTextSize
+                Text: =Popup_ConfirmacionEliminar.Message
+                Width: =Parent.Width * 90%
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            conButtons As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
+                FillPortions: =0
+                Height: =40
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =Parent.Width*80%
+                ZIndex: =2
+
+                BTLeft As button:
+                    BorderColor: =App.Theme.Colors.Primary
+                    BorderThickness: =0
+                    Color: =App.Theme.Colors.PrimaryForeground
+                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =Self.Fill
+                    Fill: =Popup_ConfirmacionEliminar.LBFill
+                    FocusedBorderThickness: =0
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    HoverBorderColor: =App.Theme.Colors.Darker10
+                    HoverColor: =App.Theme.Colors.PrimaryForeground
+                    HoverFill: =ColorFade(Self.Fill, -20%)
+                    OnSelect: =Popup_ConfirmacionEliminar.LBOnSelect()
+                    PressedBorderColor: =App.Theme.Colors.Darker40
+                    PressedColor: =Self.Color
+                    PressedFill: =ColorFade(Self.Fill, -30%)
+                    Size: =Popup_ConfirmacionEliminar.LBTextSize
+                    Text: =Popup_ConfirmacionEliminar.LBText
+                    Width: =Parent.Width/2.1
+                    ZIndex: =3
+
+                BTRight As button:
+                    BorderColor: =App.Theme.Colors.Primary
+                    BorderThickness: =0
+                    Color: =App.Theme.Colors.PrimaryForeground
+                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =Self.Fill
+                    Fill: =Popup_ConfirmacionEliminar.RBFill
+                    FocusedBorderThickness: =0
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    HoverBorderColor: =App.Theme.Colors.Darker10
+                    HoverColor: =App.Theme.Colors.PrimaryForeground
+                    HoverFill: =ColorFade(Self.Fill, - 20%)
+                    OnSelect: =Popup_ConfirmacionEliminar.RBOnSelect()
+                    PressedBorderColor: =App.Theme.Colors.Darker40
+                    PressedColor: =Self.Color
+                    PressedFill: =ColorFade(Self.Fill, - 30%)
+                    Size: =Popup_ConfirmacionEliminar.RBTextSize
+                    Text: =Popup_ConfirmacionEliminar.RBText
+                    Width: =Parent.Width / 2.1
+                    ZIndex: =4
+

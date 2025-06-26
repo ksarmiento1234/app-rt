@@ -1,0 +1,170 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  Popup_NotificacionParaConfirmar:
+    DefinitionType: CanvasComponent
+    CustomProperties:
+      LBFill:
+        PropertyKind: Input
+        DisplayName: LBFill
+        Description: Propiedad personalizada
+        DataType: Color
+        Default: =RGBA(255, 20, 20, 0.81)
+      LBOnSelect:
+        PropertyKind: Event
+        DisplayName: LB OnSelect
+        Description: Propiedad personalizada
+        ReturnType: Text
+        Default: =""
+      LBText:
+        PropertyKind: Input
+        DisplayName: LB Text
+        Description: Propiedad personalizada
+        DataType: Text
+        Default: ="Sí, eliminar"
+      LBTextSize:
+        PropertyKind: Input
+        DisplayName: LB Text Size
+        Description: Propiedad personalizada
+        DataType: Number
+        Default: =13
+      Message:
+        PropertyKind: Input
+        DisplayName: Message
+        Description: Propiedad personalizada
+        DataType: Text
+        Default: ="Escribir texto aquí"
+      MessageTextColor:
+        PropertyKind: Input
+        DisplayName: Message Text Color
+        Description: Propiedad personalizada
+        DataType: Color
+        Default: =RGBA(0, 0, 0, 1)
+      MessageTextSize:
+        PropertyKind: Input
+        DisplayName: " Message Text Size"
+        Description: Propiedad personalizada
+        DataType: Number
+        Default: =15
+      PopupFill:
+        PropertyKind: Input
+        DisplayName: PopupFill
+        Description: Propiedad personalizada
+        DataType: Color
+        Default: =RGBA(255,255,255,1)
+      PopupHeight:
+        PropertyKind: Input
+        DisplayName: Popup Height
+        Description: Propiedad personalizada
+        DataType: Number
+        Default: =300
+      PopupWidth:
+        PropertyKind: Input
+        DisplayName: Popup Width
+        Description: Propiedad personalizada
+        DataType: Number
+        Default: =300
+      RBFill:
+        PropertyKind: Input
+        DisplayName: RB Fill
+        Description: Propiedad personalizada
+        DataType: Color
+        Default: =Color.LightGray
+      RBOnSelect:
+        PropertyKind: Event
+        DisplayName: RB OnSelect
+        Description: Propiedad personalizada
+        ReturnType: Text
+        Default: =""
+      RBText:
+        PropertyKind: Input
+        DisplayName: RB Text
+        Description: Propiedad personalizada
+        DataType: Text
+        Default: ="Guardar"
+      RBTextSize:
+        PropertyKind: Input
+        DisplayName: RB Text Size
+        Description: Propiedad personalizada
+        DataType: Number
+        Default: =13
+    Properties:
+      Height: =App.Height
+      Width: =App.Width
+    Children:
+      - conMain_1:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Fill: =RGBA(0, 0, 0, 0.25)
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            Width: =Parent.Width
+          Children:
+            - conPopup_1:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  DropShadow: =DropShadow.Bold
+                  Fill: =RGBA(255, 255, 255, 1)
+                  FillPortions: =0
+                  Height: =Popup_NotificacionParaConfirmar.PopupHeight
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =10
+                  LayoutJustifyContent: =LayoutJustifyContent.Center
+                  RadiusBottomLeft: =10
+                  RadiusBottomRight: =10
+                  RadiusTopLeft: =10
+                  RadiusTopRight: =10
+                  Width: =Popup_NotificacionParaConfirmar.PopupWidth
+                Children:
+                  - TextCanvas5_1:
+                      Control: Text@0.0.51
+                      Properties:
+                        Align: ='TextCanvas.Align'.Center
+                        Font: =Font.'Segoe UI'
+                        FontColor: =Popup_NotificacionParaConfirmar.MessageTextColor
+                        Height: =Parent.Height * 50 %
+                        Size: =Popup_NotificacionParaConfirmar.MessageTextSize
+                        Text: =Popup_NotificacionParaConfirmar.Message
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width * 85%
+                  - conButtons_1:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =30
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        Width: =Parent.Width*80%
+                      Children:
+                        - BTRight_1:
+                            Control: Classic/Button@2.2.0
+                            Properties:
+                              BorderThickness: =0
+                              DisabledFill: =Self.Fill
+                              Fill: =Popup_NotificacionParaConfirmar.RBFill
+                              FocusedBorderThickness: =0
+                              Font: =Font.'Segoe UI'
+                              Height: =Parent.Height
+                              HoverFill: =ColorFade(Self.Fill, - 20%)
+                              OnSelect: =Popup_NotificacionParaConfirmar.RBOnSelect()
+                              PressedFill: =ColorFade(Self.Fill, - 30%)
+                              Size: =Popup_NotificacionParaConfirmar.RBTextSize
+                              Text: =Popup_NotificacionParaConfirmar.RBText
+                              Width: =Parent.Width / 2.1

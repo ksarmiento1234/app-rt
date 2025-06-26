@@ -1,0 +1,135 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="sistema-gestion-RT" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="sistema-gestion-RT">Microsoft SQL Server es un sistema de administración de bases de datos relacionales desarrollado por Microsoft. Conéctese a SQL Server para administrar datos. Puede realizar diversas acciones, como crear, actualizar, obtener y eliminar el contenido de las filas de una tabla.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="dbo_GetAllDataPendiente_inputparam__updateTestRegistroPago_def" />
+      <string name="dbo_GetAllDataPendiente_inputparam_estado_def" />
+      <string name="dbo_GetAllDataPendiente_inputparam_leftorinner_def" />
+      <string name="dbo_GetAllDataPendiente_inputparam_SearchText_def" />
+      <object name="dbo_GetAllDataPendiente_inputparam">
+        <property name="_updateTestRegistroPago" type="string" />
+        <property name="estado" type="string" />
+        <property name="leftorinner" type="string" />
+        <property name="SearchText" type="string" />
+      </object>
+      <integer name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_ID_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_Nombre_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_Correo_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_curso_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_ciclo_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_horario_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_banco_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_incluye_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_notas_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_voucher_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_voucher_revisado_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_estado_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_DOC_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_fecha_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def_nombre_completo_def" />
+      <object name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def">
+        <property name="ID" type="integer" />
+        <property name="Nombre" type="string" />
+        <property name="Correo" type="string" />
+        <property name="curso" type="string" />
+        <property name="ciclo" type="string" />
+        <property name="horario" type="string" />
+        <property name="banco" type="string" />
+        <property name="incluye" type="string" />
+        <property name="notas" type="string" />
+        <property name="voucher" type="string" />
+        <property name="voucher_revisado" type="string" />
+        <property name="estado" type="string" />
+        <property name="DOC" type="string" />
+        <property name="fecha" type="string" />
+        <property name="nombre_completo" type="string" />
+      </object>
+      <array typeRef="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def_items_def" name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def" />
+      <integer name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_ID_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_Nombre_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_Correo_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_curso_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_ciclo_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_horario_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_banco_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_incluye_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_notas_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_voucher_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_voucher_revisado_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_estado_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_DOC_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_fecha_def" />
+      <string name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def_nombre_completo_def" />
+      <object name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def">
+        <property name="ID" type="integer" />
+        <property name="Nombre" type="string" />
+        <property name="Correo" type="string" />
+        <property name="curso" type="string" />
+        <property name="ciclo" type="string" />
+        <property name="horario" type="string" />
+        <property name="banco" type="string" />
+        <property name="incluye" type="string" />
+        <property name="notas" type="string" />
+        <property name="voucher" type="string" />
+        <property name="voucher_revisado" type="string" />
+        <property name="estado" type="string" />
+        <property name="DOC" type="string" />
+        <property name="fecha" type="string" />
+        <property name="nombre_completo" type="string" />
+      </object>
+      <array typeRef="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def_items_def" name="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def" />
+      <object name="dbo_GetAllDataPendiente_outputparam_ResultSets_def">
+        <property name="Table1" typeRef="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table1_def" />
+        <property name="Table2" typeRef="dbo_GetAllDataPendiente_outputparam_ResultSets_def_Table2_def" />
+      </object>
+      <integer name="dbo_GetAllDataPendiente_outputparam_ReturnCode_def" />
+      <untypedObject name="dbo_GetAllDataPendiente_outputparam_OutputParameters_def" />
+      <object name="dbo_GetAllDataPendiente_outputparam">
+        <property name="ResultSets" typeRef="dbo_GetAllDataPendiente_outputparam_ResultSets_def" />
+        <property name="ReturnCode" type="integer" />
+        <property name="OutputParameters" typeRef="dbo_GetAllDataPendiente_outputparam_OutputParameters_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://default-26719506-7ef2-485b-be91-9e0d27086002.08.common.brazil.azure-apihub.net/apim/sql">
+    <resource path="/{connectionId}/v2/datasets/{server},{database}/procedures/dbo.GetAllDataPendiente">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="server" type="xs:string" required="true">
+        <doc title="Name of SQL server" />
+      </param>
+      <param style="template" name="database" type="xs:string" required="true">
+        <doc title="Database name" />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="dboGetAllDataPendiente" actionName="dbo.GetAllDataPendiente" visibility="important" siena:isDeprecated="false" siena:family="fdaf5a13-84d8-4b6d-9c59-95e3a9fb8e2d" siena:revision="2" siena:status="Production" siena:isSafe="true">
+        <doc title="Execute stored procedure (V2)&#xA;This operation runs a stored procedure." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="_updateTestRegistroPago" path="/_updateTestRegistroPago" type="xs:string">
+              <doc title="_updateTestRegistroPago" />
+            </param>
+            <param style="plain" name="estado" path="/estado" type="xs:string">
+              <doc title="estado" />
+            </param>
+            <param style="plain" name="leftorinner" path="/leftorinner" type="xs:string">
+              <doc title="leftorinner" />
+            </param>
+            <param style="plain" name="SearchText" path="/SearchText" type="xs:string">
+              <doc title="SearchText" />
+            </param>
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:dbo_GetAllDataPendiente_outputparam" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_sql" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

@@ -1,0 +1,3859 @@
+screenMatriculas As screen:
+    Fill: =PrimaryColor
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: =Set(currentMenuID, 2); Set(currentMenuID2,2.3)
+
+    PageContainer_13 As groupContainer.horizontalAutoLayoutContainer:
+        BorderStyle: =BorderStyle.None
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        MenuContainer_13 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderStyle: =BorderStyle.None
+            FillPortions: =0
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =150
+            ZIndex: =2
+
+            SideNavigation_MultiLevel_20 As SideNavigation_MultiLevel:
+                CurrentMenuID: =currentMenuID
+                MenuContent: =customNavigation
+                Width: =Parent.Width
+
+        PageContent_11 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderStyle: =BorderStyle.None
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =5
+            LayoutMinHeight: =100
+            LayoutMinWidth: =150
+            LayoutMode: =LayoutMode.Auto
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =20
+            PaddingTop: =20
+            ZIndex: =3
+
+            Container_Line_28 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =60
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutGap: =10
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                ZIndex: =4
+
+                PageTitle_13 As label:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =PrimaryTextColor
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.'Lato Black'
+                    FontWeight: =FontWeight.Semibold
+                    PaddingLeft: =20
+                    Size: =15
+                    Text: ="Matrículas"
+                    Width: =140
+                    ZIndex: =1
+
+                Search_Container_9 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =HighlightColor
+                    BorderThickness: =3
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =0
+                    Height: =35
+                    LayoutMinHeight: =35
+                    LayoutMinWidth: =200
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Width: =250
+                    X: =40
+                    Y: =(Parent.Height - Self.Height)/2
+                    ZIndex: =2
+
+                    TextInput_Matriculas As text:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =PrimaryTextColor
+                        Default: =""
+                        DelayOutput: =true
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: =4
+                        Font: =App.Theme.Font
+                        Height: =Parent.Height
+                        HintText: ="Buscar...."
+                        HoverBorderColor: =App.Theme.Colors.Darker40
+                        HoverColor: =PrimaryTextColor
+                        HoverFill: =RGBA(255, 255, 255, 0.1)
+                        PaddingLeft: |-
+                            =If(
+                                !IsBlank(Self.Text),
+                                12,
+                                15 + SearchIcon_9.Width
+                            )
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =9
+                        Width: =Parent.Width
+                        Y: =
+                        ZIndex: =12
+
+                    SearchIcon_9 As image:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =Parent.Height
+                        Image: |-
+                            ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                Substitute(
+                                    LookUp(customIcons,IconName = "Search").IconData,
+                                    "currentColor", SecondaryTextColor_Text
+                                )
+                            )
+                        PaddingBottom: =10
+                        PaddingLeft: =5
+                        PaddingRight: =5
+                        PaddingTop: =10
+                        Visible: =IsBlank(TextInput_Matriculas.Text)
+                        Width: =30
+                        X: =10
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =13
+
+                    Rectangle3_9 As rectangle:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Fill: =RGBA(116, 116, 116, 1)
+                        Height: =1
+                        Visible: =false
+                        Width: =TextInput_Matriculas.Width
+                        Y: =Parent.Height - Self.Height
+                        ZIndex: =14
+
+                RightSidedItems_13 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutGap: =10
+                    LayoutJustifyContent: =LayoutJustifyContent.End
+                    LayoutMinHeight: =0
+                    LayoutMinWidth: =100
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingRight: =5
+                    ZIndex: =4
+
+                    CustomBTN_20 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(255, 255, 255, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DropShadow: =DropShadow.Regular
+                        Fill: =AccentColor
+                        FillPortions: =0
+                        Height: =35
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =100
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Width: =180
+                        X: =444
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =2
+
+                        Label2_20 As label:
+                            Align: =Align.Center
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =AccentTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =Font.'Lato Black'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            PaddingRight: =25
+                            Size: =10
+                            Text: ="Nueva Matrícula"
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                        Image4_12 As image:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =25
+                            Image: |-
+                                ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                    Substitute(
+                                        LookUp(customIcons,IconName = "Plus").IconData,
+                                        "currentColor", AccentTextColor_Text
+                                    )
+                                )
+                            Width: =25
+                            X: =135
+                            Y: =(Parent.Height - Self.Height)/2
+                            ZIndex: =2
+
+                        Button2_49 As button:
+                            BorderColor: =App.Theme.Colors.Primary
+                            BorderStyle: =BorderStyle.None
+                            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Font: =App.Theme.Font
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            HoverBorderColor: =App.Theme.Colors.Darker10
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =RGBA(0,0,0,0.1)
+                            OnSelect: =Set(newmatri, true)
+                            PressedBorderColor: =App.Theme.Colors.Darker40
+                            PressedColor: =Self.Color
+                            PressedFill: =RGBA(0,0,0,0.3)
+                            Size: =15
+                            Text: =""
+                            Width: =Parent.Width
+                            ZIndex: =3
+
+            Container_Line_32 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =60
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutGap: =10
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                ZIndex: =16
+
+                Label3_36 As label:
+                    Align: =Align.Right
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =PrimaryTextColor
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.Lato
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =9
+                    Text: ="Nivel"
+                    Width: =50
+                    X: =40
+                    ZIndex: =1
+
+                Container8_34 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =HighlightColor
+                    BorderThickness: =3
+                    FillPortions: =0
+                    Height: =35
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Width: =150
+                    ZIndex: =2
+
+                    DD_Aula_1 As combobox:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =0
+                        ChevronBackground: =RGBA(0, 0, 0, 0)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronFill: =SecondaryTextColor
+                        ChevronHoverBackground: =varHoverFill
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Color: =PrimaryTextColor
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =[""]
+                        Fill: =TertiaryColor
+                        FocusedBorderThickness: =0
+                        Font: =Font.Lato
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverColor: =PrimaryTextColor
+                        HoverFill: =varHoverFill
+                        InputTextPlaceholder: ="Select..."
+                        IsSearchable: =false
+                        Items: =Distinct(Nivel, modulo)
+                        NoSelectionText: ="Seleccionar..."
+                        PaddingLeft: =10
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =App.Theme.Colors.Darker30
+                        SearchFields: =[""]
+                        SearchItems: =[]
+                        SelectionColor: =PrimaryTextColor
+                        SelectionFill: =varHoverFill
+                        SelectMultiple: =false
+                        Size: =9
+                        Width: =Parent.Width
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =25
+
+                Label3_37 As label:
+                    Align: =Align.Right
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =PrimaryTextColor
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.Lato
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =9
+                    Text: ="Ciclo"
+                    Width: =50
+                    X: =40
+                    ZIndex: =3
+
+                Container8_35 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =HighlightColor
+                    BorderThickness: =3
+                    FillPortions: =0
+                    Height: =35
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Width: =150
+                    ZIndex: =4
+
+                    DD_Aula_2 As combobox:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =0
+                        ChevronBackground: =RGBA(0, 0, 0, 0)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronFill: =SecondaryTextColor
+                        ChevronHoverBackground: =varHoverFill
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Color: =PrimaryTextColor
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["Value"]
+                        Fill: =TertiaryColor
+                        FocusedBorderThickness: =0
+                        Font: =Font.Lato
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverColor: =PrimaryTextColor
+                        HoverFill: =varHoverFill
+                        InputTextPlaceholder: ="Select..."
+                        IsSearchable: =false
+                        Items: =Distinct(Nivel, Text(nivel))
+                        NoSelectionText: ="Seleccionar..."
+                        PaddingLeft: =10
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =App.Theme.Colors.Darker30
+                        SearchFields: =[""]
+                        SearchItems: =[]
+                        SelectionColor: =PrimaryTextColor
+                        SelectionFill: =varHoverFill
+                        SelectMultiple: =false
+                        Size: =9
+                        Width: =Parent.Width
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =25
+
+                Label3_34 As label:
+                    Align: =Align.Right
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =PrimaryTextColor
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.Lato
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =9
+                    Text: ="Aula"
+                    Width: =50
+                    X: =40
+                    ZIndex: =5
+
+                Container8_29 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =HighlightColor
+                    BorderThickness: =3
+                    FillPortions: =0
+                    Height: =35
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Width: =206
+                    ZIndex: =6
+
+                    DD_Aula As combobox:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =0
+                        ChevronBackground: =RGBA(0, 0, 0, 0)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronFill: =SecondaryTextColor
+                        ChevronHoverBackground: =varHoverFill
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Color: =PrimaryTextColor
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["codigo"]
+                        Fill: =TertiaryColor
+                        FocusedBorderThickness: =0
+                        Font: =Font.Lato
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverColor: =PrimaryTextColor
+                        HoverFill: =varHoverFill
+                        InputTextPlaceholder: ="Select..."
+                        IsSearchable: =false
+                        Items: =Curso
+                        NoSelectionText: ="Seleccionar..."
+                        PaddingLeft: =10
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =App.Theme.Colors.Darker30
+                        SearchFields: =["codigo"]
+                        SearchItems: =[]
+                        SelectionColor: =PrimaryTextColor
+                        SelectionFill: =varHoverFill
+                        SelectMultiple: =false
+                        Size: =9
+                        Width: =Parent.Width
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =25
+
+                Label3_27 As label:
+                    Align: =Align.Right
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =PrimaryTextColor
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.Lato
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =9
+                    Text: ="Estado"
+                    Width: =65
+                    X: =40
+                    ZIndex: =7
+
+                Container8_27 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =HighlightColor
+                    BorderThickness: =3
+                    FillPortions: =0
+                    Height: =35
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Width: =120
+                    ZIndex: =8
+
+                    Estado_DD_1 As combobox:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =0
+                        ChevronBackground: =RGBA(0, 0, 0, 0)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronFill: =SecondaryTextColor
+                        ChevronHoverBackground: =varHoverFill
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Color: =PrimaryTextColor
+                        DefaultSelectedItems: =["Activa"]
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["Value"]
+                        Fill: =TertiaryColor
+                        FocusedBorderThickness: =0
+                        Font: =Font.Lato
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverColor: =PrimaryTextColor
+                        HoverFill: =varHoverFill
+                        InputTextPlaceholder: ="Select..."
+                        IsSearchable: =false
+                        Items: =["Activa","Inactiva","Anulada"]
+                        NoSelectionText: ="Seleccionar..."
+                        PaddingLeft: =10
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =App.Theme.Colors.Darker30
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectionFill: =varHoverFill
+                        SelectMultiple: =false
+                        Size: =9
+                        Width: =Parent.Width
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =21
+
+                Label3_33 As label:
+                    Align: =Align.Right
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =PrimaryTextColor
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =Font.Lato
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =9
+                    Text: ="Docente"
+                    Width: =60
+                    X: =40
+                    ZIndex: =9
+
+                Container8_28 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =HighlightColor
+                    BorderThickness: =3
+                    FillPortions: =0
+                    Height: =35
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Width: =180
+                    ZIndex: =10
+
+                    Sexo_DD_1 As combobox:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =0
+                        ChevronBackground: =RGBA(0, 0, 0, 0)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronFill: =SecondaryTextColor
+                        ChevronHoverBackground: =varHoverFill
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Color: =PrimaryTextColor
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["nombre_completo"]
+                        Fill: =TertiaryColor
+                        FocusedBorderThickness: =0
+                        Font: =Font.Lato
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverColor: =PrimaryTextColor
+                        HoverFill: =varHoverFill
+                        InputTextPlaceholder: ="Seleccionar..."
+                        IsSearchable: =false
+                        Items: =SortByColumns(Docente, "nombre_completo")
+                        NoSelectionText: ="Seleccionar..."
+                        OnChange: |-
+                            =ClearCollect(colResultados,'sistema-gestion-RT_11'.dbouspTablaMatriculas(
+                                    {
+                                        TextoMatricula: If(IsBlank(TextInput_Matriculas.Text), Blank(), TextInput_Matriculas.Text),
+                                        DocDocente: If(IsBlank(Sexo_DD_1.Selected.DOC), Blank(), Sexo_DD_1.Selected.DOC),
+                                        Estado: If(IsBlank(Estado_DD_1.Selected.Value), Blank(), Estado_DD_1.Selected.Value),
+                                        IdCurso: If(IsBlank(DD_Aula.Selected.ID), Blank(), DD_Aula.Selected.ID),
+                                        Modulo: If(IsBlank(DD_Aula_1.Selected.Value), Blank(), DD_Aula_1.Selected.Value),
+                                        Nivel: If(IsBlank(DD_Aula_2.Selected.Value), Blank(), DD_Aula_2.Selected.Value)
+                                    }
+                                ).ResultSets.Table1)
+                        PaddingLeft: =10
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =App.Theme.Colors.Darker30
+                        SearchFields: =["nombre_completo"]
+                        SearchItems: =Search(SortByColumns(Docente,"nombre_completo"),Sexo_DD_1.SearchText,nombre_completo)
+                        SelectionFill: =varHoverFill
+                        SelectMultiple: =false
+                        Size: =9
+                        Width: =Parent.Width
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =23
+
+            Container_Line_33 As groupContainer.horizontalAutoLayoutContainer:
+                Height: =60
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                ZIndex: =26
+
+                Container1_12 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =40
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                    LayoutMinHeight: =20
+                    LayoutMinWidth: =500
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =Parent.Width
+                    ZIndex: =27
+
+                    DocContainer_4 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.3
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =75
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =80
+                        ZIndex: =1
+
+                        Label8_62 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            PaddingLeft: =20
+                            Size: =8
+                            Text: =Upper("Doc")
+                            Width: =Parent.Width
+                            ZIndex: =29
+
+                    NombreCompletoContainer_4 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.9
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =100
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =120
+                        ZIndex: =2
+
+                        Label8_63 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            PaddingLeft: =20
+                            Size: =8
+                            Text: =Upper("Nombre Completo y Correo")
+                            Width: =Parent.Width
+                            ZIndex: =31
+
+                    Label8_66 As label:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: |-
+                            =RGBA(149, 149, 149, 1)
+                            //PrimaryTextColor
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Fill: =Color.Transparent
+                        FillPortions: =CelularLabel_2.FillPortions
+                        Font: =Font.Lato
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinWidth: =CelularLabel_2.LayoutMinWidth
+                        Size: =8
+                        Text: ="CELULAR"
+                        ZIndex: =3
+
+                    CorreoContainer_4 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.6
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =100
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =180
+                        ZIndex: =4
+
+                        Label8_65 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            PaddingLeft: =20
+                            Size: =8
+                            Text: ="COLEGIO/EMPRESA"
+                            Width: =Parent.Width
+                            ZIndex: =33
+
+                    CorreoContainer_16 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.5
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =100
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =180
+                        ZIndex: =5
+
+                        Label8_105 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            PaddingLeft: =20
+                            Size: =8
+                            Text: ="NIVEL Y CICLO"
+                            Width: =Parent.Width
+                            ZIndex: =33
+
+                    DireccionContainer_2 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.7
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =100
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =6
+
+                        Label8_68 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            PaddingLeft: =10
+                            Size: =8
+                            Text: ="AULA"
+                            Width: =Parent.Width
+                            ZIndex: =38
+
+                    FechaNacimientoContainer_2 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.5
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =20
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =7
+
+                        Label8_69 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            Size: =8
+                            Text: ="DOCENTE"
+                            Width: =Parent.Width
+                            ZIndex: =40
+
+                    FechaNacimientoContainer_27 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.4
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =20
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =8
+
+                        Label8_108 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            Size: =8
+                            Text: ="FECHA MATRICULA"
+                            Width: =Parent.Width
+                            ZIndex: =40
+
+                    SexoContainer_4 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0.35
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =70
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =9
+
+                        Label8_67 As label:
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: |-
+                                =RGBA(149, 149, 149, 1)
+                                //PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Semibold
+                            PaddingLeft: =20
+                            Size: =8
+                            Text: ="TIPO"
+                            Width: =91
+                            ZIndex: =36
+
+                    FechaNacimientoContainer_5 As groupContainer.manualLayoutContainer:
+                        FillPortions: =0
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =0
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =30
+                        ZIndex: =10
+
+                    FechaNacimientoContainer_26 As groupContainer.manualLayoutContainer:
+                        FillPortions: =0
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =0
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =30
+                        ZIndex: =11
+
+                    IconsContainer_12 As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =20
+                        LayoutMinWidth: =50
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =50
+                        ZIndex: =12
+
+                        Label8_111 As label:
+                            Align: =Align.Center
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =RGBA(39, 113, 194, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Color.Transparent
+                            Font: =Font.Lato
+                            FontWeight: =FontWeight.Bold
+                            Height: =Parent.Height
+                            Size: =8
+                            Text: |-
+                                ="TOTAL
+                                " & CountRows(Gallery1_12.AllItems)
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                separatorRectangle_19 As rectangle:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Fill: =PrimaryTextColor
+                    Height: =1
+                    HoverFill: =PrimaryTextColor
+                    PressedFill: =PrimaryTextColor
+                    Width: =Parent.Width
+                    Y: =40
+                    ZIndex: =44
+
+                Gallery1_12 As gallery.galleryVertical:
+                    '#CopilotOverlayLabel': ="Filtrada"
+                    BorderColor: =App.Theme.Colors.Darker40
+                    DelayItemLoading: =true
+                    Height: =423
+                    Items: =colResultados
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =320
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =1
+                    TemplateSize: =50
+                    Width: =Parent.Width
+                    Y: =40
+                    ZIndex: =45
+
+                    Container1_13 As groupContainer.horizontalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        Height: =Parent.TemplateHeight
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =Parent.TemplateWidth
+                        ZIndex: =46
+
+                        DocContainer_5 As groupContainer.manualLayoutContainer:
+                            DropShadow: =DropShadow.Light
+                            FillPortions: =0.3
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =75
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =80
+                            ZIndex: =1
+
+                            TextPill_BG_10 As button:
+                                BorderColor: =
+                                BorderThickness: =0
+                                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                Fill: |-
+                                    =ColorFade(Switch(
+                                        Text(LookUp(Alumno, DOC = ThisItem.doc_alumno, sexo)),
+                                        "Femenino", 
+                                        RGBA(246, 212, 255, 1),
+                                        
+                                        "Masculino", 
+                                        RGBA(195, 221, 247, 1)
+                                        
+                                    ), 40%)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height * 45%
+                                HoverBorderColor: =App.Theme.Colors.Darker10
+                                HoverColor: =RGBA(255, 255, 255, 1)
+                                HoverFill: =App.Theme.Colors.Darker10
+                                PressedBorderColor: =App.Theme.Colors.Darker40
+                                PressedColor: =Self.Color
+                                PressedFill: =App.Theme.Colors.Darker40
+                                Size: =15
+                                Text: =""
+                                Width: =Parent.Width * 80%
+                                X: =(Parent.Width - Self.Width)/2
+                                Y: =(Parent.Height - Self.Height)/2
+                                ZIndex: =49
+
+                            Label14_11 As label:
+                                Align: =Align.Center
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: |-
+                                    =Switch(
+                                        Text(LookUp(Alumno, DOC = ThisItem.doc_alumno, sexo)),
+                                        "Femenino", 
+                                        RGBA(140,14,108,1),
+                                        
+                                        "Masculino", 
+                                        RGBA(69,14,140,1)
+                                        
+                                    )
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Bold
+                                Height: =TextPill_BG_10.Height
+                                Size: =8
+                                Text: =ThisItem.doc_alumno
+                                Width: =TextPill_BG_10.Width
+                                X: =TextPill_BG_10.X
+                                Y: =TextPill_BG_10.Y
+                                ZIndex: =50
+
+                        NombreCompletoContainer_5 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.9
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =120
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =120
+                            ZIndex: =2
+
+                            Label10_30 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                LineHeight: =1.7
+                                PaddingLeft: =15
+                                Size: =8
+                                Text: |-
+                                    =LookUp(Alumno, DOC = ThisItem.doc_alumno, nombre_completo & "
+                                    " & correo_institucional)
+                                Width: =Parent.Width
+                                ZIndex: =50
+
+                        CelularLabel_2 As label:
+                            AlignInContainer: =AlignInContainer.Stretch
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FillPortions: =0.35
+                            Font: =App.Theme.Font
+                            FontWeight: =FontWeight.Semibold
+                            Height: =50
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =80
+                            PaddingLeft: =15
+                            Size: =8
+                            Text: =LookUp(Alumno, DOC = ThisItem.doc_alumno, celular)
+                            ZIndex: =3
+
+                        CorreoContainer_5 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.6
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =100
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =180
+                            ZIndex: =4
+
+                            Label10_31 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                LineHeight: =1.7
+                                PaddingLeft: =15
+                                Size: =8
+                                Text: |-
+                                    =LookUp(Alumno, DOC = ThisItem.doc_alumno, colegio_empresa & "
+                                    " & grado_colegio)
+                                Width: =Parent.Width
+                                ZIndex: =52
+
+                        CorreoContainer_17 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.5
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =100
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =180
+                            ZIndex: =5
+
+                            Label10_44 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                LineHeight: =1.7
+                                PaddingLeft: =15
+                                Size: =8
+                                Text: =LookUp(Nivel, ID = LookUp(Curso, ID = ThisItem.id_curso).id_nivel, modulo & " " & nivel)
+                                Width: =Parent.Width
+                                ZIndex: =52
+
+                        DireccionContainer_3 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.7
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =100
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =6
+
+                            Label16_10 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                PaddingLeft: =10
+                                Size: =8
+                                Text: =LookUp(Curso, ID = ThisItem.id_curso, codigo)
+                                Width: =Parent.Width
+                                ZIndex: =58
+
+                        FechaNacimientoContainer_6 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.5
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =0
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =7
+
+                            Label16_11 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                PaddingLeft: =10
+                                Size: =8
+                                Text: =LookUp(Docente, DOC = LookUp(Curso, ID = ThisItem.id_curso, doc_docente)).nombre_completo
+                                Width: =Parent.Width
+                                ZIndex: =60
+
+                        FechaNacimientoContainer_28 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.4
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =0
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =8
+
+                            Label16_26 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                PaddingLeft: =10
+                                Size: =8
+                                Text: =ThisItem.fecha_registro
+                                Width: =Parent.Width
+                                ZIndex: =60
+
+                        SexoContainer_5 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0.35
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =75
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =9
+
+                            Label16_27 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                PaddingLeft: =10
+                                Size: =8
+                                Text: =Upper(ThisItem.tipo_matricula)
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                        EstadoContainer_3 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =0
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =30
+                            ZIndex: =10
+
+                            Circle4_11 As circle:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Fill: |-
+                                    =If(
+                                        ThisItem.nota_promedio>65, 
+                                        RGBA(96, 87, 255, 0.95),
+                                        ThisItem.nota_promedio>0,
+                                        RGBA(244, 84, 84, 0.95),
+                                        IsBlank(ThisItem.nota_promedio),
+                                        RGBA(0, 0, 0, 0)
+                                    )
+                                Height: =22
+                                Width: =22
+                                X: =(Parent.Width-Self.Width)/2
+                                Y: =(Parent.Height - Self.Height)/2
+                                ZIndex: =1
+
+                            Label16_12 As label:
+                                Align: =Align.Center
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =RGBA(255, 255, 255, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =Parent.Height
+                                PaddingLeft: =6
+                                Size: =9
+                                Text: =ThisItem.nota_promedio
+                                Width: =Parent.Width
+                                ZIndex: =2
+
+                        EstadoContainer_2 As groupContainer.manualLayoutContainer:
+                            FillPortions: =0
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =0
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =30
+                            ZIndex: =11
+
+                            Circle4_10 As circle:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Fill: |-
+                                    =Switch(
+                                        Text(ThisItem.estado),
+                                        "Activa", 
+                                        RGBA(72, 163, 62, 1),
+                                        
+                                        "Inactiva", 
+                                        RGBA(139, 154, 159, 1), 
+                                        
+                                        "Anulada", 
+                                        RGBA(233, 79, 76, 1)
+                                    
+                                    )
+                                Height: =10
+                                Width: =10
+                                X: =10
+                                Y: =(Parent.Height - Self.Height)/2
+                                ZIndex: =63
+
+                        IconsContainer_13 As groupContainer.horizontalAutoLayoutContainer:
+                            FillPortions: =0
+                            Height: =50
+                            LayoutGap: =10
+                            LayoutMinHeight: =20
+                            LayoutMinWidth: =50
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingBottom: =8
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =8
+                            Width: =50
+                            ZIndex: =12
+
+                            CustomBTNContainer_24 As groupContainer.manualLayoutContainer:
+                                Fill: =PrimaryColor
+                                FillPortions: =0
+                                Height: =25
+                                LayoutMinHeight: =0
+                                LayoutMinWidth: =30
+                                RadiusBottomLeft: =4
+                                RadiusBottomRight: =4
+                                RadiusTopLeft: =4
+                                RadiusTopRight: =4
+                                Width: =30
+                                X: =10
+                                Y: =(Parent.Height - Self.Height)/2
+                                ZIndex: =65
+
+                                Image2_20 As image:
+                                    BorderColor: =App.Theme.Colors.Darker40
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    Height: =Parent.Height
+                                    Image: |-
+                                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                            Substitute(
+                                                LookUp(customIcons,IconName = "EditIcon").IconData,
+                                                "currentColor", "White"
+                                            )
+                                        )
+                                    PaddingBottom: =7
+                                    PaddingTop: =7
+                                    Visible: =false
+                                    Width: =Parent.Width
+                                    ZIndex: =66
+
+                                Icon2_11 As icon.Edit:
+                                    BorderColor: =App.Theme.Colors.Darker40
+                                    Color: =SecondaryTextColor
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    DisabledColor: =RGBA(244, 244, 244, 1)
+                                    Height: =Parent.Height
+                                    Icon: =Icon.Edit
+                                    PaddingBottom: =7
+                                    PaddingLeft: =7
+                                    PaddingRight: =7
+                                    PaddingTop: =7
+                                    Width: =Parent.Width
+                                    ZIndex: =67
+
+                                Button2_45 As button:
+                                    BorderColor: =App.Theme.Colors.Primary
+                                    BorderStyle: =BorderStyle.None
+                                    DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                                    DisabledColor: =RGBA(166, 166, 166, 1)
+                                    DisabledFill: =RGBA(244, 244, 244, 1)
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                                    Font: =App.Theme.Font
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    HoverBorderColor: =App.Theme.Colors.Darker10
+                                    HoverColor: =RGBA(255, 255, 255, 1)
+                                    HoverFill: =varHoverFill
+                                    OnSelect: =Set(_matriculaselected, LookUp(Matricula, ID = ThisItem.ID)); EditForm(FormMatriculas); Set(editmatri, true)
+                                    PressedBorderColor: =App.Theme.Colors.Darker40
+                                    PressedColor: =Self.Color
+                                    PressedFill: =varPressedFill
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Size: =15
+                                    Text: =""
+                                    Width: =Parent.Width
+                                    ZIndex: =68
+
+                    separatorRectangle_20 As rectangle:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Fill: =RGBA(237, 237, 237, 1)
+                        Height: =1
+                        Visible: =false
+                        Width: =Parent.Width * 95%
+                        Y: =49
+                        ZIndex: =69
+
+    Container2_1 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =newmatri
+        Width: =Parent.Width
+        ZIndex: =2
+
+        Button2_46 As button:
+            BorderColor: =App.Theme.Colors.Primary
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =varHoverFill
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.Height
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =varHoverFill
+            OnSelect: =Set(newmatri, false)
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =varPressedFill
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =15
+            Text: =""
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Container29_14 As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Parent.Height-80
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =5
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Width: =800
+            X: =(Parent.Width - Self.Width)/2
+            Y: =40
+            ZIndex: =4
+
+            Container14_38 As groupContainer.horizontalAutoLayoutContainer:
+                Fill: =TertiaryColor
+                FillPortions: =0
+                Height: =40
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingRight: =10
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Label4_49 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =PrimaryTextColor
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FillPortions: =1
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    LayoutMinHeight: =0
+                    LayoutMinWidth: =100
+                    PaddingLeft: =15
+                    PaddingTop: =9
+                    Size: =13
+                    Text: ="NUEVA MATRÍCULA"
+                    Width: =Parent.Width/2
+                    ZIndex: =2
+
+                CustomBTN_108 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DropShadow: =DropShadow.Regular
+                    Fill: =TertiaryColor
+                    FillPortions: =0
+                    Height: =25
+                    LayoutMinHeight: =20
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Width: =25
+                    ZIndex: =3
+
+                    Image4_73 As image:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =17
+                        Image: |-
+                            ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                Substitute(
+                                    LookUp(customIcons,IconName = "Exit").IconData,
+                                    "currentColor", "RGBA(233, 79, 76, 1)"
+                                )
+                            )
+                        Width: =17
+                        X: =(Parent.Width - Self.Width)/2
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =1
+
+                    Button2_177 As button:
+                        BorderColor: =App.Theme.Colors.Primary
+                        BorderStyle: =BorderStyle.None
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =RGBA(0,0,0,0.1)
+                        OnSelect: =Set(newmatri, false)
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =RGBA(0,0,0,0.3)
+                        Size: =15
+                        Text: =""
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+            Container23_2 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =5
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =2
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                X: =40
+                ZIndex: =2
+
+                Container14_37 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =TertiaryColor
+                    FillPortions: =0
+                    Height: =40
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =5
+                    PaddingRight: =10
+                    Width: =Parent.Width
+                    Y: =10
+                    ZIndex: =1
+
+                    Image2_31 As image:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =30
+                        Image: |-
+                            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                Substitute(
+                                    LookUp(customIcons,IconName = "ListStars").IconData,
+                                    "currentColor", PrimaryTextColor_Text
+                                )
+                            )
+                        LayoutMinHeight: =20
+                        PaddingBottom: =5
+                        PaddingTop: =5
+                        Width: =30
+                        ZIndex: =1
+
+                    Label4_45 As label:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =PrimaryTextColor
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FillPortions: =1
+                        Font: =Font.'Lato Black'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =100
+                        Size: =12
+                        Text: |-
+                            ="SELECCIONAR ALUMNO
+                            "
+                        ZIndex: =2
+
+                Container18_12 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =75
+                    LayoutMinHeight: =140
+                    LayoutMinWidth: =180
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+                    Container17_20 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =0
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =Parent.Height
+                        LayoutMinWidth: =100
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =350
+                        ZIndex: =2
+
+                        CB_AlumnoParaMatricular As combobox:
+                            BorderColor: =
+                            BorderThickness: =0
+                            ChevronBackground: =RGBA(0, 0, 0, 0)
+                            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                            ChevronFill: =SecondaryTextColor
+                            ChevronHoverBackground: =RGBA(255, 255, 255, 0.1)
+                            ChevronHoverFill: =PrimaryTextColor
+                            Color: =PrimaryTextColor
+                            DefaultSelectedItems: =
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            DisplayFields: =["DOC","nombre_completo"]
+                            DisplayMode: =Parent.DisplayMode
+                            Fill: =TertiaryColor
+                            FocusedBorderThickness: =0
+                            Font: =App.Theme.Font
+                            FontWeight: =FontWeight.Bold
+                            Height: =32
+                            HoverBorderColor: =Self.BorderColor
+                            HoverColor: =PrimaryTextColor
+                            HoverFill: =varHoverFill
+                            InputTextPlaceholder: ="Seleccionar..."
+                            Items: =Alumno
+                            LayoutMinWidth: =120
+                            NoSelectionText: ="Seleccionar..."
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            PressedBorderColor: =Self.BorderColor
+                            PressedColor: =RGBA(255, 255, 255, 1)
+                            PressedFill: =varPressedFill
+                            SearchFields: =["DOC","nombre_completo"]
+                            SearchItems: =Search(Alumno,CB_AlumnoParaMatricular.SearchText,DOC,nombre_completo)
+                            SelectionColor: =PrimaryTextColor
+                            SelectionFill: =varHoverFill
+                            SelectMultiple: =false
+                            Size: =10
+                            Template: =ListItemTemplate.Double
+                            Tooltip: =
+                            Width: =300
+                            ZIndex: =2
+
+                    Container17_16 As groupContainer.verticalAutoLayoutContainer:
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =Parent.Height
+                        LayoutMinWidth: =100
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =20
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =3
+
+                        Label7_23 As label:
+                            AlignInContainer: =AlignInContainer.Stretch
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =App.Theme.Font
+                            FontWeight: =FontWeight.Bold
+                            Height: =25
+                            Size: =12
+                            Text: =LookUp(Alumno, DOC= CB_AlumnoParaMatricular.Selected.DOC).nombre_completo
+                            ZIndex: =2
+
+                        Label7_26 As label:
+                            AlignInContainer: =AlignInContainer.Stretch
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =App.Theme.Font
+                            FontWeight: =FontWeight.Semibold
+                            Height: =25
+                            Size: =10
+                            Text: =LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).correo_institucional
+                            ZIndex: =5
+
+                        Label7_54 As label:
+                            AlignInContainer: =AlignInContainer.Stretch
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =App.Theme.Font
+                            FontWeight: =FontWeight.Semibold
+                            Height: =25
+                            Size: =10
+                            Text: =LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).celular
+                            ZIndex: =6
+
+                Container14_18 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =TertiaryColor
+                    FillPortions: =0
+                    Height: =40
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =5
+                    PaddingRight: =10
+                    Width: =Parent.Width
+                    Y: =10
+                    ZIndex: =3
+
+                    Image2_29 As image:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =30
+                        Image: |-
+                            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                Substitute(
+                                    LookUp(customIcons,IconName = "ListStars").IconData,
+                                    "currentColor", PrimaryTextColor_Text
+                                )
+                            )
+                        LayoutMinHeight: =20
+                        PaddingBottom: =5
+                        PaddingTop: =5
+                        Width: =30
+                        ZIndex: =1
+
+                    Label4_23 As label:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =PrimaryTextColor
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FillPortions: =1
+                        Font: =Font.'Lato Black'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =100
+                        Size: =12
+                        Text: =Upper("SELECCIONAR CURSO")
+                        ZIndex: =2
+
+                Container19_5 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =If(!IsBlank(CB_Curso_1.Selected), 105, 80)
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =Parent.Width
+                    ZIndex: =4
+
+                    Container18_6 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =If(!IsBlank(CB_Curso_1.Selected), 105, 80)
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =160
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                        Container17_10 As groupContainer.verticalAutoLayoutContainer:
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =Parent.Height
+                            LayoutMinWidth: =100
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =1
+
+                            Label6_6 As label:
+                                AlignInContainer: =AlignInContainer.Stretch
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =RGBA(149, 149, 149, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                PaddingTop: =12
+                                Size: =9
+                                Text: |-
+                                    ="CURSO
+                                    "
+                                ZIndex: =1
+
+                            CB_Curso_1 As combobox:
+                                AlignInContainer: =AlignInContainer.Start
+                                BorderColor: =
+                                BorderThickness: =0
+                                ChevronBackground: =RGBA(0, 0, 0, 0)
+                                ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                                ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                                ChevronFill: =SecondaryTextColor
+                                ChevronHoverBackground: =RGBA(255, 255, 255, 0.1)
+                                ChevronHoverFill: =PrimaryTextColor
+                                Color: =PrimaryTextColor
+                                DefaultSelectedItems: =
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                DisabledFill: =RGBA(244, 244, 244, 1)
+                                DisplayFields: =["codigo","estado"]
+                                DisplayMode: =Parent.DisplayMode
+                                Fill: =TertiaryColor
+                                FocusedBorderThickness: =0
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Bold
+                                Height: =32
+                                HoverBorderColor: =Self.BorderColor
+                                HoverColor: =PrimaryTextColor
+                                HoverFill: =varHoverFill
+                                InputTextPlaceholder: ="Buscar curso..."
+                                Items: =Filter(Curso, estado <> "Inactivo")
+                                LayoutMinWidth: =120
+                                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                                PressedBorderColor: =Self.BorderColor
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =varPressedFill
+                                SearchFields: =["codigo"]
+                                SearchItems: =Search(Filter(Curso,estado<>"Inactivo"),CB_Curso_1.SearchText,codigo)
+                                SelectionColor: =PrimaryTextColor
+                                SelectionFill: =varHoverFill
+                                SelectMultiple: =false
+                                Size: =9
+                                Template: =ListItemTemplate.Double
+                                Tooltip: =
+                                Width: =200
+                                ZIndex: =3
+
+                            Label7_35 As label:
+                                AlignInContainer: =AlignInContainer.Stretch
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =RGBA(149, 149, 149, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =20
+                                Size: =9
+                                Text: ="AFORO DISPONIBLE"
+                                Visible: =If(!IsBlank(CB_Curso_1.Selected), true, false)
+                                ZIndex: =4
+
+                            Label7_53 As label:
+                                AlignInContainer: =AlignInContainer.Stretch
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =20
+                                Size: =10
+                                Text: =If(!IsBlank(CB_Curso_1.Selected), CB_Curso_1.Selected.aforo - Count(Filter(Matricula, id_curso = CB_Curso_1.Selected.ID ).ID), "")
+                                Visible: =If(!IsBlank(CB_Curso_1.Selected), true, false)
+                                ZIndex: =5
+
+                        Container17_11 As groupContainer.verticalAutoLayoutContainer:
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMinHeight: =Parent.Height
+                            LayoutMinWidth: =100
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =20
+                            PaddingTop: =5
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            ZIndex: =3
+
+                            Label7_9 As label:
+                                AlignInContainer: =AlignInContainer.Stretch
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =RGBA(149, 149, 149, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =15
+                                Size: =8
+                                Text: ="HORARIO"
+                                Visible: =If(!IsBlank(CB_Curso_1.Selected), true, false)
+                                ZIndex: =1
+
+                            Label7_18 As label:
+                                AlignInContainer: =AlignInContainer.Stretch
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =20
+                                Size: =10
+                                Text: =LookUp(Horario, ID = CB_Curso_1.Selected.id_horario).codigo
+                                Visible: =If(!IsBlank(CB_Curso_1.Selected), true, false)
+                                ZIndex: =2
+
+                            Label7_19 As label:
+                                AlignInContainer: =AlignInContainer.Stretch
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =15
+                                Size: =9
+                                Text: =LookUp(Horario, ID = CB_Curso_1.Selected.id_horario).diasensemana
+                                ZIndex: =3
+
+                            Label7_20 As label:
+                                AlignInContainer: =AlignInContainer.Stretch
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =RGBA(149, 149, 149, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =20
+                                Size: =8
+                                Text: ="FECHA INICIO - FIN"
+                                Visible: =If(!IsBlank(CB_Curso_1.Selected), true, false)
+                                ZIndex: =4
+
+                            Label7_21 As label:
+                                AlignInContainer: =AlignInContainer.Stretch
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =PrimaryTextColor
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =25
+                                Size: =10
+                                Text: =CB_Curso_1.Selected.fecha_inicio & " - " & CB_Curso_1.Selected.fecha_fin
+                                Visible: =If(!IsBlank(CB_Curso_1.Selected), true, false)
+                                ZIndex: =5
+
+                Container14_19 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =TertiaryColor
+                    FillPortions: =0
+                    Height: =40
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =5
+                    PaddingRight: =10
+                    Visible: =!IsBlank(CB_AlumnoParaMatricular.Selected) And !IsBlank(CB_Curso_1.Selected)
+                    Width: =Parent.Width
+                    Y: =5
+                    ZIndex: =5
+
+                    Image2_30 As image:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =30
+                        Image: |-
+                            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                Substitute(
+                                    LookUp(customIcons,IconName = "ListStars").IconData,
+                                    "currentColor", PrimaryTextColor_Text
+                                )
+                            )
+                        LayoutMinHeight: =20
+                        PaddingBottom: =5
+                        PaddingTop: =5
+                        Width: =30
+                        ZIndex: =1
+
+                    Label4_24 As label:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =PrimaryTextColor
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FillPortions: =1
+                        Font: =Font.'Lato Black'
+                        FontWeight: =FontWeight.Semibold
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =100
+                        Size: =12
+                        Text: ="USO DE PROMOCIONES"
+                        Width: =Parent.Width/2
+                        ZIndex: =2
+
+                    ButtonCanvas1_1 As Botón:
+                        Align: =Align.Center
+                        AlignInContainer: =AlignInContainer.Center
+                        Appearance: ='ButtonCanvas.Appearance'.Primary
+                        BasePaletteColor: =RGBA(141, 229, 250, 1)
+                        BorderRadiusBottomLeft: =10
+                        BorderRadiusBottomRight: =10
+                        BorderRadiusTopLeft: =10
+                        BorderRadiusTopRight: =10
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        OnSelect: =ResetForm(FormAgregarMeses); Set(_puAgregarMeses, true)
+                        Text: ="Añadir meses a favor"
+                        Visible: =true
+                        Width: =160
+                        X: =0
+                        Y: =0
+                        ZIndex: =3
+
+                Container19_6 As groupContainer.verticalAutoLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    FillPortions: =0
+                    Height: =40
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =150
+                    LayoutMinWidth: =150
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Visible: =!IsBlank(CB_AlumnoParaMatricular.Selected) And !IsBlank(CB_Curso_1.Selected)
+                    Width: =Parent.Width
+                    ZIndex: =6
+
+                    Label6_8 As label:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =If(LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).meses_pagados > 0, Color.DarkGreen, Color.DarkRed)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Bold
+                        LayoutMinHeight: =20
+                        Size: =10
+                        Text: =If(LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).meses_pagados > 0, "Este alumno(a) cuenta con " & LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).meses_pagados & " meses a favor.", "Este alumno(a) no cuenta con meses a favor. Por favor, añadir un nuevo pago.")
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                CT_PagoLibro_1 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =CT_AlquilerLibro_1.Height+10
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =5
+                    LayoutMinHeight: =150
+                    LayoutMinWidth: =150
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =2
+                    PaddingLeft: =2
+                    PaddingRight: =2
+                    PaddingTop: =2
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Visible: =!IsBlank(CB_AlumnoParaMatricular.Selected) And !IsBlank(CB_Curso_1.Selected)
+                    Width: =Parent.Width
+                    ZIndex: =8
+
+                    CT_AlquilerLibro_1 As groupContainer.horizontalAutoLayoutContainer:
+                        DropShadow: =DropShadow.Light
+                        FillPortions: =0
+                        Height: =70
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =200
+                        LayoutMode: =LayoutMode.Auto
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =3
+
+                        Container31_5 As groupContainer.verticalAutoLayoutContainer:
+                            AlignInContainer: =AlignInContainer.Start
+                            FillPortions: =0
+                            Height: =Parent.Height
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutJustifyContent: =LayoutJustifyContent.Center
+                            LayoutMinHeight: =Parent.Height
+                            LayoutMinWidth: =200
+                            LayoutMode: =LayoutMode.Auto
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =200
+                            ZIndex: =1
+
+                            CheckboxCanvas1_8 As Casilla:
+                                AlignInContainer: =AlignInContainer.Start
+                                BasePaletteColor: =PrimaryTextColor
+                                CheckboxSize: =18
+                                DisplayMode: =DisplayMode.Edit
+                                FontColor: =PrimaryTextColor
+                                Height: =50
+                                Label: ="Usar promo activa para libro"
+                                LayoutMinHeight: =30
+                                LayoutMinWidth: =160
+                                OnCheck: =false
+                                OnUncheck: =
+                                Width: =175
+                                X: =0
+                                Y: =0
+                                ZIndex: =1
+
+                        Container17_45 As groupContainer.verticalAutoLayoutContainer:
+                            Height: =Parent.Height
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutGap: =5
+                            LayoutMinHeight: =Parent.Height
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Visible: =If(CheckboxCanvas1_8.Checked, true, false)
+                            Width: =Parent.Width
+                            ZIndex: =2
+
+                            Label7_66 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =RGBA(149, 149, 149, 1)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Semibold
+                                Height: =25
+                                Size: =9
+                                Text: |-
+                                    ="Necesario: " & LookUp(Libro, ID = LookUp(Nivel, ID = CB_Curso_1.Selected.id_nivel).id_libro_alquiler_virtual).descripcion
+                                Visible: =If(CheckboxCanvas1_8.Checked, true, false)
+                                Width: =Parent.Width - 20
+                                ZIndex: =1
+
+                            Label6_29 As label:
+                                BorderColor: =App.Theme.Colors.Darker40
+                                Color: =If(LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).libros_meses_pagados > 0, Color.DarkGreen, Color.DarkRed)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                Font: =App.Theme.Font
+                                FontWeight: =FontWeight.Bold
+                                Height: =25
+                                Size: =10
+                                Text: =If(LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).libros_meses_pagados > 0, "Este alumno(a) cuenta con " & LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).meses_pagados & " meses de libro alquilado a favor.", "Este alumno(a) no cuenta con meses de alquiler de libro a favor.")
+                                VerticalAlign: =VerticalAlign.Top
+                                Width: =Parent.Width-20
+                                ZIndex: =2
+
+                Container18_11 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =60
+                    LayoutMinHeight: =140
+                    LayoutMinWidth: =180
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Visible: =!IsBlank(CB_AlumnoParaMatricular.Selected) And !IsBlank(CB_Curso_1.Selected)
+                    Width: =Parent.Width
+                    ZIndex: =9
+
+                    Container17_19 As groupContainer.verticalAutoLayoutContainer:
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutJustifyContent: =LayoutJustifyContent.Center
+                        LayoutMinHeight: =Parent.Height
+                        LayoutMinWidth: =100
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        RadiusBottomLeft: =4
+                        RadiusBottomRight: =4
+                        RadiusTopLeft: =4
+                        RadiusTopRight: =4
+                        ZIndex: =2
+
+                        Label4_46 As label:
+                            AlignInContainer: =AlignInContainer.Stretch
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =PrimaryTextColor
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Font: =Font.'Lato Black'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =25
+                            LayoutMinHeight: =0
+                            LayoutMinWidth: =100
+                            Size: =12
+                            Text: |-
+                                ="TIPO MATRICULA:"
+                            Width: =90
+                            ZIndex: =1
+
+                        CB_TipoMatricula_2 As combobox:
+                            AlignInContainer: =AlignInContainer.Start
+                            BorderColor: =
+                            BorderThickness: =0
+                            ChevronBackground: =RGBA(0, 0, 0, 0)
+                            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                            ChevronFill: =SecondaryTextColor
+                            ChevronHoverBackground: =RGBA(255, 255, 255, 0.1)
+                            ChevronHoverFill: =PrimaryTextColor
+                            Color: =PrimaryTextColor
+                            DefaultSelectedItems: =["Regular"]
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            DisplayFields: =["Value"]
+                            DisplayMode: =Parent.DisplayMode
+                            Fill: =TertiaryColor
+                            FocusedBorderThickness: =0
+                            Font: =App.Theme.Font
+                            FontWeight: =FontWeight.Bold
+                            Height: =32
+                            HoverBorderColor: =Self.BorderColor
+                            HoverColor: =PrimaryTextColor
+                            HoverFill: =varHoverFill
+                            InputTextPlaceholder: ="Seleccionar..."
+                            IsSearchable: =false
+                            Items: =["Corporativo","Colegio","Particular","Regular"]
+                            LayoutMinWidth: =120
+                            NoSelectionText: ="Seleccionar..."
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            PressedBorderColor: =Self.BorderColor
+                            PressedColor: =RGBA(255, 255, 255, 1)
+                            PressedFill: =varPressedFill
+                            SearchFields: =["Value"]
+                            SearchItems: =Search(["Corporativo","Colegio","Particular","Regular"],CB_TipoMatricula_2.SearchText,Value)
+                            SelectionColor: =PrimaryTextColor
+                            SelectionFill: =varHoverFill
+                            SelectMultiple: =false
+                            Size: =9
+                            Tooltip: =
+                            Width: =200
+                            ZIndex: =2
+
+                    ContainerBTN_Matricula_1 As groupContainer.manualLayoutContainer:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(255, 255, 255, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DropShadow: =DropShadow.Regular
+                        Fill: |
+                            =If(
+                                If(CheckboxCanvas1_8.Checked,LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).libros_meses_pagados < 1), Color.LightGray,
+                                LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).meses_pagados < 1, Color.LightGray,
+                                IsBlank(CB_TipoMatricula_2.Selected.Value), Color.LightGray, AccentColor)
+                        FillPortions: =0
+                        Height: =35
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =100
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Width: =180
+                        X: =444
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =3
+
+                        Label2_28 As label:
+                            Align: =Align.Center
+                            BorderColor: =App.Theme.Colors.Darker40
+                            Color: =AccentTextColor
+                            DisabledBorderColor: =RGBA(53, 61, 63, 1)
+                            DisabledColor: =PrimaryTextColor
+                            DisplayMode: =
+                            Font: =Font.'Lato Black'
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            Size: =10
+                            Text: ="Matricular"
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                        BTN_Matrícula_1 As button:
+                            BorderColor: =App.Theme.Colors.Primary
+                            BorderStyle: =BorderStyle.None
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(53, 61, 63, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            DisplayMode: |-
+                                =If(
+                                    If(CheckboxCanvas1_8.Checked,LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).libros_meses_pagados < 1), DisplayMode.Disabled,
+                                    LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).meses_pagados < 1, DisplayMode.Disabled,
+                                    IsBlank(CB_TipoMatricula_2.Selected.Value), DisplayMode.Disabled, DisplayMode.Edit)
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Font: =App.Theme.Font
+                            FontWeight: =FontWeight.Semibold
+                            Height: =Parent.Height
+                            HoverBorderColor: =App.Theme.Colors.Darker10
+                            HoverColor: =RGBA(255, 255, 255, 1)
+                            HoverFill: =RGBA(0,0,0,0.1)
+                            OnSelect: |-
+                                =//Crear Matrícula
+                                Patch(Matricula, Defaults(Matricula), {doc_alumno: CB_AlumnoParaMatricular.Selected.DOC, id_curso: CB_Curso_1.Selected.ID, fecha_registro: Now(), creador: User().FullName, deuda: 0, tipo_matricula: CB_TipoMatricula_2.Selected.Value});
+                                
+                                //Crear Pago (en sistema)
+                                //Añadiendo Detalle de items al Pago
+                                //Creando Deudas Pendientes
+                                
+                                //Aplicando Promociones al Alumno
+                                Patch(Alumno, LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC), {meses_pagados: LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).meses_pagados - 1,
+                                libros_meses_pagados: If(CheckboxCanvas1_8.Checked, LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).libros_meses_pagados - 1, LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).libros_meses_pagados)});
+                                
+                                //Envío de Correo a Alumno, para confirmar su inscripción en el curso
+                                //REACTIVAR PARA EL SIGUIENTE PERIODO
+                                //testMatriculaRT.Run(CB_AlumnoParaMatricular.Selected.correo_institucional;CB_Curso_1.Selected.codigo;LookUp(Alumno; DOC = CB_AlumnoParaMatricular.Selected.DOC).nombres;LookUp(Alumno; DOC = CB_AlumnoParaMatricular.Selected.DOC).apellido_paterno;LookUp(Horario; ID = CB_Curso_1.Selected.id_horario).codigo; LookUp(Docente; DOC = CB_Curso_1.Selected.doc_docente; nombres & " " & apellido_paterno);CB_Curso_1.Selected.fecha_inicio;1);;
+                                
+                                //Añadiendo al Alumno al equipo (sólo si está Activo)
+                                If(CB_Curso_1.Selected.estado = "Activo",GruposdeOffice365.AddMemberToGroup(CB_Curso_1.Selected.id_teams, LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC).correo_institucional));
+                                
+                                //Cambiar estado de PreRegistroPago a Procesado
+                            PressedBorderColor: =App.Theme.Colors.Darker40
+                            PressedColor: =Self.Color
+                            PressedFill: =RGBA(0,0,0,0.3)
+                            Size: =15
+                            Text: =""
+                            Width: =Parent.Width
+                            ZIndex: =3
+
+                Container8_1 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =15
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =20
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =10
+
+    Container2_9 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =editmatri
+        Width: =Parent.Width
+        ZIndex: =3
+
+        Button2_76 As button:
+            BorderColor: =App.Theme.Colors.Primary
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =varHoverFill
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.Height
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =varHoverFill
+            OnSelect: =Set(editmatri, false)
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =varPressedFill
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =15
+            Text: =""
+            Width: =Parent.Width
+            ZIndex: =70
+
+        Container29_13 As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =270
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =5
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Width: =800
+            X: =(Parent.Width - Self.Width)/2
+            Y: =40
+            ZIndex: =157
+
+            Container14_36 As groupContainer.horizontalAutoLayoutContainer:
+                Fill: =TertiaryColor
+                FillPortions: =0
+                Height: =40
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingRight: =10
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Label4_44 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =PrimaryTextColor
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FillPortions: =1
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    LayoutMinHeight: =0
+                    LayoutMinWidth: =100
+                    PaddingLeft: =15
+                    PaddingTop: =9
+                    Size: =13
+                    Text: ="DETALLE MATRÍCULA"
+                    Width: =Parent.Width/2
+                    ZIndex: =2
+
+                CustomBTN_103 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DropShadow: =DropShadow.Regular
+                    Fill: =TertiaryColor
+                    FillPortions: =0
+                    Height: =25
+                    LayoutMinHeight: =20
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Width: =25
+                    ZIndex: =3
+
+                    Image4_68 As image:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =17
+                        Image: |-
+                            ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                Substitute(
+                                    LookUp(customIcons,IconName = "Exit").IconData,
+                                    "currentColor", "RGBA(233, 79, 76, 1)"
+                                )
+                            )
+                        Width: =17
+                        X: =(Parent.Width - Self.Width)/2
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =1
+
+                    Button2_172 As button:
+                        BorderColor: =App.Theme.Colors.Primary
+                        BorderStyle: =BorderStyle.None
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =RGBA(0,0,0,0.1)
+                        OnSelect: =If(FormMatriculas.Unsaved, Set(_puSalir, true), Set(editmatri, false))
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =RGBA(0,0,0,0.3)
+                        Size: =15
+                        Text: =""
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+            FormMatriculas As form.PowerApps_CoreControls_Form:
+                BorderColor: =App.Theme.Colors.Darker40
+                DataSource: =Matricula
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0
+                Height: =165
+                Item: =_matriculaselected
+                LayoutMinHeight: =150
+                LayoutMinWidth: =400
+                UseFluentV9Cards: =true
+                Width: =808
+                X: =(Parent.Width - Self.Width)/2
+                Y: =70
+                ZIndex: =2
+
+                ID_DataCard3 As typedDataCard.fluentV9TextualViewCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="ID"
+                    Default: =ThisItem.ID
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@Matricula],DataSourceInfo.DisplayName,ID)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =true
+                    Width: =266
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey70 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =PrimaryTextColor
+                        Height: =22
+                        Size: =12
+                        Text: ="NÚMERO DE MATRÍCULA"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue68 As 'Entrada de texto'":
+                        AccessibleLabel: =Parent.DisplayName
+                        DisplayMode: =DisplayMode.View
+                        Height: =32
+                        Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                        Required: =Parent.Required
+                        TriggerOutput: ='TextInputCanvas.TriggerOutput'.Delayed
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Value: =Parent.Default
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey70.Y + DataCardKey70.Height + 4
+                        ZIndex: =2
+
+                doc_alumno_DataCard1 As typedDataCard.fluentV9NumberEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="doc_alumno"
+                    Default: =ThisItem.doc_alumno
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Matricula],DataSourceInfo.DisplayName,doc_alumno)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =true
+                    Update: =Value(DataCardValue69.Value)
+                    Width: =266
+                    X: =1
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey71 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =PrimaryTextColor
+                        Height: =22
+                        Size: =12
+                        Text: ="DOCUMENTO ALUMNO"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue69 As 'Entrada de texto'":
+                        AccessibleLabel: =Parent.DisplayName
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =32
+                        Required: =Parent.Required
+                        TriggerOutput: ='TextInputCanvas.TriggerOutput'.Delayed
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Value: =Parent.Default
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey71.Y + DataCardKey71.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage57 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue69.Y + DataCardValue69.Height
+                        ZIndex: =3
+
+                    StarVisible41 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(184, 0, 0, 1)
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey71.Y
+                        ZIndex: =4
+
+                id_curso_DataCard1 As typedDataCard.fluentV9NumberEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="id_curso"
+                    Default: =ThisItem.id_curso
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Matricula],DataSourceInfo.DisplayName,id_curso)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =true
+                    Update: =Value(DD_TipoDocumento_2.Selected.ID)
+                    Width: =266
+                    X: =2
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey82 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =PrimaryTextColor
+                        Height: =22
+                        Size: =12
+                        Text: ="CURSO"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    ErrorMessage58 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DD_TipoDocumento_2.Y + DD_TipoDocumento_2.Height
+                        ZIndex: =3
+
+                    StarVisible42 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(184, 0, 0, 1)
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey82.Y
+                        ZIndex: =4
+
+                    DD_TipoDocumento_2 As combobox:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =0
+                        ChevronBackground: =RGBA(0, 0, 0, 0)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronFill: =SecondaryTextColor
+                        ChevronHoverBackground: =varHoverFill
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Color: =PrimaryTextColor
+                        DefaultSelectedItems: =LookUp(Curso, ID=ThisItem.id_curso)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["codigo"]
+                        Fill: =TertiaryColor
+                        FocusedBorderThickness: =0
+                        Font: =Font.Lato
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        HoverColor: =PrimaryTextColor
+                        HoverFill: =varHoverFill
+                        InputTextPlaceholder: ="Seleccionar..."
+                        Items: =Curso
+                        PaddingLeft: =10
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =App.Theme.Colors.Darker30
+                        SearchFields: =["codigo"]
+                        SearchItems: =Search(Curso,DD_TipoDocumento_2.SearchText,codigo)
+                        SelectionFill: =varHoverFill
+                        SelectMultiple: =false
+                        Size: =9
+                        Width: =218
+                        X: =24
+                        Y: =38
+                        ZIndex: =5
+
+                fecha_registro_DataCard1 As typedDataCard.fluentV9DateEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="fecha_registro"
+                    Default: =ThisItem.fecha_registro
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Matricula],DataSourceInfo.DisplayName,fecha_registro)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =true
+                    Update: =DataCardValue71.SelectedDate
+                    Width: =266
+                    X: =0
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey85 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =PrimaryTextColor
+                        Height: =22
+                        Size: =12
+                        Text: ="FECHA REGISTRO"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue71 As 'Selector de fecha'":
+                        AccessibleLabel: =Parent.DisplayName
+                        DisplayMode: =Parent.DisplayMode
+                        EndDate: =Date(Year(Today())+100, 12, 31)
+                        Height: =32
+                        Required: =Parent.Required
+                        SelectedDate: =Parent.Default
+                        StartDate: =Date(1900, 1, 1)
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey85.Y + DataCardKey85.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage59 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue71.Y + DataCardValue71.Height
+                        ZIndex: =3
+
+                    StarVisible43 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Fill: =
+                        FontColor: =RGBA(184, 0, 0, 1)
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey85.Y
+                        ZIndex: =4
+
+                estado_DataCard4 As typedDataCard.fluentV9TextualEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="estado"
+                    Default: =ThisItem.estado
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Matricula],DataSourceInfo.DisplayName,estado)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    MaxLength: =DataSourceInfo([@Matricula], DataSourceInfo.MaxLength, estado)
+                    Required: =true
+                    Update: =DD_Estado_Matrícula.Selected.Value
+                    Width: =266
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey90 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =PrimaryTextColor
+                        Height: =22
+                        Size: =12
+                        Text: ="ESTADO"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue88 As 'Entrada de texto'":
+                        AccessibleLabel: =Parent.DisplayName
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =32
+                        Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                        Required: =Parent.Required
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Value: =Parent.Default
+                        Visible: =false
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey90.Y + DataCardKey90.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage76 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue88.Y + DataCardValue88.Height
+                        ZIndex: =3
+
+                    StarVisible60 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(184, 0, 0, 1)
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey90.Y
+                        ZIndex: =4
+
+                    DD_Estado_Matrícula As combobox:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =0
+                        ChevronBackground: =RGBA(0, 0, 0, 0)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronFill: =SecondaryTextColor
+                        ChevronHoverBackground: =varHoverFill
+                        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                        Color: =PrimaryTextColor
+                        DefaultSelectedItems: |-
+                            ={Value: ThisItem.estado}
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["Value"]
+                        Fill: =TertiaryColor
+                        FocusedBorderThickness: =0
+                        Font: =Font.Lato
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        HoverColor: =PrimaryTextColor
+                        HoverFill: =varHoverFill
+                        InputTextPlaceholder: ="Seleccionar..."
+                        IsSearchable: =false
+                        Items: =["Activa","Inactiva","Anulada"]
+                        NoSelectionText: ="Seleccionar..."
+                        PaddingLeft: =10
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =App.Theme.Colors.Darker30
+                        SearchFields: =["Value"]
+                        SearchItems: =Search(["Activa","Inactiva","Anulada"],DD_Estado_Matrícula.SearchText,Value)
+                        SelectionFill: =varHoverFill
+                        SelectMultiple: =false
+                        Size: =9
+                        Width: =218
+                        X: =24
+                        Y: =36
+                        ZIndex: =5
+
+                tipo_matricula_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="tipo_matricula"
+                    Default: =ThisItem.tipo_matricula
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Matricula],DataSourceInfo.DisplayName,tipo_matricula)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    MaxLength: =DataSourceInfo([@Matricula], DataSourceInfo.MaxLength, tipo_matricula)
+                    Required: =false
+                    Update: =CB_TipoMatricula_1.Selected.Value
+                    Width: =266
+                    X: =2
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey88 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =PrimaryTextColor
+                        Height: =22
+                        Size: =12
+                        Text: ="TIPO MATRÍCULA"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    ErrorMessage70 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =
+                        ZIndex: =3
+
+                    StarVisible54 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey88.Y
+                        ZIndex: =4
+
+                    CB_TipoMatricula_1 As combobox:
+                        BorderColor: =
+                        BorderThickness: =0
+                        ChevronBackground: =RGBA(0, 0, 0, 0)
+                        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                        ChevronFill: =SecondaryTextColor
+                        ChevronHoverBackground: =RGBA(255, 255, 255, 0.1)
+                        ChevronHoverFill: =PrimaryTextColor
+                        Color: =PrimaryTextColor
+                        DefaultSelectedItems: |-
+                            ={Value: ThisItem.tipo_matricula}
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DisplayFields: =["Value"]
+                        DisplayMode: =Parent.DisplayMode
+                        Fill: =TertiaryColor
+                        FocusedBorderThickness: =0
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Bold
+                        Height: =32
+                        HoverBorderColor: =Self.BorderColor
+                        HoverColor: =PrimaryTextColor
+                        HoverFill: =varHoverFill
+                        InputTextPlaceholder: ="Seleccionar..."
+                        IsSearchable: =false
+                        Items: =["Corporativo","Colegio","Particular","Regular"]
+                        NoSelectionText: ="Seleccionar..."
+                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                        PressedBorderColor: =Self.BorderColor
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =varPressedFill
+                        SearchFields: =["Value"]
+                        SearchItems: =Search(["Corporativo","Colegio","Particular","Regular"],CB_TipoMatricula_1.SearchText,Value)
+                        SelectionColor: =PrimaryTextColor
+                        SelectionFill: =varHoverFill
+                        SelectMultiple: =false
+                        Size: =9
+                        Tooltip: =
+                        Width: =200
+                        X: =24
+                        Y: =38
+                        ZIndex: =5
+
+            Container30_15 As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
+                FillPortions: =0
+                Height: =50
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutGap: =20
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =100
+                LayoutMinWidth: =Parent.Width
+                LayoutMode: =LayoutMode.Auto
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =Parent.Width - 45
+                ZIndex: =3
+
+                CustomBTN_104 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DropShadow: =DropShadow.Regular
+                    Fill: =RGBA(233, 79, 76, 1)
+                    FillPortions: =0
+                    Height: =30
+                    LayoutMinHeight: =30
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Visible: =If(FormMatriculas.Mode = FormMode.Edit, true, false)
+                    Width: =110
+                    X: =CustomBTN_105.X - Self.Width - 20
+                    Y: =CustomBTN_105.Y
+                    ZIndex: =1
+
+                    Image4_69 As image:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =15
+                        Image: |-
+                            ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                Substitute(
+                                    LookUp(customIcons,IconName = "Delete").IconData,
+                                    "currentColor", "RGBA(255, 255, 255, 1)"
+                                )
+                            )
+                        Width: =15
+                        X: =15
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =1
+
+                    Label2_88 As label:
+                        Align: =Align.Center
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Bold
+                        Height: =Parent.Height
+                        PaddingLeft: =25
+                        PaddingTop: =7
+                        Size: =10
+                        Text: ="Eliminar"
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                    Button2_173 As button:
+                        BorderColor: =App.Theme.Colors.Primary
+                        BorderStyle: =BorderStyle.None
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =RGBA(0,0,0,0.1)
+                        OnSelect: =If(!IsBlank(LookUp(Matricula, doc_alumno = _alumnoselected.DOC)) Or !IsBlank(LookUp(Pagos, doc_alumno = _alumnoselected.DOC)), Set(_puNotificacion, true), Set(_puEliminar, true))
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =RGBA(0,0,0,0.3)
+                        Size: =15
+                        Text: =""
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                CustomBTN_105 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DropShadow: =DropShadow.Regular
+                    Fill: =If(FormMatriculas.Valid, RGBA(54, 176, 75, 1), TertiaryColor)
+                    FillPortions: =0
+                    Height: =30
+                    LayoutMinHeight: =30
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Visible: =If(FormMatriculas.Unsaved, true, false)
+                    Width: =110
+                    X: =Container19.Width - Self.Width - 25
+                    Y: =Container19.Height + Self.Height - 93
+                    ZIndex: =2
+
+                    Image4_70 As image:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =15
+                        Image: |+
+                            ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                Substitute(
+                                    LookUp(customIcons,IconName = "Save").IconData,
+                                    "currentColor", If(FormMatriculas.Valid, "RGBA(255, 255, 255, 1)", PrimaryTextColor_Text)
+                                )
+                            )
+                            
+                        Width: =15
+                        X: =15
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =1
+
+                    Label2_89 As label:
+                        Align: =Align.Center
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =PrimaryTextColor
+                        DisplayMode: =If(FormMatriculas.Valid, DisplayMode.Edit, DisplayMode.Disabled)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Bold
+                        Height: =Parent.Height
+                        PaddingLeft: =26
+                        PaddingTop: =7
+                        Size: =10
+                        Text: ="Guardar"
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                    Button2_174 As button:
+                        BorderColor: =App.Theme.Colors.Primary
+                        BorderStyle: =BorderStyle.None
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        DisplayMode: =If(FormMatriculas.Valid, DisplayMode.Edit, DisplayMode.Disabled)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =RGBA(0,0,0,0.1)
+                        OnSelect: =Set(_puGuardar, true)
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =RGBA(0,0,0,0.3)
+                        Size: =15
+                        Text: =""
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                CustomBTN_106 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DropShadow: =DropShadow.Regular
+                    Fill: =RGBA(122, 138, 143, 1)
+                    FillPortions: =0
+                    Height: =30
+                    LayoutMinHeight: =30
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Visible: =If(FormMatriculas.Mode = FormMode.Edit, true, false)
+                    Width: =110
+                    X: =CustomBTN_105.X - Self.Width - 20
+                    Y: =CustomBTN_105.Y
+                    ZIndex: =3
+
+                    Image4_71 As image:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =14
+                        Image: |-
+                            ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                Substitute(
+                                    LookUp(customIcons,IconName = "Exit").IconData,
+                                    "currentColor", "RGBA(255, 255, 255, 1)"
+                                )
+                            )
+                        Width: =14
+                        X: =25
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =1
+
+                    Label2_90 As label:
+                        Align: =Align.Center
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Bold
+                        Height: =Parent.Height
+                        PaddingLeft: =20
+                        PaddingTop: =7
+                        Size: =10
+                        Text: ="Salir"
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                    Button2_175 As button:
+                        BorderColor: =App.Theme.Colors.Primary
+                        BorderStyle: =BorderStyle.None
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =RGBA(0,0,0,0.1)
+                        OnSelect: =If(FormMatriculas.Unsaved, Set(_puSalir, true), Set(editmatri, false))
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =RGBA(0,0,0,0.3)
+                        Size: =15
+                        Text: =""
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+    Popup_ConfirmacionGuardar_Alumno_1 As Popup_ConfirmacionEliminar:
+        LBFill: =RGBA(52, 152, 47, 1)
+        LBOnSelect: =SubmitForm(FormMatriculas); Set(editmatri, false); Set(_puGuardar, false);
+        LBText: ="Sí, guardar"
+        Message: =If(FormHorarios.Mode = FormMode.New, "¿Está seguro que desea guardar este nuevo horario?", FormHorarios.Mode = FormMode.Edit, "¿Está seguro que desea guardar los cambios realizados?")
+        MessageTextSize: =17
+        PopupHeight: =150
+        RBOnSelect: =Set(_puGuardar, false);
+        RBText: ="Cancelar"
+        Visible: =_puGuardar
+        ZIndex: =4
+
+    Popup_ConfirmacionEliminar_Alumno_1 As Popup_ConfirmacionEliminar:
+        LBOnSelect: =Set(newalu, false); Set(_puEliminar, false); 
+        Message: ="¿Está seguro que desea eliminar el elemento seleccionado?"
+        MessageTextSize: =17
+        PopupHeight: =200
+        RBOnSelect: =Set(_puEliminar, false);
+        RBText: ="Cancelar"
+        Visible: =_puEliminar
+        ZIndex: =5
+
+    Popup_ConfirmacionSalir_Alumno_1 As Popup_ConfirmacionEliminar:
+        LBFill: =RGBA(240, 98, 15, 1)
+        LBOnSelect: =Set(editmatri, false); Set(_puSalir, false); ResetForm(FormMatriculas); Set(_matriculaselected, Blank())
+        LBText: ="Sí, salir"
+        Message: |-
+            ="¿Está seguro que desea salir?
+            Se perderán todos los cambios realizados."
+        MessageTextSize: =17
+        PopupHeight: =200
+        RBOnSelect: =Set(_puSalir, false);
+        RBText: ="Cancelar"
+        Visible: =_puSalir
+        ZIndex: =6
+
+    Popup_NotificacionParaConfirmar_Alumno_1 As Popup_NotificacionParaConfirmar:
+        Fill: =RGBA(0,0,0,0)
+        LBOnSelect: =""
+        LBTextSize: =11
+        Message: ="No se puede eliminar este alumno, debido a que tiene matriculas o pagos asociados."
+        MessageTextColor: =RGBA(215, 58, 60, 1)
+        PopupFill: =
+        PopupHeight: =130
+        PopupWidth: =340
+        RBFill: =AccentColor
+        RBOnSelect: =Set(_puNotificacion, false)
+        RBText: ="Ok"
+        RBTextSize: =12
+        Visible: =_puNotificacion
+        ZIndex: =7
+
+    Container2_23 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =Parent.Height
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =_puAgregarMeses
+        Width: =Parent.Width
+        ZIndex: =8
+
+        Button2_186 As button:
+            BorderColor: =App.Theme.Colors.Primary
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =DisplayMode.View
+            Fill: =varHoverFill
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            Height: =Parent.Height
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =varHoverFill
+            OnSelect: =
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =varHoverFill
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =15
+            Text: =""
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Container19_2 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =320
+            RadiusBottomLeft: =15
+            RadiusBottomRight: =15
+            RadiusTopLeft: =15
+            RadiusTopRight: =15
+            Width: =700
+            X: =(Parent.Width- Self.Width)/2
+            Y: =40
+            ZIndex: =5
+
+            Container14_40 As groupContainer.horizontalAutoLayoutContainer:
+                Fill: =TertiaryColor
+                Height: =40
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMode: =LayoutMode.Auto
+                PaddingRight: =10
+                Width: =Parent.Width
+                ZIndex: =1
+
+                Label4_47 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =PrimaryTextColor
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FillPortions: =1
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    LayoutMinHeight: =0
+                    LayoutMinWidth: =100
+                    PaddingLeft: =15
+                    PaddingTop: =9
+                    Size: =13
+                    Text: ="AGREGAR MESES A FAVOR"
+                    Width: =Parent.Width/2
+                    ZIndex: =2
+
+                CustomBTN_113 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Center
+                    BorderColor: =RGBA(255, 255, 255, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DropShadow: =DropShadow.Regular
+                    Fill: =TertiaryColor
+                    FillPortions: =0
+                    Height: =25
+                    LayoutMinHeight: =20
+                    LayoutMinWidth: =250
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Width: =25
+                    X: =CustomBTN_117.X - Self.Width - 20
+                    Y: =CustomBTN_117.Y
+                    ZIndex: =3
+
+                    Image4_79 As image:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =17
+                        Image: |-
+                            ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                Substitute(
+                                    LookUp(customIcons,IconName = "Exit").IconData,
+                                    "currentColor", "RGBA(233, 79, 76, 1)"
+                                )
+                            )
+                        Width: =17
+                        X: =(Parent.Width - Self.Width)/2
+                        Y: =(Parent.Height - Self.Height)/2
+                        ZIndex: =1
+
+                    Button2_187 As button:
+                        BorderColor: =App.Theme.Colors.Primary
+                        BorderStyle: =BorderStyle.None
+                        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Font: =App.Theme.Font
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height
+                        HoverBorderColor: =App.Theme.Colors.Darker10
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =RGBA(0,0,0,0.1)
+                        OnSelect: =Set(_puAgregarMeses, false); 
+                        PressedBorderColor: =App.Theme.Colors.Darker40
+                        PressedColor: =Self.Color
+                        PressedFill: =RGBA(0,0,0,0.3)
+                        Size: =15
+                        Text: =""
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+            CustomBTN_117 As groupContainer.manualLayoutContainer:
+                BorderColor: =RGBA(255, 255, 255, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DropShadow: =DropShadow.Regular
+                Fill: =RGBA(54, 176, 75, 1)
+                Height: =38
+                RadiusBottomLeft: =10
+                RadiusBottomRight: =10
+                RadiusTopLeft: =10
+                RadiusTopRight: =10
+                Width: =130
+                X: =Container19_2.Width - Self.Width - 25
+                Y: =Container19_2.Height + Self.Height - 93
+                ZIndex: =4
+
+                Image4_83 As image:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =15
+                    Image: |+
+                        ="data:image/svg+xml;utf8, "&EncodeUrl(
+                            Substitute(
+                                LookUp(customIcons,IconName = "Save").IconData,
+                                "currentColor", "RGBA(255, 255, 255, 1)"
+                            )
+                        )
+                        
+                    Width: =15
+                    X: =25
+                    Y: =(Parent.Height - Self.Height)/2
+                    ZIndex: =1
+
+                Label2_98 As label:
+                    Align: =Align.Center
+                    BorderColor: =App.Theme.Colors.Darker40
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =PrimaryTextColor
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =Parent.Height
+                    PaddingLeft: =26
+                    PaddingTop: =7
+                    Size: =11
+                    Text: ="Guardar"
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+                Button2_190 As button:
+                    BorderColor: =App.Theme.Colors.Primary
+                    BorderStyle: =BorderStyle.None
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Height: =Parent.Height
+                    HoverBorderColor: =App.Theme.Colors.Darker10
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: =RGBA(0,0,0,0.1)
+                    OnSelect: =SubmitForm(FormAgregarMeses_1); Set(_puAgregarMeses, false)
+                    PressedBorderColor: =App.Theme.Colors.Darker40
+                    PressedColor: =Self.Color
+                    PressedFill: =RGBA(0,0,0,0.3)
+                    Size: =15
+                    Text: =""
+                    Width: =Parent.Width
+                    ZIndex: =3
+
+            FormAgregarMeses_1 As form.PowerApps_CoreControls_Form:
+                BorderColor: =App.Theme.Colors.Darker40
+                DataSource: =Alumno
+                Height: =220
+                Item: =LookUp(Alumno, DOC = CB_AlumnoParaMatricular.Selected.DOC)
+                NumberOfColumns: =2
+                UseFluentV9Cards: =true
+                Width: =700
+                Y: =40
+                ZIndex: =5
+
+                DOC_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="DOC"
+                    Default: =ThisItem.DOC
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,DOC)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    MaxLength: =DataSourceInfo([@Alumno], DataSourceInfo.MaxLength, DOC)
+                    Required: =true
+                    Update: =DataCardValue2.Value
+                    Width: =350
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey2 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =PrimaryTextColor
+                        Height: =22
+                        Size: =12
+                        Text: ="DOCUMENTO DE IDENTIDAD"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue2 As 'Entrada de texto'":
+                        AccessibleLabel: =Parent.DisplayName
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =32
+                        Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                        Required: =Parent.Required
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Value: =Parent.Default
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey2.Y + DataCardKey2.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage2 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue2.Y + DataCardValue2.Height
+                        ZIndex: =3
+
+                    StarVisible2 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey2.Y
+                        ZIndex: =4
+
+                nombre_completo_DataCard6_1 As typedDataCard.fluentV9TextualEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="nombre_completo"
+                    Default: =ThisItem.nombre_completo
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,nombre_completo)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    MaxLength: =DataSourceInfo([@Alumno], DataSourceInfo.MaxLength, nombre_completo)
+                    Required: =true
+                    Update: =DataCardValue24_3.Value
+                    Width: =350
+                    X: =1
+                    Y: =0
+                    ZIndex: =1
+
+                    DataCardKey24_1 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =PrimaryTextColor
+                        Height: =22
+                        Size: =12
+                        Text: ="NOMBRE COMPLETO"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue24_3 As 'Entrada de texto'":
+                        AccessibleLabel: =Parent.DisplayName
+                        Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                        DisplayMode: =Parent.DisplayMode
+                        Font: =Font.'Segoe UI'
+                        FontSize: =16
+                        FontWeight: =FontWeight.Semibold
+                        Height: =32
+                        Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                        Required: =Parent.Required
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Value: =Parent.Default
+                        Width: =Parent.Width - 48
+                        X: =12
+                        Y: =DataCardKey24_1.Y + DataCardKey24_1.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage22_1 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue24_3.Y + DataCardValue24_3.Height
+                        ZIndex: =3
+
+                meses_pagados_DataCard1_1 As typedDataCard.fluentV9NumberEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="meses_pagados"
+                    Default: =ThisItem.meses_pagados
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,meses_pagados)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =false
+                    Update: =Value(DataCardValue25_1.Value)
+                    Width: =350
+                    X: =0
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey25_1 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =PrimaryTextColor
+                        Height: =22
+                        Size: =12
+                        Text: ="MESES A FAVOR"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue25_1 As 'Entrada numérica'":
+                        AccessibleLabel: =Parent.DisplayName
+                        DisplayMode: =Parent.DisplayMode
+                        FontSize: =17
+                        Height: =32
+                        Max: =Blank()
+                        Min: =0
+                        Step: =1
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Value: =Parent.Default
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey25_1.Y + DataCardKey25_1.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage23_1 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue25_1.Y + DataCardValue25_1.Height
+                        ZIndex: =3
+
+                    StarVisible110_1 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey25_1.Y
+                        ZIndex: =4
+
+                libros_meses_pagados_DataCard1_1 As typedDataCard.fluentV9NumberEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="libros_meses_pagados"
+                    Default: =ThisItem.libros_meses_pagados
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,libros_meses_pagados)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =false
+                    Update: =Value(DataCardValue26_1.Value)
+                    Width: =350
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey26_1 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =PrimaryTextColor
+                        Height: =22
+                        Size: =12
+                        Text: ="MESES DE LIBROS A FAVOR"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue26_1 As 'Entrada numérica'":
+                        AccessibleLabel: =Parent.DisplayName
+                        DisplayMode: =Parent.DisplayMode
+                        FontSize: =17
+                        Height: =32
+                        Max: =Blank()
+                        Min: =0
+                        Step: =1
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Value: =Parent.Default
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey26_1.Y + DataCardKey26_1.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage24_1 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue26_1.Y + DataCardValue26_1.Height
+                        ZIndex: =3
+
+                    StarVisible111_1 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey26_1.Y
+                        ZIndex: =4
+
+                fecha_promo_aplicada_DataCard3 As typedDataCard.fluentV9DateEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="fecha_promo_aplicada"
+                    Default: =ThisItem.fecha_promo_aplicada
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,fecha_promo_aplicada)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =false
+                    Update: =DataCardValue30.SelectedDate
+                    Width: =350
+                    X: =0
+                    Y: =2
+                    ZIndex: =1
+
+                    DataCardKey30 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =PrimaryTextColor
+                        Height: =22
+                        Size: =12
+                        Text: ="INICIO PROMO"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue30 As 'Selector de fecha'":
+                        AccessibleLabel: =Parent.DisplayName
+                        DisplayMode: =Parent.DisplayMode
+                        EndDate: =Date(Year(Today())+100, 12, 31)
+                        Height: =32
+                        Required: =Parent.Required
+                        SelectedDate: =Parent.Default
+                        StartDate: =Date(1900, 1, 1)
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey30.Y + DataCardKey30.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage28 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue30.Y + DataCardValue30.Height
+                        ZIndex: =3
+
+                    StarVisible113 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey30.Y
+                        ZIndex: =4
+
+                fecha_vencimiento_promo_DataCard3 As typedDataCard.fluentV9DateEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="fecha_vencimiento_promo"
+                    Default: =ThisItem.fecha_vencimiento_promo
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Alumno],DataSourceInfo.DisplayName,fecha_vencimiento_promo)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =false
+                    Update: =DataCardValue31.SelectedDate
+                    Width: =350
+                    X: =1
+                    Y: =2
+                    ZIndex: =1
+
+                    DataCardKey31 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =PrimaryTextColor
+                        Height: =22
+                        Size: =12
+                        Text: ="VENCIMIENTO PROMO"
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue31 As 'Selector de fecha'":
+                        AccessibleLabel: =Parent.DisplayName
+                        DisplayMode: =Parent.DisplayMode
+                        EndDate: =Date(Year(Today())+100, 12, 31)
+                        Height: =32
+                        Required: =Parent.Required
+                        SelectedDate: =Parent.Default
+                        StartDate: =Date(1900, 1, 1)
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey31.Y + DataCardKey31.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage29 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue31.Y + DataCardValue31.Height
+                        ZIndex: =3
+
+                    StarVisible114 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey31.Y
+                        ZIndex: =4
+

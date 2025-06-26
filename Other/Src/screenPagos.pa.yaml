@@ -1,0 +1,2386 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  screenPagos:
+    Properties:
+      Fill: =PrimaryColor
+      OnVisible: =Set(currentMenuID, 3); Set(currentMenuID2,3.1)
+    Children:
+      - PageContainer_22:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            BorderStyle: =BorderStyle.None
+            DropShadow: =DropShadow.None
+            Height: =Parent.Height
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Horizontal
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =Parent.Width
+          Children:
+            - MenuContainer_22:
+                Control: GroupContainer@1.3.0
+                Variant: ManualLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderStyle: =BorderStyle.None
+                  DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: =150
+                Children:
+                  - SideNavigation_MultiLevel_29:
+                      Control: CanvasComponent
+                      ComponentName: SideNavigation_MultiLevel
+                      Properties:
+                        AppColorMode: =varAppColorMode
+                        BaseIconColor: =RGBA(115,131,176,1)
+                        BaseIconColor_Text: ="RGBA(115,131,176,1)"
+                        CurrentMenuID: =currentMenuID
+                        CurrentMenuID2: =currentMenuID2
+                        Height: =App.Height
+                        HoverFill: =varHoverFill
+                        LogoPadding_Percent: =10%
+                        Logo_Compact: =rtlogo2
+                        Logo_Expanded: =If(varAppColorMode = "Dark", rtlogo2,rtlogo2blanco)
+                        MenuContent: =customNavigation
+                        NavBG: =TertiaryColor
+                        PressedFill: =varPressedFill
+                        SelectedIconBG: =If(varAppColorMode = "Dark", HighlightColor,PrimaryColor)
+                        SelectedIconColor: =RGBA(254,189,47,1)
+                        SelectedIconColor_Text: ="RGBA(254,189,47,1)"
+                        TextColor: =PrimaryTextColor
+                        Width: =Parent.Width
+            - PageContent_20:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  BorderStyle: =BorderStyle.None
+                  DropShadow: =DropShadow.None
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =10
+                  LayoutMinWidth: =150
+                  PaddingBottom: =10
+                  PaddingLeft: =20
+                  PaddingRight: =20
+                  PaddingTop: =20
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                Children:
+                  - Container_Line_54:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =60
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =10
+                        PaddingLeft: =10
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                      Children:
+                        - PageTitle_25:
+                            Control: Label@2.5.1
+                            Properties:
+                              Color: =PrimaryTextColor
+                              Font: =Font.'Lato Black'
+                              FontWeight: =FontWeight.Semibold
+                              PaddingLeft: =20
+                              Size: =15
+                              Text: ="Pagos Registrados"
+                              Width: =250
+                        - Search_Container_22:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              BorderColor: =HighlightColor
+                              BorderThickness: =3
+                              FillPortions: =0
+                              Height: =35
+                              LayoutMinHeight: =35
+                              LayoutMinWidth: =200
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                              Width: =250
+                              X: =40
+                              Y: =(Parent.Height - Self.Height)/2
+                            Children:
+                              - TextInput_Alumno_12:
+                                  Control: Classic/TextInput@2.3.2
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =PrimaryTextColor
+                                    Default: =""
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =Parent.Height
+                                    HintText: ="Buscar por alumno...."
+                                    HoverColor: =PrimaryTextColor
+                                    HoverFill: =RGBA(255, 255, 255, 0.1)
+                                    PaddingLeft: |-
+                                      =If(
+                                          !IsBlank(Self.Text),
+                                          12,
+                                          15 + SearchIcon_20.Width
+                                      )
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Size: =9
+                                    Width: =Parent.Width
+                                    Y: =
+                              - SearchIcon_20:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    Height: =Parent.Height
+                                    Image: |-
+                                      ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                          Substitute(
+                                              LookUp(customIcons,IconName = "Search").IconData,
+                                              "currentColor", SecondaryTextColor_Text
+                                          )
+                                      )
+                                    PaddingBottom: =10
+                                    PaddingLeft: =5
+                                    PaddingRight: =5
+                                    PaddingTop: =10
+                                    Visible: =IsBlank(TextInput_Alumno_12.Text)
+                                    Width: =30
+                                    X: =10
+                                    Y: =(Parent.Height - Self.Height)/2
+                              - Rectangle3_20:
+                                  Control: Rectangle@2.3.0
+                                  Properties:
+                                    Fill: =RGBA(116, 116, 116, 1)
+                                    Height: =1
+                                    Visible: =false
+                                    Width: =TextInput_Alumno_12.Width
+                                    Y: =Parent.Height - Self.Height
+                        - RightSidedItems_17:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutGap: =10
+                              LayoutJustifyContent: =LayoutJustifyContent.End
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =100
+                              PaddingRight: =5
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Visible: =false
+                            Children:
+                              - CustomBTN_47:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    BorderColor: =RGBA(255, 255, 255, 1)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =2
+                                    DropShadow: =DropShadow.Regular
+                                    Fill: =AccentColor
+                                    FillPortions: =0
+                                    Height: =35
+                                    LayoutMinHeight: =0
+                                    LayoutMinWidth: =100
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =180
+                                    X: =444
+                                    Y: =(Parent.Height - Self.Height)/2
+                                  Children:
+                                    - Label2_47:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Align: =Align.Center
+                                          Color: =AccentTextColor
+                                          Font: =Font.'Lato Black'
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          PaddingRight: =31
+                                          Size: =10
+                                          Text: ="Nuevo Pago"
+                                          Width: =Parent.Width
+                                    - Button2_125:
+                                        Control: Classic/Button@2.2.0
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =RGBA(255, 255, 255, 1)
+                                          Fill: =RGBA(0, 0, 0, 0)
+                                          Height: =Parent.Height
+                                          HoverColor: =RGBA(255, 255, 255, 1)
+                                          HoverFill: =RGBA(0,0,0,0.1)
+                                          OnSelect: =
+                                          PressedFill: =RGBA(0,0,0,0.3)
+                                          Text: =""
+                                          Width: =Parent.Width
+                                    - Image4_17:
+                                        Control: Image@2.2.3
+                                        Properties:
+                                          Height: =25
+                                          Image: |-
+                                            ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                                Substitute(
+                                                    LookUp(customIcons,IconName = "Plus").IconData,
+                                                    "currentColor", AccentTextColor_Text
+                                                )
+                                            )
+                                          Width: =25
+                                          X: =123
+                                          Y: =(Parent.Height - Self.Height)/2
+                  - Container_Line_55:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =60
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =10
+                        PaddingLeft: =10
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                      Children:
+                        - Label3_38:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Right
+                              Color: =PrimaryTextColor
+                              Font: =Font.Lato
+                              FontWeight: =FontWeight.Semibold
+                              Height: =35
+                              Size: =9
+                              Text: ="Estado"
+                              Width: =83
+                              X: =40
+                        - Container8_38:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              BorderColor: =HighlightColor
+                              BorderThickness: =3
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =35
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                              Width: =206
+                            Children:
+                              - Estado_DD_10:
+                                  Control: Classic/ComboBox@2.4.0
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =0
+                                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                                    ChevronFill: =SecondaryTextColor
+                                    ChevronHoverBackground: =varHoverFill
+                                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                    Color: =PrimaryTextColor
+                                    DisplayFields: =["Value"]
+                                    Fill: =TertiaryColor
+                                    FocusedBorderThickness: =0
+                                    Font: =Font.Lato
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    HoverColor: =PrimaryTextColor
+                                    HoverFill: =varHoverFill
+                                    InputTextPlaceholder: ="Select..."
+                                    IsSearchable: =false
+                                    Items: =["Por Registrar","Registrado"]
+                                    NoSelectionText: ="Seleccionar..."
+                                    PaddingLeft: =10
+                                    PressedColor: =RGBA(255, 255, 255, 1)
+                                    SearchFields: =["Value"]
+                                    SelectMultiple: =false
+                                    SelectionColor: =RGBA(255, 255, 255, 1)
+                                    SelectionFill: =varHoverFill
+                                    Size: =9
+                                    Width: =Parent.Width
+                                    Y: =(Parent.Height - Self.Height)/2
+                        - Label3_39:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Right
+                              Color: =PrimaryTextColor
+                              Font: =Font.Lato
+                              FontWeight: =FontWeight.Semibold
+                              Height: =35
+                              Size: =9
+                              Text: ="Producto"
+                              Width: =80
+                              X: =40
+                        - Container8_39:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              BorderColor: =HighlightColor
+                              BorderThickness: =3
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =35
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                              Width: =300
+                            Children:
+                              - Sexo_DD_4:
+                                  Control: Classic/ComboBox@2.4.0
+                                  Properties:
+                                    BorderColor: =RGBA(0, 0, 0, 0)
+                                    BorderStyle: =BorderStyle.None
+                                    BorderThickness: =0
+                                    ChevronBackground: =RGBA(0, 0, 0, 0)
+                                    ChevronFill: =SecondaryTextColor
+                                    ChevronHoverBackground: =varHoverFill
+                                    ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                                    Color: =PrimaryTextColor
+                                    DisplayFields: =["Value"]
+                                    Fill: =TertiaryColor
+                                    FocusedBorderThickness: =0
+                                    Font: =Font.Lato
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =31
+                                    HoverColor: =PrimaryTextColor
+                                    HoverFill: =varHoverFill
+                                    InputTextPlaceholder: ="Seleccionar..."
+                                    Items: =Distinct(Pagos, pago_descripcion)
+                                    NoSelectionText: ="Seleccionar..."
+                                    PaddingLeft: =10
+                                    PressedColor: =RGBA(255, 255, 255, 1)
+                                    SearchFields: =["Value"]
+                                    SelectMultiple: =false
+                                    SelectionColor: =RGBA(255, 255, 255, 1)
+                                    SelectionFill: =varHoverFill
+                                    Size: =9
+                                    Width: =300
+                                    Y: =(Parent.Height - Self.Height)/2
+                  - Container_Line_56:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        Height: =60
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        PaddingLeft: =10
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                      Children:
+                        - Container1_30:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =40
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =500
+                              Width: =Parent.Width
+                            Children:
+                              - DocContainer_33:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =25
+                                    Width: =35
+                                  Children:
+                                    - Label8_157:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Color: |-
+                                            =RGBA(149, 149, 149, 1)
+                                            //PrimaryTextColor
+                                          Fill: =Color.Transparent
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          PaddingLeft: =12
+                                          Size: =8
+                                          Text: ="ID"
+                                          Width: =Parent.Width
+                              - DocContainer_34:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0.3
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =70
+                                    Width: =80
+                                  Children:
+                                    - Label8_158:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Color: |-
+                                            =RGBA(149, 149, 149, 1)
+                                            //PrimaryTextColor
+                                          Fill: =Color.Transparent
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          PaddingLeft: =20
+                                          Size: =8
+                                          Text: =Upper("Doc")
+                                          Width: =Parent.Width
+                              - NombreCompletoContainer_29:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =120
+                                    Width: =120
+                                  Children:
+                                    - Label8_159:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Color: |-
+                                            =RGBA(149, 149, 149, 1)
+                                            //PrimaryTextColor
+                                          Fill: =Color.Transparent
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          PaddingLeft: =20
+                                          Size: =8
+                                          Text: =Upper("Nombre Completo")
+                                          Width: =Parent.Width
+                              - CorreoContainer_31:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =1.3
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =100
+                                    Width: =180
+                                  Children:
+                                    - Label8_160:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Color: |-
+                                            =RGBA(149, 149, 149, 1)
+                                            //PrimaryTextColor
+                                          Fill: =Color.Transparent
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          PaddingLeft: =20
+                                          Size: =8
+                                          Text: |-
+                                            ="DESCRIPCION
+                                            "
+                                          Width: =Parent.Width
+                              - SexoContainer_30:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0.35
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =70
+                                  Children:
+                                    - Label8_161:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Color: |-
+                                            =RGBA(149, 149, 149, 1)
+                                            //PrimaryTextColor
+                                          Fill: =Color.Transparent
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          PaddingLeft: =20
+                                          Size: =8
+                                          Text: ="IMPORTE"
+                                          Width: =91
+                              - FechaNacimientoContainer_42:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0.5
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =20
+                                  Children:
+                                    - Label8_162:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Color: |-
+                                            =RGBA(149, 149, 149, 1)
+                                            //PrimaryTextColor
+                                          Fill: =Color.Transparent
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          PaddingLeft: =20
+                                          Size: =8
+                                          Text: =Upper("Fecha Registro")
+                                          Width: =Parent.Width
+                              - FechaNacimientoContainer_43:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0.5
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =0
+                                  Children:
+                                    - Label8_163:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Color: |-
+                                            =RGBA(149, 149, 149, 1)
+                                            //PrimaryTextColor
+                                          Fill: =Color.Transparent
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          PaddingLeft: =20
+                                          Size: =8
+                                          Text: ="ESTADO"
+                                          Width: =Parent.Width
+                              - FechaNacimientoContainer_44:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0.5
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =0
+                                  Children:
+                                    - Label8_164:
+                                        Control: Label@2.5.1
+                                        Properties:
+                                          Color: |-
+                                            =RGBA(149, 149, 149, 1)
+                                            //PrimaryTextColor
+                                          Fill: =Color.Transparent
+                                          Font: =Font.Lato
+                                          FontWeight: =FontWeight.Semibold
+                                          Height: =Parent.Height
+                                          PaddingLeft: =20
+                                          Size: =8
+                                          Text: =If(App.Height < 600, "HOLA", "SUNAT")
+                                          Width: =Parent.Width
+                              - IconsContainer_32:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =50
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =10
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =50
+                                    PaddingBottom: =8
+                                    PaddingLeft: =10
+                                    PaddingRight: =10
+                                    PaddingTop: =8
+                                    RadiusBottomLeft: =0
+                                    RadiusBottomRight: =0
+                                    RadiusTopLeft: =0
+                                    RadiusTopRight: =0
+                                    Width: =50
+                        - separatorRectangle_37:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              Fill: =PrimaryTextColor
+                              Height: =1
+                              HoverFill: =PrimaryTextColor
+                              PressedFill: =PrimaryTextColor
+                              Width: =Parent.Width
+                              Y: =40
+                        - Gallery1_21:
+                            Control: Gallery@2.15.0
+                            Variant: Vertical
+                            Properties:
+                              Height: =423
+                              Items: |-
+                                =Filter(
+                                        Pagos,
+                                        TextInput_Alumno_12.Text in doc_alumno,
+                                        IsBlank(Estado_DD_10.Selected.Value) || estado = Estado_DD_10.Selected.Value
+                                    )
+                              LayoutMinHeight: =200
+                              TemplatePadding: =1
+                              TemplateSize: =50
+                              Width: =Parent.Width
+                              Y: =40
+                            Children:
+                              - Container1_31:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    Height: =Parent.TemplateHeight
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    Width: =Parent.TemplateWidth
+                                  Children:
+                                    - DocContainer_35:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          FillPortions: =0
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =25
+                                          Width: =35
+                                        Children:
+                                          - Label13_20:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Color: =PrimaryTextColor
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =15
+                                                Size: =8
+                                                Text: =ThisItem.ID
+                                                Width: =Parent.Width
+                                    - DocContainer_36:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          FillPortions: =0.3
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =70
+                                          Width: =80
+                                        Children:
+                                          - Label13_21:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Color: =PrimaryTextColor
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =10
+                                                Size: =8
+                                                Text: =ThisItem.doc_alumno
+                                                Width: =Parent.Width
+                                    - NombreCompletoContainer_30:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =120
+                                          Width: =120
+                                        Children:
+                                          - Label10_53:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Color: =PrimaryTextColor
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =15
+                                                Size: =8
+                                                Text: =LookUp(Alumno, DOC = ThisItem.doc_alumno, nombres & " " & apellido_paterno & " " & apellido_materno)
+                                                Width: =Parent.Width
+                                    - CorreoContainer_32:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =1.3
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =100
+                                          Width: =180
+                                        Children:
+                                          - Label10_54:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Color: =PrimaryTextColor
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =15
+                                                Size: =8
+                                                Text: =ThisItem.pago_descripcion
+                                                Width: =Parent.Width
+                                    - SexoContainer_31:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0.35
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =75
+                                        Children:
+                                          - Label14_13:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Color: =PrimaryTextColor
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =15
+                                                Size: =7.5
+                                                Text: =If(LookUp(Tipomoneda, ID = ThisItem.pago_tipomoneda).descripcion = "Soles", "S/. ") & ThisItem.pago_importe
+                                                Width: =Parent.Width
+                                                Y: |+
+                                                  =0
+
+
+                                    - FechaNacimientoContainer_45:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0.5
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - Label16_37:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Color: =PrimaryTextColor
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =10
+                                                Size: =8
+                                                Text: =ThisItem.fecha_registro
+                                                Width: =Parent.Width
+                                    - EstadoContainer_13:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0.5
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - Circle4_15:
+                                              Control: Circle@2.3.0
+                                              Properties:
+                                                Fill: "=Switch(\r\n    Text(ThisItem.estado),\r\n    \"Registrado\", \r\n    RGBA(72, 163, 62, 1),\r\n    \r\n    \"Pendiente\", \r\n    RGBA(211, 101, 19, 0.8),\r\n    RGBA(0,0,0,0.5)\r\n)"
+                                                Height: =10
+                                                Width: =10
+                                                X: =Label16_38.X + 20
+                                                Y: =(Parent.Height - Self.Height)/2
+                                          - Label16_38:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Align: =Align.Center
+                                                Color: =PrimaryTextColor
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =20
+                                                Size: =8
+                                                Text: =ThisItem.estado
+                                                Width: =Parent.Width
+                                    - EstadoContainer_14:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0.5
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =0
+                                        Children:
+                                          - Circle4_16:
+                                              Control: Circle@2.3.0
+                                              Properties:
+                                                Fill: "=Switch(\r\n    Text(ThisItem.estado_sunat),\r\n    \"Registrado\", \r\n    RGBA(72, 163, 62, 1),\r\n    \r\n    \"Por Registrar\", \r\n    RGBA(211, 101, 19, 0.8),\r\n    RGBA(0,0,0,0.5)\r\n)"
+                                                Height: =10
+                                                Width: =10
+                                                X: =Label16_39.X + 20
+                                                Y: =(Parent.Height - Self.Height)/2
+                                          - Label16_39:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Align: =Align.Center
+                                                Color: =PrimaryTextColor
+                                                FontWeight: =FontWeight.Semibold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =20
+                                                Size: =8
+                                                Text: =ThisItem.estado_sunat
+                                                Width: =Parent.Width
+                                    - IconsContainer_33:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: AutoLayout
+                                        Properties:
+                                          DropShadow: =DropShadow.None
+                                          FillPortions: =0
+                                          Height: =50
+                                          LayoutDirection: =LayoutDirection.Horizontal
+                                          LayoutGap: =10
+                                          LayoutMinHeight: =20
+                                          LayoutMinWidth: =50
+                                          PaddingBottom: =8
+                                          PaddingLeft: =10
+                                          PaddingRight: =10
+                                          PaddingTop: =8
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Width: =50
+                                        Children:
+                                          - CustomBTNContainer_32:
+                                              Control: GroupContainer@1.3.0
+                                              Variant: ManualLayout
+                                              Properties:
+                                                DropShadow: =DropShadow.None
+                                                Fill: =PrimaryColor
+                                                FillPortions: =0
+                                                Height: =25
+                                                LayoutMinHeight: =0
+                                                LayoutMinWidth: =30
+                                                Width: =30
+                                                X: =10
+                                                Y: =(Parent.Height - Self.Height)/2
+                                              Children:
+                                                - Image2_40:
+                                                    Control: Image@2.2.3
+                                                    Properties:
+                                                      Height: =Parent.Height
+                                                      Image: |-
+                                                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                                            Substitute(
+                                                                LookUp(customIcons,IconName = "EditIcon").IconData,
+                                                                "currentColor", "White"
+                                                            )
+                                                        )
+                                                      PaddingBottom: =7
+                                                      PaddingTop: =7
+                                                      Visible: =false
+                                                      Width: =Parent.Width
+                                                - Icon2_22:
+                                                    Control: Classic/Icon@2.5.0
+                                                    Properties:
+                                                      Color: =SecondaryTextColor
+                                                      Height: =Parent.Height
+                                                      Icon: =Icon.Edit
+                                                      PaddingBottom: =7
+                                                      PaddingLeft: =7
+                                                      PaddingRight: =7
+                                                      PaddingTop: =7
+                                                      Width: =Parent.Width
+                                                - Button2_127:
+                                                    Control: Classic/Button@2.2.0
+                                                    Properties:
+                                                      BorderStyle: =BorderStyle.None
+                                                      Color: =RGBA(255, 255, 255, 1)
+                                                      Fill: =RGBA(0, 0, 0, 0)
+                                                      FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                                                      Height: =Parent.Height
+                                                      HoverColor: =RGBA(255, 255, 255, 1)
+                                                      HoverFill: =varHoverFill
+                                                      OnSelect: =Set(_pagoselected, ThisItem); Set(_detallepago, true)
+                                                      PressedFill: =varPressedFill
+                                                      RadiusBottomLeft: =0
+                                                      RadiusBottomRight: =0
+                                                      RadiusTopLeft: =0
+                                                      RadiusTopRight: =0
+                                                      Text: =""
+                                                      Width: =Parent.Width
+                              - separatorRectangle_38:
+                                  Control: Rectangle@2.3.0
+                                  Properties:
+                                    Fill: =RGBA(237, 237, 237, 1)
+                                    Height: =1
+                                    Visible: =false
+                                    Width: =Parent.Width * 95%
+                                    Y: =49
+      - Container2_19:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Height: =Parent.Height
+            Visible: =_detallepago
+            Width: =Parent.Width
+          Children:
+            - Button2_128:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderStyle: =BorderStyle.None
+                  Color: =RGBA(255, 255, 255, 1)
+                  Fill: =varHoverFill
+                  FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                  Height: =Parent.Height
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =varHoverFill
+                  OnSelect: =Set(_detallepago, false)
+                  PressedFill: =varPressedFill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Text: =""
+                  Width: =Parent.Width
+            - Container29_5:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  Fill: =RGBA(255, 255, 255, 1)
+                  Height: =Container14_28.Height+FormDeuda_2.Height+Container27_7.Height+GalleryCuotas2_3.Height+200+150
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =5
+                  RadiusBottomLeft: =20
+                  RadiusBottomRight: =20
+                  RadiusTopLeft: =20
+                  RadiusTopRight: =20
+                  Width: =1000
+                  X: =(Parent.Width - Self.Width)/2
+                  Y: =40
+                Children:
+                  - Container14_28:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        Fill: =TertiaryColor
+                        FillPortions: =0
+                        Height: =40
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                        PaddingRight: =10
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =Parent.Width
+                      Children:
+                        - Label4_35:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              Color: =PrimaryTextColor
+                              FillPortions: =1
+                              Font: =Font.'Segoe UI'
+                              FontWeight: =FontWeight.Bold
+                              LayoutMinHeight: =0
+                              LayoutMinWidth: =100
+                              PaddingLeft: =15
+                              PaddingTop: =9
+                              Text: ="DETALLE PAGO"
+                              Width: =Parent.Width/2
+                        - CustomBTN_69:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              BorderColor: =RGBA(255, 255, 255, 1)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              DropShadow: =DropShadow.Regular
+                              Fill: =TertiaryColor
+                              FillPortions: =0
+                              Height: =25
+                              LayoutMinHeight: =20
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                              Width: =25
+                              X: =CustomBTN_52.X - Self.Width - 20
+                              Y: =CustomBTN_52.Y
+                            Children:
+                              - Image4_38:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    Height: =17
+                                    Image: |-
+                                      ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                          Substitute(
+                                              LookUp(customIcons,IconName = "Exit").IconData,
+                                              "currentColor", "RGBA(233, 79, 76, 1)"
+                                          )
+                                      )
+                                    Width: =17
+                                    X: =(Parent.Width - Self.Width)/2
+                                    Y: =(Parent.Height - Self.Height)/2
+                              - Button2_129:
+                                  Control: Classic/Button@2.2.0
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =Parent.Height
+                                    HoverColor: =RGBA(255, 255, 255, 1)
+                                    HoverFill: =RGBA(0,0,0,0.1)
+                                    OnSelect: =Set(_detallepago, false); Set(_pagoselected, Blank()); Reset(AttachmentsControl)
+                                    PressedFill: =RGBA(0,0,0,0.3)
+                                    Text: =""
+                                    Width: =Parent.Width
+                  - FormDeuda_2:
+                      Control: Form@2.4.4
+                      Layout: Vertical
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        DataSource: =Pagos
+                        DefaultMode: =FormMode.View
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =0
+                        Height: =130
+                        Item: =_pagoselected
+                        NumberOfColumns: =4
+                        Width: =Parent.Width-40
+                        X: =(Parent.Width - Self.Width)/2
+                        Y: =70
+                      Children:
+                        - ID_DataCard7:
+                            Control: TypedDataCard@1.0.7
+                            Variant: TextualView
+                            Properties:
+                              DataField: ="ID"
+                              Default: =ThisItem.ID
+                              DisplayName: =DataSourceInfo([@Pagos],DataSourceInfo.DisplayName,ID)
+                              Height: =56
+                              Required: =false
+                              Width: =215
+                              X: =0
+                              Y: =0
+                            Children:
+                              - DataCardKey133:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    FontColor: =PrimaryTextColor
+                                    Height: =26
+                                    Size: =12
+                                    Text: |-
+                                      ="PAGO N°: "
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =79
+                                    Wrap: =false
+                                    X: =17
+                                    Y: =10
+                              - DataCardValue132:
+                                  Control: TextInput@0.0.54
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                                    DisplayMode: =DisplayMode.View
+                                    Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                                    Required: =Parent.Required
+                                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                    Value: =Parent.Default
+                                    Width: =110
+                                    X: =102
+                                    Y: =7
+                        - fecha_registro_DataCard2:
+                            Control: TypedDataCard@1.0.7
+                            Variant: DateEdit
+                            Properties:
+                              DataField: ="fecha_registro"
+                              Default: =ThisItem.fecha_registro
+                              DisplayName: =DataSourceInfo([@Pagos],DataSourceInfo.DisplayName,fecha_registro)
+                              Height: =76
+                              Required: =false
+                              Update: =DataCardValue134.SelectedDate
+                              Width: =270
+                              X: =1
+                              Y: =0
+                            Children:
+                              - DataCardKey135:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    FontColor: =PrimaryTextColor
+                                    Height: =22
+                                    Size: =12
+                                    Text: |-
+                                      ="FECHA: "
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =68
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue134:
+                                  Control: DatePicker@0.0.46
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Appearance: ='DatePickerCanvas.Appearance'.FilledLighter
+                                    DateTimeZone: ='DatePickerCanvas.DateTimeZone'.Local
+                                    DisplayMode: =DisplayMode.View
+                                    EndDate: =Date(Year(Today())+100, 12, 31)
+                                    Format: =DateTimeFormat.ShortDate
+                                    SelectedDate: =ThisItem.fecha_registro
+                                    StartDate: =Date(1900, 1, 1)
+                                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                    Width: =165
+                                    X: =92
+                                    Y: =7
+                              - ErrorMessage118:
+                                  Control: Text@0.0.51
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue134.Y + DataCardValue134.Height
+                              - StarVisible102:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    Height: =30
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey135.Y
+                        - forma_pago_DataCard1:
+                            Control: TypedDataCard@1.0.7
+                            Variant: NumberEdit
+                            Properties:
+                              DataField: ="forma_pago"
+                              Default: =ThisItem.forma_pago
+                              DisplayName: =DataSourceInfo([@Pagos],DataSourceInfo.DisplayName,forma_pago)
+                              Height: =76
+                              Required: =true
+                              Width: =430
+                              X: =2
+                              Y: =0
+                            Children:
+                              - DataCardKey136:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    FontColor: =PrimaryTextColor
+                                    Height: =22
+                                    Size: =12
+                                    Text: |-
+                                      ="FORMA PAGO: "
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =100
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =10
+                              - DataCardValue135:
+                                  Control: TextInput@0.0.54
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                                    DisplayMode: =Parent.DisplayMode
+                                    Required: =Parent.Required
+                                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                    Value: =LookUp(Formapago, ID = ThisItem.forma_pago, descripcion)
+                                    Width: =240
+                                    X: =124
+                                    Y: =3
+                              - ErrorMessage119:
+                                  Control: Text@0.0.51
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue135.Y + DataCardValue135.Height
+                              - StarVisible103:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    Height: =30
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey136.Y
+                              - DataCardKey136_1:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    FontColor: =PrimaryTextColor
+                                    Height: =22
+                                    Size: =12
+                                    Text: |-
+                                      ="RUC EMISOR: "
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =100
+                                    Wrap: =false
+                                    X: =24
+                                    Y: =39
+                              - DataCardValue135_1:
+                                  Control: TextInput@0.0.54
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                                    DisplayMode: =Parent.DisplayMode
+                                    Required: =Parent.Required
+                                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                    Value: =LookUp(Formapago, ID = ThisItem.forma_pago, RUC_emisor)
+                                    Width: =240
+                                    X: =124
+                                    Y: =33
+                        - doc_alumno_DataCard4:
+                            Control: TypedDataCard@1.0.7
+                            Variant: NumberEdit
+                            Properties:
+                              DataField: ="doc_alumno"
+                              Default: =ThisItem.doc_alumno
+                              DisplayName: =DataSourceInfo([@Pagos],DataSourceInfo.DisplayName,doc_alumno)
+                              Height: =16
+                              Required: =true
+                              Update: =Value(DataCardValue133.Value)
+                              Width: =480
+                              X: =0
+                              Y: =1
+                            Children:
+                              - DataCardKey134:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldName
+                                  Properties:
+                                    FontColor: =PrimaryTextColor
+                                    Height: =29
+                                    Size: =12
+                                    Text: ="ALUMNO:"
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =85
+                                    Wrap: =false
+                                    X: =17
+                                    Y: =10
+                              - DataCardValue133:
+                                  Control: TextInput@0.0.54
+                                  MetadataKey: FieldValue
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                                    DisplayMode: =Parent.DisplayMode
+                                    FontWeight: =FontWeight.Bold
+                                    Required: =Parent.Required
+                                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                    Value: =Parent.Default
+                                    Width: =119
+                                    X: =102
+                                    Y: =7
+                              - ErrorMessage117:
+                                  Control: Text@0.0.51
+                                  MetadataKey: ErrorMessage
+                                  Properties:
+                                    Height: =30
+                                    Text: =Parent.Error
+                                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =Parent.Width - 48
+                                    X: =24
+                                    Y: =DataCardValue133.Y + DataCardValue133.Height
+                              - StarVisible101:
+                                  Control: Text@0.0.51
+                                  MetadataKey: FieldRequired
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    Height: =30
+                                    Text: ="*"
+                                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                    Width: =30
+                                    Y: =DataCardKey134.Y
+                              - DataCardValue133_1:
+                                  Control: TextInput@0.0.54
+                                  Properties:
+                                    AccessibleLabel: =Parent.DisplayName
+                                    Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                                    DisplayMode: =Parent.DisplayMode
+                                    FontWeight: =FontWeight.Bold
+                                    Required: =Parent.Required
+                                    Type: ='TextInputCanvas.Type'.Text
+                                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                                    Value: =LookUp(Alumno, DOC = ThisItem.doc_alumno, nombre_completo)
+                                    Width: =304
+                                    X: =221
+                                    Y: =7
+                  - Container27_7:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        DropShadow: =DropShadow.Semilight
+                        FillPortions: =0
+                        Height: =30
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        Visible: =If(GalleryCuotas2_3.AllItemsCount>0, true, false)
+                        Width: =GalleryCuotas2_3.Width
+                        X: =GalleryCuotas2_3.X
+                        Y: =Container17.Y+Container17.Height
+                      Children:
+                        - DocContainer_41:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Start
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0.4
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =25
+                              Width: =35
+                            Children:
+                              - Label8_145:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Size: =8
+                                    Text: ="ITEM"
+                                    Width: =Parent.Width
+                        - NombreCompletoContainer_33:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =3
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =120
+                              Width: =120
+                            Children:
+                              - Label8_173:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    PaddingLeft: =20
+                                    Size: =8
+                                    Text: ="DESCRIPCIÓN"
+                                    Width: =Parent.Width
+                        - CorreoContainer_35:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =50
+                              Width: =180
+                            Children:
+                              - Label8_174:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Size: =8
+                                    Text: ="PRECIO UNITARIO"
+                                    Width: =Parent.Width
+                        - SexoContainer_34:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0.5
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =50
+                            Children:
+                              - Label8_175:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Size: =8
+                                    Text: ="CANT"
+                                    Width: =Parent.Width
+                        - SexoContainer_39:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =70
+                            Children:
+                              - Label8_176:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Size: =8
+                                    Text: ="BASE IMPONIBLE"
+                                    Width: =Parent.Width
+                        - InafectoContainerTitle:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =70
+                            Children:
+                              - Label8_179:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Size: =8
+                                    Text: ="INAFECTO"
+                                    Width: =Parent.Width
+                        - SexoContainer_40:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =70
+                            Children:
+                              - Label8_177:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Size: =8
+                                    Text: ="IGV"
+                                    Width: =Parent.Width
+                        - ContainerValor:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =70
+                            Children:
+                              - Label8_178:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Size: =8
+                                    Text: ="VALOR"
+                                    Width: =Parent.Width
+                  - GalleryCuotas2_3:
+                      Control: Gallery@2.15.0
+                      Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        Fill: =RGBA(255,255,255,1)
+                        FillPortions: =0
+                        Height: =Self.AllItemsCount * (Self.TemplateHeight + Self.TemplatePadding)
+                        Items: =Filter(Items_Pagos, id_pagos = _pagoselected.ID)
+                        LayoutMinWidth: =Parent.Width-40
+                        TemplateSize: =50
+                        Width: =Parent.Width-80
+                        X: =(Parent.Width- Self.Width)/2
+                        Y: =Container27_7.Y + Container27_7.Height
+                      Children:
+                        - Separator1_4:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              Fill: =RGBA(255, 255, 255, 1)
+                              Height: =8
+                              OnSelect: =Select(Parent)
+                              Width: =Parent.TemplateWidth
+                              Y: =Parent.TemplateHeight - Self.Height
+                        - Container27_8:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              Height: =45
+                              LayoutAlignItems: =LayoutAlignItems.Stretch
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              Visible: =If(GalleryCuotas2_3.AllItemsCount>0, true, false)
+                              Width: =GalleryCuotas2_3.Width
+                            Children:
+                              - DocContainer_42:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0.4
+                                    Height: =30
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =35
+                                    Width: =35
+                                  Children:
+                                    - TextCanvas2_14:
+                                        Control: Text@0.0.51
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Start
+                                          Fill: =RGBA(255, 255, 255, 1)
+                                          Height: =Parent.Height
+                                          PaddingLeft: =20
+                                          Text: =ThisItem.num_item
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Width: =Parent.Width
+                              - NombreCompletoContainer_34:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =3
+                                    Height: =30
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =120
+                                    Width: =120
+                                  Children:
+                                    - TextCanvas2_15:
+                                        Control: Text@0.0.51
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Start
+                                          Fill: =RGBA(255, 255, 255, 1)
+                                          Height: =Parent.Height
+                                          PaddingLeft: =30
+                                          Text: =ThisItem.descripcion_item
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Width: =Parent.Width
+                              - CorreoContainer_36:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    Height: =30
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =100
+                                    Width: =180
+                                  Children:
+                                    - TextCanvas2_16:
+                                        Control: Text@0.0.51
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Center
+                                          Fill: =RGBA(255, 255, 255, 1)
+                                          Height: =Parent.Height
+                                          Text: ="S/. " & ThisItem.preciounitario_item
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Width: =Parent.Width
+                              - SexoContainer_35:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0.5
+                                    Height: =30
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =30
+                                  Children:
+                                    - TextCanvas2_17:
+                                        Control: Text@0.0.51
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Center
+                                          Fill: =RGBA(255, 255, 255, 1)
+                                          FontColor: =RGBA(0,0,0,1)
+                                          Height: =Parent.Height
+                                          Text: =ThisItem.cantidad_item
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Width: =Parent.Width
+                              - SexoContainer_36:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    Height: =30
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =70
+                                  Children:
+                                    - TextCanvas2_18:
+                                        Control: Text@0.0.51
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Center
+                                          Fill: =RGBA(255, 255, 255, 1)
+                                          FontColor: =RGBA(0,0,0,1)
+                                          Height: =Parent.Height
+                                          Text: =Text(ThisItem.base_imponible, "##.####")
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Width: =Parent.Width
+                              - InafectoContainer:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    Height: =30
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =70
+                                  Children:
+                                    - TextCanvas2_21:
+                                        Control: Text@0.0.51
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Center
+                                          Fill: =RGBA(255, 255, 255, 1)
+                                          FontColor: =RGBA(0,0,0,1)
+                                          Height: =Parent.Height
+                                          Text: =Text(ThisItem.valor_inafecto, "#0.00")
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Width: =Parent.Width
+                              - SexoContainer_37:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    Height: =30
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =70
+                                  Children:
+                                    - TextCanvas2_19:
+                                        Control: Text@0.0.51
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Center
+                                          Fill: =RGBA(255, 255, 255, 1)
+                                          FontColor: =RGBA(0,0,0,1)
+                                          Height: =Parent.Height
+                                          Text: =Text(ThisItem.igv_item, "#0.00")
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Width: =Parent.Width
+                              - SexoContainer_38:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    Height: =30
+                                    LayoutMinHeight: =20
+                                    LayoutMinWidth: =70
+                                  Children:
+                                    - TextCanvas2_20:
+                                        Control: Text@0.0.51
+                                        Properties:
+                                          Align: ='TextCanvas.Align'.Center
+                                          Fill: =RGBA(255, 255, 255, 1)
+                                          FontColor: =RGBA(0,0,0,1)
+                                          Height: =Parent.Height
+                                          PaddingRight: =0
+                                          Text: =Text(ThisItem.valortotal_item, "#0.00")
+                                          VerticalAlign: =VerticalAlign.Middle
+                                          Width: =Parent.Width
+                  - Container27_9:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        DropShadow: =DropShadow.Semilight
+                        FillPortions: =0
+                        Height: =30
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        Visible: =If(GalleryCuotas2_3.AllItemsCount>0, true, false)
+                        Width: =GalleryCuotas2_3.Width
+                        X: =GalleryCuotas2_3.X
+                        Y: =Container17.Y+Container17.Height
+                      Children:
+                        - DocContainer_43:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Start
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0.4
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =25
+                              Width: =35
+                        - NombreCompletoContainer_35:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =3
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =120
+                              Width: =120
+                            Children:
+                              - Label8_181:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    PaddingLeft: =20
+                                    Size: =8
+                                    Text: |-
+                                      ="
+                                      "
+                                    Width: =Parent.Width
+                        - CorreoContainer_37:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =100
+                              Width: =180
+                            Children:
+                              - Label8_182:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Size: =8
+                                    Text: |-
+                                      ="
+                                      "
+                                    Width: =Parent.Width
+                        - SexoContainer_41:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0.5
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =70
+                            Children:
+                              - Label8_183:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Size: =8
+                                    Text: |-
+                                      ="
+                                      "
+                                    Width: =Parent.Width
+                        - SexoContainer_42:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =70
+                            Children:
+                              - Label8_184:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Size: =11
+                                    Text: =Sum(GalleryCuotas2_3.AllItems,base_imponible)
+                                    Width: =Parent.Width
+                        - InafectoContainerTitle_1:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =70
+                            Children:
+                              - Label8_185:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Size: =11
+                                    Text: =Sum(GalleryCuotas2_3.AllItems,valor_inafecto)
+                                    Width: =Parent.Width
+                        - SexoContainer_43:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =70
+                            Children:
+                              - Label8_186:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Color: |-
+                                      =RGBA(149, 149, 149, 1)
+                                      //PrimaryTextColor
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height
+                                    Size: =11
+                                    Text: =Sum(GalleryCuotas2_3.AllItems,igv_item)
+                                    Width: =Parent.Width
+                        - ContainerValor_1:
+                            Control: GroupContainer@1.3.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              Height: =30
+                              LayoutMinHeight: =20
+                              LayoutMinWidth: =70
+                            Children:
+                              - Label8_187:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    Align: =Align.Center
+                                    Fill: =Color.Transparent
+                                    Font: =Font.'Segoe UI'
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =Parent.Height
+                                    Size: =14
+                                    Text: ="S/. " & Text(Sum(GalleryCuotas2_3.AllItems,valortotal_item), "##.00")
+                                    Width: =Parent.Width
+                  - Container30_6:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =20
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutJustifyContent: =LayoutJustifyContent.End
+                        LayoutMinWidth: =Parent.Width
+                        Width: =Parent.Width - 80
+                  - Container38_1:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =75
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =10
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        Width: =Parent.Width-60
+                      Children:
+                        - Container39_3:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutMinHeight: =50
+                              Width: =200
+                            Children:
+                              - Label3_42:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    Color: =PrimaryTextColor
+                                    Font: =Font.Lato
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =35
+                                    PaddingLeft: =10
+                                    Size: =9
+                                    Text: ="N° OPERACIÓN"
+                                    Width: =83
+                                    X: =40
+                              - Container8_42:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    BorderColor: =HighlightColor
+                                    BorderThickness: =3
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =35
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =180
+                                  Children:
+                                    - TextInput_Alumno_14:
+                                        Control: Classic/TextInput@2.3.2
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =PrimaryTextColor
+                                          Default: =""
+                                          Fill: =RGBA(0, 0, 0, 0)
+                                          Height: =Parent.Height
+                                          HintText: ="Ingresar N° de operación..."
+                                          HoverColor: =PrimaryTextColor
+                                          HoverFill: =RGBA(255, 255, 255, 0.1)
+                                          PaddingLeft: =5
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Size: =9
+                                          Width: =Parent.Width
+                                          Y: =
+                        - Container39_4:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutMinHeight: =50
+                              Width: =200
+                            Children:
+                              - Label3_43:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    Color: =PrimaryTextColor
+                                    Font: =Font.Lato
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =35
+                                    PaddingLeft: =10
+                                    Size: =9
+                                    Text: ="N° DOCUMENTO"
+                                    Width: =83
+                                    X: =40
+                              - Container8_43:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    BorderColor: =HighlightColor
+                                    BorderThickness: =3
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =35
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =180
+                                  Children:
+                                    - TI_NumeroComprobante:
+                                        Control: Classic/TextInput@2.3.2
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =PrimaryTextColor
+                                          Default: =""
+                                          Fill: =RGBA(0, 0, 0, 0)
+                                          Height: =Parent.Height
+                                          HintText: ="Ingresar N° de documento..."
+                                          HoverColor: =PrimaryTextColor
+                                          HoverFill: =RGBA(255, 255, 255, 0.1)
+                                          PaddingLeft: =5
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Size: =9
+                                          Width: =Parent.Width
+                                          Y: =
+                        - Container39_6:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutMinHeight: =50
+                              Width: =ContainerValor.Width
+                  - Container38_2:
+                      Control: GroupContainer@1.3.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =120
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =10
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        Width: =Parent.Width-60
+                      Children:
+                        - Container39_9:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              LayoutMinHeight: =50
+                              LayoutMinWidth: =200
+                              Width: =200
+                            Children:
+                              - DataCardKey137_2:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AlignInContainer: =AlignInContainer.Center
+                                    FontColor: =PrimaryTextColor
+                                    Height: =30
+                                    PaddingLeft: =5
+                                    Size: =12
+                                    Text: ="CAPTURA:"
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =85
+                                    Wrap: =false
+                                    X: =30
+                                    Y: =10
+                              - Image1_2:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    Height: =46
+                                    Image: =If(!IsBlank(_pagoselected.pago_captura), AzureBlobStorage.GetFileContent(_pagoselected.pago_captura), SampleImage)
+                                    LayoutMinHeight: =Parent.Height
+                                    OnSelect: =Set(_voucherexpanded, true)
+                                    X: =116
+                        - Container39_8:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutMinHeight: =Parent.Height
+                              Width: =250
+                            Children:
+                              - Label3_44:
+                                  Control: Label@2.5.1
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    Color: =PrimaryTextColor
+                                    Font: =Font.Lato
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =35
+                                    PaddingLeft: =10
+                                    Size: =9
+                                    Text: ="COMPROBANTE SUNAT"
+                                    Width: =Parent.Width - 30
+                                    X: =40
+                              - AttachmentsControl:
+                                  Control: Attachments@2.3.0
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    BorderColor: =
+                                    BorderStyle: =
+                                    BorderThickness: =0
+                                    DropTargetBorderThickness: =0
+                                    Height: =80
+                                    MaxAttachments: =1
+                                    MaxAttachmentsText: =""
+                                    PaddingBottom: =5
+                                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                                    PaddingRight: =5
+                                    PaddingTop: =5
+                                    Size: =9
+                                    Tooltip: =
+                                    Width: =Parent.Width
+                                    X: =30
+                                    Y: =
+                        - Container39_10:
+                            Control: GroupContainer@1.3.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              LayoutDirection: =LayoutDirection.Vertical
+                              LayoutJustifyContent: =LayoutJustifyContent.Center
+                              LayoutMinHeight: =50
+                              Width: =ContainerValor.Width
+                            Children:
+                              - Container30_5:
+                                  Control: GroupContainer@1.3.0
+                                  Variant: AutoLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.Center
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =50
+                                    LayoutAlignItems: =LayoutAlignItems.Center
+                                    LayoutDirection: =LayoutDirection.Horizontal
+                                    LayoutGap: =50
+                                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                    LayoutMinWidth: =Parent.Width
+                                    Width: =Parent.Width
+                                  Children:
+                                    - CustomBTN_71:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          BorderColor: =RGBA(255, 255, 255, 1)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          DropShadow: =DropShadow.Regular
+                                          Fill: =RGBA(0, 104, 255, 0.8)
+                                          FillPortions: =0
+                                          Height: =35
+                                          LayoutMinWidth: =100
+                                          RadiusBottomLeft: =10
+                                          RadiusBottomRight: =10
+                                          RadiusTopLeft: =10
+                                          RadiusTopRight: =10
+                                          Width: =130
+                                          X: =GalleryCuotas1.X + GalleryCuotas1.Width - Self.Width-20
+                                          Y: =GalleryCuotas1.Y + GalleryCuotas1.Height- Self.Height-20
+                                        Children:
+                                          - Image4_39:
+                                              Control: Image@2.2.3
+                                              Properties:
+                                                Height: =15
+                                                Image: |-
+                                                  ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                                      Substitute(
+                                                          LookUp(customIcons,IconName = "Check").IconData,
+                                                          "currentColor", "RGBA(255, 255, 255, 1)"
+                                                      )
+                                                  )
+                                                Width: =15
+                                                X: =12
+                                                Y: =(Parent.Height - Self.Height)/2
+                                          - Label2_63:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Color: =RGBA(255, 255, 255, 1)
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Bold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =32
+                                                Size: =10
+                                                Text: ="Enviar Correo"
+                                                Width: =Parent.Width
+                                          - Button2_130:
+                                              Control: Classic/Button@2.2.0
+                                              Properties:
+                                                BorderStyle: =BorderStyle.None
+                                                Color: =RGBA(255, 255, 255, 1)
+                                                Fill: =RGBA(0, 0, 0, 0)
+                                                Height: =Parent.Height
+                                                HoverColor: =RGBA(255, 255, 255, 1)
+                                                HoverFill: =RGBA(0,0,0,0.1)
+                                                OnSelect: |-
+                                                  =Office365Outlook.SendEmailV2(LookUp(Alumno, DOC = _pagoselected.doc_alumno).correo_institucional, "Comprobante de pago", "Estimado(a) alumno(a). Se le adjunta comprobante de pago", 
+                                                  {Attachments: ForAll(AttachmentsControl.Attachments, {
+                                                                  ContentBytes: Value,
+                                                                  Name: Name
+                                                              })})
+                                                PressedFill: =RGBA(0,0,0,0.3)
+                                                Text: =""
+                                                Width: =Parent.Width
+                                    - CustomBTN_86:
+                                        Control: GroupContainer@1.3.0
+                                        Variant: ManualLayout
+                                        Properties:
+                                          AlignInContainer: =AlignInContainer.Center
+                                          BorderColor: =RGBA(255, 255, 255, 1)
+                                          BorderStyle: =BorderStyle.None
+                                          BorderThickness: =2
+                                          DropShadow: =DropShadow.Regular
+                                          Fill: =RGBA(0, 104, 255, 0.8)
+                                          FillPortions: =0
+                                          Height: =35
+                                          LayoutMinWidth: =100
+                                          RadiusBottomLeft: =10
+                                          RadiusBottomRight: =10
+                                          RadiusTopLeft: =10
+                                          RadiusTopRight: =10
+                                          Width: =130
+                                          X: =GalleryCuotas1.X + GalleryCuotas1.Width - Self.Width-20
+                                          Y: =GalleryCuotas1.Y + GalleryCuotas1.Height- Self.Height-20
+                                        Children:
+                                          - Image4_51:
+                                              Control: Image@2.2.3
+                                              Properties:
+                                                Height: =15
+                                                Image: |-
+                                                  ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                                      Substitute(
+                                                          LookUp(customIcons,IconName = "Add").IconData,
+                                                          "currentColor", "RGBA(255, 255, 255, 1)"
+                                                      )
+                                                  )
+                                                Width: =15
+                                                X: =12
+                                                Y: =(Parent.Height - Self.Height)/2
+                                          - Label2_75:
+                                              Control: Label@2.5.1
+                                              Properties:
+                                                Color: =RGBA(255, 255, 255, 1)
+                                                Font: =Font.'Segoe UI'
+                                                FontWeight: =FontWeight.Bold
+                                                Height: =Parent.Height
+                                                PaddingLeft: =32
+                                                Size: =10
+                                                Text: ="Guardar"
+                                                Width: =Parent.Width
+                                          - Button2_148:
+                                              Control: Classic/Button@2.2.0
+                                              Properties:
+                                                BorderStyle: =BorderStyle.None
+                                                Color: =RGBA(255, 255, 255, 1)
+                                                Fill: =RGBA(0, 0, 0, 0)
+                                                Height: =Parent.Height
+                                                HoverColor: =RGBA(255, 255, 255, 1)
+                                                HoverFill: =RGBA(0,0,0,0.1)
+                                                OnSelect: =
+                                                PressedFill: =RGBA(0,0,0,0.3)
+                                                Text: =""
+                                                Width: =Parent.Width
+      - Container2_4:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Height: =Parent.Height
+            Visible: =_voucherexpanded
+            Width: =Parent.Width
+          Children:
+            - Button2_56:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderStyle: =BorderStyle.None
+                  Color: =RGBA(255, 255, 255, 1)
+                  Fill: =varHoverFill
+                  FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                  Height: =Parent.Height
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =varHoverFill
+                  OnSelect: =Set(_voucherexpanded, false)
+                  PressedFill: =varPressedFill
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Text: =""
+                  Width: =Parent.Width
+            - Image11_1:
+                Control: Image@2.2.3
+                Properties:
+                  Fill: =RGBA(255, 255, 255, 1)
+                  Height: =550
+                  Image: =If(!IsBlank(_pagoselected.pago_captura) = true, AzureBlobStorage.GetFileContent(_pagoselected.pago_captura), SampleImage)
+                  Width: =800
+                  X: =(Parent.Width - Self.Width)/2
+                  Y: =(Parent.Height - Self.Height)/2
+            - Icon5_1:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  Color: =RGBA(189, 49, 51, 1)
+                  Height: =25
+                  Icon: =Icon.Cancel
+                  OnSelect: =Set(_voucherexpanded, false)
+                  Width: =25
+                  X: =Image11_1.Width+Image11_1.X - Self. Width
+                  Y: =Image11_1.Y - Self. Width

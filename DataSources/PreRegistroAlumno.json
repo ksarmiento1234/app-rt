@@ -1,0 +1,38 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
+    "CdpRevision": {
+      "BaseUrl": "/v2",
+      "LastChangedTimeString": "2025-04-10T19:17:03.8010000Z",
+      "RevisionNumber": 2
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "apellido_materno": "apellido_materno",
+      "apellido_paterno": "apellido_paterno",
+      "celular": "celular",
+      "celular_padre": "celular_padre",
+      "correo_padre": "correo_padre",
+      "correo_personal": "correo_personal",
+      "direccion": "direccion",
+      "DOC": "DOC",
+      "DOC_padre": "DOC_padre",
+      "estado": "estado",
+      "fecha_registro": "fecha_registro",
+      "ID": "ID",
+      "nacimiento": "nacimiento",
+      "nombre_completo": "nombre_completo",
+      "nombre_completo_padre": "nombre_completo_padre",
+      "nombres": "nombres",
+      "ruc_facturacion": "ruc_facturacion",
+      "sexo": "sexo",
+      "tipo_doc": "tipo_doc",
+      "tipodoc_padre": "tipodoc_padre"
+    },
+    "DatasetName": "rt-az-srv.database.windows.net,sistema-gestion-RT",
+    "EncodeDataset": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "PreRegistroAlumno",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

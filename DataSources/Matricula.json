@@ -1,0 +1,34 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sql",
+    "CdpRevision": {
+      "BaseUrl": "/v2",
+      "LastChangedTimeString": "2025-04-10T19:17:03.8010000Z",
+      "RevisionNumber": 2
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "creador": "creador",
+      "deuda": "deuda",
+      "doc_alumno": "doc_alumno",
+      "estado": "estado",
+      "fecha_registro": "fecha_registro",
+      "ID": "ID",
+      "id_curso": "id_curso",
+      "libro_pagado": "libro_pagado",
+      "monto_pagado": "monto_pagado",
+      "nota_aprendizajeautonomo": "nota_aprendizajeautonomo",
+      "nota_comprensionlectora": "nota_comprensionlectora",
+      "nota_examenfinal": "nota_examenfinal",
+      "nota_expresionoral": "nota_expresionoral",
+      "nota_promedio": "nota_promedio",
+      "promo_aplicada": "promo_aplicada",
+      "tipo_matricula": "tipo_matricula"
+    },
+    "DatasetName": "rt-az-srv.database.windows.net,sistema-gestion-RT",
+    "EncodeDataset": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Matricula",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]
