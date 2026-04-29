@@ -1,0 +1,843 @@
+/****** Object:  Table [dbo].[Almacen]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Almacen](
+	[AlmacenID] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[Descripcion] [nvarchar](200) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[AlmacenID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Nombre] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AprobacionesDobleMarcacion]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AprobacionesDobleMarcacion](
+	[AprobacionID] [int] IDENTITY(1,1) NOT NULL,
+	[UsuarioID] [int] NOT NULL,
+	[Fecha] [date] NOT NULL,
+	[Aprobado] [bit] NOT NULL,
+	[FechaAprobacion] [datetime] NOT NULL,
+	[UsuarioAproboID] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[AprobacionID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Areas]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Areas](
+	[AreaID] [int] IDENTITY(1,1) NOT NULL,
+	[NombreArea] [nvarchar](100) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[AreaID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Contratos]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Contratos](
+	[ContratoID] [int] IDENTITY(1,1) NOT NULL,
+	[UsuarioID] [int] NOT NULL,
+	[TipoContratoID] [int] NOT NULL,
+	[FechaInicio] [date] NOT NULL,
+	[FechaFin] [date] NULL,
+	[FechaFirma] [date] NULL,
+	[ArchivoURL] [nvarchar](500) NOT NULL,
+	[NombreArchivo] [nvarchar](255) NULL,
+	[SalarioMensual] [decimal](12, 2) NULL,
+	[Moneda] [nvarchar](10) NULL,
+	[Estado] [nvarchar](20) NOT NULL,
+	[Observaciones] [nvarchar](500) NULL,
+	[UsuarioCreadorID] [int] NULL,
+	[FechaCreacion] [datetime] NOT NULL,
+ CONSTRAINT [PK_Contratos] PRIMARY KEY CLUSTERED 
+(
+	[ContratoID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Documento]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Documento](
+	[DocumentoID] [int] IDENTITY(1,1) NOT NULL,
+	[TipoDocumentoID] [int] NOT NULL,
+	[Numero] [nvarchar](50) NOT NULL,
+	[Fecha] [date] NOT NULL,
+	[ArchivoURL] [nvarchar](255) NULL,
+	[FechaCreacion] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[DocumentoID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EstadoProducto]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EstadoProducto](
+	[EstadoProductoID] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[Descripcion] [nvarchar](200) NULL,
+	[FechaCreacion] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[EstadoProductoID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Nombre] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HerramientaAsignacion]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HerramientaAsignacion](
+	[HerramientaAsignacionID] [int] IDENTITY(1,1) NOT NULL,
+	[ProductoID] [int] NOT NULL,
+	[UsuarioID] [int] NOT NULL,
+	[FechaEntrega] [datetime] NOT NULL,
+	[FechaDevolucion] [datetime] NULL,
+	[Estado] [nvarchar](20) NOT NULL,
+	[ProyectoID] [int] NULL,
+	[Observacion] [nvarchar](200) NULL,
+	[Cantidad] [int] NULL,
+	[FechaPendienteDevolucion] [date] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[HerramientaAsignacionID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MAAsistencias]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MAAsistencias](
+	[AsistenciaID] [int] IDENTITY(1,1) NOT NULL,
+	[UsuarioID] [int] NOT NULL,
+	[TipoRegistro] [varchar](10) NOT NULL,
+	[FechaHora] [datetime] NOT NULL,
+	[Latitud] [decimal](9, 6) NOT NULL,
+	[Longitud] [decimal](9, 6) NOT NULL,
+	[FotoURL] [varchar](255) NULL,
+	[FirmaURL] [varchar](255) NULL,
+	[Dispositivo] [varchar](50) NULL,
+	[Observaciones] [varchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[AsistenciaID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MADiasLaborables]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MADiasLaborables](
+	[DiaSemana] [int] NOT NULL,
+	[EsLaborable] [bit] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MADiasNoLaborables]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MADiasNoLaborables](
+	[Fecha] [date] NOT NULL,
+	[Motivo] [varchar](255) NOT NULL,
+	[EsFeriado] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Fecha] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MAHorarioDetalle]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MAHorarioDetalle](
+	[HorarioDetalleID] [int] IDENTITY(1,1) NOT NULL,
+	[HorarioID] [int] NOT NULL,
+	[DiaSemana] [int] NOT NULL,
+	[EsLaborable] [bit] NOT NULL,
+	[HoraEntrada] [time](0) NULL,
+	[HoraSalida] [time](0) NULL,
+	[ToleranciaMinutos] [int] NOT NULL,
+	[EsMedioDia] [bit] NOT NULL,
+ CONSTRAINT [PK_MAHorarioDetalle] PRIMARY KEY CLUSTERED 
+(
+	[HorarioDetalleID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_MAHorarioDetalle] UNIQUE NONCLUSTERED 
+(
+	[HorarioID] ASC,
+	[DiaSemana] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MAHorarios]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MAHorarios](
+	[HorarioID] [int] IDENTITY(1,1) NOT NULL,
+	[NombreHorario] [varchar](100) NULL,
+	[Activo] [bit] NULL,
+	[Descripcion] [nvarchar](250) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[HorarioID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MAUsuarioHorario]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MAUsuarioHorario](
+	[UsuarioID] [int] NOT NULL,
+	[HorarioID] [int] NOT NULL,
+	[FechaInicio] [date] NOT NULL,
+	[FechaFin] [date] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[UsuarioID] ASC,
+	[HorarioID] ASC,
+	[FechaInicio] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MAUsuarios]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MAUsuarios](
+	[UsuarioID] [int] IDENTITY(1,1) NOT NULL,
+	[DNI] [varchar](20) NOT NULL,
+	[Nombre] [varchar](100) NOT NULL,
+	[ContraseñaHash] [nvarchar](200) NULL,
+	[Email] [varchar](100) NULL,
+	[Activo] [bit] NULL,
+	[AreaID] [int] NULL,
+	[EmailM365] [varchar](100) NULL,
+	[FechaIngreso] [date] NULL,
+	[DiasVacacionesAnuales] [int] NOT NULL,
+	[RolID] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[UsuarioID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[DNI] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Movimiento]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Movimiento](
+	[MovimientoID] [int] IDENTITY(1,1) NOT NULL,
+	[MovimientoGrupoID] [int] NOT NULL,
+	[ProductoID] [int] NOT NULL,
+	[UbicacionID] [int] NOT NULL,
+	[Cantidad] [decimal](10, 2) NOT NULL,
+	[Tipo] [nvarchar](15) NOT NULL,
+	[Fecha] [datetime] NOT NULL,
+	[Estado] [nvarchar](20) NULL,
+	[UsuarioID] [int] NULL,
+	[ProyectoID] [int] NULL,
+	[Comentario] [nvarchar](200) NULL,
+	[Subtipo] [nvarchar](30) NULL,
+	[FechaCreacion] [date] NULL,
+	[Creador] [varchar](100) NULL,
+	[Num_Item] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MovimientoID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MovimientoGrupo]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MovimientoGrupo](
+	[MovimientoGrupoID] [int] IDENTITY(1,1) NOT NULL,
+	[Tipo] [nvarchar](10) NOT NULL,
+	[Fecha] [datetime] NOT NULL,
+	[UsuarioID] [int] NULL,
+	[ProyectoID] [int] NULL,
+	[Observaciones] [nvarchar](300) NULL,
+	[ProveedorID] [int] NULL,
+	[Cantidad_items] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MovimientoGrupoID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MovimientoGrupoDocumento]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MovimientoGrupoDocumento](
+	[MovimientoGrupoID] [int] NOT NULL,
+	[DocumentoID] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MovimientoGrupoID] ASC,
+	[DocumentoID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PermisosUsuarios]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PermisosUsuarios](
+	[PermisosUsuariosID] [int] IDENTITY(1,1) NOT NULL,
+	[UsuarioID] [int] NOT NULL,
+	[PermisoNombre] [varchar](100) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[PermisosUsuariosID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Producto]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Producto](
+	[ProductoID] [int] IDENTITY(1,1) NOT NULL,
+	[Codigo] [nvarchar](20) NOT NULL,
+	[Nombre] [nvarchar](100) NOT NULL,
+	[Descripcion] [nvarchar](300) NULL,
+	[TipoProductoID] [int] NOT NULL,
+	[EstadoProductoID] [int] NOT NULL,
+	[AlmacenSugeridoID] [int] NULL,
+	[UbicacionSugeridaID] [int] NULL,
+	[Marca] [nvarchar](50) NULL,
+	[Modelo] [nvarchar](50) NULL,
+	[EsHerramienta] [bit] NOT NULL,
+	[FechaCreacion] [datetime] NOT NULL,
+	[StockMinimo] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ProductoID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Codigo] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Proveedor]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Proveedor](
+	[ProveedorID] [int] IDENTITY(1,1) NOT NULL,
+	[RUC] [nvarchar](15) NOT NULL,
+	[Nombre] [nvarchar](200) NOT NULL,
+	[Rubro] [nvarchar](100) NULL,
+	[FechaCreacion] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ProveedorID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[RUC] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Proyecto]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Proyecto](
+	[ProyectoID] [int] IDENTITY(1,1) NOT NULL,
+	[Codigo] [nvarchar](50) NOT NULL,
+	[Nombre] [nvarchar](200) NOT NULL,
+	[Descripcion] [nvarchar](500) NULL,
+	[FechaInicio] [date] NULL,
+	[FechaFin] [date] NULL,
+	[Estado] [nvarchar](20) NOT NULL,
+	[ResponsableID] [int] NULL,
+	[FechaCreacion] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ProyectoID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Codigo] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Roles]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Roles](
+	[RolID] [int] IDENTITY(1,1) NOT NULL,
+	[NombreRol] [nvarchar](80) NOT NULL,
+	[Descripcion] [nvarchar](250) NULL,
+	[AreaID] [int] NULL,
+	[Activo] [bit] NOT NULL,
+	[FechaCreacion] [datetime] NOT NULL,
+ CONSTRAINT [PK_Roles] PRIMARY KEY CLUSTERED 
+(
+	[RolID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_Roles_Nombre_Area] UNIQUE NONCLUSTERED 
+(
+	[NombreRol] ASC,
+	[AreaID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TipoContrato]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TipoContrato](
+	[TipoContratoID] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](80) NOT NULL,
+	[Descripcion] [nvarchar](250) NULL,
+ CONSTRAINT [PK_TipoContrato] PRIMARY KEY CLUSTERED 
+(
+	[TipoContratoID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_TipoContrato_Nombre] UNIQUE NONCLUSTERED 
+(
+	[Nombre] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TipoDocumento]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TipoDocumento](
+	[TipoDocumentoID] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[Descripcion] [nvarchar](200) NULL,
+	[FechaCreacion] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TipoDocumentoID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Nombre] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TipoProducto]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TipoProducto](
+	[TipoProductoID] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[Descripcion] [nvarchar](200) NULL,
+	[FechaCreacion] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TipoProductoID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[Nombre] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Ubicacion]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ubicacion](
+	[UbicacionID] [int] IDENTITY(1,1) NOT NULL,
+	[AlmacenID] [int] NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[Descripcion] [nvarchar](200) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[UbicacionID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Vacaciones]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Vacaciones](
+	[VacacionID] [int] IDENTITY(1,1) NOT NULL,
+	[UsuarioID] [int] NOT NULL,
+	[FechaInicio] [date] NOT NULL,
+	[FechaFin] [date] NOT NULL,
+	[DiasTomados] [int] NOT NULL,
+	[PeriodoAnio] [int] NOT NULL,
+	[Estado] [nvarchar](20) NOT NULL,
+	[Motivo] [nvarchar](250) NULL,
+	[FechaSolicitud] [datetime] NOT NULL,
+	[UsuarioAprobadorID] [int] NULL,
+	[FechaAprobacion] [datetime] NULL,
+	[Observaciones] [nvarchar](300) NULL,
+	[FechaGeneracion] [date] NULL,
+	[FechaVencimiento] [date] NULL,
+	[EsAcumulacion] [bit] NOT NULL,
+ CONSTRAINT [PK_Vacaciones] PRIMARY KEY CLUSTERED 
+(
+	[VacacionID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[VacacionesRecord]    Script Date: 29/04/2026 13:17:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[VacacionesRecord](
+	[RecordID] [int] IDENTITY(1,1) NOT NULL,
+	[UsuarioID] [int] NOT NULL,
+	[PeriodoAnio] [int] NOT NULL,
+	[FechaInicioPeriodo] [date] NOT NULL,
+	[FechaFinPeriodo] [date] NOT NULL,
+	[DiasLaborados] [int] NOT NULL,
+	[FaltasInjustificadas] [int] NOT NULL,
+	[JornadaSemanal] [int] NOT NULL,
+	[CumpleRecord]  AS (case when [JornadaSemanal]=(6) AND [DiasLaborados]>=(260) then (1) when [JornadaSemanal]=(5) AND [DiasLaborados]>=(210) then (1) when [JornadaSemanal]<=(4) AND [FaltasInjustificadas]<=(10) then (1) else (0) end) PERSISTED NOT NULL,
+	[DerechoGenerado] [bit] NOT NULL,
+	[FechaGeneracion] [date] NULL,
+	[FechaVencimiento] [date] NULL,
+	[DiasCorresponden] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[RecordID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ_VacRecord] UNIQUE NONCLUSTERED 
+(
+	[UsuarioID] ASC,
+	[PeriodoAnio] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[AprobacionesDobleMarcacion] ADD  DEFAULT ((0)) FOR [Aprobado]
+GO
+ALTER TABLE [dbo].[AprobacionesDobleMarcacion] ADD  DEFAULT (getdate()) FOR [FechaAprobacion]
+GO
+ALTER TABLE [dbo].[Contratos] ADD  CONSTRAINT [DF_Contratos_Moneda]  DEFAULT (N'PEN') FOR [Moneda]
+GO
+ALTER TABLE [dbo].[Contratos] ADD  CONSTRAINT [DF_Contratos_Estado]  DEFAULT (N'Vigente') FOR [Estado]
+GO
+ALTER TABLE [dbo].[Contratos] ADD  CONSTRAINT [DF_Contratos_FechaCreacion]  DEFAULT (getdate()) FOR [FechaCreacion]
+GO
+ALTER TABLE [dbo].[Documento] ADD  DEFAULT (getdate()) FOR [FechaCreacion]
+GO
+ALTER TABLE [dbo].[EstadoProducto] ADD  DEFAULT (getdate()) FOR [FechaCreacion]
+GO
+ALTER TABLE [dbo].[HerramientaAsignacion] ADD  DEFAULT (getdate()) FOR [FechaEntrega]
+GO
+ALTER TABLE [dbo].[HerramientaAsignacion] ADD  DEFAULT ('Prestada') FOR [Estado]
+GO
+ALTER TABLE [dbo].[MAAsistencias] ADD  DEFAULT (getdate()) FOR [FechaHora]
+GO
+ALTER TABLE [dbo].[MADiasNoLaborables] ADD  DEFAULT ((1)) FOR [EsFeriado]
+GO
+ALTER TABLE [dbo].[MAHorarioDetalle] ADD  CONSTRAINT [DF_HorDet_Laborable]  DEFAULT ((1)) FOR [EsLaborable]
+GO
+ALTER TABLE [dbo].[MAHorarioDetalle] ADD  CONSTRAINT [DF_HorDet_Tolerancia]  DEFAULT ((0)) FOR [ToleranciaMinutos]
+GO
+ALTER TABLE [dbo].[MAHorarioDetalle] ADD  CONSTRAINT [DF_HorDet_MedioDia]  DEFAULT ((0)) FOR [EsMedioDia]
+GO
+ALTER TABLE [dbo].[MAHorarios] ADD  DEFAULT ((1)) FOR [Activo]
+GO
+ALTER TABLE [dbo].[MAUsuarios] ADD  DEFAULT ((1)) FOR [Activo]
+GO
+ALTER TABLE [dbo].[MAUsuarios] ADD  CONSTRAINT [DF_MAUsuarios_DiasVac]  DEFAULT ((30)) FOR [DiasVacacionesAnuales]
+GO
+ALTER TABLE [dbo].[Movimiento] ADD  DEFAULT (getdate()) FOR [Fecha]
+GO
+ALTER TABLE [dbo].[MovimientoGrupo] ADD  DEFAULT (getdate()) FOR [Fecha]
+GO
+ALTER TABLE [dbo].[Producto] ADD  DEFAULT ((1)) FOR [TipoProductoID]
+GO
+ALTER TABLE [dbo].[Producto] ADD  DEFAULT ((1)) FOR [EstadoProductoID]
+GO
+ALTER TABLE [dbo].[Producto] ADD  DEFAULT ((0)) FOR [EsHerramienta]
+GO
+ALTER TABLE [dbo].[Producto] ADD  DEFAULT (getdate()) FOR [FechaCreacion]
+GO
+ALTER TABLE [dbo].[Proveedor] ADD  DEFAULT (getdate()) FOR [FechaCreacion]
+GO
+ALTER TABLE [dbo].[Proyecto] ADD  DEFAULT ('Activo') FOR [Estado]
+GO
+ALTER TABLE [dbo].[Proyecto] ADD  DEFAULT (getdate()) FOR [FechaCreacion]
+GO
+ALTER TABLE [dbo].[Roles] ADD  CONSTRAINT [DF_Roles_Activo]  DEFAULT ((1)) FOR [Activo]
+GO
+ALTER TABLE [dbo].[Roles] ADD  CONSTRAINT [DF_Roles_FechaCreacion]  DEFAULT (getdate()) FOR [FechaCreacion]
+GO
+ALTER TABLE [dbo].[TipoDocumento] ADD  DEFAULT (getdate()) FOR [FechaCreacion]
+GO
+ALTER TABLE [dbo].[TipoProducto] ADD  DEFAULT (getdate()) FOR [FechaCreacion]
+GO
+ALTER TABLE [dbo].[Vacaciones] ADD  CONSTRAINT [DF_Vacaciones_Estado]  DEFAULT ('Solicitada') FOR [Estado]
+GO
+ALTER TABLE [dbo].[Vacaciones] ADD  CONSTRAINT [DF_Vacaciones_FechaSol]  DEFAULT (getdate()) FOR [FechaSolicitud]
+GO
+ALTER TABLE [dbo].[Vacaciones] ADD  DEFAULT ((0)) FOR [EsAcumulacion]
+GO
+ALTER TABLE [dbo].[VacacionesRecord] ADD  DEFAULT ((0)) FOR [DiasLaborados]
+GO
+ALTER TABLE [dbo].[VacacionesRecord] ADD  DEFAULT ((0)) FOR [FaltasInjustificadas]
+GO
+ALTER TABLE [dbo].[VacacionesRecord] ADD  DEFAULT ((5)) FOR [JornadaSemanal]
+GO
+ALTER TABLE [dbo].[VacacionesRecord] ADD  DEFAULT ((0)) FOR [DerechoGenerado]
+GO
+ALTER TABLE [dbo].[VacacionesRecord] ADD  DEFAULT ((30)) FOR [DiasCorresponden]
+GO
+ALTER TABLE [dbo].[Contratos]  WITH CHECK ADD  CONSTRAINT [FK_Contratos_Creador] FOREIGN KEY([UsuarioCreadorID])
+REFERENCES [dbo].[MAUsuarios] ([UsuarioID])
+GO
+ALTER TABLE [dbo].[Contratos] CHECK CONSTRAINT [FK_Contratos_Creador]
+GO
+ALTER TABLE [dbo].[Contratos]  WITH CHECK ADD  CONSTRAINT [FK_Contratos_Tipo] FOREIGN KEY([TipoContratoID])
+REFERENCES [dbo].[TipoContrato] ([TipoContratoID])
+GO
+ALTER TABLE [dbo].[Contratos] CHECK CONSTRAINT [FK_Contratos_Tipo]
+GO
+ALTER TABLE [dbo].[Contratos]  WITH CHECK ADD  CONSTRAINT [FK_Contratos_Usuario] FOREIGN KEY([UsuarioID])
+REFERENCES [dbo].[MAUsuarios] ([UsuarioID])
+GO
+ALTER TABLE [dbo].[Contratos] CHECK CONSTRAINT [FK_Contratos_Usuario]
+GO
+ALTER TABLE [dbo].[Documento]  WITH CHECK ADD  CONSTRAINT [FK_Documento_TipoDocumento] FOREIGN KEY([TipoDocumentoID])
+REFERENCES [dbo].[TipoDocumento] ([TipoDocumentoID])
+GO
+ALTER TABLE [dbo].[Documento] CHECK CONSTRAINT [FK_Documento_TipoDocumento]
+GO
+ALTER TABLE [dbo].[HerramientaAsignacion]  WITH CHECK ADD  CONSTRAINT [FK_HerrAsig_Producto] FOREIGN KEY([ProductoID])
+REFERENCES [dbo].[Producto] ([ProductoID])
+GO
+ALTER TABLE [dbo].[HerramientaAsignacion] CHECK CONSTRAINT [FK_HerrAsig_Producto]
+GO
+ALTER TABLE [dbo].[HerramientaAsignacion]  WITH CHECK ADD  CONSTRAINT [FK_HerrAsig_Proyecto] FOREIGN KEY([ProyectoID])
+REFERENCES [dbo].[Proyecto] ([ProyectoID])
+GO
+ALTER TABLE [dbo].[HerramientaAsignacion] CHECK CONSTRAINT [FK_HerrAsig_Proyecto]
+GO
+ALTER TABLE [dbo].[HerramientaAsignacion]  WITH CHECK ADD  CONSTRAINT [FK_HerrAsig_Usuario] FOREIGN KEY([UsuarioID])
+REFERENCES [dbo].[MAUsuarios] ([UsuarioID])
+GO
+ALTER TABLE [dbo].[HerramientaAsignacion] CHECK CONSTRAINT [FK_HerrAsig_Usuario]
+GO
+ALTER TABLE [dbo].[MAAsistencias]  WITH CHECK ADD FOREIGN KEY([UsuarioID])
+REFERENCES [dbo].[MAUsuarios] ([UsuarioID])
+GO
+ALTER TABLE [dbo].[MAHorarioDetalle]  WITH CHECK ADD  CONSTRAINT [FK_MAHorarioDetalle_Horario] FOREIGN KEY([HorarioID])
+REFERENCES [dbo].[MAHorarios] ([HorarioID])
+GO
+ALTER TABLE [dbo].[MAHorarioDetalle] CHECK CONSTRAINT [FK_MAHorarioDetalle_Horario]
+GO
+ALTER TABLE [dbo].[MAUsuarioHorario]  WITH CHECK ADD FOREIGN KEY([HorarioID])
+REFERENCES [dbo].[MAHorarios] ([HorarioID])
+GO
+ALTER TABLE [dbo].[MAUsuarioHorario]  WITH CHECK ADD FOREIGN KEY([UsuarioID])
+REFERENCES [dbo].[MAUsuarios] ([UsuarioID])
+GO
+ALTER TABLE [dbo].[MAUsuarios]  WITH CHECK ADD  CONSTRAINT [FK_MAUsuarios_Areas] FOREIGN KEY([AreaID])
+REFERENCES [dbo].[Areas] ([AreaID])
+GO
+ALTER TABLE [dbo].[MAUsuarios] CHECK CONSTRAINT [FK_MAUsuarios_Areas]
+GO
+ALTER TABLE [dbo].[MAUsuarios]  WITH CHECK ADD  CONSTRAINT [FK_MAUsuarios_Roles] FOREIGN KEY([RolID])
+REFERENCES [dbo].[Roles] ([RolID])
+GO
+ALTER TABLE [dbo].[MAUsuarios] CHECK CONSTRAINT [FK_MAUsuarios_Roles]
+GO
+ALTER TABLE [dbo].[Movimiento]  WITH CHECK ADD  CONSTRAINT [FK_Mov_Grupo] FOREIGN KEY([MovimientoGrupoID])
+REFERENCES [dbo].[MovimientoGrupo] ([MovimientoGrupoID])
+GO
+ALTER TABLE [dbo].[Movimiento] CHECK CONSTRAINT [FK_Mov_Grupo]
+GO
+ALTER TABLE [dbo].[Movimiento]  WITH CHECK ADD  CONSTRAINT [FK_Mov_Producto] FOREIGN KEY([ProductoID])
+REFERENCES [dbo].[Producto] ([ProductoID])
+GO
+ALTER TABLE [dbo].[Movimiento] CHECK CONSTRAINT [FK_Mov_Producto]
+GO
+ALTER TABLE [dbo].[Movimiento]  WITH CHECK ADD  CONSTRAINT [FK_Mov_Proyecto] FOREIGN KEY([ProyectoID])
+REFERENCES [dbo].[Proyecto] ([ProyectoID])
+GO
+ALTER TABLE [dbo].[Movimiento] CHECK CONSTRAINT [FK_Mov_Proyecto]
+GO
+ALTER TABLE [dbo].[Movimiento]  WITH CHECK ADD  CONSTRAINT [FK_Mov_Ubicacion] FOREIGN KEY([UbicacionID])
+REFERENCES [dbo].[Ubicacion] ([UbicacionID])
+GO
+ALTER TABLE [dbo].[Movimiento] CHECK CONSTRAINT [FK_Mov_Ubicacion]
+GO
+ALTER TABLE [dbo].[Movimiento]  WITH CHECK ADD  CONSTRAINT [FK_Mov_Usuario] FOREIGN KEY([UsuarioID])
+REFERENCES [dbo].[MAUsuarios] ([UsuarioID])
+GO
+ALTER TABLE [dbo].[Movimiento] CHECK CONSTRAINT [FK_Mov_Usuario]
+GO
+ALTER TABLE [dbo].[MovimientoGrupo]  WITH CHECK ADD  CONSTRAINT [FK_MovGrupo_Proveedor] FOREIGN KEY([ProveedorID])
+REFERENCES [dbo].[Proveedor] ([ProveedorID])
+GO
+ALTER TABLE [dbo].[MovimientoGrupo] CHECK CONSTRAINT [FK_MovGrupo_Proveedor]
+GO
+ALTER TABLE [dbo].[MovimientoGrupo]  WITH CHECK ADD  CONSTRAINT [FK_MovGrupo_Proyecto] FOREIGN KEY([ProyectoID])
+REFERENCES [dbo].[Proyecto] ([ProyectoID])
+GO
+ALTER TABLE [dbo].[MovimientoGrupo] CHECK CONSTRAINT [FK_MovGrupo_Proyecto]
+GO
+ALTER TABLE [dbo].[MovimientoGrupo]  WITH CHECK ADD  CONSTRAINT [FK_MovGrupo_Usuario] FOREIGN KEY([UsuarioID])
+REFERENCES [dbo].[MAUsuarios] ([UsuarioID])
+GO
+ALTER TABLE [dbo].[MovimientoGrupo] CHECK CONSTRAINT [FK_MovGrupo_Usuario]
+GO
+ALTER TABLE [dbo].[MovimientoGrupoDocumento]  WITH CHECK ADD  CONSTRAINT [FK_MGDoc_Doc] FOREIGN KEY([DocumentoID])
+REFERENCES [dbo].[Documento] ([DocumentoID])
+GO
+ALTER TABLE [dbo].[MovimientoGrupoDocumento] CHECK CONSTRAINT [FK_MGDoc_Doc]
+GO
+ALTER TABLE [dbo].[MovimientoGrupoDocumento]  WITH CHECK ADD  CONSTRAINT [FK_MGDoc_Grupo] FOREIGN KEY([MovimientoGrupoID])
+REFERENCES [dbo].[MovimientoGrupo] ([MovimientoGrupoID])
+GO
+ALTER TABLE [dbo].[MovimientoGrupoDocumento] CHECK CONSTRAINT [FK_MGDoc_Grupo]
+GO
+ALTER TABLE [dbo].[PermisosUsuarios]  WITH CHECK ADD FOREIGN KEY([UsuarioID])
+REFERENCES [dbo].[MAUsuarios] ([UsuarioID])
+GO
+ALTER TABLE [dbo].[Producto]  WITH CHECK ADD  CONSTRAINT [FK_Producto_AlmacenSug] FOREIGN KEY([AlmacenSugeridoID])
+REFERENCES [dbo].[Almacen] ([AlmacenID])
+GO
+ALTER TABLE [dbo].[Producto] CHECK CONSTRAINT [FK_Producto_AlmacenSug]
+GO
+ALTER TABLE [dbo].[Producto]  WITH CHECK ADD  CONSTRAINT [FK_Producto_EstadoProducto] FOREIGN KEY([EstadoProductoID])
+REFERENCES [dbo].[EstadoProducto] ([EstadoProductoID])
+GO
+ALTER TABLE [dbo].[Producto] CHECK CONSTRAINT [FK_Producto_EstadoProducto]
+GO
+ALTER TABLE [dbo].[Producto]  WITH CHECK ADD  CONSTRAINT [FK_Producto_TipoProducto] FOREIGN KEY([TipoProductoID])
+REFERENCES [dbo].[TipoProducto] ([TipoProductoID])
+GO
+ALTER TABLE [dbo].[Producto] CHECK CONSTRAINT [FK_Producto_TipoProducto]
+GO
+ALTER TABLE [dbo].[Producto]  WITH CHECK ADD  CONSTRAINT [FK_Producto_UbicacionSug] FOREIGN KEY([UbicacionSugeridaID])
+REFERENCES [dbo].[Ubicacion] ([UbicacionID])
+GO
+ALTER TABLE [dbo].[Producto] CHECK CONSTRAINT [FK_Producto_UbicacionSug]
+GO
+ALTER TABLE [dbo].[Proyecto]  WITH CHECK ADD  CONSTRAINT [FK_Proyecto_Responsable] FOREIGN KEY([ResponsableID])
+REFERENCES [dbo].[MAUsuarios] ([UsuarioID])
+GO
+ALTER TABLE [dbo].[Proyecto] CHECK CONSTRAINT [FK_Proyecto_Responsable]
+GO
+ALTER TABLE [dbo].[Roles]  WITH CHECK ADD  CONSTRAINT [FK_Roles_Areas] FOREIGN KEY([AreaID])
+REFERENCES [dbo].[Areas] ([AreaID])
+GO
+ALTER TABLE [dbo].[Roles] CHECK CONSTRAINT [FK_Roles_Areas]
+GO
+ALTER TABLE [dbo].[Ubicacion]  WITH CHECK ADD  CONSTRAINT [FK_Ubicacion_Almacen] FOREIGN KEY([AlmacenID])
+REFERENCES [dbo].[Almacen] ([AlmacenID])
+GO
+ALTER TABLE [dbo].[Ubicacion] CHECK CONSTRAINT [FK_Ubicacion_Almacen]
+GO
+ALTER TABLE [dbo].[Vacaciones]  WITH CHECK ADD  CONSTRAINT [FK_Vacaciones_Aprobador] FOREIGN KEY([UsuarioAprobadorID])
+REFERENCES [dbo].[MAUsuarios] ([UsuarioID])
+GO
+ALTER TABLE [dbo].[Vacaciones] CHECK CONSTRAINT [FK_Vacaciones_Aprobador]
+GO
+ALTER TABLE [dbo].[Vacaciones]  WITH CHECK ADD  CONSTRAINT [FK_Vacaciones_Usuario] FOREIGN KEY([UsuarioID])
+REFERENCES [dbo].[MAUsuarios] ([UsuarioID])
+GO
+ALTER TABLE [dbo].[Vacaciones] CHECK CONSTRAINT [FK_Vacaciones_Usuario]
+GO
+ALTER TABLE [dbo].[VacacionesRecord]  WITH CHECK ADD  CONSTRAINT [FK_VacRecord_Usuario] FOREIGN KEY([UsuarioID])
+REFERENCES [dbo].[MAUsuarios] ([UsuarioID])
+GO
+ALTER TABLE [dbo].[VacacionesRecord] CHECK CONSTRAINT [FK_VacRecord_Usuario]
+GO
+ALTER TABLE [dbo].[Contratos]  WITH CHECK ADD  CONSTRAINT [CK_Contratos_Estado] CHECK  (([Estado]=N'Anulado' OR [Estado]=N'Renovado' OR [Estado]=N'Rescindido' OR [Estado]=N'Vencido' OR [Estado]=N'Vigente'))
+GO
+ALTER TABLE [dbo].[Contratos] CHECK CONSTRAINT [CK_Contratos_Estado]
+GO
+ALTER TABLE [dbo].[Contratos]  WITH CHECK ADD  CONSTRAINT [CK_Contratos_Rango] CHECK  (([FechaFin] IS NULL OR [FechaFin]>=[FechaInicio]))
+GO
+ALTER TABLE [dbo].[Contratos] CHECK CONSTRAINT [CK_Contratos_Rango]
+GO
+ALTER TABLE [dbo].[MAAsistencias]  WITH CHECK ADD CHECK  (([TipoRegistro]='Salida' OR [TipoRegistro]='Entrada'))
+GO
+ALTER TABLE [dbo].[MAHorarioDetalle]  WITH CHECK ADD  CONSTRAINT [CK_MAHorarioDetalle_Dia] CHECK  (([DiaSemana]>=(1) AND [DiaSemana]<=(7)))
+GO
+ALTER TABLE [dbo].[MAHorarioDetalle] CHECK CONSTRAINT [CK_MAHorarioDetalle_Dia]
+GO
+ALTER TABLE [dbo].[MAHorarioDetalle]  WITH CHECK ADD  CONSTRAINT [CK_MAHorarioDetalle_Horas] CHECK  (([EsLaborable]=(0) OR [EsLaborable]=(1) AND [HoraEntrada] IS NOT NULL AND [HoraSalida] IS NOT NULL AND [HoraSalida]>[HoraEntrada]))
+GO
+ALTER TABLE [dbo].[MAHorarioDetalle] CHECK CONSTRAINT [CK_MAHorarioDetalle_Horas]
+GO
+ALTER TABLE [dbo].[Vacaciones]  WITH CHECK ADD  CONSTRAINT [CK_Vacaciones_Estado] CHECK  (([Estado]='Cancelada' OR [Estado]='Tomada' OR [Estado]='Rechazada' OR [Estado]='Aprobada' OR [Estado]='Solicitada'))
+GO
+ALTER TABLE [dbo].[Vacaciones] CHECK CONSTRAINT [CK_Vacaciones_Estado]
+GO
+ALTER TABLE [dbo].[Vacaciones]  WITH CHECK ADD  CONSTRAINT [CK_Vacaciones_Rango] CHECK  (([FechaFin]>=[FechaInicio]))
+GO
+ALTER TABLE [dbo].[Vacaciones] CHECK CONSTRAINT [CK_Vacaciones_Rango]
+GO
+EXEC sys.sp_addextendedproperty @name=N'Estado', @value=N'OBSOLETA - usar MAHorarioDetalle.EsLaborable' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MADiasLaborables'
+GO
