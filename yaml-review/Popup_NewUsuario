@@ -1,0 +1,483 @@
+- Popup_NewUsuario:
+    Control: GroupContainer@1.5.0
+    Variant: ManualLayout
+    Properties:
+      Height: =Parent.Height
+      Visible: =popupUsuario
+      Width: =Parent.Width
+    Children:
+      - Btn_Usr_BG:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =varHoverFill
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Height: =Parent.Height
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =varHoverFill
+            OnSelect: |-
+              =UpdateContext({popupUsuario: false})
+            PressedFill: =varPressedFill
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Text: =""
+            Width: =Parent.Width
+      - Container_Usr_Main:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.Regular
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Container_Usr_Header.Height + Container_Usr_Body.Height + Container_Usr_Botones.Height + 15
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =5
+            RadiusBottomLeft: =15
+            RadiusBottomRight: =15
+            RadiusTopLeft: =15
+            RadiusTopRight: =15
+            Width: =460
+            X: =(Parent.Width - Self.Width)/2
+            Y: =40
+          Children:
+            - Container_Usr_Header:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  Fill: =RGBA(33, 41, 93, 0.8)
+                  FillPortions: =0
+                  Height: =35
+                  LayoutAlignItems: =LayoutAlignItems.Stretch
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  PaddingRight: =10
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: =Parent.Width
+                Children:
+                  - Label_Usr_Titulo:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        Color: =Color.White
+                        FillPortions: =1
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Bold
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =100
+                        PaddingLeft: =15
+                        PaddingTop: =9
+                        Size: =11
+                        Text: =If(IsBlank(_usuarioSelected.UsuarioID), "Nuevo Usuario", "Editar Usuario")
+                        Width: =Parent.Width/2
+                  - CustomBTN_Usr_Cerrar:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(255, 255, 255, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DropShadow: =DropShadow.None
+                        Fill: =TertiaryColor
+                        FillPortions: =0
+                        Height: =20
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =20
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Width: =20
+                      Children:
+                        - Image_Usr_Exit:
+                            Control: Image@2.2.3
+                            Properties:
+                              Height: =20
+                              Image: |-
+                                ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                    Substitute(
+                                        LookUp(customIcons,IconName = "Exit").IconData,
+                                        "currentColor", PrimaryTextColor_Text
+                                    )
+                                )
+                              PaddingBottom: =2
+                              PaddingLeft: =2
+                              PaddingRight: =2
+                              PaddingTop: =2
+                              Width: =20
+                        - Button_Usr_Cerrar:
+                            Control: Classic/Button@2.2.0
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(255, 255, 255, 1)
+                              Fill: =RGBA(0, 0, 0, 0)
+                              Height: =Parent.Height
+                              HoverBorderColor: =
+                              HoverColor: =RGBA(255, 255, 255, 1)
+                              HoverFill: =varHoverFill
+                              OnSelect: |-
+                                =UpdateContext({popupUsuario: false})
+                              PaddingBottom: =6
+                              PaddingLeft: =6
+                              PaddingRight: =6
+                              PaddingTop: =6
+                              PressedColor: =varPressedFill
+                              PressedFill: =varPressedFill
+                              Text: =""
+                              Width: =Parent.Width
+            - Container_Usr_Body:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  Fill: =RGBA(255, 255, 255, 1)
+                  FillPortions: =0
+                  Height: =510
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =8
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutOverflowY: =LayoutOverflow.Scroll
+                  PaddingBottom: =10
+                  PaddingLeft: =20
+                  PaddingRight: =20
+                  PaddingTop: =10
+                  Width: =Parent.Width
+                Children:
+                  - Label_Usr_DNI:
+                      Control: Label@2.5.1
+                      Properties:
+                        Color: =PrimaryTextColor
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        Size: =11
+                        Text: ="Documento (DNI) *"
+                        Width: =Parent.Width - 40
+                  - TI_Usr_DNI:
+                      Control: TextInput@0.0.54
+                      Properties:
+                        AccessibleLabel: ="DNI"
+                        Height: =34
+                        Placeholder: ="Ej. 12345678"
+                        Value: =If(IsBlank(_usuarioSelected.UsuarioID), "", _usuarioSelected.DNI)
+                        Width: =Parent.Width - 40
+                  - Label_Usr_Nombre:
+                      Control: Label@2.5.1
+                      Properties:
+                        Color: =PrimaryTextColor
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        Size: =11
+                        Text: ="Nombre completo *"
+                        Width: =Parent.Width - 40
+                  - TI_Usr_Nombre:
+                      Control: TextInput@0.0.54
+                      Properties:
+                        AccessibleLabel: ="Nombre completo"
+                        Height: =34
+                        Placeholder: ="Ej. Juan Pérez García"
+                        Value: =If(IsBlank(_usuarioSelected.UsuarioID), "", _usuarioSelected.Nombre)
+                        Width: =Parent.Width - 40
+                  - Label_Usr_Email:
+                      Control: Label@2.5.1
+                      Properties:
+                        Color: =PrimaryTextColor
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        Size: =11
+                        Text: ="Email"
+                        Width: =Parent.Width - 40
+                  - TI_Usr_Email:
+                      Control: TextInput@0.0.54
+                      Properties:
+                        AccessibleLabel: ="Email"
+                        Height: =34
+                        Placeholder: ="correo@empresa.com"
+                        Value: =If(IsBlank(_usuarioSelected.UsuarioID), "", _usuarioSelected.Email)
+                        Width: =Parent.Width - 40
+                  - Label_Usr_EmailM365:
+                      Control: Label@2.5.1
+                      Properties:
+                        Color: =PrimaryTextColor
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        Size: =11
+                        Text: ="Email Microsoft 365"
+                        Width: =Parent.Width - 40
+                  - TI_Usr_EmailM365:
+                      Control: TextInput@0.0.54
+                      Properties:
+                        AccessibleLabel: ="Email M365"
+                        Height: =34
+                        Placeholder: ="correo@empresa.onmicrosoft.com"
+                        Value: =If(IsBlank(_usuarioSelected.UsuarioID), "", _usuarioSelected.EmailM365)
+                        Width: =Parent.Width - 40
+                  - Label_Usr_Area:
+                      Control: Label@2.5.1
+                      Properties:
+                        Color: =PrimaryTextColor
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        Size: =11
+                        Text: ="Área"
+                        Width: =Parent.Width - 40
+                  - DD_Usr_Area:
+                      Control: ComboBox@0.0.51
+                      Properties:
+                        Appearance: ='ComboboxCanvas.Appearance'.FilledLighter
+                        DefaultSelectedItems: |-
+                          =If(
+                              IsBlank(_usuarioSelected.UsuarioID),
+                              [],
+                              Filter(Areas, AreaID = _usuarioSelected.AreaID)
+                          )
+                        Font: =Font.'Lato Light'
+                        FontColor: =PrimaryTextColor
+                        FontSize: =13
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        InputTextPlaceholder: ="Seleccione un área..."
+                        Items: =Areas
+                        Width: =Parent.Width - 40
+                      Children:
+                        - DDField_Usr_Area:
+                            Control: ComboBoxDataField@1.5.0
+                            Variant: textualColumn
+                            IsLocked: true
+                            Properties:
+                              FieldDisplayName: ="NombreArea"
+                              FieldName: ="NombreArea"
+                              FieldType: ="s"
+                              Order: =1
+                  - Label_Usr_Rol:
+                      Control: Label@2.5.1
+                      Properties:
+                        Color: =PrimaryTextColor
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        Size: =11
+                        Text: ="Rol"
+                        Width: =Parent.Width - 40
+                  - DD_Usr_Rol:
+                      Control: ComboBox@0.0.51
+                      Properties:
+                        Appearance: ='ComboboxCanvas.Appearance'.FilledLighter
+                        DefaultSelectedItems: |-
+                          =If(
+                              IsBlank(_usuarioSelected.UsuarioID),
+                              [],
+                              Filter(Roles, RolID = _usuarioSelected.RolID)
+                          )
+                        Font: =Font.'Lato Light'
+                        FontColor: =PrimaryTextColor
+                        FontSize: =13
+                        FontWeight: =FontWeight.Semibold
+                        Height: =34
+                        InputTextPlaceholder: ="Seleccione un rol..."
+                        Items: |-
+                          =If(
+                              IsBlank(DD_Usr_Area.Selected.AreaID),
+                              Filter(Roles, Activo = true),
+                              Filter(Roles, Activo = true && AreaID = DD_Usr_Area.Selected.AreaID)
+                          )
+                        Width: =Parent.Width - 40
+                      Children:
+                        - DDField_Usr_Rol:
+                            Control: ComboBoxDataField@1.5.0
+                            Variant: textualColumn
+                            IsLocked: true
+                            Properties:
+                              FieldDisplayName: ="NombreRol"
+                              FieldName: ="NombreRol"
+                              FieldType: ="s"
+                              Order: =1
+                  - Label_Usr_FechaIngreso:
+                      Control: Label@2.5.1
+                      Properties:
+                        Color: =PrimaryTextColor
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        Size: =11
+                        Text: ="Fecha de ingreso"
+                        Width: =Parent.Width - 40
+                  - DP_Usr_FechaIngreso:
+                      Control: DatePicker@0.0.46
+                      Properties:
+                        AccessibleLabel: ="Fecha de ingreso"
+                        EndDate: =Date(Year(Today())+1, 12, 31)
+                        Height: =34
+                        SelectedDate: =If(IsBlank(_usuarioSelected.UsuarioID), Today(), _usuarioSelected.FechaIngreso)
+                        StartDate: =Date(1990, 1, 1)
+                        Width: =Parent.Width - 40
+                  - Label_Usr_DiasVac:
+                      Control: Label@2.5.1
+                      Properties:
+                        Color: =PrimaryTextColor
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =22
+                        Size: =11
+                        Text: ="Días de vacaciones anuales *"
+                        Width: =Parent.Width - 40
+                  - NI_Usr_DiasVac:
+                      Control: NumberInput@2.9.12
+                      Properties:
+                        AccessibleLabel: ="Días de vacaciones anuales"
+                        Height: =34
+                        Min: =1
+                        Value: =If(IsBlank(_usuarioSelected.UsuarioID), 30, _usuarioSelected.DiasVacacionesAnuales)
+                        Width: =Parent.Width - 40
+                  - CTN_Usr_Activo:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =40
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =15
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        Width: =Parent.Width - 40
+                      Children:
+                        - Label_Usr_Activo:
+                            Control: Label@2.5.1
+                            Properties:
+                              Color: =PrimaryTextColor
+                              FillPortions: =1
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Semibold
+                              Height: =22
+                              Size: =11
+                              Text: ="Activo"
+                              Width: =80
+                        - Tog_Usr_Activo:
+                            Control: Toggle@1.1.5
+                            Properties:
+                              AccessibleLabel: ="Usuario activo"
+                              Checked: =If(IsBlank(_usuarioSelected.UsuarioID), true, _usuarioSelected.Activo)
+                              Height: =32
+                              Label: =""
+                              Width: =72
+            - Container_Usr_Botones:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  Height: =50
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =20
+                  LayoutJustifyContent: =LayoutJustifyContent.End
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinWidth: =Parent.Width
+                  Width: =Parent.Width - 45
+                Children:
+                  - CTNGuardar_Usr:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(255, 255, 255, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DropShadow: =DropShadow.Regular
+                        Fill: =TertiaryColor
+                        FillPortions: =0
+                        Height: =30
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =30
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Width: =100
+                      Children:
+                        - ButtonCanvas_Usr_Guardar:
+                            Control: Button@0.0.45
+                            Properties:
+                              Appearance: ='ButtonCanvas.Appearance'.Primary
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              DisplayMode: |-
+                                =If(
+                                    And(
+                                        !IsBlank(TI_Usr_DNI.Value),
+                                        !IsBlank(TI_Usr_Nombre.Value)
+                                    ),
+                                    DisplayMode.Edit,
+                                    DisplayMode.Disabled
+                                )
+                              Height: =Parent.Height
+                              Icon: ="Save"
+                              IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                              OnSelect: |-
+                                =With(
+                                    {
+                                        _payload: {
+                                            UsuarioID: If(
+                                                IsBlank(_usuarioSelected.UsuarioID),
+                                                Blank(),
+                                                _usuarioSelected.UsuarioID
+                                            ),
+                                            DNI: TI_Usr_DNI.Value,
+                                            Nombre: TI_Usr_Nombre.Value,
+                                            Email: TI_Usr_Email.Value,
+                                            EmailM365: TI_Usr_EmailM365.Value,
+                                            AreaID: If(
+                                                IsBlank(DD_Usr_Area.Selected.AreaID),
+                                                Blank(),
+                                                DD_Usr_Area.Selected.AreaID
+                                            ),
+                                            FechaIngreso: DP_Usr_FechaIngreso.SelectedDate,
+                                            DiasVacacionesAnuales: NI_Usr_DiasVac.Value,
+                                            RolID: If(
+                                                IsBlank(DD_Usr_Rol.Selected.RolID),
+                                                Blank(),
+                                                DD_Usr_Rol.Selected.RolID
+                                            ),
+                                            Activo: Tog_Usr_Activo.Checked,
+                                            UsuarioModificadorID: LookUp(
+                                                MAUsuarios,
+                                                EmailM365 = User().Email
+                                            ).UsuarioID
+                                        }
+                                    },
+                                    Set(
+                                        _res2,
+                                        sp_UpsertUsuario.dbospUpsertUsuario(_payload)
+                                    );
+                                    If(
+                                        First(_res.ResultSets).UsuarioID > 0, /* Éxito: refrescar fuentes y cerrar popup */ 
+                                        Refresh(MAUsuarios); Refresh(Roles); Refresh(Areas); Set(_usuarioSelected, Blank()); UpdateContext({popupUsuario: false}); Notify(First(_res.ResultSets).Mensaje, NotificationType.Success), 
+                                        /* Error: mostrar mensaje */
+                                        Notify(
+                                            "Error: " & First(_res.ResultSets).Mensaje,
+                                            NotificationType.Error
+                                        )
+                                    )
+                                )
+                              Text: ="Guardar"
+                              Width: =Parent.Width
