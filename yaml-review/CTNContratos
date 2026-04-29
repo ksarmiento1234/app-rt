@@ -1,0 +1,948 @@
+- CTNContratos:
+    Control: GroupContainer@1.5.0
+    Variant: AutoLayout
+    Properties:
+      DropShadow: =DropShadow.Regular
+      LayoutDirection: =LayoutDirection.Vertical
+      LayoutGap: =5
+      LayoutMaxHeight: =
+      LayoutMaxWidth: =
+      PaddingBottom: =8
+      PaddingLeft: =10
+      PaddingRight: =10
+      PaddingTop: =8
+      RadiusBottomLeft: =10
+      RadiusBottomRight: =10
+      RadiusTopLeft: =10
+      RadiusTopRight: =10
+      Visible: =_idseccion = 7
+    Children:
+      - Container13_Con:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =40
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutMaxHeight: =
+            LayoutMaxWidth: =
+          Children:
+            - TxtTitle_Con:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Start
+                  AlignInContainer: =AlignInContainer.Stretch
+                  FillPortions: =1
+                  Font: =Font.'Open Sans'
+                  FontColor: =PrimaryTextColor
+                  Height: =30
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinHeight: =30
+                  PaddingLeft: =5
+                  Size: =16
+                  Text: ="Contratos"
+                  VerticalAlign: =VerticalAlign.Middle
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =250
+            - CTNAdd_Con:
+                Control: GroupContainer@1.5.0
+                Variant: ManualLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  BorderColor: =RGBA(255, 255, 255, 1)
+                  BorderStyle: =BorderStyle.None
+                  BorderThickness: =2
+                  DropShadow: =DropShadow.Regular
+                  Fill: =
+                  FillPortions: =0
+                  Height: =30
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinWidth: =Parent.Width
+                  RadiusBottomLeft: =10
+                  RadiusBottomRight: =10
+                  RadiusTopLeft: =10
+                  RadiusTopRight: =10
+                  Width: =140
+                Children:
+                  - ButtonCanvas_Con:
+                      Control: Button@0.0.45
+                      Properties:
+                        Appearance: ='ButtonCanvas.Appearance'.Primary
+                        BasePaletteColor: =PrimaryTextColor
+                        Font: =Font.'Open Sans'
+                        FontSize: =12
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        Icon: ="Add"
+                        IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                        Layout: ='ButtonCanvas.Layout'.IconBefore
+                        OnSelect: |-
+                          =Set(_contratoSelected, Blank());
+                          Set(_usuarioParaContrato, Blank());
+                          Set(_modoContrato, "Nuevo");
+                          UpdateContext({popupContrato: true})
+                        Text: ="Nuevo Contrato"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Width: =Parent.Width
+      - CTNFiltros_Con:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.Semilight
+            FillPortions: =0
+            Height: =44
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =15
+            LayoutMaxHeight: =
+            LayoutMaxWidth: =
+            PaddingLeft: =10
+            PaddingRight: =10
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+          Children:
+            - CTNSearch_Con:
+                Control: GroupContainer@1.5.0
+                Variant: ManualLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  BorderColor: =HighlightColor
+                  DropShadow: =DropShadow.Semilight
+                  Height: =32
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  RadiusBottomLeft: =10
+                  RadiusBottomRight: =10
+                  RadiusTopLeft: =10
+                  RadiusTopRight: =10
+                  Width: =280
+                Children:
+                  - txtInputContratos:
+                      Control: TextInput@0.0.54
+                      Properties:
+                        Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                        Font: =Font.'Lato Light'
+                        FontColor: =PrimaryTextColor
+                        FontSize: =13
+                        FontWeight: =FontWeight.Semibold
+                        Height: =Parent.Height + 4
+                        PaddingLeft: =35
+                        Placeholder: ="Buscar por nombre..."
+                        TriggerOutput: ='TextInputCanvas.TriggerOutput'.Delayed
+                        Value: =
+                        Width: =Parent.Width
+                        Y: =-2
+                  - ImageSearch_Con:
+                      Control: Image@2.2.3
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Height: =30
+                        Image: |-
+                          ="data:image/svg+xml;utf8, " & EncodeUrl(
+                              Substitute(
+                                  LookUp(customIcons,IconName = "Search").IconData,
+                                  "currentColor",
+                                  PrimaryTextColor_Text
+                              )
+                          )
+                        PaddingBottom: =8
+                        PaddingLeft: =8
+                        PaddingRight: =8
+                        PaddingTop: =8
+                        Width: =30
+                        X: =6
+                        Y: =1
+            - DD_Filtro_EstadoCon:
+                Control: ModernCombobox@1.1.0
+                Properties:
+                  AllowExternalSelectedItems: =false
+                  Appearance: =Appearance.FilledLighter
+                  BorderColor: =RGBA(214, 221, 224, 1)
+                  BorderStyle: =BorderStyle.Solid
+                  BorderThickness: =1
+                  Color: =PrimaryTextColor
+                  DefaultSelectedItems: |-
+                    =Filter(
+                        Table(
+                            {Estado: "Todos"},
+                            {Estado: "Vigente"},
+                            {Estado: "Vencido"},
+                            {Estado: "Rescindido"},
+                            {Estado: "Renovado"},
+                            {Estado: "Anulado"}
+                        ),
+                        Estado = "Todos"
+                    )
+                  Font: =Font.'Lato Light'
+                  FontWeight: =""
+                  InputTextPlaceholder: ="Todos los estados"
+                  IsSearchable: =false
+                  ItemDisplayText: =ThisItem.'Estado'
+                  Items: |-
+                    =Table(
+                        {Estado: "Todos"},
+                        {Estado: "Vigente"},
+                        {Estado: "Vencido"},
+                        {Estado: "Rescindido"},
+                        {Estado: "Renovado"},
+                        {Estado: "Anulado"}
+                    )
+                  SelectMultiple: =false
+                  Size: =12
+                  Width: =150
+            - CTN_FiltroRapido_Con:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  Height: =32
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinHeight: =30
+                  RadiusBottomLeft: =8
+                  RadiusBottomRight: =8
+                  RadiusTopLeft: =8
+                  RadiusTopRight: =8
+                  Width: =280
+                Children:
+                  - BTN_Filtro_Todos:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        Fill: |-
+                          =If(
+                              _filtroVencimiento = "Todos" || IsBlank(_filtroVencimiento),
+                              ColorFade(PrimaryTextColor, 20%),
+                              RGBA(240, 240, 245, 1)
+                          )
+                        FillPortions: =0
+                        Height: =32
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =0
+                        Width: =70
+                      Children:
+                        - Lbl_Filtro_Todos:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              Color: |-
+                                =If(
+                                    _filtroVencimiento = "Todos" || IsBlank(_filtroVencimiento),
+                                    Color.White,
+                                    PrimaryTextColor
+                                )
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Bold
+                              Height: =32
+                              Size: =10
+                              Text: ="Todos"
+                              Width: =70
+                        - Btn_Filtro_Todos:
+                            Control: Classic/Button@2.2.0
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              Fill: =RGBA(0, 0, 0, 0)
+                              Height: =Parent.Height
+                              HoverFill: =varHoverFill
+                              OnSelect: =Set(_filtroVencimiento, "Todos")
+                              PressedFill: =varPressedFill
+                              Text: =""
+                              Width: =Parent.Width
+                  - BTN_Filtro_Alertas:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        Fill: |-
+                          =If(
+                              _filtroVencimiento = "Alertas",
+                              RGBA(180, 0, 0, 1),
+                              RGBA(240, 240, 245, 1)
+                          )
+                        FillPortions: =0
+                        Height: =32
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =110
+                      Children:
+                        - Lbl_Filtro_Alertas:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              Color: |-
+                                =If(
+                                    _filtroVencimiento = "Alertas",
+                                    Color.White,
+                                    PrimaryTextColor
+                                )
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Bold
+                              Height: =32
+                              Size: =10
+                              Text: |-
+                                ="🔴 Por vencer"
+                              Width: =110
+                        - Btn_Filtro_Alertas:
+                            Control: Classic/Button@2.2.0
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              Fill: =RGBA(0, 0, 0, 0)
+                              Height: =Parent.Height
+                              HoverFill: =varHoverFill
+                              OnSelect: =Set(_filtroVencimiento, "Alertas")
+                              PressedFill: =varPressedFill
+                              Text: =""
+                              Width: =Parent.Width
+                  - BTN_Filtro_Proximos:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        Fill: |-
+                          =If(
+                              _filtroVencimiento = "Proximos",
+                              RGBA(180, 120, 0, 1),
+                              RGBA(240, 240, 245, 1)
+                          )
+                        FillPortions: =0
+                        Height: =32
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =8
+                        Width: =100
+                      Children:
+                        - Lbl_Filtro_Proximos:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              Color: |-
+                                =If(
+                                    _filtroVencimiento = "Proximos",
+                                    Color.White,
+                                    PrimaryTextColor
+                                )
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Bold
+                              Height: =32
+                              Size: =10
+                              Text: |-
+                                ="🟡 Próximo"
+                              Width: =100
+                        - Btn_Filtro_Proximos:
+                            Control: Classic/Button@2.2.0
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              Fill: =RGBA(0, 0, 0, 0)
+                              Height: =Parent.Height
+                              HoverFill: =varHoverFill
+                              OnSelect: =Set(_filtroVencimiento, "Proximos")
+                              PressedFill: =varPressedFill
+                              Text: =""
+                              Width: =Parent.Width
+      - CTN_Con_BannerVencimientos:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: |-
+              =If(
+                  CountIf(
+                      Contratos,
+                      Estado = "Vigente" &&
+                      !IsBlank(FechaFin) &&
+                      DateDiff(Today(), FechaFin, TimeUnit.Days) <= _diasAvisoContrato &&
+                      DateDiff(Today(), FechaFin, TimeUnit.Days) >= 0
+                  ) > 0,
+                  52,
+                  0
+              )
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =12
+            LayoutMaxHeight: =
+            LayoutMaxWidth: =
+            PaddingLeft: =10
+            PaddingRight: =10
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Visible: |-
+              =CountIf(
+                  Contratos,
+                  Estado = "Vigente" &&
+                  !IsBlank(FechaFin) &&
+                  DateDiff(Today(), FechaFin, TimeUnit.Days) <= _diasAvisoContrato &&
+                  DateDiff(Today(), FechaFin, TimeUnit.Days) >= 0
+              ) > 0
+            Width: =Parent.Width
+          Children:
+            - Img_Banner_Alerta:
+                Control: Image@2.2.3
+                Properties:
+                  Height: =30
+                  Image: |-
+                    ="data:image/svg+xml;utf8, " & EncodeUrl(
+                        Substitute(
+                            LookUp(customIcons, IconName = "Warning").IconData,
+                            "currentColor",
+                            "#B45309"
+                        )
+                    )
+                  Width: =30
+            - Lbl_Banner_AlertaTexto:
+                Control: Label@2.5.1
+                Properties:
+                  Color: =RGBA(120, 53, 15, 1)
+                  FillPortions: =1
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Semibold
+                  Size: =11
+                  Text: |-
+                    =With(
+                        {
+                            _porVencer: CountIf(
+                                Contratos,
+                                Estado = "Vigente" &&
+                                !IsBlank(FechaFin) &&
+                                DateDiff(Today(), FechaFin, TimeUnit.Days) <= _diasAlertaContrato &&
+                                DateDiff(Today(), FechaFin, TimeUnit.Days) >= 0
+                            ),
+                            _proximo: CountIf(
+                                Contratos,
+                                Estado = "Vigente" &&
+                                !IsBlank(FechaFin) &&
+                                DateDiff(Today(), FechaFin, TimeUnit.Days) > _diasAlertaContrato &&
+                                DateDiff(Today(), FechaFin, TimeUnit.Days) <= _diasAvisoContrato
+                            )
+                        },
+                        If(
+                            _porVencer > 0 && _proximo > 0,
+                            "⚠  " & _porVencer & " contrato(s) vencen en menos de " & _diasAlertaContrato & " días  ·  " & _proximo & " vencen en menos de " & _diasAvisoContrato & " días",
+                            If(
+                                _porVencer > 0,
+                                "🔴  " & _porVencer & " contrato(s) vencen en menos de " & _diasAlertaContrato & " días",
+                                "🟡  " & _proximo & " contrato(s) vencen en menos de " & _diasAvisoContrato & " días"
+                            )
+                        )
+                    )
+                  Width: =Parent.Width - 130
+            - BTN_Banner_VerAlertas:
+                Control: GroupContainer@1.5.0
+                Variant: ManualLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  BorderColor: =RGBA(180, 83, 9, 1)
+                  BorderThickness: =1
+                  DropShadow: =DropShadow.None
+                  Fill: =RGBA(255, 237, 213, 1)
+                  FillPortions: =0
+                  Height: =28
+                  RadiusBottomLeft: =8
+                  RadiusBottomRight: =8
+                  RadiusTopLeft: =8
+                  RadiusTopRight: =8
+                  Width: =90
+                Children:
+                  - Lbl_BTN_VerAlertas:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        Color: =RGBA(120, 53, 15, 1)
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Bold
+                        Height: =28
+                        Size: =10
+                        Text: ="Ver alertas"
+                        Width: =90
+                  - Btn_VerAlertas:
+                      Control: Classic/Button@2.2.0
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =Parent.Height
+                        HoverFill: =varHoverFill
+                        OnSelect: =Set(_filtroVencimiento, "Alertas"); Reset(DD_Filtro_EstadoCon)
+                        PressedFill: =varPressedFill
+                        Text: =""
+                        Width: =Parent.Width
+      - CTNHdr_Con:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =23
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutMaxHeight: =
+            LayoutMaxWidth: =
+            PaddingLeft: =5
+            PaddingRight: =15
+            Width: =GalleryContratos.Width
+          Children:
+            - txtHdr_Con_Usuario:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Start
+                  FillPortions: =2
+                  Font: =Font.'Lato Light'
+                  FontColor: =ColorFade(PrimaryTextColor, 50%)
+                  Height: =Parent.Height/2
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinWidth: =100
+                  PaddingLeft: =10
+                  Size: =11
+                  Text: ="USUARIO"
+                  VerticalAlign: =VerticalAlign.Middle
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =200
+            - txtHdr_Con_Tipo:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Start
+                  FillPortions: =1.5
+                  Font: =Font.'Lato Light'
+                  FontColor: =ColorFade(PrimaryTextColor, 50%)
+                  Height: =Parent.Height/2
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinWidth: =100
+                  PaddingLeft: =5
+                  Size: =11
+                  Text: ="TIPO"
+                  VerticalAlign: =VerticalAlign.Middle
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =150
+            - txtHdr_Con_FechaIni:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  FillPortions: =1
+                  Font: =Font.'Lato Light'
+                  FontColor: =ColorFade(PrimaryTextColor, 50%)
+                  Height: =Parent.Height/2
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinWidth: =90
+                  Size: =11
+                  Text: ="INICIO"
+                  VerticalAlign: =VerticalAlign.Middle
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =90
+            - txtHdr_Con_FechaFin:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  FillPortions: =1
+                  Font: =Font.'Lato Light'
+                  FontColor: =ColorFade(PrimaryTextColor, 50%)
+                  Height: =Parent.Height/2
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinWidth: =90
+                  Size: =11
+                  Text: ="FIN"
+                  VerticalAlign: =VerticalAlign.Middle
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =90
+            - txtHdr_Con_Salario:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  FillPortions: =1
+                  Font: =Font.'Lato Light'
+                  FontColor: =ColorFade(PrimaryTextColor, 50%)
+                  Height: =Parent.Height/2
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinWidth: =90
+                  Size: =11
+                  Text: ="SALARIO"
+                  VerticalAlign: =VerticalAlign.Middle
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =90
+            - txtHdr_Con_Estado:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  FillPortions: =1
+                  Font: =Font.'Lato Light'
+                  FontColor: =ColorFade(PrimaryTextColor, 50%)
+                  Height: =Parent.Height/2
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinWidth: =80
+                  Size: =11
+                  Text: ="ESTADO"
+                  VerticalAlign: =VerticalAlign.Middle
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =80
+            - CTNHdrSpc_Con1:
+                Control: GroupContainer@1.5.0
+                Variant: ManualLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  Height: =23
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =30
+            - CTNHdrSpc_Con2:
+                Control: GroupContainer@1.5.0
+                Variant: ManualLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.SetByContainer
+                  DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  Height: =23
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  Width: =30
+      - GalleryContratos:
+          Control: Gallery@2.15.0
+          Variant: Vertical
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Items: |-
+              =Sort(
+                    Filter(
+                        Contratos,
+                        (
+                            IsBlank(txtInputContratos.Value) ||
+                            LookUp(MAUsuarios, UsuarioID = ThisRecord.UsuarioID).Nombre in txtInputContratos.Value
+                        ) &&
+                        (
+                            DD_Filtro_EstadoCon.Selected.Estado = "Todos" ||
+                            IsBlank(DD_Filtro_EstadoCon.Selected.Estado) ||
+                            Estado = DD_Filtro_EstadoCon.Selected.Estado
+                        ) &&
+                        (
+                            _filtroVencimiento = "Todos" ||
+                            IsBlank(_filtroVencimiento) ||
+                            (
+                                _filtroVencimiento = "Alertas" &&
+                                Estado = "Vigente" &&
+                                !IsBlank(FechaFin) &&
+                                DateDiff(Today(), FechaFin, TimeUnit.Days) >= 0 &&
+                                DateDiff(Today(), FechaFin, TimeUnit.Days) <= _diasAlertaContrato
+                            ) ||
+                            (
+                                _filtroVencimiento = "Proximos" &&
+                                Estado = "Vigente" &&
+                                !IsBlank(FechaFin) &&
+                                DateDiff(Today(), FechaFin, TimeUnit.Days) > _diasAlertaContrato &&
+                                DateDiff(Today(), FechaFin, TimeUnit.Days) <= _diasAvisoContrato
+                            )
+                        )
+                    ),
+                    If(
+                        IsBlank(FechaFin),
+                        Date(9999, 12, 31),
+                        FechaFin
+                    ),
+                    SortOrder.Ascending
+                )
+            LayoutMaxHeight: =
+            LayoutMaxWidth: =
+            LayoutMinHeight: =150
+            OnSelect: =
+            TemplateFill: |-
+              =If(
+                  ThisItem.IsSelected,
+                  varHoverFill,
+                  Color.White
+              )
+            TemplatePadding: =0
+            TemplateSize: =40
+          Children:
+            - RectCon_Sep:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Fill: =ColorFade(TertiaryColor, 1%)
+                  Height: =1
+                  OnSelect: =
+                  Width: =Parent.TemplateWidth
+            - CTNRow_Con:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  Height: =40
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  PaddingLeft: =5
+                  PaddingRight: =15
+                  Width: =Parent.TemplateWidth
+                Children:
+                  - txtRow_Con_Usuario:
+                      Control: Text@0.0.51
+                      Properties:
+                        Align: ='TextCanvas.Align'.Start
+                        FillPortions: =2
+                        Font: =Font.'Lato Light'
+                        FontColor: =PrimaryTextColor
+                        Height: =Parent.Height/2
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =100
+                        PaddingLeft: =10
+                        Text: =LookUp(MAUsuarios, UsuarioID = ThisItem.UsuarioID).Nombre
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =200
+                  - txtRow_Con_Tipo:
+                      Control: Text@0.0.51
+                      Properties:
+                        Align: ='TextCanvas.Align'.Start
+                        FillPortions: =1.5
+                        Font: =Font.'Lato Light'
+                        FontColor: =PrimaryTextColor
+                        Height: =Parent.Height/2
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =100
+                        PaddingLeft: =5
+                        Text: =LookUp(TipoContrato, TipoContratoID = ThisItem.TipoContratoID).Nombre
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =150
+                  - txtRow_Con_FechaIni:
+                      Control: Text@0.0.51
+                      Properties:
+                        Align: ='TextCanvas.Align'.Center
+                        FillPortions: =1
+                        Font: =Font.'Lato Light'
+                        FontColor: =PrimaryTextColor
+                        Height: =Parent.Height/2
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =90
+                        Text: =Text(ThisItem.FechaInicio, "dd/mm/yy")
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =90
+                  - txtRow_Con_FechaFin:
+                      Control: Text@0.0.51
+                      Properties:
+                        Align: ='TextCanvas.Align'.Center
+                        FillPortions: =1
+                        Font: =Font.'Lato Light'
+                        FontColor: |-
+                          =If(
+                              IsBlank(ThisItem.FechaFin),
+                              ColorFade(PrimaryTextColor, 40%),
+                              If(
+                                  DateDiff(Today(), ThisItem.FechaFin, TimeUnit.Days) < 0,
+                                  RGBA(128, 128, 128, 1),
+                                  If(
+                                      DateDiff(Today(), ThisItem.FechaFin, TimeUnit.Days) <= _diasAlertaContrato,
+                                      RGBA(180, 0, 0, 1),
+                                      If(
+                                          DateDiff(Today(), ThisItem.FechaFin, TimeUnit.Days) <= _diasAvisoContrato,
+                                          RGBA(180, 120, 0, 1),
+                                          PrimaryTextColor
+                                      )
+                                  )
+                              )
+                          )
+                        Height: =Parent.Height/2
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =90
+                        Text: |-
+                          =If(
+                              IsBlank(ThisItem.FechaFin),
+                              "Indefinido",
+                              If(
+                                  DateDiff(Today(), ThisItem.FechaFin, TimeUnit.Days) < 0,
+                                  "⚫ " & Text(ThisItem.FechaFin, "dd/mm/yy"),
+                                  If(
+                                      DateDiff(Today(), ThisItem.FechaFin, TimeUnit.Days) <= _diasAlertaContrato,
+                                      "🔴 " & Text(ThisItem.FechaFin, "dd/mm/yy"),
+                                      If(
+                                          DateDiff(Today(), ThisItem.FechaFin, TimeUnit.Days) <= _diasAvisoContrato,
+                                          "🟡 " & Text(ThisItem.FechaFin, "dd/mm/yy"),
+                                          Text(ThisItem.FechaFin, "dd/mm/yy")
+                                      )
+                                  )
+                              )
+                          )
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =90
+                  - txtRow_Con_Salario:
+                      Control: Text@0.0.51
+                      Properties:
+                        Align: ='TextCanvas.Align'.Center
+                        FillPortions: =1
+                        Font: =Font.'Lato Light'
+                        FontColor: =PrimaryTextColor
+                        Height: =Parent.Height/2
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =90
+                        Text: |-
+                          =If(
+                              IsBlank(ThisItem.SalarioMensual),
+                              "—",
+                              "S/. " & Text(ThisItem.SalarioMensual, "#,##0.00")
+                          )
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =90
+                  - txtRow_Con_Estado:
+                      Control: Text@0.0.51
+                      Properties:
+                        Align: ='TextCanvas.Align'.Center
+                        FillPortions: =1
+                        Font: =Font.'Lato Light'
+                        FontColor: |-
+                          =Switch(
+                              ThisItem.Estado,
+                              "Vigente",    RGBA(34, 139, 34, 1),
+                              "Vencido",    RGBA(180, 0, 0, 1),
+                              "Rescindido", RGBA(180, 0, 0, 1),
+                              "Renovado",   RGBA(0, 102, 204, 1),
+                              "Anulado",    RGBA(128, 128, 128, 1),
+                              PrimaryTextColor
+                          )
+                        Height: =Parent.Height/2
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =80
+                        Size: =11
+                        Text: =ThisItem.Estado
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Bold
+                        Width: =80
+                  - CTNEdit_Con:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =30
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =30
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Width: =30
+                      Children:
+                        - ImgEdit_Con:
+                            Control: Image@2.2.3
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Height: =30
+                              Image: |-
+                                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                    Substitute(
+                                        LookUp(customIcons,IconName = "Edit").IconData,
+                                        "currentColor",
+                                        PrimaryTextColor_Text
+                                    )
+                                )
+                              PaddingBottom: =6
+                              PaddingLeft: =6
+                              PaddingRight: =6
+                              PaddingTop: =6
+                              Width: =30
+                        - BtnEdit_Con:
+                            Control: Classic/Button@2.2.0
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(255, 255, 255, 1)
+                              Fill: =RGBA(0, 0, 0, 0)
+                              FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                              Height: =Parent.Height
+                              HoverColor: =RGBA(255, 255, 255, 1)
+                              HoverFill: =varHoverFill
+                              OnSelect: |-
+                                =Set(_contratoSelected, ThisItem);
+                                Set(_usuarioParaContrato, LookUp(MAUsuarios, UsuarioID = ThisItem.UsuarioID));
+                                Set(_modoContrato, "Editar");
+                                UpdateContext({popupContrato: true})
+                              PressedFill: =RGBA(0,0,0,0.2)
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Text: =""
+                              Tooltip: ="Editar contrato"
+                              Width: =Parent.Width
+                  - CTNDelete_Con:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =30
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =30
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Width: =30
+                      Children:
+                        - ImgDelete_Con:
+                            Control: Image@2.2.3
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Height: =30
+                              Image: |-
+                                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                    Substitute(
+                                        LookUp(customIcons,IconName = "Delete").IconData,
+                                        "currentColor",
+                                        AlertColor_Text
+                                    )
+                                )
+                              PaddingBottom: =6
+                              PaddingLeft: =6
+                              PaddingRight: =6
+                              PaddingTop: =6
+                              Width: =30
+                        - BtnDelete_Con:
+                            Control: Classic/Button@2.2.0
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(255, 255, 255, 1)
+                              Fill: =RGBA(0, 0, 0, 0)
+                              FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                              Height: =Parent.Height
+                              HoverColor: =RGBA(255, 255, 255, 1)
+                              HoverFill: =varHoverFill
+                              OnSelect: =
+                              PressedFill: =varPressedFill
+                              RadiusBottomLeft: =0
+                              RadiusBottomRight: =0
+                              RadiusTopLeft: =0
+                              RadiusTopRight: =0
+                              Text: =""
+                              Tooltip: ="Anular contrato"
+                              Width: =Parent.Width
