@@ -1,0 +1,888 @@
+- CTNVacaciones:
+    Control: GroupContainer@1.5.0
+    Variant: AutoLayout
+    Properties:
+      DropShadow: =DropShadow.Regular
+      LayoutDirection: =LayoutDirection.Vertical
+      LayoutGap: =5
+      LayoutMaxHeight: =
+      LayoutMaxWidth: =
+      PaddingBottom: =8
+      PaddingLeft: =10
+      PaddingRight: =10
+      PaddingTop: =8
+      RadiusBottomLeft: =10
+      RadiusBottomRight: =10
+      RadiusTopLeft: =10
+      RadiusTopRight: =10
+      Visible: =_idseccion = 8
+      Width: =Parent.Width
+    Children:
+      - CTN_Vac_Titulo:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =40
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutMaxHeight: =
+            LayoutMaxWidth: =
+            Width: =Parent.Width
+          Children:
+            - Lbl_Vac_Titulo:
+                Control: Label@2.5.1
+                Properties:
+                  Color: =PrimaryTextColor
+                  FillPortions: =1
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Bold
+                  Text: ="Vacaciones"
+                  Width: =200
+            - CTN_Vac_BtnNuevo:
+                Control: GroupContainer@1.5.0
+                Variant: ManualLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  DropShadow: =DropShadow.None
+                  Fill: =ColorFade(PrimaryTextColor, 20%)
+                  FillPortions: =0
+                  Height: =32
+                  RadiusBottomLeft: =8
+                  RadiusBottomRight: =8
+                  RadiusTopLeft: =8
+                  RadiusTopRight: =8
+                  Width: =200
+                Children:
+                  - Lbl_Vac_BtnNuevo:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        Color: =Color.White
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Bold
+                        Height: =34
+                        Size: =10
+                        Text: ="＋  Programar Vacaciones"
+                        Width: =200
+                  - Btn_Vac_Nuevo:
+                      Control: Classic/Button@2.2.0
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =Parent.Height
+                        HoverFill: =varHoverFill
+                        OnSelect: |-
+                          =Set(_vacacionSelected, Blank());
+                          Set(_modoVacacion, "Nueva");
+                          Set(_resetVacacion, true);
+                          Set(_resetVacacion, false);
+                          UpdateContext({popupVacacion: true})
+                        PressedFill: =varPressedFill
+                        Text: =""
+                        Width: =Parent.Width
+      - CTN_Vac_BannerAlertas:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            BorderColor: =RGBA(180, 83, 9, 1)
+            BorderThickness: =1
+            DropShadow: =DropShadow.None
+            Fill: =RGBA(255, 237, 213, 1)
+            FillPortions: =0
+            Height: =If(_hayAlertasVacaciones, 44, 0)
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =10
+            LayoutMaxHeight: =
+            LayoutMaxWidth: =
+            PaddingLeft: =12
+            PaddingRight: =12
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Visible: =_hayAlertasVacaciones
+            Width: =Parent.Width
+          Children:
+            - Lbl_Vac_Banner:
+                Control: Label@2.5.1
+                Properties:
+                  Color: =RGBA(120, 53, 15, 1)
+                  FillPortions: =1
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =44
+                  Size: =11
+                  Text: |-
+                    =With(
+                        {
+                            _triple: CountIf(colAlertasVacaciones, EstadoAlerta = "TRIPLE_VACACIONAL"),
+                            _urgente: CountIf(colAlertasVacaciones, EstadoAlerta = "URGENTE"),
+                            _alerta: CountIf(colAlertasVacaciones, EstadoAlerta = "ALERTA")
+                        },
+                        "⚠  " &
+                        If(_triple > 0, _triple & " en riesgo de triple vacacional  ·  ", "") &
+                        If(_urgente > 0, _urgente & " urgente(s)  ·  ", "") &
+                        If(_alerta > 0, _alerta & " próximo(s) a vencer", "")
+                    )
+                  Width: =Parent.Width - 130
+            - CTN_Vac_BtnVerAlertas:
+                Control: GroupContainer@1.5.0
+                Variant: ManualLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  BorderColor: =RGBA(180, 83, 9, 1)
+                  BorderThickness: =1
+                  DropShadow: =DropShadow.None
+                  Fill: =RGBA(255, 255, 255, 1)
+                  FillPortions: =0
+                  Height: =28
+                  RadiusBottomLeft: =6
+                  RadiusBottomRight: =6
+                  RadiusTopLeft: =6
+                  RadiusTopRight: =6
+                  Width: =100
+                Children:
+                  - Lbl_Vac_BtnVerAlertas:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        Color: =RGBA(120, 53, 15, 1)
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Bold
+                        Height: =28
+                        Size: =10
+                        Text: ="Ver alertas"
+                        Width: =100
+                  - Btn_Vac_VerAlertas:
+                      Control: Classic/Button@2.2.0
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =Parent.Height
+                        HoverFill: =varHoverFill
+                        OnSelect: =Set(_tabVacacion, "Alertas")
+                        PressedFill: =varPressedFill
+                        Text: =""
+                        Width: =Parent.Width
+      - CTN_Vac_Filtros:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            Height: =40
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =10
+            LayoutMaxHeight: =
+            LayoutMaxWidth: =
+            PaddingBottom: =3
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =3
+            Width: =Parent.Width
+          Children:
+            - CTN_Vac_Buscador:
+                Control: GroupContainer@1.5.0
+                Variant: ManualLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  BorderColor: =RGBA(0, 18, 107, 0.2)
+                  BorderThickness: =1
+                  DropShadow: =DropShadow.None
+                  Fill: =RGBA(255, 255, 255, 1)
+                  Height: =34
+                  LayoutMinHeight: =25
+                  RadiusBottomLeft: =8
+                  RadiusBottomRight: =8
+                  RadiusTopLeft: =8
+                  RadiusTopRight: =8
+                Children:
+                  - Img_Vac_Lupa:
+                      Control: Image@2.2.3
+                      Properties:
+                        Height: =20
+                        Image: |-
+                          ="data:image/svg+xml;utf8, " & EncodeUrl(
+                              Substitute(
+                                  LookUp(customIcons, IconName = "Search").IconData,
+                                  "currentColor", "#21295D"
+                              )
+                          )
+                        Width: =20
+                        X: =8
+                        Y: =7
+                  - TI_Vac_Buscar:
+                      Control: Classic/TextInput@2.3.2
+                      Properties:
+                        BorderStyle: =BorderStyle.None
+                        Color: =PrimaryTextColor
+                        Default: =
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Font: =Font.'Open Sans'
+                        Height: =34
+                        HintText: ="Buscar por nombre..."
+                        HoverBorderColor: =Self.BorderColor
+                        HoverFill: =Self.Fill
+                        Size: =10
+                        Width: =Parent.Width - 36
+                        X: =32
+            - DD_Vac_FiltroEstado:
+                Control: ComboBox@0.0.51
+                Properties:
+                  Appearance: ='ComboboxCanvas.Appearance'.FilledLighter
+                  BorderColor: =RGBA(214, 221, 224, 1)
+                  BorderStyle: =BorderStyle.Solid
+                  BorderThickness: =1
+                  Height: =34
+                  InputTextPlaceholder: ="Estado..."
+                  IsSearchable: =false
+                  Items: |-
+                    =Table(
+                        {Estado: "Todos"},
+                        {Estado: "Programada"},
+                        {Estado: "Aprobada"},
+                        {Estado: "Tomada"},
+                        {Estado: "Cancelada"}
+                    )
+                  Width: =160
+                Children:
+                  - DDField_Vac_Estado_1:
+                      Control: ComboBoxDataField@1.5.0
+                      Variant: textualColumn
+                      IsLocked: true
+                      Properties:
+                        FieldDisplayName: ="Estado"
+                        FieldName: ="Estado"
+                        FieldType: ="s"
+                        Order: =1
+            - CTN_Vac_Tabs:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  DropShadow: =DropShadow.Semilight
+                  FillPortions: =0
+                  Height: =34
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinHeight: =30
+                  RadiusBottomLeft: =8
+                  RadiusBottomRight: =8
+                  RadiusTopLeft: =8
+                  RadiusTopRight: =8
+                  Width: =270
+                Children:
+                  - CTN_Vac_TabTodos:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        Fill: |-
+                          =If(
+                              _tabVacacion = "Todos" || IsBlank(_tabVacacion),
+                              RGBA(33, 41, 93, 1),
+                              RGBA(240, 240, 245, 1)
+                          )
+                        FillPortions: =0
+                        Height: =34
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =0
+                        Width: =70
+                      Children:
+                        - Lbl_Vac_TabTodos:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              Color: |-
+                                =If(
+                                    _tabVacacion = "Todos" || IsBlank(_tabVacacion),
+                                    Color.White,
+                                    PrimaryTextColor
+                                )
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Bold
+                              Height: =34
+                              Size: =10
+                              Text: ="Todos"
+                              Width: =70
+                        - Btn_Vac_TabTodos:
+                            Control: Classic/Button@2.2.0
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              Fill: =RGBA(0, 0, 0, 0)
+                              Height: =Parent.Height
+                              HoverFill: =varHoverFill
+                              OnSelect: =Set(_tabVacacion, "Todos")
+                              PressedFill: =varPressedFill
+                              Text: =""
+                              Width: =Parent.Width
+                  - CTN_Vac_TabPendientes:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        Fill: |-
+                          =If(
+                              _tabVacacion = "Pendientes",
+                              RGBA(33, 100, 180, 1),
+                              RGBA(240, 240, 245, 1)
+                          )
+                        FillPortions: =0
+                        Height: =34
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =115
+                      Children:
+                        - Lbl_Vac_TabPendientes:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              Color: |-
+                                =If(
+                                    _tabVacacion = "Pendientes",
+                                    Color.White,
+                                    PrimaryTextColor
+                                )
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Bold
+                              Height: =34
+                              Size: =10
+                              Text: |-
+                                ="🕐 Pendientes"
+                              Width: =115
+                        - Btn_Vac_TabPendientes:
+                            Control: Classic/Button@2.2.0
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              Fill: =RGBA(0, 0, 0, 0)
+                              Height: =Parent.Height
+                              HoverFill: =varHoverFill
+                              OnSelect: =Set(_tabVacacion, "Pendientes")
+                              PressedFill: =varPressedFill
+                              Text: =""
+                              Width: =Parent.Width
+                  - CTN_Vac_TabAlertas:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        Fill: |-
+                          =If(
+                              _tabVacacion = "Alertas",
+                              RGBA(180, 0, 0, 1),
+                              RGBA(240, 240, 245, 1)
+                          )
+                        FillPortions: =0
+                        Height: =34
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =8
+                        Width: =90
+                      Children:
+                        - Lbl_Vac_TabAlertas:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              Color: |-
+                                =If(
+                                    _tabVacacion = "Alertas",
+                                    Color.White,
+                                    PrimaryTextColor
+                                )
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Bold
+                              Height: =34
+                              Size: =10
+                              Text: |-
+                                ="🔴 Alertas"
+                              Width: =90
+                        - Btn_Vac_TabAlertas:
+                            Control: Classic/Button@2.2.0
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              Fill: =RGBA(0, 0, 0, 0)
+                              Height: =Parent.Height
+                              HoverFill: =varHoverFill
+                              OnSelect: =Set(_tabVacacion, "Alertas")
+                              PressedFill: =varPressedFill
+                              Text: =""
+                              Width: =Parent.Width
+      - CTN_Vac_Hdr:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Fill: =RGBA(33, 41, 93, 0.06)
+            FillPortions: =0
+            Height: =32
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutMaxHeight: =
+            LayoutMaxWidth: =
+            PaddingLeft: =10
+            PaddingRight: =10
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Width: =Parent.Width
+          Children:
+            - Lbl_VacHdr_Usuario:
+                Control: Label@2.5.1
+                Properties:
+                  Color: =PrimaryTextColor
+                  FillPortions: =2
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Bold
+                  Height: =32
+                  Size: =10
+                  Text: ="USUARIO"
+                  Width: =180
+            - Lbl_VacHdr_Periodo:
+                Control: Label@2.5.1
+                Properties:
+                  Color: =PrimaryTextColor
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Bold
+                  Height: =32
+                  Size: =10
+                  Text: ="PERÍODO"
+                  Width: =100
+            - Lbl_VacHdr_Inicio:
+                Control: Label@2.5.1
+                Properties:
+                  Color: =PrimaryTextColor
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Bold
+                  Height: =32
+                  Size: =10
+                  Text: ="INICIO"
+                  Width: =90
+            - Lbl_VacHdr_Fin:
+                Control: Label@2.5.1
+                Properties:
+                  Color: =PrimaryTextColor
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Bold
+                  Height: =32
+                  Size: =10
+                  Text: ="FIN"
+                  Width: =90
+            - Lbl_VacHdr_Dias:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  Color: =PrimaryTextColor
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Bold
+                  Height: =32
+                  Size: =10
+                  Text: ="DÍAS"
+                  Width: =50
+            - Lbl_VacHdr_Saldo:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  Color: =PrimaryTextColor
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Bold
+                  Height: =32
+                  Size: =10
+                  Text: ="SALDO"
+                  Width: =60
+            - Lbl_VacHdr_Estado:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  Color: =PrimaryTextColor
+                  FillPortions: =1
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Bold
+                  Height: =32
+                  Size: =10
+                  Text: ="ESTADO"
+                  Width: =100
+            - Lbl_VacHdr_Acciones:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  Color: =PrimaryTextColor
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Bold
+                  Height: =32
+                  Size: =10
+                  Text: ="ACCIONES"
+                  Width: =90
+      - GalleryVacaciones:
+          Control: Gallery@2.15.0
+          Variant: Vertical
+          Properties:
+            BorderStyle: =BorderStyle.None
+            Height: =Parent.Height - 230
+            Items: |-
+              =Sort(
+                    Filter(
+                        Vacaciones,
+                        (
+                            IsBlank(TI_Vac_Buscar.Text) ||
+                            LookUp(MAUsuarios, UsuarioID = ThisRecord.UsuarioID).Nombre in TI_Vac_Buscar.Text
+                        ) &&
+                        (
+                            DD_Vac_FiltroEstado.Selected.Estado = "Todos" ||
+                            IsBlank(DD_Vac_FiltroEstado.Selected.Estado) ||
+                            Estado = DD_Vac_FiltroEstado.Selected.Estado
+                        ) &&
+                        (
+                            _tabVacacion = "Todos" ||
+                            IsBlank(_tabVacacion) ||
+                            (
+                                _tabVacacion = "Pendientes" &&
+                                (Estado = "Programada" || Estado = "Aprobada")
+                            ) ||
+                            (
+                                _tabVacacion = "Alertas" &&
+                                !IsBlank(
+                                    LookUp(
+                                        VacacionesSaldoLegal,
+                                        UsuarioID = ThisRecord.UsuarioID &&
+                                        (
+                                            EstadoAlerta = "URGENTE" ||
+                                            EstadoAlerta = "ALERTA" ||
+                                            EstadoAlerta = "TRIPLE_VACACIONAL"
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    FechaInicio,
+                    SortOrder.Descending
+                )
+            TemplatePadding: =0
+            TemplateSize: =52
+            Width: =Parent.Width
+          Children:
+            - CTN_Vac_Row:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 0.08)
+                  DropShadow: =DropShadow.None
+                  Fill: |-
+                    =If(
+                        Mod(ThisItem.VacacionID, 2) = 0,
+                        RGBA(255, 255, 255, 1),
+                        RGBA(248, 249, 255, 1)
+                    )
+                  Height: =50
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  PaddingLeft: =10
+                  PaddingRight: =10
+                  Width: =Parent.Width
+                Children:
+                  - txt_Vac_Usuario:
+                      Control: Text@0.0.51
+                      Properties:
+                        FillPortions: =2
+                        Font: =Font.'Lato Light'
+                        FontColor: =PrimaryTextColor
+                        Height: =50
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =180
+                        Text: =LookUp(MAUsuarios, UsuarioID = ThisItem.UsuarioID).Nombre
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =180
+                  - txt_Vac_Periodo:
+                      Control: Text@0.0.51
+                      Properties:
+                        Font: =Font.'Lato Light'
+                        FontColor: =ColorFade(PrimaryTextColor, 30%)
+                        Height: =50
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =70
+                        Text: ="Año " & Text(ThisItem.PeriodoAnio)
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Regular
+                        Width: =100
+                  - txt_Vac_Inicio:
+                      Control: Text@0.0.51
+                      Properties:
+                        Font: =Font.'Lato Light'
+                        FontColor: =PrimaryTextColor
+                        Height: =50
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =90
+                        Text: =Text(ThisItem.FechaInicio, "DD/MM/YY")
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =90
+                  - txt_Vac_Fin:
+                      Control: Text@0.0.51
+                      Properties:
+                        Font: =Font.'Lato Light'
+                        FontColor: =PrimaryTextColor
+                        Height: =50
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =90
+                        Text: =Text(ThisItem.FechaFin, "DD/MM/YY")
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =90
+                  - txt_Vac_Dias:
+                      Control: Text@0.0.51
+                      Properties:
+                        Align: ='TextCanvas.Align'.Center
+                        Font: =Font.'Lato Light'
+                        FontColor: =PrimaryTextColor
+                        Height: =50
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =50
+                        Text: =Text(ThisItem.DiasTomados) & "d"
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =50
+                  - txt_Vac_Saldo:
+                      Control: Text@0.0.51
+                      Properties:
+                        Align: ='TextCanvas.Align'.Center
+                        Font: =Font.'Lato Light'
+                        FontColor: |-
+                          =With(
+                              {
+                                  _saldo: LookUp(VacacionesSaldoLegal, UsuarioID = ThisItem.UsuarioID).TotalDiasDisponibles
+                              },
+                              If(
+                                  _saldo <= 0, RGBA(180, 0, 0, 1),
+                                  If(_saldo <= 10, RGBA(180, 120, 0, 1), RGBA(34, 139, 34, 1))
+                              )
+                          )
+                        Height: =50
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinWidth: =60
+                        Text: |-
+                          =With(
+                              {
+                                  _saldo: LookUp(VacacionesSaldoLegal, UsuarioID = ThisItem.UsuarioID).TotalDiasDisponibles
+                              },
+                              Text(_saldo) & "d"
+                          )
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =60
+                  - CTN_Vac_Badge:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        DropShadow: =DropShadow.None
+                        Fill: |-
+                          =Switch(
+                              ThisItem.Estado,
+                              "Programada", RGBA(219, 234, 254, 1),
+                              "Aprobada",   RGBA(220, 252, 231, 1),
+                              "Tomada",     RGBA(237, 233, 254, 1),
+                              "Cancelada",  RGBA(243, 244, 246, 1),
+                              RGBA(243, 244, 246, 1)
+                          )
+                        Height: =26
+                        RadiusBottomLeft: =13
+                        RadiusBottomRight: =13
+                        RadiusTopLeft: =13
+                        RadiusTopRight: =13
+                        Width: =90
+                      Children:
+                        - Lbl_Vac_Badge:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              Color: |-
+                                =Switch(
+                                    ThisItem.Estado,
+                                    "Programada", RGBA(29, 78, 216, 1),
+                                    "Aprobada",   RGBA(21, 128, 61, 1),
+                                    "Tomada",     RGBA(109, 40, 217, 1),
+                                    "Cancelada",  RGBA(107, 114, 128, 1),
+                                    PrimaryTextColor
+                                )
+                              Font: =Font.'Open Sans'
+                              FontWeight: =FontWeight.Bold
+                              Height: =26
+                              Size: =10
+                              Text: |-
+                                =Switch(
+                                    ThisItem.Estado,
+                                    "Programada", "🕐 Programada",
+                                    "Aprobada",   "✅ Aprobada",
+                                    "Tomada",     "🏖️ Tomada",
+                                    "Cancelada",  "❌ Cancelada",
+                                    ThisItem.Estado
+                                )
+                              Width: =90
+                  - CTN_Vac_Acciones:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =34
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =6
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        Width: =90
+                      Children:
+                        - CTN_Vac_BtnAprobar:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              DropShadow: =DropShadow.None
+                              Fill: =RGBA(220, 252, 231, 1)
+                              FillPortions: =0
+                              Height: =28
+                              RadiusBottomLeft: =6
+                              RadiusBottomRight: =6
+                              RadiusTopLeft: =6
+                              RadiusTopRight: =6
+                              Visible: =ThisItem.Estado = "Programada"
+                              Width: =28
+                            Children:
+                              - Img_Vac_Aprobar:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    Height: =18
+                                    Image: |-
+                                      ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                          Substitute(
+                                              LookUp(customIcons, IconName = "Check").IconData,
+                                              "currentColor", "#15803D"
+                                          )
+                                      )
+                                    Width: =18
+                                    X: =5
+                                    Y: =5
+                              - Btn_Vac_Aprobar:
+                                  Control: Classic/Button@2.2.0
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =Parent.Height
+                                    HoverFill: =varHoverFill
+                                    OnSelect: |-
+                                      =Set(_vacacionSelected, ThisItem);
+                                      Set(_accionVacacion, "Aprobar");
+                                      UpdateContext({popupConfirmVac: true})
+                                    PressedFill: =varPressedFill
+                                    Text: =""
+                                    Width: =Parent.Width
+                        - CTN_Vac_BtnEditar:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              DropShadow: =DropShadow.None
+                              Fill: =RGBA(219, 234, 254, 1)
+                              FillPortions: =0
+                              Height: =28
+                              RadiusBottomLeft: =6
+                              RadiusBottomRight: =6
+                              RadiusTopLeft: =6
+                              RadiusTopRight: =6
+                              Visible: =ThisItem.Estado = "Programada" || ThisItem.Estado = "Aprobada"
+                              Width: =28
+                            Children:
+                              - Img_Vac_Editar:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    Height: =18
+                                    Image: |-
+                                      ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                          Substitute(
+                                              LookUp(customIcons, IconName = "Edit").IconData,
+                                              "currentColor", "#1D4ED8"
+                                          )
+                                      )
+                                    Width: =18
+                                    X: =5
+                                    Y: =5
+                              - Btn_Vac_Editar:
+                                  Control: Classic/Button@2.2.0
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =Parent.Height
+                                    HoverFill: =varHoverFill
+                                    OnSelect: |-
+                                      =Set(_vacacionSelected, ThisItem);
+                                      Set(_modoVacacion, "Editar");
+                                      Set(_resetVacacion, true);
+                                      Set(_resetVacacion, false);
+                                      UpdateContext({popupVacacion: true})
+                                    PressedFill: =varPressedFill
+                                    Text: =""
+                                    Width: =Parent.Width
+                        - CTN_Vac_BtnCancelar:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              DropShadow: =DropShadow.None
+                              Fill: =RGBA(254, 226, 226, 1)
+                              FillPortions: =0
+                              Height: =28
+                              RadiusBottomLeft: =6
+                              RadiusBottomRight: =6
+                              RadiusTopLeft: =6
+                              RadiusTopRight: =6
+                              Visible: =ThisItem.Estado = "Programada" || ThisItem.Estado = "Aprobada"
+                              Width: =28
+                            Children:
+                              - Img_Vac_Cancelar:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    Height: =18
+                                    Image: |-
+                                      ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                          Substitute(
+                                              LookUp(customIcons, IconName = "Trash").IconData,
+                                              "currentColor", "#DC2626"
+                                          )
+                                      )
+                                    Width: =18
+                                    X: =5
+                                    Y: =5
+                              - Btn_Vac_Cancelar:
+                                  Control: Classic/Button@2.2.0
+                                  Properties:
+                                    BorderStyle: =BorderStyle.None
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =Parent.Height
+                                    HoverFill: =varHoverFill
+                                    OnSelect: |-
+                                      =Set(_vacacionSelected, ThisItem);
+                                      Set(_accionVacacion, "Cancelar");
+                                      UpdateContext({popupConfirmVac: true})
+                                    PressedFill: =varPressedFill
+                                    Text: =""
+                                    Width: =Parent.Width
