@@ -1,0 +1,521 @@
+- Popup_NewDobleMarcacion_1:
+    Control: GroupContainer@1.5.0
+    Variant: ManualLayout
+    Properties:
+      Height: =Parent.Height
+      Width: =Parent.Width
+    Children:
+      - Button2_61:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =varHoverFill
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Height: =Parent.Height
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =varHoverFill
+            OnSelect: |-
+              =UpdateContext({newusuario: false})
+            PressedFill: =varPressedFill
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Text: =""
+            Width: =Parent.Width
+      - Container29_30:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.Regular
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =Container14_57.Height+FormUsuario_2.Height+CTNBotones_5.Height+15
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =5
+            RadiusBottomLeft: =15
+            RadiusBottomRight: =15
+            RadiusTopLeft: =15
+            RadiusTopRight: =15
+            Width: =400
+            X: =(Parent.Width - Self.Width)/2
+            Y: =47
+          Children:
+            - Container14_57:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.None
+                  Fill: =RGBA(33, 41, 93, 0.8)
+                  FillPortions: =0
+                  Height: =35
+                  LayoutAlignItems: =LayoutAlignItems.Stretch
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  PaddingRight: =10
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: =Parent.Width
+                Children:
+                  - Label4_67:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        Color: =Color.White
+                        FillPortions: =1
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Bold
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =0
+                        LayoutMinWidth: =100
+                        PaddingLeft: =15
+                        PaddingTop: =9
+                        Size: =11
+                        Text: ="Nueva aprobación de Horas Extras"
+                        Width: =Parent.Width/2
+                  - CustomBTN_135:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(255, 255, 255, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DropShadow: =DropShadow.None
+                        Fill: =TertiaryColor
+                        FillPortions: =0
+                        Height: =20
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =20
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Width: =20
+                      Children:
+                        - Image4_101:
+                            Control: Image@2.2.3
+                            Properties:
+                              Height: =20
+                              Image: |-
+                                ="data:image/svg+xml;utf8, "&EncodeUrl(
+                                    Substitute(
+                                        LookUp(customIcons,IconName = "Exit").IconData,
+                                        "currentColor", PrimaryTextColor_Text
+                                    )
+                                )
+                              PaddingBottom: =2
+                              PaddingLeft: =2
+                              PaddingRight: =2
+                              PaddingTop: =2
+                              Width: =20
+                        - Button2_211:
+                            Control: Classic/Button@2.2.0
+                            Properties:
+                              BorderStyle: =BorderStyle.None
+                              Color: =RGBA(255, 255, 255, 1)
+                              Fill: =RGBA(0, 0, 0, 0)
+                              Height: =Parent.Height
+                              HoverBorderColor: =
+                              HoverColor: =RGBA(255, 255, 255, 1)
+                              HoverFill: =varHoverFill
+                              OnSelect: |-
+                                =UpdateContext({newDobleMarcacion: false})
+                              PaddingBottom: =6
+                              PaddingLeft: =6
+                              PaddingRight: =6
+                              PaddingTop: =6
+                              PressedColor: =varPressedFill
+                              PressedFill: =varPressedFill
+                              Text: =""
+                              Width: =Parent.Width
+            - FormUsuario_2:
+                Control: Form@2.4.4
+                Layout: Vertical
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  DataSource: =AprobacionesDobleMarcacion
+                  DefaultMode: =FormMode.New
+                  FillPortions: =0
+                  Height: =270
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  NumberOfColumns: =1
+                Children:
+                  - UsuarioID_DataCard1_2:
+                      Control: TypedDataCard@1.0.7
+                      Variant: NumberEdit
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        DataField: ="UsuarioID"
+                        Default: =ThisItem.UsuarioID
+                        DisplayName: =DataSourceInfo([@AprobacionesDobleMarcacion],DataSourceInfo.DisplayName,UsuarioID)
+                        Required: =true
+                        Update: =Value(DDUsuarios_1.Selected.UsuarioID)
+                        Width: =400
+                        X: =0
+                        Y: =0
+                      Children:
+                        - DataCardKey4_1:
+                            Control: Text@0.0.51
+                            MetadataKey: FieldName
+                            Properties:
+                              Height: =22
+                              Text: ="Usuario"
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - ErrorMessage3_1:
+                            Control: Text@0.0.51
+                            MetadataKey: ErrorMessage
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                        - StarVisible3_1:
+                            Control: Text@0.0.51
+                            MetadataKey: FieldRequired
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey4_1.Y
+                        - DDUsuarios_1:
+                            Control: ComboBox@0.0.51
+                            Properties:
+                              Appearance: ='ComboboxCanvas.Appearance'.FilledLighter
+                              DefaultSelectedItems: |-
+                                =If(
+                                    IsBlank(varDDCategoria_1),
+                                    [],
+                                    [varDDCategoria_1]
+                                )
+                              Font: =Font.'Lato Light'
+                              FontColor: =PrimaryTextColor
+                              FontSize: =13
+                              FontWeight: =FontWeight.Semibold
+                              InputTextPlaceholder: ="Todos los usuarios..."
+                              Items: =MAUsuarios
+                              OnChange: |-
+                                =If(
+                                    !IsBlank(LookUp(Self.SelectedItems, UsuarioID = varDDCategoria_1.UsuarioID)),
+                                    // Si la opción ya estaba seleccionada, limpiar la variable
+                                    Set(varDDCategoria_1, Blank()),
+                                    // Si es nueva selección, guardar la opción
+                                    Set(varDDCategoria_1, First(Self.SelectedItems))
+                                );
+                                Set(loading, false);
+                              Required: =true
+                              Width: =Parent.Width * 80%
+                              X: =(Parent.Width - Self.Width)/2
+                              Y: =38
+                            Children:
+                              - Nombre1_7:
+                                  Control: ComboBoxDataField@1.5.0
+                                  Variant: textualColumn
+                                  IsLocked: true
+                                  Properties:
+                                    FieldDisplayName: ="Nombre"
+                                    FieldName: ="Nombre"
+                                    FieldType: ="s"
+                                    Order: =1
+                  - Fecha_DataCard2_1:
+                      Control: TypedDataCard@1.0.7
+                      Variant: DateEdit
+                      IsLocked: true
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        DataField: ="Fecha"
+                        Default: =ThisItem.Fecha
+                        DisplayName: =DataSourceInfo([@AprobacionesDobleMarcacion],DataSourceInfo.DisplayName,Fecha)
+                        Required: =true
+                        Update: =DataCardValue4_1.SelectedDate
+                        Width: =400
+                        X: =0
+                        Y: =1
+                      Children:
+                        - DataCardKey6_1:
+                            Control: Text@0.0.51
+                            MetadataKey: FieldName
+                            Properties:
+                              Height: =22
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue4_1:
+                            Control: DatePicker@0.0.46
+                            MetadataKey: FieldValue
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              DisplayMode: =Parent.DisplayMode
+                              EndDate: =Date(Year(Today())+100, 12, 31)
+                              SelectedDate: =Parent.Default
+                              StartDate: =Date(1900, 1, 1)
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey6_1.Y + DataCardKey6_1.Height + 4
+                        - ErrorMessage4_1:
+                            Control: Text@0.0.51
+                            MetadataKey: ErrorMessage
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue4_1.Y + DataCardValue4_1.Height
+                        - StarVisible4_1:
+                            Control: Text@0.0.51
+                            MetadataKey: FieldRequired
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey6_1.Y
+                  - UsuarioAproboID_DataCard1_1:
+                      Control: TypedDataCard@1.0.7
+                      Variant: NumberEdit
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        DataField: ="UsuarioAproboID"
+                        Default: =LookUp(MAUsuarios, EmailM365 = User().Email).UsuarioID
+                        DisplayName: =DataSourceInfo([@AprobacionesDobleMarcacion],DataSourceInfo.DisplayName,UsuarioAproboID)
+                        Required: =false
+                        Update: =Value(DataCardValue6_1.Value)
+                        Visible: =false
+                        Width: =400
+                        X: =0
+                        Y: =2
+                      Children:
+                        - DataCardKey7_1:
+                            Control: Text@0.0.51
+                            MetadataKey: FieldName
+                            Properties:
+                              Height: =22
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue6_1:
+                            Control: NumberInput@2.9.12
+                            MetadataKey: FieldValue
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              DisplayMode: =Parent.DisplayMode
+                              Max: =Blank()
+                              Min: =Blank()
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Value: =Parent.Default
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey7_1.Y + DataCardKey7_1.Height + 4
+                        - ErrorMessage5_1:
+                            Control: Text@0.0.51
+                            MetadataKey: ErrorMessage
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue6_1.Y + DataCardValue6_1.Height
+                        - StarVisible5_1:
+                            Control: Text@0.0.51
+                            MetadataKey: FieldRequired
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey7_1.Y
+                  - Aprobado_DataCard1_1:
+                      Control: TypedDataCard@1.0.7
+                      Variant: ToggleEdit
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        DataField: ="Aprobado"
+                        Default: =ThisItem.Aprobado
+                        DisplayName: =DataSourceInfo([@AprobacionesDobleMarcacion],DataSourceInfo.DisplayName,Aprobado)
+                        Required: =true
+                        Update: =DataCardValue7_1.Checked
+                        Width: =400
+                        X: =0
+                        Y: =3
+                      Children:
+                        - DataCardKey8_1:
+                            Control: Text@0.0.51
+                            MetadataKey: FieldName
+                            Properties:
+                              Height: =22
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue7_1:
+                            Control: Toggle@1.1.5
+                            MetadataKey: FieldValue
+                            Properties:
+                              AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                              Checked: =true
+                              DisplayMode: =Parent.DisplayMode
+                              Height: =32
+                              Label: =""
+                              Width: =72
+                              X: =24
+                              Y: =DataCardKey8_1.Y + DataCardKey8_1.Height + 4
+                        - ErrorMessage6_1:
+                            Control: Text@0.0.51
+                            MetadataKey: ErrorMessage
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue7_1.Y + DataCardValue7_1.Height
+                        - StarVisible6_1:
+                            Control: Text@0.0.51
+                            MetadataKey: FieldRequired
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey8_1.Y
+                  - HoraAprobacion_DataCard1_1:
+                      Control: TypedDataCard@1.0.7
+                      Variant: TextEdit
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        DataField: ="HoraAprobacion"
+                        Default: =Text(Now(), "[$-es-ES]hh:mm AM/PM")
+                        DisplayName: ="Hora de Aprobación"
+                        Required: =false
+                        Update: =DataCardValue8_1.Text
+                        Visible: =true
+                        Width: =400
+                        X: =0
+                        Y: =4
+                      Children:
+                        - DataCardKey9_1:
+                            Control: Text@0.0.51
+                            MetadataKey: FieldName
+                            Properties:
+                              Height: =22
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue8_1:
+                            Control: TextInput@2.3.2
+                            MetadataKey: FieldValue
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              Default: =Parent.Default
+                              DisplayMode: =DisplayMode.View
+                              Height: =32
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey9_1.Y + DataCardKey9_1.Height + 4
+                        - ErrorMessage7_1:
+                            Control: Text@0.0.51
+                            MetadataKey: ErrorMessage
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue8_1.Y + DataCardValue8_1.Height
+            - CTNBotones_5:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  DropShadow: =DropShadow.None
+                  FillPortions: =0
+                  Height: =50
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Horizontal
+                  LayoutGap: =20
+                  LayoutJustifyContent: =LayoutJustifyContent.End
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  LayoutMinWidth: =Parent.Width
+                  Width: =Parent.Width - 45
+                Children:
+                  - CTNGuardar_5:
+                      Control: GroupContainer@1.5.0
+                      Variant: ManualLayout
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(255, 255, 255, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        DropShadow: =DropShadow.Regular
+                        Fill: =TertiaryColor
+                        FillPortions: =0
+                        Height: =30
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =30
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Visible: =If(FormUsuario_2.Unsaved, true, false)
+                        Width: =100
+                        X: =Container29_30.Width - Self.Width - 25
+                        Y: =Container29_30.Height + Self.Height - 93
+                      Children:
+                        - ButtonCanvas4_10:
+                            Control: Button@0.0.45
+                            Properties:
+                              Appearance: ='ButtonCanvas.Appearance'.Primary
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              DisplayMode: =If(!IsBlank(varDDCategoria_1), DisplayMode.Edit, DisplayMode.Disabled)
+                              Height: =Parent.Height
+                              Icon: ="Save"
+                              IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                              OnSelect: |-
+                                =Patch(
+                                    AprobacionesDobleMarcacion,
+                                    Defaults(AprobacionesDobleMarcacion),
+                                    {
+                                        UsuarioID: DDUsuarios_1.Selected.UsuarioID,
+                                        Fecha: DataCardValue4_1.SelectedDate,
+                                        Aprobado: DataCardValue7_1.Checked,
+                                        UsuarioAproboID: LookUp(MAUsuarios, EmailM365 = User().Email).UsuarioID,
+                                        FechaAprobacion: Now()
+                                    }
+                                );
+                                UpdateContext({newDobleMarcacion: false})
+                              Text: ="Guardar"
+                              Width: =Parent.Width
