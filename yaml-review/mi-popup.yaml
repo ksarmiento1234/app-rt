@@ -1,0 +1,2045 @@
+- CTNPageContentP2_2:
+    Control: GroupContainer@1.5.0
+    Variant: AutoLayout
+    Properties:
+      DropShadow: =DropShadow.None
+      LayoutDirection: =LayoutDirection.Horizontal
+      LayoutMaxHeight: =
+      LayoutMaxWidth: =
+      RadiusBottomLeft: =0
+      RadiusBottomRight: =0
+      RadiusTopLeft: =0
+      RadiusTopRight: =0
+    Children:
+      - CTNDetalleProducto_2:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMaxHeight: =
+            LayoutMaxWidth: =
+            PaddingBottom: =10
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =3
+            Width: =App.Width* 20%
+          Children:
+            - CTNDetalle_2:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.Regular
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  PaddingBottom: =5
+                  PaddingLeft: =10
+                  PaddingRight: =10
+                  PaddingTop: =10
+                  RadiusBottomLeft: =10
+                  RadiusBottomRight: =10
+                  RadiusTopLeft: =10
+                  RadiusTopRight: =10
+                Children:
+                  - Container2_2:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =30
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                      Children:
+                        - ImageInsight1_38:
+                            Control: Image@2.2.3
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Height: =30
+                              Image: |-
+                                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                    Substitute(
+                                        LookUp(customIcons,IconName = "Database").IconData,
+                                        "currentColor", 
+                                        PrimaryTextColor_Text
+                                    )
+                                )
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingTop: =5
+                              Width: =20
+                        - TxtTitle_25:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              FillPortions: =1
+                              Font: =Font.'Open Sans'
+                              FontColor: =PrimaryTextColor
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              PaddingLeft: =5
+                              Size: =16
+                              Text: ="Tablas Maestras"
+                              VerticalAlign: =VerticalAlign.Bottom
+                              Weight: ='TextCanvas.Weight'.Bold
+                              Width: =250
+                  - TxtTitle_35:
+                      Control: Text@0.0.51
+                      Properties:
+                        Align: ='TextCanvas.Align'.Start
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Font: =Font.'Open Sans'
+                        FontColor: =PrimaryTextColor
+                        Height: =10
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        PaddingLeft: =0
+                        Size: =15
+                        Text: =
+                        VerticalAlign: =VerticalAlign.Bottom
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =250
+                  - Gallery3:
+                      Control: Gallery@2.15.0
+                      Variant: BrowseLayout_Vertical_TwoTextVariant_ver5.0
+                      Properties:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Height: =
+                        Items: =colEstrucAsistencia
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        TemplateSize: =40
+                        Width: =Parent.Width - 20
+                      Children:
+                        - Container11:
+                            Control: GroupContainer@1.5.0
+                            Variant: AutoLayout
+                            Properties:
+                              BorderColor: =
+                              DropShadow: =DropShadow.None
+                              Fill: =If(ThisItem.IsSelected, ColorFade(PrimaryTextColor, 20%), RGBA(0, 0, 0, 0))
+                              Height: =35
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              PaddingLeft: =15
+                              PaddingRight: =15
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                              Width: =Parent.Width-4
+                              X: =2
+                              Y: =(Parent.TemplateHeight- Self.Height)/2
+                            Children:
+                              - ImageInsight1_39:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    BorderColor: =RGBA(0, 18, 107, 1)
+                                    Height: =30
+                                    Image: |-
+                                      ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                          Substitute(
+                                              LookUp(customIcons,IconName = ThisItem.icon).IconData,
+                                              "currentColor", 
+                                              If(ThisItem.IsSelected, "RGBA(255,255,255,1)",PrimaryTextColor_Text)
+                                          )
+                                      )
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    PaddingBottom: =1
+                                    PaddingLeft: =1
+                                    PaddingRight: =2
+                                    PaddingTop: =1
+                                    Width: =20
+                              - txtProducto_36:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AutoHeight: =true
+                                    FillPortions: =1
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =If(ThisItem.IsSelected, Color.White, PrimaryTextColor)
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =60
+                                    PaddingLeft: =5
+                                    Text: =ThisItem.name
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Bold
+                                    Width: =250
+                                    X: =30
+                                    Y: =10
+                        - Container12:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              Height: =Parent.TemplateHeight
+                              Width: =Parent.Width
+                            Children:
+                              - Button4:
+                                  Control: Classic/Button@2.2.0
+                                  Properties:
+                                    BorderColor: =ColorFade(Self.Fill, -15%)
+                                    BorderThickness: =1
+                                    Color: =PrimaryTextColor
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 0.2)
+                                    DisabledColor: =PrimaryTextColor
+                                    DisabledFill: =RGBA(214, 221, 224, 0.1)
+                                    Fill: =If(ThisItem.IsSelected, Color.White, RGBA(214, 221, 224, 0.1))
+                                    Font: =Font.'Open Sans'
+                                    Height: =23
+                                    HoverBorderColor: =Self.BorderColor
+                                    HoverColor: =Self.Color
+                                    HoverFill: =Self.Fill
+                                    OnSelect: =Select(Button3)
+                                    PressedBorderColor: =Self.Fill
+                                    PressedFill: =Self.Fill
+                                    Size: =8
+                                    Text: =ThisItem.tablasql
+                                    Width: =26
+                                    X: =Parent.Width - Self.Width - 20
+                                    Y: =(Parent.Height-Self.Height)/2
+                              - Button3:
+                                  Control: Classic/Button@2.2.0
+                                  Properties:
+                                    BorderColor: =If(ThisItem.IsSelected, Color.White, ColorFade(Self.Fill, -15%))
+                                    Color: =RGBA(255, 255, 255, 1)
+                                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Font: =Font.'Open Sans'
+                                    Height: =Parent.Height
+                                    HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                                    HoverColor: =RGBA(255, 255, 255, 1)
+                                    HoverFill: =If(ThisItem.IsSelected, Self.Fill, varHoverFill)
+                                    OnSelect: =Set(_idseccion, ThisItem.id_seccion)
+                                    PressedBorderColor: =Self.Fill
+                                    PressedColor: =Self.Fill
+                                    PressedFill: =varPressedFill
+                                    Text: =
+                                    Width: =Parent.Width
+      - CTNListadosSegunTabla:
+          Control: GroupContainer@1.5.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            FillPortions: =2.5
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMaxHeight: =
+            LayoutMaxWidth: =
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =3
+          Children:
+            - CTNUsuarios:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.Regular
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =5
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  PaddingBottom: =8
+                  PaddingLeft: =10
+                  PaddingRight: =10
+                  PaddingTop: =8
+                  RadiusBottomLeft: =10
+                  RadiusBottomRight: =10
+                  RadiusTopLeft: =10
+                  RadiusTopRight: =10
+                  Visible: =_idseccion = 1
+                Children:
+                  - Container13_3:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =40
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                      Children:
+                        - TxtTitle_32:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AlignInContainer: =AlignInContainer.Stretch
+                              FillPortions: =1
+                              Font: =Font.'Open Sans'
+                              FontColor: =PrimaryTextColor
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinHeight: =30
+                              PaddingLeft: =5
+                              Size: =16
+                              Text: ="Listado de Usuarios"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Bold
+                              Width: =250
+                        - CTNAddProduct_7:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              BorderColor: =RGBA(255, 255, 255, 1)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              DropShadow: =DropShadow.Regular
+                              Fill: =
+                              FillPortions: =0
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =Parent.Width
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                              Width: =150
+                            Children:
+                              - ButtonCanvas1_7:
+                                  Control: Button@0.0.45
+                                  Properties:
+                                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                                    BasePaletteColor: =PrimaryTextColor
+                                    Font: =Font.'Open Sans'
+                                    FontSize: =12
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =30
+                                    Icon: ="Add"
+                                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                                    Layout: ='ButtonCanvas.Layout'.IconBefore
+                                    OnSelect: |-
+                                      =NewForm(FormUsuario); UpdateContext({newusuario: true})
+                                    Text: ="Nuevo Usuario"
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Width: =Parent.Width
+                  - CTNFiltros_2:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.Semilight
+                        FillPortions: =0
+                        Height: =70
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutGap: =15
+                        LayoutJustifyContent: =LayoutJustifyContent.End
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        PaddingLeft: =15
+                        PaddingRight: =5
+                        RadiusBottomLeft: =10
+                        RadiusBottomRight: =10
+                        RadiusTopLeft: =10
+                        RadiusTopRight: =10
+                        Visible: =_viewMarcaciones = 1 Or _viewMarcaciones = 2
+                      Children:
+                        - CTNSearch_2:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              BorderColor: =HighlightColor
+                              DropShadow: =DropShadow.Semilight
+                              Height: =32
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                              Width: =300
+                            Children:
+                              - txtInputUsuarios:
+                                  Control: TextInput@0.0.54
+                                  Properties:
+                                    Appearance: ='TextInputCanvas.Appearance'.FilledLighter
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    FontSize: =13
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =Parent.Height + 4
+                                    OnChange: =
+                                    PaddingLeft: =35
+                                    Placeholder: ="Buscar por nombre o DNI..."
+                                    TriggerOutput: ='TextInputCanvas.TriggerOutput'.Delayed
+                                    Value: =
+                                    Width: =Parent.Width
+                                    Y: =-2
+                              - ImageSearch_2:
+                                  Control: Image@2.2.3
+                                  Properties:
+                                    BorderColor: =RGBA(0, 18, 107, 1)
+                                    Height: =30
+                                    Image: |-
+                                      ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                          Substitute(
+                                              LookUp(customIcons,IconName = "Search").IconData,
+                                              "currentColor", 
+                                              PrimaryTextColor_Text
+                                          )
+                                      )
+                                    PaddingBottom: =8
+                                    PaddingLeft: =8
+                                    PaddingRight: =8
+                                    PaddingTop: =8
+                                    Width: =30
+                                    X: =6
+                                    Y: =1
+                  - Container10_14:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =23
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        PaddingLeft: =5
+                        PaddingRight: =15
+                        Width: =Gallery1_7.Width
+                      Children:
+                        - txtCodigo_10:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              AutoHeight: =true
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              Size: =11
+                              Text: ="DOCUMENTO"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =75
+                        - txtProducto_47:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AutoHeight: =true
+                              FillPortions: =1.7
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =10
+                              Size: =11
+                              Text: ="NOMBRE COMPLETO"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =250
+                        - txtCategoria_25:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AutoHeight: =true
+                              FillPortions: =1.7
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =5
+                              Size: =11
+                              Text: ="CORREO"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =250
+                        - txtCategoria_27:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AutoHeight: =true
+                              FillPortions: =1
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =5
+                              Size: =11
+                              Text: ="ÁREA"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =250
+                        - txtStock_10:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AutoHeight: =true
+                              FillPortions: =1
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =5
+                              Size: =11
+                              Text: ="HORARIO"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =75
+                        - txtEstado_8:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              FillPortions: =1
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =20
+                              Size: =11
+                              Text: ="ESTADO"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =250
+                        - CTNDelete_12:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =30
+                              RadiusBottomLeft: =15
+                              RadiusBottomRight: =15
+                              RadiusTopLeft: =15
+                              RadiusTopRight: =15
+                              Width: =30
+                        - CTNDelete_13:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =30
+                              RadiusBottomLeft: =15
+                              RadiusBottomRight: =15
+                              RadiusTopLeft: =15
+                              RadiusTopRight: =15
+                              Width: =30
+                  - Gallery1_7:
+                      Control: Gallery@2.15.0
+                      Variant: Vertical
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Items: =Sort(MAUsuarios, Nombre, SortOrder.Ascending)
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =150
+                        OnSelect: =
+                        TemplateFill: |-
+                          =If(
+                              ThisItem.IsSelected,
+                              varHoverFill,
+                              Color.White
+                          )
+                        TemplatePadding: =0
+                        TemplateSize: =40
+                      Children:
+                        - Rectangle3_7:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Fill: =ColorFade(TertiaryColor, 1%)
+                              Height: =1
+                              OnSelect: =
+                              Width: =Parent.TemplateWidth
+                        - Container10_15:
+                            Control: GroupContainer@1.5.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              Height: =40
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              PaddingLeft: =5
+                              PaddingRight: =15
+                              Width: =Parent.TemplateWidth
+                            Children:
+                              - txtCodigo_11:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    AutoHeight: =true
+                                    Font: =Font.'Lato Black'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    Size: =13
+                                    Text: =ThisItem.DNI
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Regular
+                                    Width: =75
+                              - txtProducto_48:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AutoHeight: =true
+                                    FillPortions: =1.7
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =10
+                                    Text: =ThisItem.Nombre
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                              - txtCategoria_28:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    AutoHeight: =true
+                                    FillPortions: =1.7
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =5
+                                    Text: =ThisItem.Email
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                              - txtCategoria_29:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    AutoHeight: =true
+                                    FillPortions: =1
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =5
+                                    Text: =LookUp(Areas, AreaID = ThisItem.AreaID).NombreArea
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                              - txtStock_11:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AutoHeight: =true
+                                    FillPortions: =1
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =5
+                                    Text: =LookUp(MAHorarios, HorarioID = Value(LookUp(MAUsuarioHorario, UsuarioID = ThisItem.UsuarioID).HorarioID)).NombreHorario
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =75
+                              - txtEstado_9:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    FillPortions: =1
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =20
+                                    Text: =If(ThisItem.Activo, "Activo", "Inactivo")
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                              - CTNEdit_9:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =30
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =30
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =30
+                                  Children:
+                                    - ImageInsight1_41:
+                                        Control: Image@2.2.3
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Height: =30
+                                          Image: |-
+                                            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                                Substitute(
+                                                    LookUp(customIcons,IconName = "Edit").IconData,
+                                                    "currentColor", 
+                                                    PrimaryTextColor_Text
+                                                )
+                                            )
+                                          PaddingBottom: =6
+                                          PaddingLeft: =6
+                                          PaddingRight: =6
+                                          PaddingTop: =6
+                                          Width: =30
+                                    - Button2_169:
+                                        Control: Classic/Button@2.2.0
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =RGBA(255, 255, 255, 1)
+                                          Fill: =RGBA(0, 0, 0, 0)
+                                          FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                                          Height: =Parent.Height
+                                          HoverColor: =RGBA(255, 255, 255, 1)
+                                          HoverFill: =varHoverFill
+                                          OnSelect: |-
+                                            =Set(_usuarioselected, ThisItem); EditForm(FormUsuario); UpdateContext({newusuario: true})
+                                          PaddingBottom: =6
+                                          PaddingLeft: =6
+                                          PaddingRight: =6
+                                          PaddingTop: =6
+                                          PressedFill: =RGBA(0,0,0,0.2)
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Text: =""
+                                          Tooltip: ="Editar Producto"
+                                          Width: =Parent.Width
+                              - CTNDelete_14:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =30
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =30
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =30
+                                  Children:
+                                    - ImageInsight1_42:
+                                        Control: Image@2.2.3
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Height: =30
+                                          Image: |-
+                                            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                                Substitute(
+                                                    LookUp(customIcons,IconName = "Delete").IconData,
+                                                    "currentColor", 
+                                                    AlertColor_Text
+                                                )
+                                            )
+                                          PaddingBottom: =6
+                                          PaddingLeft: =6
+                                          PaddingRight: =6
+                                          PaddingTop: =6
+                                          Width: =30
+                                    - Button2_170:
+                                        Control: Classic/Button@2.2.0
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =RGBA(255, 255, 255, 1)
+                                          Fill: =RGBA(0, 0, 0, 0)
+                                          FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                                          Height: =Parent.Height
+                                          HoverColor: =RGBA(255, 255, 255, 1)
+                                          HoverFill: =varHoverFill
+                                          OnSelect: =
+                                          PressedFill: =varPressedFill
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Text: =""
+                                          Tooltip: ="Eliminar Producto"
+                                          Width: =Parent.Width
+            - CTNHorarios:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.Regular
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =5
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  PaddingBottom: =8
+                  PaddingLeft: =10
+                  PaddingRight: =10
+                  PaddingTop: =8
+                  RadiusBottomLeft: =10
+                  RadiusBottomRight: =10
+                  RadiusTopLeft: =10
+                  RadiusTopRight: =10
+                  Visible: =_idseccion = 2
+                Children:
+                  - Container13:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =40
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                      Children:
+                        - TxtTitle_31:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AlignInContainer: =AlignInContainer.Stretch
+                              FillPortions: =1
+                              Font: =Font.'Open Sans'
+                              FontColor: =PrimaryTextColor
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinHeight: =30
+                              PaddingLeft: =5
+                              Size: =16
+                              Text: ="Listado de Horarios"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Bold
+                              Width: =250
+                        - CTNAddProduct_3:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.Center
+                              BorderColor: =RGBA(255, 255, 255, 1)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              DropShadow: =DropShadow.Regular
+                              Fill: =
+                              FillPortions: =0
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =Parent.Width
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                              Width: =130
+                            Children:
+                              - ButtonCanvas1_3:
+                                  Control: Button@0.0.45
+                                  Properties:
+                                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                                    BasePaletteColor: =PrimaryTextColor
+                                    Font: =Font.'Open Sans'
+                                    FontSize: =12
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =30
+                                    Icon: ="Add"
+                                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                                    Layout: ='ButtonCanvas.Layout'.IconBefore
+                                    OnSelect: |-
+                                      =NewForm(FormHorario); UpdateContext({newhorario: true})
+                                    Text: ="Nuevo Horario"
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Width: =Parent.Width
+                  - Container10_8:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =23
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        PaddingLeft: =5
+                        PaddingRight: =15
+                        Width: =Gallery1_4.Width
+                      Children:
+                        - txtCodigo_8:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              AutoHeight: =true
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              Size: =11
+                              Text: ="ID"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =75
+                        - txtProducto_34:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AutoHeight: =true
+                              FillPortions: =2
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =10
+                              Size: =11
+                              Text: ="NOMBRE HORARIO"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =250
+                        - txtCategoria_16:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AutoHeight: =true
+                              FillPortions: =1
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =5
+                              Size: =11
+                              Text: ="ENTRADA"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =250
+                        - txtCategoria_19:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AutoHeight: =true
+                              FillPortions: =1
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =5
+                              Size: =11
+                              Text: ="SALIDA"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =250
+                        - txtStock_8:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AutoHeight: =true
+                              FillPortions: =1
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =5
+                              Size: =11
+                              Text: ="TOLERANCIA"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =75
+                        - txtEstado_6:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              FillPortions: =1
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =20
+                              Size: =11
+                              Text: ="ESTADO"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =250
+                        - CTNDelete_3:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =30
+                              RadiusBottomLeft: =15
+                              RadiusBottomRight: =15
+                              RadiusTopLeft: =15
+                              RadiusTopRight: =15
+                              Width: =30
+                        - CTNDelete_4:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =30
+                              RadiusBottomLeft: =15
+                              RadiusBottomRight: =15
+                              RadiusTopLeft: =15
+                              RadiusTopRight: =15
+                              Width: =30
+                  - Gallery1_4:
+                      Control: Gallery@2.15.0
+                      Variant: Vertical
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Items: =MAHorarios
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =150
+                        OnSelect: =
+                        TemplateFill: |-
+                          =If(
+                              ThisItem.IsSelected,
+                              varHoverFill,
+                              Color.White
+                          )
+                        TemplatePadding: =0
+                        TemplateSize: =40
+                      Children:
+                        - Rectangle3_4:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Fill: =ColorFade(TertiaryColor, 1%)
+                              Height: =1
+                              OnSelect: =
+                              Width: =Parent.TemplateWidth
+                        - Container10_9:
+                            Control: GroupContainer@1.5.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              Height: =40
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              PaddingLeft: =5
+                              PaddingRight: =15
+                              Width: =Parent.TemplateWidth
+                            Children:
+                              - txtCodigo_9:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Center
+                                    AutoHeight: =true
+                                    Font: =Font.'Lato Black'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    Size: =13
+                                    Text: =ThisItem.HorarioID
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Regular
+                                    Width: =75
+                              - txtProducto_35:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AutoHeight: =true
+                                    FillPortions: =2
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =10
+                                    Text: =ThisItem.NombreHorario
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                              - txtCategoria_17:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    AutoHeight: =true
+                                    FillPortions: =1
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =5
+                                    Text: =ThisItem.HoraEntrada
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                              - txtCategoria_18:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    AutoHeight: =true
+                                    FillPortions: =1
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =5
+                                    Text: =ThisItem.HoraSalida
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                              - txtStock_9:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AutoHeight: =true
+                                    FillPortions: =1
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =20
+                                    Text: =ThisItem.ToleranciaMinutos
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =75
+                              - txtEstado_7:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    FillPortions: =1
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =20
+                                    Text: =If(ThisItem.Activo, "Activo", "Inactivo")
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                              - CTNEdit_6:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =30
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =30
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =30
+                                  Children:
+                                    - ImageInsight1_32:
+                                        Control: Image@2.2.3
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Height: =30
+                                          Image: |-
+                                            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                                Substitute(
+                                                    LookUp(customIcons,IconName = "Edit").IconData,
+                                                    "currentColor", 
+                                                    PrimaryTextColor_Text
+                                                )
+                                            )
+                                          PaddingBottom: =6
+                                          PaddingLeft: =6
+                                          PaddingRight: =6
+                                          PaddingTop: =6
+                                          Width: =30
+                                    - Button2_163:
+                                        Control: Classic/Button@2.2.0
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =RGBA(255, 255, 255, 1)
+                                          Fill: =RGBA(0, 0, 0, 0)
+                                          FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                                          Height: =Parent.Height
+                                          HoverColor: =RGBA(255, 255, 255, 1)
+                                          HoverFill: =varHoverFill
+                                          OnSelect: |-
+                                            =Set(_horarioselected, ThisItem); EditForm(FormHorario); UpdateContext({newhorario: true})
+                                          PaddingBottom: =6
+                                          PaddingLeft: =6
+                                          PaddingRight: =6
+                                          PaddingTop: =6
+                                          PressedFill: =RGBA(0,0,0,0.2)
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Text: =""
+                                          Tooltip: ="Editar Producto"
+                                          Width: =Parent.Width
+                              - CTNDelete_5:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =30
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =30
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =30
+                                  Children:
+                                    - ImageInsight1_33:
+                                        Control: Image@2.2.3
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Height: =30
+                                          Image: |-
+                                            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                                Substitute(
+                                                    LookUp(customIcons,IconName = "Delete").IconData,
+                                                    "currentColor", 
+                                                    AlertColor_Text
+                                                )
+                                            )
+                                          PaddingBottom: =6
+                                          PaddingLeft: =6
+                                          PaddingRight: =6
+                                          PaddingTop: =6
+                                          Width: =30
+                                    - Button2_164:
+                                        Control: Classic/Button@2.2.0
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =RGBA(255, 255, 255, 1)
+                                          Fill: =RGBA(0, 0, 0, 0)
+                                          FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                                          Height: =Parent.Height
+                                          HoverColor: =RGBA(255, 255, 255, 1)
+                                          HoverFill: =varHoverFill
+                                          OnSelect: =
+                                          PressedFill: =varPressedFill
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Text: =""
+                                          Tooltip: ="Eliminar Producto"
+                                          Width: =Parent.Width
+            - CTNFeriados:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.Regular
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =5
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  PaddingBottom: =8
+                  PaddingLeft: =10
+                  PaddingRight: =10
+                  PaddingTop: =8
+                  RadiusBottomLeft: =10
+                  RadiusBottomRight: =10
+                  RadiusTopLeft: =10
+                  RadiusTopRight: =10
+                  Visible: =_idseccion = 3
+                Children:
+                  - Container13_1:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =40
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                      Children:
+                        - TxtTitle_36:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AlignInContainer: =AlignInContainer.Stretch
+                              FillPortions: =1
+                              Font: =Font.'Open Sans'
+                              FontColor: =PrimaryTextColor
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinHeight: =30
+                              PaddingLeft: =5
+                              Size: =16
+                              Text: ="Listado de Feriados"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Bold
+                              Width: =250
+                        - CTNAddProduct_4:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.End
+                              BorderColor: =RGBA(255, 255, 255, 1)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              DropShadow: =DropShadow.Regular
+                              Fill: =
+                              FillPortions: =0
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =Parent.Width
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                              Width: =130
+                            Children:
+                              - ButtonCanvas1_4:
+                                  Control: Button@0.0.45
+                                  Properties:
+                                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                                    BasePaletteColor: =PrimaryTextColor
+                                    Font: =Font.'Open Sans'
+                                    FontSize: =12
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =30
+                                    Icon: ="Add"
+                                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                                    Layout: ='ButtonCanvas.Layout'.IconBefore
+                                    OnSelect: |-
+                                      =NewForm(FormFeriado); UpdateContext({newferiado: true})
+                                    Text: ="Nuevo Feriado"
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Width: =Parent.Width
+                  - Container10_10:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =23
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        PaddingLeft: =5
+                        PaddingRight: =15
+                        Width: =Gallery1_5.Width
+                      Children:
+                        - txtProducto_37:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AutoHeight: =true
+                              FillPortions: =2
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =20
+                              Size: =11
+                              Text: ="FECHA"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =250
+                        - txtCategoria_20:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AutoHeight: =true
+                              FillPortions: =1
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =5
+                              Size: =11
+                              Text: ="MOTIVO"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =250
+                        - txtCategoria_21:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AutoHeight: =true
+                              FillPortions: =1
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =5
+                              Size: =11
+                              Text: ="ESTADO"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =250
+                        - CTNDelete_6:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =30
+                              RadiusBottomLeft: =15
+                              RadiusBottomRight: =15
+                              RadiusTopLeft: =15
+                              RadiusTopRight: =15
+                              Width: =30
+                        - CTNDelete_7:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =30
+                              RadiusBottomLeft: =15
+                              RadiusBottomRight: =15
+                              RadiusTopLeft: =15
+                              RadiusTopRight: =15
+                              Width: =30
+                  - Gallery1_5:
+                      Control: Gallery@2.15.0
+                      Variant: Vertical
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Items: =Sort(MADiasNoLaborables, Fecha, SortOrder.Descending)
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =150
+                        OnSelect: =
+                        TemplateFill: |-
+                          =If(
+                              ThisItem.IsSelected,
+                              varHoverFill,
+                              Color.White
+                          )
+                        TemplatePadding: =0
+                        TemplateSize: =40
+                      Children:
+                        - Rectangle3_5:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Fill: =ColorFade(TertiaryColor, 1%)
+                              Height: =1
+                              OnSelect: =
+                              Width: =Parent.TemplateWidth
+                        - Container10_11:
+                            Control: GroupContainer@1.5.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              Height: =40
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              PaddingLeft: =5
+                              PaddingRight: =15
+                              Width: =Parent.TemplateWidth
+                            Children:
+                              - txtProducto_44:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AutoHeight: =true
+                                    FillPortions: =2
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =20
+                                    Text: =ThisItem.Fecha
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                              - txtCategoria_22:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    AutoHeight: =true
+                                    FillPortions: =1
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =5
+                                    Text: =ThisItem.Motivo
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                              - txtCategoria_23:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    AutoHeight: =true
+                                    FillPortions: =1
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =5
+                                    Text: =If(ThisItem.EsFeriado, "Activo", "Inactivo")
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                              - CTNEdit_7:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =30
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =30
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =30
+                                  Children:
+                                    - ImageInsight1_34:
+                                        Control: Image@2.2.3
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Height: =30
+                                          Image: |-
+                                            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                                Substitute(
+                                                    LookUp(customIcons,IconName = "Edit").IconData,
+                                                    "currentColor", 
+                                                    PrimaryTextColor_Text
+                                                )
+                                            )
+                                          PaddingBottom: =6
+                                          PaddingLeft: =6
+                                          PaddingRight: =6
+                                          PaddingTop: =6
+                                          Width: =30
+                                    - Button2_165:
+                                        Control: Classic/Button@2.2.0
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =RGBA(255, 255, 255, 1)
+                                          Fill: =RGBA(0, 0, 0, 0)
+                                          FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                                          Height: =Parent.Height
+                                          HoverColor: =RGBA(255, 255, 255, 1)
+                                          HoverFill: =varHoverFill
+                                          OnSelect: |-
+                                            =Set(_feriadoselected, ThisItem); EditForm(FormFeriado); UpdateContext({newferiado: true})
+                                          PaddingBottom: =6
+                                          PaddingLeft: =6
+                                          PaddingRight: =6
+                                          PaddingTop: =6
+                                          PressedFill: =RGBA(0,0,0,0.2)
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Text: =""
+                                          Tooltip: ="Editar Producto"
+                                          Width: =Parent.Width
+                              - CTNDelete_8:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =30
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =30
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =30
+                                  Children:
+                                    - ImageInsight1_35:
+                                        Control: Image@2.2.3
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Height: =30
+                                          Image: |-
+                                            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                                Substitute(
+                                                    LookUp(customIcons,IconName = "Delete").IconData,
+                                                    "currentColor", 
+                                                    AlertColor_Text
+                                                )
+                                            )
+                                          PaddingBottom: =6
+                                          PaddingLeft: =6
+                                          PaddingRight: =6
+                                          PaddingTop: =6
+                                          Width: =30
+                                    - Button2_166:
+                                        Control: Classic/Button@2.2.0
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =RGBA(255, 255, 255, 1)
+                                          Fill: =RGBA(0, 0, 0, 0)
+                                          FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                                          Height: =Parent.Height
+                                          HoverColor: =RGBA(255, 255, 255, 1)
+                                          HoverFill: =varHoverFill
+                                          OnSelect: =
+                                          PressedFill: =varPressedFill
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Text: =""
+                                          Tooltip: ="Eliminar Producto"
+                                          Width: =Parent.Width
+            - CTNAreas:
+                Control: GroupContainer@1.5.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.Regular
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutGap: =5
+                  LayoutMaxHeight: =
+                  LayoutMaxWidth: =
+                  PaddingBottom: =8
+                  PaddingLeft: =10
+                  PaddingRight: =10
+                  PaddingTop: =8
+                  RadiusBottomLeft: =10
+                  RadiusBottomRight: =10
+                  RadiusTopLeft: =10
+                  RadiusTopRight: =10
+                  Visible: =_idseccion = 4
+                Children:
+                  - Container13_2:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =40
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                      Children:
+                        - TxtTitle_37:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AlignInContainer: =AlignInContainer.Stretch
+                              FillPortions: =1
+                              Font: =Font.'Open Sans'
+                              FontColor: =PrimaryTextColor
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinHeight: =30
+                              PaddingLeft: =5
+                              Size: =16
+                              Text: ="Listado de Áreas"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Bold
+                              Width: =250
+                        - CTNAddProduct_6:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.End
+                              BorderColor: =RGBA(255, 255, 255, 1)
+                              BorderStyle: =BorderStyle.None
+                              BorderThickness: =2
+                              DropShadow: =DropShadow.Regular
+                              Fill: =
+                              FillPortions: =0
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =Parent.Width
+                              RadiusBottomLeft: =10
+                              RadiusBottomRight: =10
+                              RadiusTopLeft: =10
+                              RadiusTopRight: =10
+                              Width: =130
+                            Children:
+                              - ButtonCanvas1_6:
+                                  Control: Button@0.0.45
+                                  Properties:
+                                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                                    BasePaletteColor: =PrimaryTextColor
+                                    Font: =Font.'Open Sans'
+                                    FontSize: =12
+                                    FontWeight: =FontWeight.Semibold
+                                    Height: =30
+                                    Icon: ="Add"
+                                    IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                                    Layout: ='ButtonCanvas.Layout'.IconBefore
+                                    OnSelect: |-
+                                      =NewForm(FormArea); UpdateContext({newarea: true})
+                                    Text: ="Nueva Área"
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Width: =Parent.Width
+                  - Container10_12:
+                      Control: GroupContainer@1.5.0
+                      Variant: AutoLayout
+                      Properties:
+                        DropShadow: =DropShadow.None
+                        FillPortions: =0
+                        Height: =23
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutDirection: =LayoutDirection.Horizontal
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        PaddingLeft: =5
+                        PaddingRight: =15
+                        Width: =Gallery1_6.Width
+                      Children:
+                        - txtProducto_45:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AutoHeight: =true
+                              FillPortions: =2
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =20
+                              Size: =11
+                              Text: ="NOMBRE DEL ÁREA"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =250
+                        - txtCategoria_24:
+                            Control: Text@0.0.51
+                            Properties:
+                              Align: ='TextCanvas.Align'.Start
+                              AutoHeight: =true
+                              FillPortions: =1
+                              Font: =Font.'Lato Light'
+                              FontColor: =ColorFade(PrimaryTextColor, 50%)
+                              Height: =Parent.Height/2
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =100
+                              PaddingLeft: =5
+                              Size: =11
+                              Text: ="CÓDIGO"
+                              VerticalAlign: =VerticalAlign.Middle
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =250
+                        - CTNDelete_9:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =30
+                              RadiusBottomLeft: =15
+                              RadiusBottomRight: =15
+                              RadiusTopLeft: =15
+                              RadiusTopRight: =15
+                              Width: =30
+                        - CTNDelete_10:
+                            Control: GroupContainer@1.5.0
+                            Variant: ManualLayout
+                            Properties:
+                              AlignInContainer: =AlignInContainer.SetByContainer
+                              DropShadow: =DropShadow.None
+                              FillPortions: =0
+                              Height: =30
+                              LayoutMaxHeight: =
+                              LayoutMaxWidth: =
+                              LayoutMinWidth: =30
+                              RadiusBottomLeft: =15
+                              RadiusBottomRight: =15
+                              RadiusTopLeft: =15
+                              RadiusTopRight: =15
+                              Width: =30
+                  - Gallery1_6:
+                      Control: Gallery@2.15.0
+                      Variant: Vertical
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Items: =Areas
+                        LayoutMaxHeight: =
+                        LayoutMaxWidth: =
+                        LayoutMinHeight: =150
+                        OnSelect: =
+                        TemplateFill: |-
+                          =If(
+                              ThisItem.IsSelected,
+                              varHoverFill,
+                              Color.White
+                          )
+                        TemplatePadding: =0
+                        TemplateSize: =40
+                      Children:
+                        - Rectangle3_6:
+                            Control: Rectangle@2.3.0
+                            Properties:
+                              BorderColor: =RGBA(0, 18, 107, 1)
+                              Fill: =ColorFade(TertiaryColor, 1%)
+                              Height: =1
+                              OnSelect: =
+                              Width: =Parent.TemplateWidth
+                        - Container10_13:
+                            Control: GroupContainer@1.5.0
+                            Variant: AutoLayout
+                            Properties:
+                              DropShadow: =DropShadow.None
+                              Height: =40
+                              LayoutAlignItems: =LayoutAlignItems.Center
+                              LayoutDirection: =LayoutDirection.Horizontal
+                              PaddingLeft: =5
+                              PaddingRight: =15
+                              Width: =Parent.TemplateWidth
+                            Children:
+                              - txtProducto_46:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AutoHeight: =true
+                                    FillPortions: =2
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =20
+                                    Text: =ThisItem.NombreArea
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                              - txtCategoria_26:
+                                  Control: Text@0.0.51
+                                  Properties:
+                                    Align: ='TextCanvas.Align'.Start
+                                    AlignInContainer: =AlignInContainer.Stretch
+                                    AutoHeight: =true
+                                    FillPortions: =1
+                                    Font: =Font.'Lato Light'
+                                    FontColor: =PrimaryTextColor
+                                    Height: =Parent.Height/2
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =100
+                                    PaddingLeft: =5
+                                    Text: =ThisItem.AreaID
+                                    VerticalAlign: =VerticalAlign.Middle
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                                    Width: =250
+                              - CTNEdit_8:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =30
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =30
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =30
+                                  Children:
+                                    - ImageInsight1_36:
+                                        Control: Image@2.2.3
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Height: =30
+                                          Image: |-
+                                            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                                Substitute(
+                                                    LookUp(customIcons,IconName = "Edit").IconData,
+                                                    "currentColor", 
+                                                    PrimaryTextColor_Text
+                                                )
+                                            )
+                                          PaddingBottom: =6
+                                          PaddingLeft: =6
+                                          PaddingRight: =6
+                                          PaddingTop: =6
+                                          Width: =30
+                                    - Button2_167:
+                                        Control: Classic/Button@2.2.0
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =RGBA(255, 255, 255, 1)
+                                          Fill: =RGBA(0, 0, 0, 0)
+                                          FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                                          Height: =Parent.Height
+                                          HoverColor: =RGBA(255, 255, 255, 1)
+                                          HoverFill: =varHoverFill
+                                          OnSelect: |-
+                                            =Set(_areaselected, ThisItem); EditForm(FormArea); UpdateContext({newarea: true})
+                                          PaddingBottom: =6
+                                          PaddingLeft: =6
+                                          PaddingRight: =6
+                                          PaddingTop: =6
+                                          PressedFill: =RGBA(0,0,0,0.2)
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Text: =""
+                                          Tooltip: ="Editar Producto"
+                                          Width: =Parent.Width
+                              - CTNDelete_11:
+                                  Control: GroupContainer@1.5.0
+                                  Variant: ManualLayout
+                                  Properties:
+                                    AlignInContainer: =AlignInContainer.SetByContainer
+                                    DropShadow: =DropShadow.None
+                                    FillPortions: =0
+                                    Height: =30
+                                    LayoutMaxHeight: =
+                                    LayoutMaxWidth: =
+                                    LayoutMinWidth: =30
+                                    RadiusBottomLeft: =10
+                                    RadiusBottomRight: =10
+                                    RadiusTopLeft: =10
+                                    RadiusTopRight: =10
+                                    Width: =30
+                                  Children:
+                                    - ImageInsight1_40:
+                                        Control: Image@2.2.3
+                                        Properties:
+                                          BorderColor: =RGBA(0, 18, 107, 1)
+                                          Height: =30
+                                          Image: |-
+                                            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                                Substitute(
+                                                    LookUp(customIcons,IconName = "Delete").IconData,
+                                                    "currentColor", 
+                                                    AlertColor_Text
+                                                )
+                                            )
+                                          PaddingBottom: =6
+                                          PaddingLeft: =6
+                                          PaddingRight: =6
+                                          PaddingTop: =6
+                                          Width: =30
+                                    - Button2_168:
+                                        Control: Classic/Button@2.2.0
+                                        Properties:
+                                          BorderStyle: =BorderStyle.None
+                                          Color: =RGBA(255, 255, 255, 1)
+                                          Fill: =RGBA(0, 0, 0, 0)
+                                          FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                                          Height: =Parent.Height
+                                          HoverColor: =RGBA(255, 255, 255, 1)
+                                          HoverFill: =varHoverFill
+                                          OnSelect: =
+                                          PressedFill: =varPressedFill
+                                          RadiusBottomLeft: =0
+                                          RadiusBottomRight: =0
+                                          RadiusTopLeft: =0
+                                          RadiusTopRight: =0
+                                          Text: =""
+                                          Tooltip: ="Eliminar Producto"
+                                          Width: =Parent.Width
